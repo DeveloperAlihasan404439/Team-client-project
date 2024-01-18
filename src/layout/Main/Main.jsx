@@ -1,10 +1,13 @@
 import { Outlet } from "react-router-dom";
+import Navbar from "../../pages/Navbar/Navbar";
+import Footer from "../../pages/Footer/Footer";
 
 const Main = () => {
     return (
         <div>
+            <Navbar></Navbar>
             <Outlet/>
-            <h1 className="text-2xl text-red-400">fokira developer amra vi</h1>
+            <Footer></Footer>
         </div>
     );
 };
