@@ -11,6 +11,18 @@
     z-index: 100;
 }
 
+#login-btn{
+    border-width: medium;
+    display: inline-block;
+    padding: 8px 26px;
+    border-radius:40px ;
+    font-size: 16px;
+    color: aliceblue;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
 #check {
     display: none;
 }
@@ -122,15 +134,5 @@
     }
 } 
 
-.btn-style {
-    border-width: medium;
-    display: inline-block;
-    padding: 12px 28px;
-    border-radius:40px ;
-    font-size: 16px;
-    color: aliceblue;
-    letter-spacing: 1px;
-    text-decoration: none;
-    font-weight: 600;
-}
+
 

@@ -14,7 +14,7 @@ const PopularArtical = () => {
         <h1 className="text-4xl font-bold">
           Popular <span className="text-cyan-600">Artical</span>
         </h1>
-        <p className="text-white text-center  mt-5">
+        <p className="text-black text-center  mt-5">
           Have a disposable mail address system set up in a fantastic way to
           make sure when you participate <br /> in online wikis, chat rooms,
           never disclosed and never sold to <br /> anyone to avoid mail spam with
