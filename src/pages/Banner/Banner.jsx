@@ -3,6 +3,7 @@ import Typed from "typed.js";
 import animationData from "../../../public/animation/1tBLdcUIrC.json";
 import Lottie from "lottie-web";
 import React, { useEffect, useRef } from "react";
+import { FaCopy } from "react-icons/fa";
 
 const Banner = () => {
   const animationContainer = useRef(null);
@@ -33,7 +34,7 @@ const Banner = () => {
 
   React.useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["WELCOME TO OUR WEBSITE", "Explore For More"],
+      strings: ["WELCOME FRIENDS", "GET YOUR EMAIL"],
       typeSpeed: 50,
       backSpeed: 50,
       loop: true,
@@ -59,11 +60,13 @@ const Banner = () => {
             ways to use Ama !
           </p>
           <div className="mt-5">
-            <a id="join-us" href="/Dashboard">
-              Let’s Explore
-            </a>
+          <div className='flex lg:w-[500]'>
+                    <input id="Search-fild" type="text"  placeholder="your email" className="input rounded-none rounded-l-3xl text-black w-full max-w-xs" />
+                    <button  id="btn-style" className="btn btn-outline"><div className='flex gap-2'> <FaCopy/> Copy</div></button>
+            </div>
           </div>
         </div>
+
         <div className="lg:w-[600px]">
           <div ref={animationContainer} />
         </div>
