@@ -1,4 +1,5 @@
 import { IoLogoFacebook, IoLogoGithub, IoLogoGoogle } from "react-icons/io5";
+import { FaChevronLeft } from "react-icons/fa";
 import { useState } from "react";
 import '../Login/Login.css';
 
@@ -47,8 +48,8 @@ const Login = () => {
                                     <IoLogoGoogle />
                                 </a>
                             </div>
-                            <div className="absolute top-0 font-bold text-blue-600">
-                                <Link to="/">Back to Home</Link>
+                            <div className="absolute top-0 font-bold ">
+                                <Link to="/"><div className="flex justify-center items-center gap-2 hover:text-[#3498db]"><FaChevronLeft /> Back to Home</div></Link>
                             </div>
                         </form>
 {/* signUp from */}

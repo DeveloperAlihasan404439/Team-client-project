@@ -3,7 +3,7 @@
     width: 100%;
     justify-content: space-between;
     color: white;
-    background: linear-gradient(to right, #3c3b3f, #605c3c);
+    background: linear-gradient(to right, #2980b9, #3498db);
     background-size: cover;
     background-position: center;
     display: flex;
@@ -62,21 +62,24 @@
     transition: .5s;
 }
 
-#btn-box {
+
+#btn-style {
+    border-width: medium;
     display: inline-block;
     padding: 12px 28px;
-    background: #0ef;
     border-radius:0 40px 40px 0;
     font-size: 16px;
     color: #081b29;
     letter-spacing: 1px;
     text-decoration: none;
     font-weight: 600;
+    color: aliceblue;
 }
-#btn-box:hover {
-    box-shadow: 0 0 5px cyan,
-    0 0  25px cyan, 0 0 cyan,
-    0 0 25px cyan, 0 0 25px cyan
+    
+#btn-style:hover {
+    box-shadow: 0 0 5px #309be2,
+    0 0  25px #34a1e9, 0 0 #44abf0,
+    0 0 25px #41a2e2, 0 0 25px #65b9f1
 }
 
 @keyframes slideBottom {
