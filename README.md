@@ -11,18 +11,20 @@ To get started with this project, follow these steps:
    git clone https://github.com/your-username/your-react-app.git
    cd your-react-app
    ```
-```
-npm install
-# or
-yarn install
-# or
-pnpm install
-```
-```
-npm start
-# or
-yarn start
-# or
-pnpm start
-```
+2. **Package install:**
+   ```
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   ```
+3. **Project run code:**
+   ```
+   npm start
+   # or
+   yarn start
+   # or
+   pnpm start
+   ```
 
