@@ -6,8 +6,8 @@ To get started with this project, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/your-react-app.git
-   cd your-react-app
+   git clone https://github.com/DeveloperAlihasan404439/Team-client-project
+   cd Team-client-project
    ```
 2. **Package install:**
    ```
