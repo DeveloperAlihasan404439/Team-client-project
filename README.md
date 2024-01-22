@@ -1,6 +1,4 @@
-# Your React Project
-
-This is a React project bootstrapped with [Create React App](https://create-react-app.dev/).
+This is a React project with [Create React App](https://create-react-app.dev/).
 
 ## Getting Started
 
