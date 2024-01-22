@@ -29,4 +29,5 @@ const PopularArtical = () => {
     </div>
   );
 };
+
 export default PopularArtical;
