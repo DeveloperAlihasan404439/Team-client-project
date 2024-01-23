@@ -14,7 +14,7 @@ const PopularArtical = () => {
         <h1 className="text-4xl font-bold text-[#144248] ">
         Article <span className=" text-[#019D90]  ">Hub</span>
         </h1>
-        <p className=" text-center  text-[#144248] font-medium  mt-4">
+        <p className=" text-center font-inter  text-[#144248] font-medium  mt-4">
         Discover the proven methods and  life hacks that successful individualsswear by to boost productivity. <br />  From time management tips to focus-enhancing techniques, this article unveils the key secrets <br /> to achieving more in less time.
         </p>
       </div>
