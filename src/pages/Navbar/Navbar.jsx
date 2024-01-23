@@ -80,10 +80,10 @@ const [icon , setIcon] =useState('Home')
                     : ""
                     )} }
               >
-                <button className=" flex justify-center items-center gap-1" >
-                                       
+               
+                <button className=" flex justify-centerdrop-shadow items-center gap-1" >
+                <span className="">{item.Title}</span>              
                   { item.icon }
-                  {item.Title}
                 </button>
               </NavLink>
             </li>

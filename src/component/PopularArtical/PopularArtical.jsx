@@ -11,7 +11,7 @@ const PopularArtical = () => {
   return (
     <div className="mt-20 my-20 px-1 md:px-0">
       <div className="flex flex-col font-inter justify-center items-center">
-        <h1 className="text-4xl font-bold text-[#144248] ">
+        <h1 className="text-4xl font-bold text-[#144248] drop-shadow-md">
         Article <span className=" text-[#019D90]  ">Hub</span>
         </h1>
         <p className=" text-center  text-[#144248] font-medium  mt-4">
