@@ -1,13 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
-
-import logo from "../../assets/Banner & logo/Logo.png";
+import { PiArticleDuotone } from "react-icons/pi";
+import logo from "../../assets/BannerL&Logo/Logo.png";
 import Headroom from "react-headroom";
 import { IoIosLogIn } from "react-icons/io";
 import Button from "../Shared/Button";
 import { useState } from "react";
 
-
+import { RiDashboardFill } from "react-icons/ri";
 
 
 
@@ -22,20 +22,14 @@ const [icon , setIcon] =useState('Home')
     },
 
     {
-      Title: "Login",
-      icon: <IoIosLogIn />,
+      Title: "Dashboard",
+      icon:<RiDashboardFill />,
       Route: "/login",
     },
 
     {
-      Title: "Login",
-      icon:<IoIosLogIn />,
-      Route: "/login",
-    },
-
-    {
-      Title: "Login",
-      icon:<IoIosLogIn />,
+      Title: "Articles",
+      icon:<PiArticleDuotone />,
       Route: "/login",
     },
   ];
@@ -47,7 +41,7 @@ const [icon , setIcon] =useState('Home')
       transition: 'all .5s ease-in-out'
     }}>
 
-    <div className="navbar   backdrop-blur-md rounded-xl h-20 flex justify-center items-center    max-w-7xl mx-auto  z-10">
+    <div className="navbar  backdrop-blur-md  rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto  z-10">
       <div className="navbar-start  ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,7 +62,7 @@ const [icon , setIcon] =useState('Home')
           </div>
           <ul
             tabIndex={0}
-            className="  menu menu-sm bg-bgcolor   dropdown-content mt-3 z-[1]shadow  border-r-2  rounded-box w-32"
+            className="  menu menu-sm bg-[#EEEEEE]   dropdown-content mt-3 z-[1]shadow  border-r-2  rounded-box w-32"
           >
               {NavItems.map((item) => (
             <li className="hover:bg-[#017E77]   rounded-lg  flex justify-center items-center " key={item.Title}>
@@ -98,10 +92,10 @@ const [icon , setIcon] =useState('Home')
         </div>
         <img className="h-8 ml-6" src={logo} alt="" />
       </div>
-      <div className=" hidden lg:flex">
-        <ul className=" flex justify-center rounded-2xl  items-center font-semibold gap-4  ">
+      <div className=" hidden lg:flex ">
+        <ul className=" flex justify-center   items-center font-semibold gap-4 ">
           {NavItems.map((item) => (
-            <li className="hover:bg-[#017E77] rounded-2xl border border-[#019D91]   hover:text-[#EEEEEE] flex justify-center items-center " key={item.Title}>
+            <li className="hover:bg-[#017E77]  border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center " key={item.Title}>
               <NavLink
                 key={item.Title}
                 to={item.Route}
@@ -109,11 +103,11 @@ const [icon , setIcon] =useState('Home')
                   isPending
                     ? "pending"
                     : isActive
-                    ? `bg-[#019D91] hover:bg-[#017E77] border-none    w-fit rounded-2xl text-[#EEEEEE] `
+                    ? `bg-[#019D91] hover:bg-[#017E77] border-none    w-fit  text-[#EEEEEE] `
                     : ""
                 }
               >
-                <button className="p-3 flex justify-center items-center gap-1" >
+                <button className="p-2 flex justify-center items-center gap-1" >
             
                   {item.icon}
                   {item.Title}
