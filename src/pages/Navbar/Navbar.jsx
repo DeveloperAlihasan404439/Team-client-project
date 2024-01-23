@@ -62,10 +62,10 @@ const [icon , setIcon] =useState('Home')
           </div>
           <ul
             tabIndex={0}
-            className="  menu menu-sm bg-[#EEEEEE]   dropdown-content mt-3 z-[1]shadow  border-r-2  rounded-box w-32"
+            className="  menu menu-sm bg-[#EEEEEE]  justify-start gap-2 text-start dropdown-content mt-3 z-[1]shadow  border-r-2  rounded-box w-32"
           >
               {NavItems.map((item) => (
-            <li className="hover:bg-[#017E77]   rounded-lg  flex justify-center items-center " key={item.Title}>
+            <li className="hover:bg-[#017E77]   rounded-lg  flex items-center " key={item.Title}>
               <NavLink
               
                 key={item.Title}
