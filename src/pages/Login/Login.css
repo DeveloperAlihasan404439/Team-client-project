@@ -1,10 +1,10 @@
 
 .container{
-    /* dekha lagbe pore aitar ki obaotha  */
+    /* dekha lagbe pore aitar ki obosotha  */
     position: relative;  
     width: 100%;
     min-height: 100vh;
-    background-color: #fff;
+    background-color: #EEEEEE;
     overflow: hidden;
 }
 
@@ -14,7 +14,8 @@
     width: 2000px;
     height: 2000px;
     border-radius: 50%;
-    background: linear-gradient(-45deg, #2980b9, #3498db);
+    background: linear-gradient(235deg, #019D90, #017569);
+    ;
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
@@ -66,14 +67,14 @@ form.sing-up-from{
 .title{
     font-weight: 600;
     font-size: 2.2rem;
-    color: #3498db;
+    color: #019D90;
     margin-bottom: 10px;
 }
 .input-field{
     max-width: 380px;
     width: 100%;
     height: 55px;
-    background-color: #f0f0f0;
+    background-color: #EEEEEE;
     margin: 10px 0;
     border-radius: 55px;
     display: grid;
@@ -82,24 +83,28 @@ form.sing-up-from{
 }
 .input-field i{
     text-align: center;
-    line-height: 55px;
+    line-height: 40px;
     color:#acacac ;
     font-size: 1.1rem;
+    
 }
 
 .input-field input{
-    background: none;
+    background: #ffffff;
+    padding-left: 24px;
+    border-radius: 30px;
     outline: none;
     border: none;
     line-height: 1;
     font-weight: 600;
-    font-size: 1.1rem;
-    color: #333;
+    font-size: 1rem;
+    color: #7b7b7b;
 }
 
 .input-field input::placeholder{
     color: #aaa;
-    font-weight: 500;
+  
+ 
 }
 
 .btnn{
@@ -109,7 +114,7 @@ form.sing-up-from{
     outline: none;
     border-radius: 49px;
     cursor: pointer;
-    background-color: #5995fd;
+    background-color: #019D91;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
@@ -118,12 +123,14 @@ form.sing-up-from{
 }
 
 .btnn:hover{
-    background-color: #4d84e2;
+    background-color: #017E77;
+    cursor: pointer;
 }
 
 .social-text{
     padding: .7rem 0;
     font-size: 1rem;
+    color:#017E77
 }
 
 .social-media{
@@ -147,8 +154,8 @@ form.sing-up-from{
 }
 
 .social-icon:hover{
-    color: #3498db;
-    border-color: #3498db;
+    color: #019D91;
+    border-color: #019D91;
 }
 
 .panels-container{
@@ -181,25 +188,25 @@ form.sing-up-from{
 }
 
 .panel .content{
-    color: #fff;
+    color: #EEEEEE;
     transition: .9s .6s ease-in-out;
 }
 
 .panel h3{
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1;
     font-size: 1.5rem;
 }
 
 .panel p{
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     padding: 0.7rem 0;
 }
 
 .btnn.transparent{
     margin: 0;
     background: none;
-    border: 2px solid #fff;
+    border: 2px solid #EEEEEE;
     width: 130px;
     height: 41px;
     font-weight: 600;
