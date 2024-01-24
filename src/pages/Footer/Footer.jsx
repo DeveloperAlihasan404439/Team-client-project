@@ -56,9 +56,9 @@ const Footer = () => {
       <nav className='pr-6  mx-auto  border-r-2 border-[#EEEEEE] '>
         <div className="grid gap-4">
           <h1 className="text-xl text-[#EEEEEE] font-semibold">Legal</h1>
-          <Link >Privacy Policy</Link>
+          <Link to='/privacy' >Privacy Policy</Link>
           <Link  >Blog</Link>
-          <Link  >Terms of Service</Link>
+          <Link to='/terms' >Terms of Service</Link>
         </div>
       </nav>
       <nav className='pr-6  mx-auto  border-r-2 border-[#EEEEEE] '>
