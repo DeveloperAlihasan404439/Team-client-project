@@ -8,6 +8,7 @@ import Button from "../Shared/Button";
 import { useState } from "react";
 
 import { RiDashboardFill } from "react-icons/ri";
+import { motion } from 'framer-motion';
 
 
 
@@ -34,6 +35,7 @@ const [icon , setIcon] =useState('Home')
     },
   ];
   return (
+  
     <Headroom style={{
       webkitTransition: 'all .5s ease-in-out',
       mozTransition: 'all .5s ease-in-out',
@@ -41,7 +43,8 @@ const [icon , setIcon] =useState('Home')
       transition: 'all .5s ease-in-out'
     }}>
 
-    <div className="navbar  backdrop-blur-md  rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto  z-10">
+
+    <div className="navbar  backdrop-blur rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto z-50">
       <div className="navbar-start  ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -90,7 +93,15 @@ const [icon , setIcon] =useState('Home')
           ))}
           </ul>
         </div>
+        <motion.button
+  whileHover={{
+    scale: 1.001,
+    transition: { duration: 1 },
+  }}
+  whileTap={{ scale: 0.9 }}
+>
         <img className="h-8 ml-6" src={logo} alt="" />
+        </motion.button>
       </div>
       <div className=" hidden lg:flex ">
         <ul className=" flex justify-center   items-center font-semibold gap-4 ">
@@ -121,8 +132,9 @@ const [icon , setIcon] =useState('Home')
       <Link to='/login'> <Button name={'Login'}></Button></Link>
       </div>
     </div>
-   
+
    </Headroom>
+ 
   );
 };
 
