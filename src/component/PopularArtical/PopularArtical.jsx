@@ -11,17 +11,14 @@ const PopularArtical = () => {
   return (
     <div className="mt-20 my-20 px-1 md:px-0">
       <div className="flex flex-col font-inter justify-center items-center">
-        <h1 className="text-4xl font-bold">
-          Popular <span className="text-cyan-600">Artical</span>
+        <h1 className="text-4xl font-bold text-[#144248] ">
+        Article <span className=" text-[#019D90]  ">Hub</span>
         </h1>
-        <p className="text-black text-center  mt-5">
-          Have a disposable mail address system set up in a fantastic way to
-          make sure when you participate <br /> in online wikis, chat rooms,
-          never disclosed and never sold to <br /> anyone to avoid mail spam with
-          Temp-mail.org.
+        <p className=" text-center  text-[#144248] font-medium  mt-4">
+        Discover the proven methods and  life hacks that successful individualsswear by to boost productivity. <br />  From time management tips to focus-enhancing techniques, this article unveils the key secrets <br /> to achieving more in less time.
         </p>
       </div>
-      <div className="max-w-screen-xl mt-16 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="max-w-screen-xl mt-12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
         {artical?.map((item) => (
           <ArticalCard key={item.id} data={item} />
         ))}

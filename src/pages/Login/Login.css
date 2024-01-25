@@ -14,7 +14,7 @@
     width: 2000px;
     height: 2000px;
     border-radius: 50%;
-    background: linear-gradient(-45deg, #2980b9, #3498db);
+    background: linear-gradient(-45deg, #019D91, #01b3a4);
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
@@ -66,14 +66,14 @@ form.sing-up-from{
 .title{
     font-weight: 600;
     font-size: 2.2rem;
-    color: #3498db;
+    color: #019D91;
     margin-bottom: 10px;
 }
 .input-field{
     max-width: 380px;
     width: 100%;
     height: 55px;
-    background-color: #f0f0f0;
+    background-color: #dfdcdc;
     margin: 10px 0;
     border-radius: 55px;
     display: grid;
@@ -109,7 +109,7 @@ form.sing-up-from{
     outline: none;
     border-radius: 49px;
     cursor: pointer;
-    background-color: #5995fd;
+    background-color: #019D91;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
@@ -118,7 +118,7 @@ form.sing-up-from{
 }
 
 .btnn:hover{
-    background-color: #4d84e2;
+    background-color: #017E77;
 }
 
 .social-text{
@@ -147,8 +147,8 @@ form.sing-up-from{
 }
 
 .social-icon:hover{
-    color: #3498db;
-    border-color: #3498db;
+    color: #019D91;
+    border-color: #019D91;
 }
 
 .panels-container{
