@@ -148,7 +148,7 @@ const [icon , setIcon] =useState('Home')
             {user && user?.displayName !== null ? (
             <p>{user?.displayName}</p>
           ) : (
-            <p>name not found</p>
+            <p>name nott found</p>
           )}
             </p>
           </a>
