@@ -91,6 +91,7 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             navigate(location?.state ? location.state : '/')
+            Swal.fire('Register success')
         })
         .catch(error =>{
             console.error(error)
@@ -117,7 +118,8 @@ const Login = () => {
                             </div>
                             <input type="submit" value={"login"} className="btnn solid" />
 
-                            <p className="social-text">Or Sign in with social platforms</p>
+                            <div className="divider">OR</div>
+                            <p className="social-text">Sign in with social platforms</p>
                             <div className="social-media">
                                 <a href="#" className="social-icon">
                                     <IoLogoFacebook />
@@ -129,16 +131,17 @@ const Login = () => {
                                     <IoLogoGoogle />
                                 </a>
                             </div>
-                            <div className="absolute top-0 font-bold ">
-                                <Link to="/"><div className="flex justify-center items-center gap-2 hover:text-[#3498db]"><FaChevronLeft /> Back to Home</div></Link>
+                            <div className=" absolute top-0 lg:-mt-10 mr-3 font-bold ">
+                                <Link to="/"><div className="flex justify-center items-center gap-2 hover:text-[#019D91]"><FaChevronLeft />BACK TO HOME</div></Link>
                             </div>
                         </form>
+                       
 {/* signUp from */}
                         <form onSubmit={handleRegister} className="sing-up-from">
                             <h2 className="title">Sign up</h2>
                             <div className="input-field">
                                 <i className="fas fa-user"></i>
-                                <input name="name" type="Text" placeholder="name" />
+                                <input name="name" type="Text" placeholder="name" autoComplete="off" />
                             </div>
                             <div className="input-field">
                                 <i className="fas fa-envelope"></i>
@@ -160,8 +163,8 @@ const Login = () => {
                 </p>
             }
                             <input type="submit" value={"Sign up"} className="btnn solid" />
-                            
-                            <p className="social-text">Or Sign up with social platforms</p>
+                            <div className="divider">OR</div>
+                            <p className="social-text">Sign up with social platforms</p>
                             <div className="social-media">
                                 <a href="#" className="social-icon">
                                     <IoLogoFacebook />

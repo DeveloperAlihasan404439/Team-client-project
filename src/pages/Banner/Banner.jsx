@@ -1,78 +1,19 @@
-import "./Banner.css";
-import Typed from "typed.js";
-import animationData from "../../../public/animation/1tBLdcUIrC.json";
-import Lottie from "lottie-web";
-import React, { useEffect, useRef } from "react";
-import { FaCopy } from "react-icons/fa";
+import img from '../../assets/BannerL&Logo/banner2.jpg'
 
 const Banner = () => {
-  const animationContainer = useRef(null);
-  const anim = useRef(null);
-  const el = React.useRef(null);
-
-  useEffect(() => {
-    if (animationContainer.current) {
-      if (anim.current) {
-        anim.current.destroy();
-        anim.current = null;
-      }
-      anim.current = Lottie.loadAnimation({
-        container: animationContainer.current,
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-      });
-    }
-    return () => {
-      if (anim.current) {
-        anim.current.destroy();
-        anim.current = null;
-      }
-    };
-  }, []);
-
-  React.useEffect(() => {
-    const typed = new Typed(el.current, {
-      strings: ["WELCOME FRIENDS", "GET YOUR EMAIL"],
-      typeSpeed: 50,
-      backSpeed: 50,
-      loop: true,
-    });
-
-    return () => {
-      // Destroy Typed instance during cleanup to stop animation
-      typed.destroy();
-    };
-  }, []);
-
-  return (
-    <div>
-      <section className="home lg:flex-row flex-col-reverse">
-        <div className="home-container">
-          <h3 className="">Hello, Friends</h3>
-
-          <h3>
-            <span ref={el}></span>
-          </h3>
-          <p>
-            Meet other Ama users like you. Get answers <br /> & discover new
-            ways to use Ama !
-          </p>
-          <div className="mt-5">
-          <div className='flex lg:w-[500]'>
-                    <input id="Search-fild" type="text"  placeholder="your email" className="input rounded-none rounded-l-3xl text-black w-full max-w-xs" />
-                    <button  id="btn-style" className="btn btn-outline"><div className='flex gap-2'> <FaCopy/> Copy</div></button>
-            </div>
+    return (
+        <div className="hero mt-0   h-screen" >
+            <img className='w-full h-full object-fill' src={img} alt="BANNER" />
+     
+        <div className="hero-content text-center text-neutral-content">
+          <div className="max-w-md">
+            <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+            <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+            <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
-
-        <div className="lg:w-[600px]">
-          <div ref={animationContainer} />
-        </div>
-      </section>
-    </div>
-  );
+      </div>
+    );
 };
 
 export default Banner;
