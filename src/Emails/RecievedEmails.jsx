@@ -28,7 +28,7 @@ const RecievedEmails = () => {
     }, [inboxIds, refetch])
     console.log(email)
     return (
-        <div>
+        <div className="mt-4">
             {
                 emails?.map((mail, index) => <GetMessages key={index} mail={mail} index={index}></GetMessages>)
             }

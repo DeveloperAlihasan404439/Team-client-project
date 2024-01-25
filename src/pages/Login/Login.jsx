@@ -53,7 +53,7 @@ const Login = () => {
         const email = form.get('email');
         const password = form.get('password')
         singIn(email, password)
-        .then(result =>{
+        .then(() =>{
         
 
             navigate(location?.state ? location.state : '/')
