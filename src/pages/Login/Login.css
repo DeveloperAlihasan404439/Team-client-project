@@ -1,10 +1,10 @@
 
 .container{
-    /* dekha lagbe pore aitar ki obosotha  */
+    /* dekha lagbe pore aitar ki obaotha  */
     position: relative;  
     width: 100%;
     min-height: 100vh;
-    background-color: #EEEEEE;
+    background-color: #fff;
     overflow: hidden;
 }
 
@@ -14,8 +14,7 @@
     width: 2000px;
     height: 2000px;
     border-radius: 50%;
-    background: linear-gradient(235deg, #019D90, #017569);
-    ;
+    background: linear-gradient(-45deg, #019D91, #01b3a4);
     top: -10%;
     right: 48%;
     transform: translateY(-50%);
@@ -67,14 +66,14 @@ form.sing-up-from{
 .title{
     font-weight: 600;
     font-size: 2.2rem;
-    color: #019D90;
+    color: #019D91;
     margin-bottom: 10px;
 }
 .input-field{
     max-width: 380px;
     width: 100%;
     height: 55px;
-    background-color: #EEEEEE;
+    background-color: #dfdcdc;
     margin: 10px 0;
     border-radius: 55px;
     display: grid;
@@ -83,28 +82,24 @@ form.sing-up-from{
 }
 .input-field i{
     text-align: center;
-    line-height: 40px;
+    line-height: 55px;
     color:#acacac ;
     font-size: 1.1rem;
-    
 }
 
 .input-field input{
-    background: #ffffff;
-    padding-left: 24px;
-    border-radius: 30px;
+    background: none;
     outline: none;
     border: none;
     line-height: 1;
     font-weight: 600;
-    font-size: 1rem;
-    color: #7b7b7b;
+    font-size: 1.1rem;
+    color: #333;
 }
 
 .input-field input::placeholder{
     color: #aaa;
-  
- 
+    font-weight: 500;
 }
 
 .btnn{
@@ -124,13 +119,11 @@ form.sing-up-from{
 
 .btnn:hover{
     background-color: #017E77;
-    cursor: pointer;
 }
 
 .social-text{
     padding: .7rem 0;
     font-size: 1rem;
-    color:#017E77
 }
 
 .social-media{
@@ -188,25 +181,25 @@ form.sing-up-from{
 }
 
 .panel .content{
-    color: #EEEEEE;
+    color: #fff;
     transition: .9s .6s ease-in-out;
 }
 
 .panel h3{
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1;
     font-size: 1.5rem;
 }
 
 .panel p{
-    font-size: 0.92rem;
-    padding: 0.7rem 0;
+    font-size: 0.9rem;
+    padding: 0.9rem 0;
 }
 
 .btnn.transparent{
     margin: 0;
     background: none;
-    border: 2px solid #EEEEEE;
+    border: 2px solid #fff;
     width: 130px;
     height: 41px;
     font-weight: 600;

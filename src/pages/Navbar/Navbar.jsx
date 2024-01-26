@@ -3,18 +3,26 @@ import { IoHomeOutline } from "react-icons/io5";
 import { PiArticleDuotone } from "react-icons/pi";
 import logo from "../../assets/BannerL&Logo/Logo.png";
 import Headroom from "react-headroom";
-import { IoIosLogIn } from "react-icons/io";
 import Button from "../Shared/Button";
-import { useState } from "react";
+import { useContext } from "react";
 
 import { RiDashboardFill } from "react-icons/ri";
+import { AuthContext } from "../../provider/AuthProvider";
 import { motion } from 'framer-motion';
 
 
 
 const NavBar = () => {
   
-const [icon , setIcon] =useState('Home')
+  const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+          .then(() => { })
+          .catch(error => console.log(error))
+      }
+
+// const [icon , setIcon] =useState('Home')
   const NavItems = [
     {
       Title: "Home",
@@ -129,12 +137,52 @@ const [icon , setIcon] =useState('Home')
         </ul>
       </div>
       <div className="navbar-end">
-      <Link to='/login'> <motion.button
+
+      {
+  user ? <>
+    <div className="dropdown dropdown-end ">
+      <label tabIndex={0} id="drop-btn" className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+
+          {user && user?.photoURL !== null ? (
+            <img src={user?.photoURL} alt="User" />
+          ) : (
+            <img src="https://i.ibb.co/zShG8zr/default-image.png" alt="Default User" />
+          )}
+        </div>
+
+      </label>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content z-[1] p-2 shadow bg-[#EEEEEE] rounded-box w-52  text-[#144248]">
+        <li>
+          <a className="justify-between">
+            <p>
+            {user && user?.displayName !== null ? (
+            <p>{user?.displayName}</p>
+          ) : (
+            <p>name nott found</p>
+          )}
+            </p>
+          </a>
+        </li>
+        
+        <li><a onClick={handleLogOut} className="  ">Sign Out</a></li>
+      </ul>
+    </div>
+  </> : <>
+    
+    <Link to='/login'>
+    <Link to='/login'> <motion.button
        
        whileTap={{ scale: 0.9 }}
      className="hover:bg-[#017E77] font-semibold bg-[#019D91] border-2 border-[#EEEEEE]  text-[#EEEEEE]  p-3 rounded-lg   ">
           Login
        </motion.button></Link>
+    </Link>
+    
+  </>
+}
+      
+      {/* <Link to='/login'> <Button name={'Login'}></Button></Link> */}
       </div>
     </div>
 

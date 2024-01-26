@@ -13,7 +13,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
     const [isSignUpMode, setSignUpMode] = useState(false);
-    const {singIn} = useContext(AuthContext)
+    const {singIn,user} = useContext(AuthContext)
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
@@ -36,10 +36,9 @@ const Login = () => {
         signInWithPopup(auth, googleProvider)
         .then(result =>{
             const user =result.user;
-        
+            console.log(user)
             Swal.fire('Login successfully')
-            navigate(location?.state ? location.state :
-             '/')
+            navigate(`/${user?.email}`)
         })
         .catch(error =>{
             console.error(error)
@@ -55,7 +54,7 @@ const Login = () => {
         const password = form.get('password')
         singIn(email, password)
         .then(result =>{
-        
+            console.log(result);
 
             navigate(location?.state ? location.state : '/')
 
@@ -68,7 +67,7 @@ const Login = () => {
 
     const handleRegister = e =>{
         e.preventDefault();
-  
+        console.log(e.currentTarget)
         const form = new FormData(e.currentTarget)
         const name = form.get('name')
         const email = form.get('email');
@@ -91,6 +90,8 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             navigate(location?.state ? location.state : '/')
+            Swal.fire('Register success')
+            navigate(`/${user?.email}`)
         })
         .catch(error =>{
             console.error(error)
@@ -106,21 +107,19 @@ const Login = () => {
                     <div className="singin-singup">
 {/* signIn from */}
                         <form onSubmit={handleLogin} className="sing-in-from">
-                        
                             <h2 className="title">Sign in</h2>
                             <div className="input-field">
                                 <i className="fas fa-user"></i>
-                                <input name="email" type="email" className="" placeholder="Email" />
+                                <input name="email" type="email" placeholder="Email" />
                             </div>
                             <div className="input-field">
                                 <i className="fas fa-user"></i>
                                 <input name="password" type="password" placeholder="Password" />
                             </div>
-                           
                             <input type="submit" value={"login"} className="btnn solid" />
-                            <div className="divider text-[#019D90] ">OR</div>
+
+                            <div className="divider">OR</div>
                             <p className="social-text">Sign in with social platforms</p>
-                           
                             <div className="social-media">
                                 <a href="#" className="social-icon">
                                     <IoLogoFacebook />
@@ -132,17 +131,17 @@ const Login = () => {
                                     <IoLogoGoogle />
                                 </a>
                             </div>
-                            <div className="absolute top-0 font-bold ">
-                                <Link to="/"><div className="flex justify-center items-center gap-2 hover:text-color"><FaChevronLeft /> Back to Home</div></Link>
+                            <div className=" absolute top-0 lg:-mt-10 mr-3 font-bold ">
+                                <Link to="/"><div className="flex justify-center items-center gap-2 hover:text-[#019D91]"><FaChevronLeft />BACK TO HOME</div></Link>
                             </div>
-                       
                         </form>
+                       
 {/* signUp from */}
                         <form onSubmit={handleRegister} className="sing-up-from">
                             <h2 className="title">Sign up</h2>
                             <div className="input-field">
                                 <i className="fas fa-user"></i>
-                                <input name="name" type="Text" placeholder="name" />
+                                <input name="name" type="Text" placeholder="name" autoComplete="off" />
                             </div>
                             <div className="input-field">
                                 <i className="fas fa-envelope"></i>
@@ -164,8 +163,8 @@ const Login = () => {
                 </p>
             }
                             <input type="submit" value={"Sign up"} className="btnn solid" />
-                            
-                            <p className="social-text">Or Sign up with social platforms</p>
+                            <div className="divider">OR</div>
+                            <p className="social-text">Sign up with social platforms</p>
                             <div className="social-media">
                                 <a href="#" className="social-icon">
                                     <IoLogoFacebook />
@@ -185,7 +184,7 @@ const Login = () => {
                 <div className="panels-container">
                     <div className="panel left-panel">
                         <div className="content">
-                            <h3 className="font-bold"> Sign Up Now !</h3>
+                        <h3 className="font-bold"> Sign Up Now !</h3>
                             <p className="my-1">Embark on a journey with us by creating your account. Signing up unlocks a world of features, personalized settings, and exclusive benefits. Join our community today and experience the full spectrum of what our platform has to offer.</p>
                             <button className="btnn transparent" onClick={handleSignUpClick} id="sing-up-btn">
                                 Sign up
@@ -196,7 +195,7 @@ const Login = () => {
                     </div>
 
                     <div className="panel right-panel">
-                        <div className="content -mt-6">
+                        <div className="content -mt-8">
                         <h3 className="font-semibold"> Welcome Back ! Swift Account Access</h3>
                             <p className="my-2 ">Experience a hassle-free login process on our platform. Utilize our secure authentication system for quick and efficient access to your personalized features. Your privacy is our priority, ensuring a smooth and secure login experience.</p>
                             <button className="btnn transparent" onClick={handleSignInClick} id="sing-in-btn">
