@@ -30,7 +30,12 @@ const RecievedEmails = () => {
     return (
         <div className="mt-4">
             {
-                emails?.map((mail, index) => <GetMessages key={index} mail={mail} index={index}></GetMessages>)
+                tempMail?.length <= 0 ? (
+                    <h2 className="text-center text-xl mt-6 bg-yellow-500 bg-opacity-40 p-3 border border-gray rounded-md">Reload to see the result make sure you used it somewhere</h2>
+                ) : (
+                    emails?.map((mail, index) => <GetMessages key={index} mail={mail} index={index}></GetMessages>)
+
+                )
             }
         </div>
     );

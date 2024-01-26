@@ -22,7 +22,7 @@ const Banner = () => {
   })
 
   const BackgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"])
 
 
   // main and transtack query code start from here 
