@@ -38,8 +38,7 @@ const Login = () => {
             const user =result.user;
         
             Swal.fire('Login successfully')
-            navigate(location?.state ? location.state :
-             '/')
+            navigate(`/${user?.email}`)
         })
         .catch(error =>{
             console.error(error)
@@ -54,7 +53,7 @@ const Login = () => {
         const email = form.get('email');
         const password = form.get('password')
         singIn(email, password)
-        .then(result =>{
+        .then(() =>{
         
 
             navigate(location?.state ? location.state : '/')
