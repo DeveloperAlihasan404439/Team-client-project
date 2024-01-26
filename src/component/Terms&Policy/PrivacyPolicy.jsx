@@ -12,7 +12,7 @@ const PrivacyPolicy = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-       className='max-w-7xl text-[#144248] p-6  mx-auto'>
+       >
         <h1 className="text-3xl font-bold pb-6 drop-shadow">Privacy Policy</h1>
       <p className='py-1'>Last updated: January 24, 2024</p>
       <p className='py-1'>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>

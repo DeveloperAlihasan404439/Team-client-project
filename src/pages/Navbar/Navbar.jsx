@@ -129,7 +129,12 @@ const [icon , setIcon] =useState('Home')
         </ul>
       </div>
       <div className="navbar-end">
-      <Link to='/login'> <Button name={'Login'}></Button></Link>
+      <Link to='/login'> <motion.button
+       
+       whileTap={{ scale: 0.9 }}
+     className="hover:bg-[#017E77] font-semibold bg-[#019D91] border-2 border-[#EEEEEE]  text-[#EEEEEE]  p-3 rounded-lg   ">
+          Login
+       </motion.button></Link>
       </div>
     </div>
 
