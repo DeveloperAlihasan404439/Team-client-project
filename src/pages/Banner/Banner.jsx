@@ -1,77 +1,97 @@
-import "./Banner.css";
-import Typed from "typed.js";
-import animationData from "../../../public/animation/1tBLdcUIrC.json";
-import Lottie from "lottie-web";
-import React, { useEffect, useRef } from "react";
-import { FaCopy } from "react-icons/fa";
-
+import { useContext, useEffect, useRef, useState } from 'react';
+import img from '../../assets/BannerL&Logo/banner2.jpg'
+import { motion, useScroll, useTransform } from "framer-motion"
+import { Parallax } from 'react-parallax';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import { useLoaderData, useParams } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
+import GeneratedEmails from './GeneratedEmails';
 const Banner = () => {
-  const animationContainer = useRef(null);
-  const anim = useRef(null);
-  const el = React.useRef(null);
+  const ref = useRef(null)
+  const { user } = useContext(AuthContext)
+  const { email } = useParams();
+  const loader = useLoaderData();
+  const { emailAddress, inboxId } = loader;
+  const [emails, setEmails] = useState([]);
+  const [loading, setLoading] = useState(null)
+  console.log(emailAddress)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  })
+
+  const BackgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"])
+
+
+  // main and transtack query code start from here 
+  const { data: tempMail = {}, refetch } = useQuery({
+    queryKey: ['tempMail'],
+    queryFn: async () => {
+      const res = await axios.get(`https://function-fusion.vercel.app/users/${email}`);
+      // console.log(res.data)
+      return res.data;
+    }
+  });
+  const inboxIds = tempMail.inboxId;
+  console.log(tempMail.inboxId)
 
   useEffect(() => {
-    if (animationContainer.current) {
-      if (anim.current) {
-        anim.current.destroy();
-        anim.current = null;
-      }
-      anim.current = Lottie.loadAnimation({
-        container: animationContainer.current,
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-      });
-    }
-    return () => {
-      if (anim.current) {
-        anim.current.destroy();
-        anim.current = null;
-      }
-    };
-  }, []);
-
-  React.useEffect(() => {
-    const typed = new Typed(el.current, {
-      strings: ["WELCOME FRIENDS", "GET YOUR EMAIL"],
-      typeSpeed: 50,
-      backSpeed: 50,
-      loop: true,
-    });
-
-    return () => {
-      // Destroy Typed instance during cleanup to stop animation
-      typed.destroy();
-    };
-  }, []);
-
+    axios.get(`https://function-fusion.vercel.app/get-emails/${inboxIds}`)
+      .then(res => {
+        console.log(res.data)
+        refetch()
+        setEmails(res.data)
+      })
+  }, [inboxIds, refetch])
+  console.log(user?.email)
+  const userEmail = email
+  const createInbox = async () => {
+    setLoading(true)
+    axios.post('https://function-fusion.vercel.app/create-inbox', { userEmail })
+      .then(() => {
+        refetch();
+        setLoading(false)
+      })
+  }
   return (
-    <div>
-      <section className="home lg:flex-row flex-col-reverse">
-        <div className="home-container">
-          <h3 className="">Hello, Friends</h3>
 
-          <h3>
-            <span ref={el}></span>
-          </h3>
-          <p>
-            Meet other Ama users like you. Get answers <br /> & discover new
-            ways to use Ama !
-          </p>
-          <div className="mt-5">
-          <div className='flex lg:w-[500]'>
-                    <input id="Search-fild" type="text"  placeholder="your email" className="input rounded-none rounded-l-3xl text-black w-full max-w-xs" />
-                    <button  id="btn-style" className="btn btn-outline"><div className='flex gap-2'> <FaCopy/> Copy</div></button>
-            </div>
+    // 
+    <motion.div ref={ref} className="hero place-items-start  items-center mt-0 relative -top-20   h-screen" >
+      <div className='absolute inset-0 ' style={{
+        backgroundImage: `url(${img})`, backgroundSize: 'cover',
+      }}
+
+      ></div>
+      {/* <img className='w-full h-full object-fill' src={img} alt="BANNER" /> */}
+
+      <motion.div style={{ y: textY }} className="hero-content text-center text-black ">
+        <div className='bg-gray-500 bg-opacity-50 rounded-md'>
+          <div className="lg:w-[35rem] rounded-lg w-[17rem] h-[15rem] flex items-center justify-center">
+            <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
+          </div>
+          <div className='flex items-center justify-center gap-5 mb-6'>
+            {
+              user ? (
+                tempMail ? (
+                  <button disabled onClick={() => createInbox()} className='btn btn-sm lg:btn-lg btn-success'>Create Inbox</button>
+                ) : (
+                  loading ? (
+                    <button onClick={() => createInbox()} className='btn btn-sm lg:btn-lg btn-success'><span className="loading loading-spinner loading-lg"></span></button>
+                  ) : (
+                    <button onClick={() => createInbox()} className='btn btn-sm lg:btn-lg btn-success'>Create Inbox</button>
+                  )
+                )
+              ): (
+                <h2>Login to continue</h2>
+              )
+            }
           </div>
         </div>
+      </motion.div>
+    </motion.div>
 
-        <div className="lg:w-[600px]">
-          <div ref={animationContainer} />
-        </div>
-      </section>
-    </div>
   );
 };
 
