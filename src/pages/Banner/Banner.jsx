@@ -16,7 +16,7 @@ const BackgroundY =useTransform(scrollYProgress,[0,1],["0%", "100%"])
 const textY =useTransform(scrollYProgress,[0,1],["0%", "100%"])
     return (
       
-      // 
+  
       <motion.div
       ref={ref}
       className="hero place-items-start  items-center mt-0 relative md:-top-20 h-screen"
