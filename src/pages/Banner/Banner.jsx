@@ -68,14 +68,14 @@ const Banner = () => {
 
       <motion.div style={{ y: textY }} className="hero-content text-center text-black ">
         <div className='bg-gray-500 bg-opacity-50 rounded-md'>
-          <div className="lg:w-[35rem] rounded-lg lg:h-[15rem] flex items-center justify-center">
+          <div className="lg:w-[35rem] rounded-lg w-[17rem] h-[15rem] flex items-center justify-center">
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
           </div>
           <div className='flex items-center justify-center gap-5 mb-6'>
             {
               user ? (
                 tempMail ? (
-                  <button disabled onClick={() => createInbox()} className='btn btn-lg btn-success'>Create Inbox</button>
+                  <button disabled onClick={() => createInbox()} className='btn btn-sm lg:btn-lg btn-success'>Create Inbox</button>
                 ) : (
                   loading ? (
                     <button onClick={() => createInbox()} className='btn btn-sm lg:btn-lg btn-success'><span className="loading loading-spinner loading-lg"></span></button>
@@ -87,7 +87,6 @@ const Banner = () => {
                 <h2>Login to continue</h2>
               )
             }
-            <button className='btn btn-lg btn-success'>Copy Email</button>
           </div>
         </div>
       </motion.div>
