@@ -1,11 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GetMessages from "./GetMessages";
+import { AuthContext } from "../provider/AuthProvider";
 
 const RecievedEmails = () => {
     const [emails, setEmails] = useState([]);
+    const { user } = useContext(AuthContext)
     const { email } = useParams();
     const { data: tempMail = {}, refetch } = useQuery({
         queryKey: ['tempMail'],
@@ -30,11 +32,15 @@ const RecievedEmails = () => {
     return (
         <div className="mt-4">
             {
-                tempMail?.length <= 0 ? (
-                    <h2 className="text-center text-xl mt-6 bg-yellow-500 bg-opacity-40 p-3 border border-gray rounded-md">Reload to see the result make sure you used it somewhere</h2>
-                ) : (
-                    emails?.map((mail, index) => <GetMessages key={index} mail={mail} index={index}></GetMessages>)
+                user ? (
+                    tempMail?.length <= 0 ? (
+                        <h2 className="text-center text-xl mt-6 bg-yellow-500 bg-opacity-40 p-3 border border-gray rounded-md">Reload to see the result make sure you used it somewhere</h2>
+                    ) : (
+                        emails?.map((mail, index) => <GetMessages key={index} mail={mail} index={index}></GetMessages>)
 
+                    )
+                ): (
+                    <h2 className="text-[#144248] text-2xl text-center bg-red-500 bg-opacity-20 p-4 rounded-md border border-[#144248]">Login Required To See Inbox</h2>
                 )
             }
         </div>

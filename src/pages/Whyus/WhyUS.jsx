@@ -22,7 +22,7 @@ const WhyUS = () => {
     return (
         <div className=" mt-20 relative  ">
             <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] m-auto p-3 mb-6 rounded-md'>
-                <h2 className='text-center'>Inbox</h2>
+                <h2 className='text-center text-3xl'>Inbox</h2>
                 <RecievedEmails></RecievedEmails>
             </div>
             <section className='max-w-7xl shadow-md rounded-xl border-t-2 text-gray-600 bg-[#EEEEEE]  p-6 mx-auto text-center z-90 '>

@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import { Parallax } from 'react-parallax';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import GeneratedEmails from './GeneratedEmails';
 const Banner = () => {
@@ -58,7 +58,7 @@ const Banner = () => {
   return (
 
     // 
-    <motion.div ref={ref} className="hero place-items-start  items-center mt-0 relative -top-20   h-screen" >
+    <motion.div ref={ref} className="hero place-items-center  items-center mt-0 relative -top-20   h-screen" >
       <div className='absolute inset-0 ' style={{
         backgroundImage: `url(${img})`, backgroundSize: 'cover',
       }}
@@ -67,8 +67,9 @@ const Banner = () => {
       {/* <img className='w-full h-full object-fill' src={img} alt="BANNER" /> */}
 
       <motion.div style={{ y: textY }} className="hero-content text-center text-black ">
-        <div className='bg-gray-500 bg-opacity-50 rounded-md'>
-          <div className="lg:w-[35rem] rounded-lg w-[17rem] h-[15rem] flex items-center justify-center">
+        <div className='bg-white bg-opacity-50 rounded-md'>
+          <h2 className='mt-9 text-2xl text-[#144248]'>Your Temporary Email Address</h2>
+          <div className="lg:w-[45rem] rounded-lg w-[17rem] h-[15rem] flex items-center justify-center">
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
           </div>
           <div className='flex items-center justify-center gap-5 mb-6'>
@@ -83,8 +84,8 @@ const Banner = () => {
                     <button onClick={() => createInbox()} className='btn btn-sm lg:btn-lg btn-success'>Create Inbox</button>
                   )
                 )
-              ): (
-                <h2>Login to continue</h2>
+              ) : (
+                <Link to="/login"><button className='btn btn-sm lg:btn-lg btn-success'>Login To Continue</button></Link>
               )
             }
           </div>
