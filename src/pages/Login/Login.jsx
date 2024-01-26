@@ -13,7 +13,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
     const [isSignUpMode, setSignUpMode] = useState(false);
-    const {singIn} = useContext(AuthContext)
+    const {singIn,user} = useContext(AuthContext)
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
@@ -91,6 +91,7 @@ const Login = () => {
             console.log(result.user)
             navigate(location?.state ? location.state : '/')
             Swal.fire('Register success')
+            navigate(`/${user?.email}`)
         })
         .catch(error =>{
             console.error(error)
