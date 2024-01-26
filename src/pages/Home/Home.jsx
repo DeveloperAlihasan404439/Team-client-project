@@ -6,6 +6,7 @@ import Navbar from "../Navbar/Navbar";
 import WhyUS from "../Whyus/WhyUS";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import HowToUse from "../Whyus/HowToUse";
 const Home = () => {
     
 useEffect(()=>{
@@ -21,6 +22,7 @@ useEffect(()=>{
             <Navbar></Navbar>
             <Banner></Banner>
             <WhyUS></WhyUS>
+            <HowToUse></HowToUse>
             <PopularArtical/>
             <Footer></Footer>
         </div>
