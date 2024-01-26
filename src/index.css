@@ -4,6 +4,7 @@
 @tailwind utilities;
 body{
     background-color: #EEEEEE;
+    font-family: 'Inter';
 /*   
         color: #019D90;
         bgcolor : #EEEEEE; */

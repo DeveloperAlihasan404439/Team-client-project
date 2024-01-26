@@ -60,7 +60,7 @@ const Banner = () => {
     // 
     <motion.div ref={ref} className="hero place-items-start  items-center mt-0 relative -top-20   h-screen" >
       <div className='absolute inset-0 ' style={{
-        backgroundImage: `url(${img})`, backgroundSize: 'cover',
+        backgroundImage: `url(${img})`, backgroundSize: 'cover',backgroundPosition:'center',
       }}
 
       ></div>
