@@ -38,8 +38,7 @@ const Login = () => {
             const user =result.user;
             console.log(user)
             Swal.fire('Login successfully')
-            navigate(location?.state ? location.state :
-             '/')
+            navigate(`/${user?.email}`)
         })
         .catch(error =>{
             console.error(error)

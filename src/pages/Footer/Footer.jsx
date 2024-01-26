@@ -32,7 +32,7 @@ const Footer = () => {
         transition={{ duration: 3, ease: 'easeInOut', repeat: Infinity }}
       ></motion.div>
      
-      <footer className='footer  place-items-center footer-center pt-4 pb-16 gap-4 p-4 grid-cols-2 items-start justify-end text-right lg:grid-cols-5 text-[#144248]  bg-[#019D90] '>
+      <footer className='footer  place-items-center footer-center pt-4 pb-16 gap-4 p-4 grid-cols-2 items-start justify-end text-right lg:grid-cols-5 text-[#EEEEEE]  bg-[#019D90] '>
       <aside className='pr-6 mx-auto  flex flex-col justify-end items-center text-end  lg:border-r-2 border-[#EEEEEE]  col-span-2 md:col-span-1 '>
         <img className='h-8 ml-6'  src={logo} alt="" />
         <p className='text-[10px] ml-14 text-right'>Copyright © 2024 - All rights reserved</p>
@@ -56,9 +56,9 @@ const Footer = () => {
       <nav className='pr-6  mx-auto  border-r-2 border-[#EEEEEE] '>
         <div className="grid gap-4">
           <h1 className="text-xl text-[#EEEEEE] font-semibold">Legal</h1>
-          <Link >Privacy Policy</Link>
+          <Link to='/privacy' >Privacy Policy</Link>
           <Link  >Blog</Link>
-          <Link  >Terms of Service</Link>
+          <Link to='/terms' >Terms of Service</Link>
         </div>
       </nav>
       <nav className='pr-6  mx-auto  border-r-2 border-[#EEEEEE] '>
