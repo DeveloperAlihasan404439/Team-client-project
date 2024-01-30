@@ -4,7 +4,7 @@ import ArticalCard from "./ArticalCard";
 const PopularArtical = () => {
   const [artical, setArtical] = useState([]);
   useEffect(() => {
-    fetch("/artical.json")
+    fetch("http://localhost:5000/article")
       .then((res) => res.json())
       .then((data) => setArtical(data));
   }, []);
