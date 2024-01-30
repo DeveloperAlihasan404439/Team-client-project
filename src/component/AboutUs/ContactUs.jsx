@@ -1,0 +1,1 @@
+h1 className="text-3xl   font-bold drop-shadow-md  text-center md:text-left" >About  <span className="text-[#019D90]"> Us</span> </h1>

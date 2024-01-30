@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion"
 
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import GeneratedEmails from './GeneratedEmails';
 const Banner = () => {
@@ -58,7 +58,7 @@ const Banner = () => {
   return (
 
     // 
-    <motion.div ref={ref} className="hero place-items-start  items-center mt-0 relative -top-20   h-screen" >
+    <motion.div ref={ref} className="hero place-items-center  items-center mt-0 relative -top-20   h-screen" >
       <div className='absolute inset-0 ' style={{
         backgroundImage: `url(${img})`, backgroundSize: 'cover',backgroundPosition:'center',
       }}
@@ -66,25 +66,50 @@ const Banner = () => {
       ></div>
       {/* <img className='w-full h-full object-fill' src={img} alt="BANNER" /> */}
 
-      <motion.div style={{ y: textY }} className="hero-content text-center text-black ">
-        <div className='bg-gray-500 bg-opacity-50 rounded-md'>
-          <div className="lg:w-[35rem] rounded-lg w-[17rem] h-[15rem] flex items-center justify-center">
+      <motion.div style={{ y: textY }} className="hero-content text-center text-[#144248]">
+        <div className='bg-white bg-opacity-50 rounded-md'>
+          <h2 className='mt-9 text-2xl text-[#144248]'>Your Temporary Email Address</h2>
+          <div className="lg:w-[45rem] rounded-lg w-[17rem] h-[15rem] flex items-center justify-center">
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
           </div>
           <div className='flex items-center justify-center gap-5 mb-6'>
             {
               user ? (
                 tempMail ? (
-                  <button disabled onClick={() => createInbox()} className='btn btn-sm lg:btn-lg btn-success'>Create Inbox</button>
+                  <motion.button
+                  disabled onClick={() => createInbox()}
+        whileTap={{ scale: 0.9 }}
+      className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 ">
+           Create Inbox
+        </motion.button>
+                  
                 ) : (
                   loading ? (
-                    <button onClick={() => createInbox()} className='btn btn-sm lg:btn-lg btn-success'><span className="loading loading-spinner loading-lg"></span></button>
+                    <motion.button
+       
+        whileTap={{ scale: 0.9 }}
+      className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
+           
+        
+                     onClick={() => createInbox()}><span className="loading loading-spinner loading-lg"></span></motion.button>
                   ) : (
-                    <button onClick={() => createInbox()} className='btn btn-sm lg:btn-lg btn-success'>Create Inbox</button>
+                    <motion.button
+       
+        whileTap={{ scale: 0.9 }}
+      className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
+           
+        
+                     onClick={() => createInbox()}>Create Inbox</motion.button>
                   )
                 )
-              ): (
-                <h2>Login to continue</h2>
+              ) : (
+                <Link to="/login"><motion.button
+       
+                whileTap={{ scale: 0.9 }}
+              className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
+                   
+                
+                             onClick={() => createInbox()}>Login To Continue</motion.button></Link>
               )
             }
           </div>

@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Login from '../pages/Login/Login';
 import TermsAndConditions from '../component/Terms&Policy/TermsCondition';
 import PrivacyPolicy from '../component/Terms&Policy/PrivacyPolicy';
+import AboutUs from '../component/AboutUs/AboutUs';
 
 
 export const router = createBrowserRouter([
@@ -27,6 +28,11 @@ export const router = createBrowserRouter([
             {
                 path: '/privacy',
                 element:<PrivacyPolicy></PrivacyPolicy>
+            },
+            
+            {
+                path: '/aboutUs',
+                element:<AboutUs></AboutUs>
             },
             
         ]
