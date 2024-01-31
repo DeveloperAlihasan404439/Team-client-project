@@ -5,7 +5,7 @@ const SuggestArticle = ({ suggest }) => {
   return (
     <div>
       <Link to="/popularartical">
-        <div className="flex gap-y-4  shadow   h-44 gap-4 bg-white items-center p-2 rounded-xl">
+        <div className="flex gap-y-4 border-l-4 border-[#019D91]  shadow   h-44 gap-4 bg-white items-center p-2 rounded-xl">
           <img
             className="w-48 rounded-2xl object-cover h-max"
             src={img}

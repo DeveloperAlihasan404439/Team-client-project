@@ -17,7 +17,7 @@ const ArticleDetails = () => {
   } = data;
 
   return (
-    <div className=" bg-[#EEEEEE]  h-screen w-full">
+    <div className=" bg-[#EEEEEE] py-10  w-full">
       <div className="p-1 md:px-2 max-w-screen-xl  mx-auto">
         <div className="grid grid-col-1 md:grid-cols-12 gap-10">
           <div className="col-span-7 ">
@@ -55,9 +55,9 @@ const ArticleDetails = () => {
           </div>
           {/* suggestArticle section  */}
           <div
-            className="md:col-span-5 col-span-12 flex flex-col overflow-y-scroll rounded-xl items-center p-4 bg-[#019d901d]">
+            className="md:col-span-5 col-span-12 flex flex-col  rounded-xl items-center p-4 bg-[#019d901d]">
              <h1 className="text-3xl font-inter font-semibold text-[#019D91]">Read More Article</h1>
-             <div className="flex flex-col gap-3 mt-10">
+             <div className="flex flex-col overflow-y-scroll h-[90vh] gap-3  mt-5">
                 {suggestArticle.map(suggest => <SuggestArticle key={suggest.id} suggest={suggest}/>)}
              </div>
           </div>
