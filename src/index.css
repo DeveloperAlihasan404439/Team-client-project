@@ -2,3 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body{
+    background-color: #EEEEEE;
+/*   
+        color: #019D90;
+        bgcolor : #EEEEEE; */
+        /* text-[#144248] */
+    
+   }

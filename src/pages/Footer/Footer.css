@@ -1,0 +1,76 @@
+.waves {
+    position: absolute;
+    top: -180px;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(../../assets/BannerL&Logo/wave.png);
+    background-size: 1000px;
+    width: 100%;
+    height: 200px;
+}
+
+#wave1 {
+    z-index: 1000;
+    opacity: 1;
+    bottom: 0;
+    animation: animateWave 10s linear infinite;
+}
+
+#wave2 {
+    z-index: 999;
+    opacity: 0.9;
+    bottom: 0;
+    animation: animateWave2 4s linear infinite;
+}
+
+#wave3 {
+    z-index: 992;
+    opacity: 0.7;
+    bottom: 0;
+    animation: animateWave3 10s linear infinite;
+}
+
+#wave4 {
+    z-index: 991;
+    opacity:1;
+    bottom: 0;
+    animation: animateWave4 9s linear infinite;
+}
+
+@keyframes animateWave {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animateWave2 {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animateWave3 {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes animateWave4 {
+    0% {
+        background-position-x: 0px;
+    }
+    100% {
+        background-position-x:1000px; 
+    }
+}

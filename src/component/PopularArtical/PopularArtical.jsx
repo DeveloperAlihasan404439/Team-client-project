@@ -11,6 +11,7 @@ const PopularArtical = () => {
   return (
     <div className="mt-20 my-20 px-1 md:px-2">
       <div className="flex flex-col font-inter justify-center items-center">
+
         <h1 className="text-4xl font-bold text-[#144248] ">
         Article <span className=" text-[#019D90]  ">Hub</span>
         </h1>
@@ -19,6 +20,7 @@ const PopularArtical = () => {
         </p>
       </div>
       <div className="max-w-screen-xl mt-12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+
         {artical?.map((item) => (
           <ArticalCard key={item.id} data={item} />
         ))}

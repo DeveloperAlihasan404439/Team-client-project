@@ -1,3 +1,4 @@
+
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ const ArticalCard = ({data}) => {
    
       >
              <div className="flex cursor-pointer flex-col md:flex-row  group justify-between rounded-xl bg-white  items-center  drop-shadow-md duration-200   p-5 lg:h-44 md:h-52 font-inter gap-5">
+
                 <div>
                    <Link to={`/articledetails/${_id}`}> <h1 className="text-lg  font-medium mb-2 hover:text-[#019D90] duration-150">{title}</h1></Link>
                     <p className=" text-sm text-gray-400">{shortDescription}</p>
