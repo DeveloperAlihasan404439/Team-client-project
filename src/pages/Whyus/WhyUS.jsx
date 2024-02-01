@@ -24,7 +24,7 @@ const WhyUS = () => {
     formData.append('pdfFile', file);
 
     try {
-      const response = await axios.post('https://function-fusion.vercel.app/parse-pdf', formData, {
+      const response = await axios.post('http://localhost:3000/parse-pdf', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -49,17 +49,6 @@ const WhyUS = () => {
             </div>
             <RecievedEmails></RecievedEmails>
 
-            <div className='bg-red-500 h-[10rem] lg:w-[55%] m-auto mb-6'>
-                <div>
-                    <div>
-                        <form>
-                            <input type="file" onChange={handleFileUpload} />
-                            <button type="submit">Parse PDF</button>
-                        </form>
-                        <div>{parsedText}</div>
-                    </div>
-                </div>
-            </div>
 
             <section className='max-w-7xl shadow-md rounded-xl border-t-2 text-gray-600 bg-[#EEEEEE]  p-6 mx-auto text-center z-90 '>
                 <header >
