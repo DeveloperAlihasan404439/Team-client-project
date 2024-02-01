@@ -18,6 +18,11 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://function-fusion.vercel.app/users/${params.email}`)
             },
             {
+                path:'/',
+                element: <Home/>,
+                
+            },
+            {
                 path: '/login',
                 element: <Login></Login>
             },

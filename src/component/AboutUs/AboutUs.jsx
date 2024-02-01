@@ -13,24 +13,26 @@ import sus from '../../assets/BannerL&Logo/sus.gif';
 import hand from '../../assets/BannerL&Logo/hand.jpeg';
 import join from '../../assets/BannerL&Logo/join.gif';
 
-import Lottie from 'lottie-react';
+
 import TabPanelZ from "./TabPanelZ";
+import ContactUs from "./ContactUs";
+import MeetTeam from "./MeetTeam";
 const AboutUs = () => {
 
 
   return (
     <div className="">
-          <Lottie className='max-h-[60vh] lg:col-span-2 lg:row-span-2' animationData={''} loop={true} />
+         
       <NavBar></NavBar>
-      <section className="max-w-7xl text-[#144248] mx-auto min-h-screen mt-10">
-        <h1 className="text-3xl   font-bold drop-shadow-md  text-center lg:text-left" >About  <span className="text-[#019D90]"> Us</span> </h1>
+      <section className="max-w-7xl text-[#144248] mx-auto mt-10 ">
+        <h1 className="text-4xl   font-bold drop-shadow-md  text-center lg:text-left" >About  <span className="text-[#019D90]"> Us</span> </h1>
         <Tabs className={"mt-6"}>
           <TabList
             className={`border-b-2 border-b-[#019D90] w-full bg-[#EEEEEE]`}
           >
-            <Tab
+            <Tab 
             >
-            Our Story
+         Our Story
             </Tab>
             <Tab>
             Mission & Values
@@ -39,7 +41,7 @@ const AboutUs = () => {
             Privacy
             </Tab>
             
-            <Tab>
+            <Tab >
             Innovation Hub
             </Tab>
             <Tab>
@@ -57,7 +59,7 @@ const AboutUs = () => {
       
           </TabList>
 
-          <TabPanel className={'mt-8 '}>
+          <TabPanel className={'mt-4 '}>
     <TabPanelZ img={our} Description={'Embark on a captivating journey through our story, where every milestone is a testament to our relentless pursuit of excellence. From the inception of Swifty Mail to the present day, our narrative is woven with passion, challenges, and triumphs. Each chapter reflects our commitment to innovation, user-centric solutions, and the unwavering belief that technology should enhance lives.'} small={'Join us in celebrating the moments that shaped Swifty Mail into what it is today. From overcoming challenges to the joyous victories, our story is a reflection of our resilience and dedication. As we grow, so does our story, and we invite you to be part of the next chapter. Explore our journey, and let\'s create the next chapter together.'}></TabPanelZ>
 </TabPanel>
 
@@ -92,7 +94,12 @@ const AboutUs = () => {
 
 
         </Tabs>
+
+       
       </section>
+      <MeetTeam></MeetTeam>
+      <ContactUs></ContactUs>
+    
       <Footer></Footer>
     </div>
   );

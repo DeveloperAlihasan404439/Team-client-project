@@ -4,10 +4,33 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href='./src/assets/Banner & logo/Logo icon.png' />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.botpress.io/webchat/v1/botpress-webchat.js"></script>
     <title>Swifty Mail</title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script>
+      window.botpressWebChat.init({
+          "composerPlaceholder": "Chat with bot with proper prompt",
+          "botConversationDescription": "This bot is under beta testing",
+          "botId": "5c3b8e4f-c79c-4148-a226-403a7855e571",
+          "hostUrl": "https://cdn.botpress.cloud/webchat/v1",
+          "messagingUrl": "https://messaging.botpress.cloud",
+          "clientId": "5c3b8e4f-c79c-4148-a226-403a7855e571",
+          "webhookId": "fb4faaf6-d05f-40ad-ba78-bfbc8885af63",
+          "lazySocket": true,
+          "botName": "Swift bot",
+          "avatarUrl": "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDl5bWh6OXlhczh3NWs2czV0ZXBvMGQzYjl0eDdwMWN6dzBobXoyaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5k5vZwRFZR5aZeniqb/giphy.gif",
+          "themeName": "customTheme",
+          "stylesheet": "./Bot.css", 
+          "theme": "customTheme",
+          "themeColor": "#019D90",
+          "frontendVersion": "v1",
+          "enableConversationDeletion": true
+      });
+    </script>
+    
   </body>
 </html>
