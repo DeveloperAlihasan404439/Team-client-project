@@ -165,7 +165,7 @@ const NavBar = () => {
           </a>
         </li>
         
-        <li><a onClick={handleLogOut} className="  hover:bg-sky-500">Sing Out</a></li>
+        <li><a onClick={handleLogOut} className="  hover:bg-sky-500">Sign Out</a></li>
       </ul>
     </div>
   </> : <>
