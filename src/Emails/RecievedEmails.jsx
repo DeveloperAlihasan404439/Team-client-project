@@ -13,7 +13,7 @@ const RecievedEmails = () => {
     const { data: tempMail = {}, refetch } = useQuery({
         queryKey: ['tempMail'],
         queryFn: async () => {
-            const res = await axios.get(`https://function-fusion.vercel.app/users/${email}`);
+            const res = await axios.get(`server-side-bice.vercel.app/users/${email}`);
             // console.log(res.data)
             return res.data;
         }
@@ -22,7 +22,7 @@ const RecievedEmails = () => {
     console.log(tempMail.inboxId)
     console.log(emails)
     useEffect(() => {
-        axios.get(`https://function-fusion.vercel.app/get-emails/${inboxIds}`)
+        axios.get(`server-side-bice.vercel.app/get-emails/${inboxIds}`)
             .then(res => {
                 console.log(res.data)
                 refetch()

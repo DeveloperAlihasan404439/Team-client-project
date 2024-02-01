@@ -1,20 +1,25 @@
 import zayed from "../../assets/image/zayed.jpg";
 import raju from "../../assets/image/raju.png";
+import ali from "../../assets/image/ali.jpg";
+import riad from "../../assets/image/riad.jpg";
+
+
+
 import { FaSquareFacebook } from "react-icons/fa6";
 import { SiLinkedin } from "react-icons/si";
 const TeamMember = () => {
   const members = [
     {
-      name: "Zayed Iqbal",
-      education: " B.Sc  Honors in Physics",
-      title: "Full-Stack",
-      img: zayed,
+      name: "Ali Hasan",
+      education: "Diploma in Computer science and engineering ",
+      title: "Frontend",
+      img: ali,
     },
     {
-      name: "Riad Hasan Raju",
-      education: " B.Sc  Honors in Physics",
-      img: raju,
-      title: "Full-Stack",
+      name: " Tanvir Sarkar Riad",
+      education: "Tanvir Sarkar Riad",
+      img: riad,
+      title: "Backend",
     },
     {
       name: "Riad Hasan Raju",

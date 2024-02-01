@@ -29,7 +29,7 @@ const Banner = () => {
   const { data: tempMail = {}, refetch } = useQuery({
     queryKey: ['tempMail'],
     queryFn: async () => {
-      const res = await axios.get(`https://function-fusion.vercel.app/users/${email}`);
+      const res = await axios.get(`server-side-bice.vercel.app/users/${email}`);
       // console.log(res.data)
       return res.data;
     }
@@ -38,7 +38,7 @@ const Banner = () => {
   console.log(tempMail.inboxId)
 
   useEffect(() => {
-    axios.get(`https://function-fusion.vercel.app/get-emails/${inboxIds}`)
+    axios.get(`server-side-bice.vercel.app/get-emails/${inboxIds}`)
       .then(res => {
         console.log(res.data)
         refetch()
@@ -49,7 +49,7 @@ const Banner = () => {
   const userEmail = email
   const createInbox = async () => {
     setLoading(true)
-    axios.post('https://function-fusion.vercel.app/create-inbox', { userEmail })
+    axios.post('server-side-bice.vercel.app/create-inbox', { userEmail })
       .then(() => {
         refetch();
         setLoading(false)
