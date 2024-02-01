@@ -6,6 +6,7 @@ import Navbar from "../Navbar/Navbar";
 import WhyUS from "../Whyus/WhyUS";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
+import HowToUse from "../Whyus/HowToUse";
 const Home = () => {
     
 useEffect(()=>{
@@ -17,10 +18,11 @@ useEffect(()=>{
     });
   },[])
     return (
-        <div>
+        <div className="overflow-x-hidden">
             <Navbar></Navbar>
-            <Banner></Banner>
+            <Banner  ></Banner>
             <WhyUS></WhyUS>
+            <HowToUse></HowToUse>
             <PopularArtical/>
             <Footer></Footer>
         </div>

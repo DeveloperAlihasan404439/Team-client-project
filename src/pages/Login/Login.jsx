@@ -13,7 +13,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
     const [isSignUpMode, setSignUpMode] = useState(false);
-    const {singIn} = useContext(AuthContext)
+    const {singIn,user} = useContext(AuthContext)
     const auth = getAuth(app);
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();
@@ -38,8 +38,7 @@ const Login = () => {
             const user =result.user;
             console.log(user)
             Swal.fire('Login successfully')
-            navigate(location?.state ? location.state :
-             '/')
+            navigate(`/${user?.email}`)
         })
         .catch(error =>{
             console.error(error)
@@ -92,6 +91,7 @@ const Login = () => {
             console.log(result.user)
             navigate(location?.state ? location.state : '/')
             Swal.fire('Register success')
+            navigate(`/${user?.email}`)
         })
         .catch(error =>{
             console.error(error)
@@ -184,8 +184,8 @@ const Login = () => {
                 <div className="panels-container">
                     <div className="panel left-panel">
                         <div className="content">
-                            <h3>New here?</h3>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni </p>
+                        <h3 className="font-bold"> Sign Up Now !</h3>
+                            <p className="my-1">Embark on a journey with us by creating your account. Signing up unlocks a world of features, personalized settings, and exclusive benefits. Join our community today and experience the full spectrum of what our platform has to offer.</p>
                             <button className="btnn transparent" onClick={handleSignUpClick} id="sing-up-btn">
                                 Sign up
                             </button>
@@ -196,8 +196,8 @@ const Login = () => {
 
                     <div className="panel right-panel">
                         <div className="content -mt-8">
-                            <h3>One of us ?</h3>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni </p>
+                        <h3 className="font-semibold"> Welcome Back ! Swift Account Access</h3>
+                            <p className="my-2 ">Experience a hassle-free login process on our platform. Utilize our secure authentication system for quick and efficient access to your personalized features. Your privacy is our priority, ensuring a smooth and secure login experience.</p>
                             <button className="btnn transparent" onClick={handleSignInClick} id="sing-in-btn">
                                 Sign in
                             </button>
