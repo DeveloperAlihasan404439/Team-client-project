@@ -2,6 +2,7 @@ import zayed from "../../assets/image/zayed.jpg";
 import raju from "../../assets/image/raju.png";
 import ali from "../../assets/image/ali.jpg";
 import riad from "../../assets/image/riad.jpg";
+import mosh from "../../assets/image/moshiur2.jpg";
 
 
 
@@ -22,10 +23,10 @@ const TeamMember = () => {
       title: "Backend",
     },
     {
-      name: "Riad Hasan Raju",
-      education: " B.Sc  Honors in Physics",
-      img: raju,
-      title: "Full-Stack",
+      name: "Md. Moshiur Rahman",
+      education: " Honors in Botany",
+      img: mosh,
+      title: "Frontend",
     },
     {
       name: "Riad Hasan Raju",
