@@ -50,7 +50,7 @@ const WhyUS = () => {
                         <Lottie className='h-36 col-span-2 row-span-2' animationData={img3} loop={true} />
                         <h1 className='text-xl font-bold drop-shadow-md '>Effortless Email Verification</h1>
                         <p className=' text-sm'>
-                            Swifty Mail simplifies the email verification process. Create temporary emails when signing up for services or websites, and effortlessly access verification emails without compromising your primary email address.</p>
+                            Swifty Mail's simplifies the email verification process. Create temporary emails when signing up for services or websites, and effortlessly access verification emails without compromising your primary email address.</p>
                     </aside>
 
                     <aside data-aos="fade-left" data-aos-duration="1000" className='text-center flex flex-col justify-center items-center gap-4 '>
