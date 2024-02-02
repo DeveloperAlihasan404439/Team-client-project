@@ -1,4 +1,3 @@
-import React from 'react';
 
 const GetMessages = ({mail, index}) => {
     const {subject} = mail;

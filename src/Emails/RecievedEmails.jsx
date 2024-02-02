@@ -4,13 +4,13 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GetMessages from "./GetMessages";
 import { AuthContext } from "../provider/AuthProvider";
-
+import { IoReloadSharp } from "react-icons/io5";
 const RecievedEmails = () => {
     const [emails, setEmails] = useState([]);
     const { user } = useContext(AuthContext)
     const { email } = useParams();
-    const [isLoading, setIsloading] = useState(null)
-    const { data: tempMail = {}, refetch } = useQuery({
+    const [isLoading, setIsLoading] = useState(false)
+    const { data: tempMail = {}, } = useQuery({
         queryKey: ['tempMail'],
         queryFn: async () => {
             const res = await axios.get(`server-side-bice.vercel.app/users/${email}`);
@@ -20,43 +20,44 @@ const RecievedEmails = () => {
     });
     const inboxIds = tempMail.inboxId;
     useEffect(() => {
-        axios.get(`server-side-bice.vercel.app/get-emails/${inboxIds}`)
+        axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
             .then(res => {
-                refetch()
-                setEmails(res.data)
-            })
-    }, [inboxIds, refetch])
-
-    const reloadEmails = () => {
-        setIsloading(true)
-        axios.get(`https://function-fusion.vercel.app/get-emails/${inboxIds}`)
-            .then(res => {
-                setIsloading(false)
                 console.log(res.data)
                 setEmails(res.data)
             })
-    }
+    }, [inboxIds])
 
+    const reloadEmails = () => {
+        console.log(inboxIds)
+        setIsLoading(true)
+        axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
+            .then(res => {
+                console.log(res.data)
+                setEmails(res.data)
+                setIsLoading(false)
+            })
+    }
     return (
         <div className="mt-4">
-            <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] m-auto p-3 mb-6 rounded-md'>
+            <div className=' bg-opacity-25 w-full m-auto p-3 mb-6 rounded-md'>
                 <div className='flex justify-between items-center'>
                     <div>
                         <h2 className='text-center text-3xl'>Inbox</h2>
                     </div>
                     <div>
-                        
+
                         {
                             isLoading ? (
-                                <button className="btn btn-md btn-outline btn-primary"><span className="loading loading-ring loading-lg"></span></button>
+                                <button className="btn border-gray-500 hover:bg-white"><span className="animate-spin "><IoReloadSharp /></span></button>
 
                             ) : (
-                                <button onClick={() => reloadEmails()} className="btn btn-md btn-outline btn-primary">Reload</button>
+                                <button onClick={() => reloadEmails()} className="btn hover:bg-white border border-gray-500"><IoReloadSharp /></button>
 
                             )
                         }
                     </div>
                 </div>
+                <div className="border border-gray-400 mt-1"></div>
                 {
                     user ? (
                         tempMail?.length <= 0 ? (

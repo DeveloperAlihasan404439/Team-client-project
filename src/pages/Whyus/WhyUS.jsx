@@ -10,30 +10,12 @@ import AOS from 'aos';
 
 import 'aos/dist/aos.css'
 import RecievedEmails from '../../Emails/RecievedEmails';
-import { useState } from 'react';
-import axios from 'axios';
+// import { useState } from 'react';
+// import axios from 'axios';
 
 
 const WhyUS = () => {
 
-    const [parsedText, setParsedText] = useState('');
-
-  const handleFileUpload = async (event) => {
-    const file = event.target.files[0];
-    const formData = new FormData();
-    formData.append('pdfFile', file);
-
-    try {
-      const response = await axios.post('http://localhost:3000/parse-pdf', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      });
-      setParsedText(response.data);
-    } catch (error) {
-      console.error('Error parsing PDF:', error);
-    }
-  };
 
 
     AOS.init({
@@ -43,8 +25,7 @@ const WhyUS = () => {
 
     return (
         <div className=" mt-20 relative  ">
-            <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] m-auto p-3 mb-6 rounded-md'>
-                <h2 className='text-center  text-3xl drop-shadow font-bold text-[#144248]'>Inbox</h2>
+            <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] m-auto p-1 mb-6 rounded-md'>
                 <RecievedEmails></RecievedEmails>
             </div>
             <RecievedEmails></RecievedEmails>
