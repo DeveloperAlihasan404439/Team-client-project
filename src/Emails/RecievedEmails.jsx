@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import GetMessages from "./GetMessages";
 import { AuthContext } from "../provider/AuthProvider";
-import { IoReloadSharp } from "react-icons/io5";
+
 const RecievedEmails = () => {
     const [emails, setEmails] = useState([]);
     const { user } = useContext(AuthContext)
@@ -39,7 +39,7 @@ const RecievedEmails = () => {
 
     return (
         <div className="mt-4">
-            <div className='bg-gray-500 bg-opacity-25 lg:w-[55%] shadow-md m-auto p-3 mb-6 rounded-md'>
+            <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] m-auto p-3 mb-6 rounded-md'>
                 <div className='flex justify-between items-center'>
                     <div>
                         <h2 className='text-center text-3xl'>Inbox</h2>
@@ -48,10 +48,10 @@ const RecievedEmails = () => {
                         
                         {
                             isLoading ? (
-                                <button className="btn"><span className="animate-spin"><IoReloadSharp /></span></button>
+                                <button className="btn btn-md btn-outline btn-primary"><span className="loading loading-ring loading-lg"></span></button>
 
                             ) : (
-                                <button onClick={() => reloadEmails()} className="btn"><IoReloadSharp /></button>
+                                <button onClick={() => reloadEmails()} className="btn btn-md btn-outline btn-primary">Reload</button>
 
                             )
                         }

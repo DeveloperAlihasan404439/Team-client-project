@@ -15,12 +15,16 @@ export const router = createBrowserRouter([
             {
                 path:'/:email?',
                 element: <Home/>,
+<<<<<<< HEAD
                 loader: ({ params }) => fetch(`server-side-bice.vercel.app/users/${params.email}`)
             },
             {
                 path:'/',
                 element: <Home/>,
                 
+=======
+                loader: ({ params }) => fetch(`https://server-side-bice.vercel.app/users/${params.email}`)
+>>>>>>> fc2aa7b (server -problem fixed)
             },
             {
                 path: '/login',

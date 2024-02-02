@@ -29,27 +29,39 @@ const Banner = () => {
   const { data: tempMail = {}, refetch } = useQuery({
     queryKey: ['tempMail'],
     queryFn: async () => {
+<<<<<<< HEAD
       const res = await axios.get(`server-side-bice.vercel.app/users/${email}`);
+=======
+      const res = await axios.get(`https://server-side-bice.vercel.app/users/${email}`);
+>>>>>>> fc2aa7b (server -problem fixed)
       // console.log(res.data)
       return res.data;
     }
   });
   const inboxIds = tempMail.inboxId;
-  console.log(tempMail.inboxId)
+  // console.log(tempMail.inboxId)
 
   useEffect(() => {
+<<<<<<< HEAD
     axios.get(`server-side-bice.vercel.app/get-emails/${inboxIds}`)
+=======
+    axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
+>>>>>>> fc2aa7b (server -problem fixed)
       .then(res => {
         console.log(res.data)
         refetch()
         setEmails(res.data)
       })
   }, [inboxIds, refetch])
-  console.log(user?.email)
+  // console.log(user?.email)
   const userEmail = email
   const createInbox = async () => {
     setLoading(true)
+<<<<<<< HEAD
     axios.post('server-side-bice.vercel.app/create-inbox', { userEmail })
+=======
+    axios.post('https://server-side-bice.vercel.app/create-inbox', { userEmail })
+>>>>>>> fc2aa7b (server -problem fixed)
       .then(() => {
         refetch();
         setLoading(false)
