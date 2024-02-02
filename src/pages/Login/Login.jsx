@@ -10,6 +10,7 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
+import axios from "axios";
 
 const Login = () => {
     const [isSignUpMode, setSignUpMode] = useState(false);
@@ -34,11 +35,20 @@ const Login = () => {
     //google signIn
     const handleGoogleSingIn = () =>{
         signInWithPopup(auth, googleProvider)
-        .then(result =>{
-            const user =result.user;
-            console.log(user)
+        .then((result) =>{
+            const userEmail = result.user?.email;
+            const userPhoto = result.user?.photoURL;
+            const userName =  result.user?.displayName;
+            const dataToInsert = {userEmail, userPhoto, userName}
+            console.log(dataToInsert)
             Swal.fire('Login successfully')
-            navigate(`/${user?.email}`)
+            navigate(`/${userEmail}`)
+
+            // store user to the database and checking if user exist
+            axios.post('https://function-fusion.vercel.app/check-user', dataToInsert)
+            .then(result => (
+                console.log(result.data)
+            ))
         })
         .catch(error =>{
             console.error(error)

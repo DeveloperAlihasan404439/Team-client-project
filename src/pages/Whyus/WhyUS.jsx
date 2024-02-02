@@ -10,9 +10,13 @@ import AOS from 'aos';
 
 import 'aos/dist/aos.css'
 import RecievedEmails from '../../Emails/RecievedEmails';
+// import { useState } from 'react';
+// import axios from 'axios';
 
 
 const WhyUS = () => {
+
+
 
     AOS.init({
 
@@ -21,10 +25,12 @@ const WhyUS = () => {
 
     return (
         <div className=" mt-20 relative  ">
-            <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] m-auto p-3 mb-6 rounded-md'>
-                <h2 className='text-center  text-3xl drop-shadow font-bold text-[#144248]'>Inbox</h2>
+            <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] m-auto p-1 mb-6 rounded-md'>
                 <RecievedEmails></RecievedEmails>
             </div>
+            <RecievedEmails></RecievedEmails>
+
+
             <section className='max-w-7xl shadow-md rounded-xl border-t-2 text-gray-600 bg-[#EEEEEE]  p-6 mx-auto text-center z-90 '>
                 <header >
                     <h1 className="text-3xl drop-shadow-md  text-[#144248] font-bold">Why <span className="text-[#019D90] font-bold">Swifty Mail !</span> </h1>
