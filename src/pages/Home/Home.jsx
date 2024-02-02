@@ -18,9 +18,9 @@ useEffect(()=>{
     });
   },[])
     return (
-        <div>
+        <div className="overflow-x-hidden">
             <Navbar></Navbar>
-            <Banner></Banner>
+            <Banner  ></Banner>
             <WhyUS></WhyUS>
             <HowToUse></HowToUse>
             <PopularArtical/>

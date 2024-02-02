@@ -9,11 +9,11 @@ const RecievedEmails = () => {
     const [emails, setEmails] = useState([]);
     const { user } = useContext(AuthContext)
     const { email } = useParams();
-    const [isLoading, setIsloading] = useState(null)
-    const { data: tempMail = {}, refetch } = useQuery({
+    const [isLoading, setIsLoading] = useState(false)
+    const { data: tempMail = {}, } = useQuery({
         queryKey: ['tempMail'],
         queryFn: async () => {
-            const res = await axios.get(`https://server-side-bice.vercel.app/users/${email}`);
+            const res = await axios.get(`server-side-bice.vercel.app/users/${email}`);
             // console.log(res.data)
             return res.data;
         }
@@ -22,37 +22,36 @@ const RecievedEmails = () => {
     useEffect(() => {
         axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
             .then(res => {
-                refetch()
-                setEmails(res.data)
-            })
-    }, [inboxIds, refetch])
-
-    const reloadEmails = () => {
-        console.log('FUNCTION CALL',inboxIds)
-        setIsloading(true)
-        axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
-            .then(res => {
-                setIsloading(false)
                 console.log(res.data)
                 setEmails(res.data)
             })
-    }
+    }, [inboxIds])
 
+    const reloadEmails = () => {
+        console.log(inboxIds)
+        setIsLoading(true)
+        axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
+            .then(res => {
+                console.log(res.data)
+                setEmails(res.data)
+                setIsLoading(false)
+            })
+    }
     return (
         <div className="mt-4">
-            <div className='bg-gray-500 bg-opacity-25 lg:w-[55%] shadow-md m-auto p-3 mb-6 rounded-md'>
+            <div className=' bg-opacity-25 w-full m-auto p-3 mb-6 rounded-md'>
                 <div className='flex justify-between items-center'>
                     <div>
                         <h2 className='text-center text-3xl'>Inbox</h2>
                     </div>
                     <div>
-                        
+
                         {
                             isLoading ? (
-                                <button className="btn"><span className="animate-spin"><IoReloadSharp /></span></button>
+                                <button className="btn border-gray-500 hover:bg-white"><span className="animate-spin "><IoReloadSharp /></span></button>
 
                             ) : (
-                                <button onClick={() => reloadEmails()} className="btn"><IoReloadSharp /></button>
+                                <button onClick={() => reloadEmails()} className="btn hover:bg-white border border-gray-500"><IoReloadSharp /></button>
 
                             )
                         }

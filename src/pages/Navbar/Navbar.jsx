@@ -5,7 +5,7 @@ import logo from "../../assets/BannerL&Logo/Logo.png";
 import Headroom from "react-headroom";
 import Button from "../Shared/Button";
 import { useContext } from "react";
-
+import { FaPeopleGroup } from "react-icons/fa6";
 import { RiDashboardFill } from "react-icons/ri";
 import { AuthContext } from "../../provider/AuthProvider";
 import { motion } from 'framer-motion';
@@ -29,6 +29,7 @@ const NavBar = () => {
       icon: <IoHomeOutline />,
       Route: "/",
     },
+   
 
     {
       Title: "Dashboard",
@@ -40,6 +41,11 @@ const NavBar = () => {
       Title: "Articles",
       icon:<PiArticleDuotone />,
       Route: "/login",
+    },
+    {
+      Title: "About Us",
+      icon: <FaPeopleGroup />,
+      Route: "/aboutUs",
     },
   ];
   return (
@@ -92,8 +98,8 @@ const NavBar = () => {
                     )} }
               >
                
-                <button className=" flex justify-centerdrop-shadow items-center gap-1" >
-                <span className="">{item.Title}</span>              
+                <button className=" flex justify-center drop-shadow items-center gap-1" >
+               {item.Title}          
                   { item.icon }
                 </button>
               </NavLink>
@@ -114,7 +120,7 @@ const NavBar = () => {
       <div className=" hidden lg:flex ">
         <ul className=" flex justify-center   items-center font-semibold gap-4 ">
           {NavItems.map((item) => (
-            <li className="hover:bg-[#017E77]  border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center " key={item.Title}>
+            <li className="hover:bg-[#017E77] w-fit border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center " key={item.Title}>
               <NavLink
                 key={item.Title}
                 to={item.Route}
@@ -122,11 +128,11 @@ const NavBar = () => {
                   isPending
                     ? "pending"
                     : isActive
-                    ? `bg-[#019D91] hover:bg-[#017E77] border-none    w-fit  text-[#EEEEEE] `
+                    ? `bg-[#019D91] hover:bg-[#017E77] border-none   w-fit text-nowrap text-[#EEEEEE] `
                     : ""
                 }
               >
-                <button className="p-2 flex justify-center items-center gap-1" >
+                <button className="p-2 flex w-fit text-nowrap items-center gap-1" >
             
                   {item.icon}
                   {item.Title}
@@ -152,7 +158,7 @@ const NavBar = () => {
         </div>
 
       </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content z-[1] p-2 shadow bg-cyan-900 rounded-box w-52 text-white">
+      <ul tabIndex={0} className="menu menu-sm dropdown-content z-[1] p-2 shadow bg-[#EEEEEE] rounded-box w-52  text-[#144248]">
         <li>
           <a className="justify-between">
             <p>
@@ -165,13 +171,18 @@ const NavBar = () => {
           </a>
         </li>
         
-        <li><a onClick={handleLogOut} className="  hover:bg-sky-500">Sign Out</a></li>
+        <li><a onClick={handleLogOut} className="  ">Sign Out</a></li>
       </ul>
     </div>
   </> : <>
     
     <Link to='/login'>
-       <Button name={'Login'}></Button>
+    <Link to='/login'> <motion.button
+       
+       whileTap={{ scale: 0.9 }}
+     className="hover:bg-[#017E77] font-semibold bg-[#019D91] border-2 border-[#EEEEEE]  text-[#EEEEEE]  p-3 rounded-lg   ">
+          Login
+       </motion.button></Link>
     </Link>
     
   </>

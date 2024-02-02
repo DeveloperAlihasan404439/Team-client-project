@@ -6,7 +6,7 @@ const GeneratedEmails = ({ tempMail }) => {
     const { user } = useContext(AuthContext);
     console.log(user?.email)
     return (
-        <div className="text-xl text-black font-bold">
+        <div className="text-xl text-[#144248] font-bold">
             {
                 user ? (
                     <>
