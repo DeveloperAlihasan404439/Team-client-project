@@ -3,7 +3,7 @@ import { IoHomeOutline } from "react-icons/io5";
 import { PiArticleDuotone } from "react-icons/pi";
 import logo from "../../assets/BannerL&Logo/Logo.png";
 import Headroom from "react-headroom";
-import Button from "../Shared/Button";
+// import Button from "../Shared/Button";
 import { useContext } from "react";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { RiDashboardFill } from "react-icons/ri";
@@ -171,11 +171,7 @@ const NavBar = () => {
           </a>
         </li>
         
-<<<<<<< HEAD
-        <li><a onClick={handleLogOut} className="  ">Sign Out</a></li>
-=======
         <li><a onClick={handleLogOut} className="  hover:bg-sky-500">Sign Out</a></li>
->>>>>>> fc2aa7b (server -problem fixed)
       </ul>
     </div>
   </> : <>

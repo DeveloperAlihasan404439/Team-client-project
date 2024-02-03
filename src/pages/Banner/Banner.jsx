@@ -29,32 +29,16 @@ const Banner = () => {
   const { data: tempMail = {}, refetch } = useQuery({
     queryKey: ['tempMail'],
     queryFn: async () => {
-<<<<<<< HEAD
-<<<<<<< HEAD
       const res = await axios.get(`server-side-bice.vercel.app/users/${email}`);
-=======
-      const res = await axios.get(`https://server-side-bice.vercel.app/users/${email}`);
->>>>>>> fc2aa7b (server -problem fixed)
-=======
-      const res = await axios.get(`https://server-side-bice.vercel.app/users/${email}`);
->>>>>>> 1d3d0db54c8a5cd8d772e17595dca777a7bb7085
-      // console.log(res.data)
+
       return res.data;
     }
   });
   const inboxIds = tempMail.inboxId;
-  // console.log(tempMail.inboxId)
 
   useEffect(() => {
-<<<<<<< HEAD
-<<<<<<< HEAD
     axios.get(`server-side-bice.vercel.app/get-emails/${inboxIds}`)
-=======
-    axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
->>>>>>> fc2aa7b (server -problem fixed)
-=======
-    axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
->>>>>>> 1d3d0db54c8a5cd8d772e17595dca777a7bb7085
+
       .then(res => {
         console.log(res.data)
         refetch()
@@ -65,15 +49,8 @@ const Banner = () => {
   const userEmail = email
   const createInbox = async () => {
     setLoading(true)
-<<<<<<< HEAD
-<<<<<<< HEAD
     axios.post('server-side-bice.vercel.app/create-inbox', { userEmail })
-=======
-    axios.post('https://server-side-bice.vercel.app/create-inbox', { userEmail })
->>>>>>> fc2aa7b (server -problem fixed)
-=======
-    axios.post('https://server-side-bice.vercel.app/create-inbox', { userEmail })
->>>>>>> 1d3d0db54c8a5cd8d772e17595dca777a7bb7085
+
       .then(() => {
         refetch();
         setLoading(false)
