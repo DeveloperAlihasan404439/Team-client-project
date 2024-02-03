@@ -5,6 +5,7 @@ import Login from '../pages/Login/Login';
 import TermsAndConditions from '../component/Terms&Policy/TermsCondition';
 import PrivacyPolicy from '../component/Terms&Policy/PrivacyPolicy';
 import AboutUs from '../component/AboutUs/AboutUs';
+import ArticleDetails from '../component/PopularArtical/ArticleDetails';
 
 
 export const router = createBrowserRouter([
@@ -33,6 +34,11 @@ export const router = createBrowserRouter([
             {
                 path: '/aboutUs',
                 element:<AboutUs></AboutUs>
+            },
+            {
+                path: '/articledetails/:id',
+                element:<ArticleDetails/>,
+                loader: ({params})=>fetch(`http://localhost:5000/article/${params.id}`)
             },
             
         ]

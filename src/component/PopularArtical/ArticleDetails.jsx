@@ -1,4 +1,4 @@
-import { useLoaderData} from "react-router-dom";
+import { Link, useLoaderData} from "react-router-dom";
 import { MdOutlineCheckCircle } from "react-icons/md";
 import SuggestArticle from "./SuggestArticle";
 const ArticleDetails = () => {
@@ -21,7 +21,8 @@ const ArticleDetails = () => {
       <div className="p-1 md:px-2 max-w-screen-xl  mx-auto">
         <div className="grid grid-col-1 md:grid-cols-12 gap-10">
           <div className="col-span-7 ">
-            <img className="rounded-xl" src={img} alt="" />
+            <Link to ="/" className="bg-[#017E77] rounded-lg  mb-5 px-4 py-2 text-white" >Back Home</Link>
+            <img className="rounded-xl mt-5" src={img} alt=""/>
             <div className="font-inter space-y-3 mt-8">
               <p className="text-3xl font-semibold">{title}</p>
 
@@ -43,8 +44,8 @@ const ArticleDetails = () => {
               </p>
 
               <p className="text-xl font-semibold">
-                <span>Benifit : </span> {benefits.map((benifit,index) => 
-                <p key={index} className="flex gap-2 items-center text-lg font-medium">
+                <span>Benifit : </span> {benefits?.map((benifit, i) => 
+                <p key={i} className="flex gap-2 items-center text-lg font-medium">
                    <MdOutlineCheckCircle className="text-[#019D91]"/> {benifit}
                 </p>)}
               </p>
