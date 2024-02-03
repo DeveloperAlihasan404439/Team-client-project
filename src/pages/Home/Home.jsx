@@ -7,6 +7,7 @@ import WhyUS from "../Whyus/WhyUS";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import HowToUse from "../Whyus/HowToUse";
+import UserReview from "../Review/UserReview";
 const Home = () => {
     
 useEffect(()=>{
@@ -24,6 +25,7 @@ useEffect(()=>{
             <WhyUS></WhyUS>
             <HowToUse></HowToUse>
             <PopularArtical/>
+            <UserReview></UserReview>
             <Footer></Footer>
         </div>
     );
