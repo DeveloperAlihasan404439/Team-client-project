@@ -34,7 +34,7 @@ const NavBar = () => {
     {
       Title: "Dashboard",
       icon:<RiDashboardFill />,
-      Route: "/login",
+      Route: "/dashboard/home",
     },
 
     {
