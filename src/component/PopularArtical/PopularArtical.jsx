@@ -8,7 +8,6 @@ const PopularArtical = () => {
       .then((res) => res.json())
       .then((data) => setArtical(data));
   }, []);
-  console.log(artical)
   return (
     <div className="mt-20 my-20 px-1 md:px-2">
       <div className="flex flex-col font-inter justify-center items-center">
