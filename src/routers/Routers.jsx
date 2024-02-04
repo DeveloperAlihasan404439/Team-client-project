@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
             {
                 path: '/articledetails/:id',
                 element:<ArticleDetails/>,
-                loader: ({params})=>fetch(`https://server-side-bice.vercel.app/article/${params.id}`)
+                loader: ({params})=>fetch(`artical/${params.id}`)
             },
             
         ]
