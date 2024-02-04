@@ -11,7 +11,7 @@ const IpTracker = () => {
   const [ipv4Address, setIpv4Address] = useState("");
   const [ipv6Address, setIpv6Address] = useState("");
   const [getInfo, setGetInfo] = useState({});
-
+console.log(getInfo);
   
   const getUserAddress = async () => {
 
@@ -43,6 +43,7 @@ const IpTracker = () => {
   const lon = getInfo?.lon || "Click Location info button to see the details";
   const ipv4= ipv4Address || "Click Location info button to see the details";
   const ipv6= ipv6Address|| "Click Location info button to see the details";
+  const as= getInfo?.as || "Click Location info button to see the details";
 
   
   useEffect(() => {
@@ -62,7 +63,7 @@ const IpTracker = () => {
 
   
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors',
+      attribution: 'FunctionFusion',
     }).addTo(map);
 
  
@@ -86,7 +87,7 @@ const IpTracker = () => {
       <article className="flex flex-col justify-center items-center gap-4 mt-8">
         <section className="  ">
 
-        <div id="map" className="h-[500px] w-[100vw] max-w-7xl mx-auto" />;
+        <div id="map" className="h-[500px] w-[100vw] max-w-7xl mx-auto rounded drop-shadow" />
 
 
          </section>
@@ -152,6 +153,12 @@ const IpTracker = () => {
                       Isp provider
                     </th>
                     <td className="border-2 md:text-lg">{isp}</td>
+                  </tr>
+                  <tr>
+                    <th className=" md:text-lg font-semibold border-2  ">
+                     AS 
+                    </th>
+                    <td className="border-2 md:text-lg">{as}</td>
                   </tr>
                 </tbody>
               </table>

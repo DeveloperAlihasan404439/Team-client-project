@@ -11,12 +11,14 @@ import DashHome from '../Dashboard/DashHome';
 import Users from '../Dashboard/Users';
 import ArticleUpdated from '../Dashboard/ArticleUpdated';
 import Blog from '../Dashboard/Blog';
+import ErrorPage from './../component/ErrorPage/ErrorPage';
 
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main/>,
+        ErrorPage:<ErrorPage></ErrorPage> ,
         children:[
             {
                 path:'/:email?',
