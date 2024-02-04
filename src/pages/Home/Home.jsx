@@ -8,6 +8,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'
 import HowToUse from "../Whyus/HowToUse";
 import UserReview from "../Review/UserReview";
+import IpTracker from "../../component/IpAddress/IpTracker";
 const Home = () => {
     
 useEffect(()=>{
@@ -22,6 +23,7 @@ useEffect(()=>{
         <div className="overflow-x-hidden">
             <Navbar></Navbar>
             <Banner  ></Banner>
+            <IpTracker></IpTracker>
             <WhyUS></WhyUS>
             <HowToUse></HowToUse>
             <PopularArtical/>
