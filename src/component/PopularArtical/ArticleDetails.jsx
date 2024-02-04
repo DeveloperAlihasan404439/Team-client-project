@@ -59,7 +59,7 @@ const ArticleDetails = () => {
             className="md:col-span-5 col-span-12 flex flex-col  rounded-xl items-center p-4 bg-[#019d901d]">
              <h1 className="text-3xl font-inter font-semibold text-[#019D91]">Read More Article</h1>
              <div className="flex flex-col overflow-y-scroll h-[90vh] gap-3  mt-5">
-                {suggestArticle.map(suggest => <SuggestArticle key={suggest.id} suggest={suggest}/>)}
+                {suggestArticle?.map(suggest => <SuggestArticle key={suggest.id} suggest={suggest}/>)}
              </div>
           </div>
         </div>

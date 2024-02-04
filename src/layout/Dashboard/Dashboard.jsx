@@ -24,8 +24,8 @@ const Dashboard = () => {
         },
       ];
   return (
-    <div className="flex gap-10 h-screen">
-      <nav className="w-[20%] h-full sticky top-0 left-0">
+    <div className="flex gap-10">
+      <nav className="w-[20%] h-screen sticky top-0 left-0">
         <div className="py-[20px] flex justify-center">
             <img src={logo} alt="" className="w-36"/>
         </div>
@@ -33,7 +33,7 @@ const Dashboard = () => {
             {
                 dashNavItems.map((item, i)=>(
 
-                    <NavLink key={i} to={item.Route} aria-current="page" className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[20px]">{item.Title}</NavLink>
+                    <NavLink key={i} to={item.Route} className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[20px]">{item.Title}</NavLink>
                 ))
             }
         </ul>
