@@ -4,7 +4,7 @@ import ArticalCard from "./ArticalCard";
 const PopularArtical = () => {
   const [artical, setArtical] = useState([]);
   useEffect(() => {
-    fetch("https://server-side-bice.vercel.app/article")
+    fetch('https://team-project-server.vercel.app/article')
       .then((res) => res.json())
       .then((data) => setArtical(data));
   }, []);
