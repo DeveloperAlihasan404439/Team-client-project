@@ -110,7 +110,6 @@ const RecievedEmails = () => {
         const combinedStyles = [{ align: fontStyles, textColor: textColor, fontSize: fontSize, textStyle: textStyle }];
         setAllStyles(combinedStyles);
     }, [fontStyles, textColor, fontSize, textStyle]);
-    console.log(allStyles)
     const fontSizes = Array.from({ length: 30 }, (_, index) => index + 1);
     const fonts = ['Normal', 'Italic', 'Oblique', 'Inherit', 'Initial', 'Revert', 'Revert-layer', 'Unset'];
     
