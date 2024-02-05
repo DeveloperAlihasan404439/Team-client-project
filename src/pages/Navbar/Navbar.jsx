@@ -38,9 +38,9 @@ const NavBar = () => {
       Route: "/sads",
       subMenu: [
         {
-          Title: "Address tracker",
+          Title: "Ip Address tracker",
           icon: <RiUserLocationLine />,
-          Route: "/address",
+          Route: "/IpAddress",
         },
         {
           Title: "Pdf converter",
@@ -65,6 +65,7 @@ const NavBar = () => {
       icon: <FaPeopleGroup />,
       Route: "/aboutUs",
     },
+    
   ];
   return (
     <Headroom

@@ -12,6 +12,7 @@ import Users from '../Dashboard/Users';
 import ArticleUpdated from '../Dashboard/ArticleUpdated';
 import Blog from '../Dashboard/Blog';
 import ErrorPage from './../component/ErrorPage/ErrorPage';
+import IpTracker from '../component/IpAddress/IpTracker';
 
 
 export const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: '/privacy',
                 element:<PrivacyPolicy></PrivacyPolicy>
+            },
+            {
+                path: '/IpAddress',
+                element:<IpTracker></IpTracker>
             },
             
             {

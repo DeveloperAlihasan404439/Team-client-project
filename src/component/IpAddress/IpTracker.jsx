@@ -72,7 +72,7 @@ console.log(getInfo);
 
 
   return (
-    <div className="text-[#144248] max-w-7xl mx-auto mt-8 p-6">
+    <div className="text-[#144248] max-w-7xl mx-auto pt-10 p-6">
       <h1 className=" text-3xl md:text-4xl text-center font-bold drop-shadow ">
         Discover Your World: <br className="md:hidden" />
         <span className=" text-[#019D90] ">IP Address & Location</span>
@@ -84,7 +84,7 @@ console.log(getInfo);
         coordinates. Understand where you are and discover the fascinating world
         around you. Your digital journey starts here!
       </p>
-      <article className="flex flex-col justify-center items-center gap-4 mt-8">
+      <article className="flex flex-col justify-center items-center gap-4 pt-4">
         <section className="  ">
 
         <div id="map" className="h-[500px] w-[100vw] max-w-7xl mx-auto rounded drop-shadow" />
