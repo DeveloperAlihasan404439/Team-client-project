@@ -15,7 +15,6 @@ const Banner = () => {
   const { emailAddress, inboxId } = loader;
   const [emails, setEmails] = useState([]);
   const [loading, setLoading] = useState(null)
-  console.log(emailAddress)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -34,17 +33,14 @@ const Banner = () => {
     }
   });
   const inboxIds = tempMail.inboxId;
-  console.log(tempMail.inboxId)
 
   useEffect(() => {
     axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
       .then(res => {
-        console.log(res.data)
         refetch()
         setEmails(res.data)
       })
   }, [inboxIds, refetch])
-  console.log(user?.email)
   const userEmail = email
   const createInbox = async () => {
     setLoading(true)
