@@ -7,6 +7,7 @@ import axios from 'axios';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import GeneratedEmails from './GeneratedEmails';
+import Problem from './Problem';
 const Banner = () => {
   const ref = useRef(null)
   const { user } = useContext(AuthContext)
@@ -23,7 +24,7 @@ const Banner = () => {
   // const BackgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"])
 
-  // main and transtack query code start from here 
+  // main and tranStack query code start from here 
   const { data: tempMail = {}, refetch } = useQuery({
     queryKey: ['tempMail'],
     queryFn: async () => {
@@ -33,7 +34,7 @@ const Banner = () => {
     }
   });
   const inboxIds = tempMail.inboxId;
-
+  console.log(inboxIds)
   useEffect(() => {
     axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
       .then(res => {
@@ -55,7 +56,7 @@ const Banner = () => {
     // 
     <motion.div ref={ref} className="hero place-items-center  items-center mt-0 relative -top-20   h-screen" >
       <div className='absolute inset-0 ' style={{
-        backgroundImage: `url(${img})`, backgroundSize: 'cover',backgroundPosition:'center',
+        backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center',
       }}
 
       ></div>
@@ -72,39 +73,39 @@ const Banner = () => {
               user ? (
                 tempMail ? (
                   <motion.button
-                  disabled onClick={() => createInbox()}
-        whileTap={{ scale: 0.9 }}
-      className="hover:bg-[#017E77] cursor-not-allowed font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 ">
-           Create Inbox
-        </motion.button>
-                  
+                    disabled onClick={() => createInbox()}
+                    whileTap={{ scale: 0.9 }}
+                    className="hover:bg-[#017E77] cursor-not-allowed font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 ">
+                    Create Inbox
+                  </motion.button>
+
                 ) : (
                   loading ? (
                     <motion.button
-       
-        whileTap={{ scale: 0.9 }}
-      className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
-           
-        
-                     onClick={() => createInbox()}><span className="loading loading-spinner loading-lg"></span></motion.button>
+
+                      whileTap={{ scale: 0.9 }}
+                      className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
+
+
+                      onClick={() => createInbox()}><span className="loading loading-spinner loading-lg"></span></motion.button>
                   ) : (
                     <motion.button
-       
-        whileTap={{ scale: 0.9 }}
-      className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
-           
-        
-                     onClick={() => createInbox()}>Create Inbox</motion.button>
+
+                      whileTap={{ scale: 0.9 }}
+                      className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
+
+
+                      onClick={() => createInbox()}>Create Inbox</motion.button>
                   )
                 )
               ) : (
                 <Link to="/login"><motion.button
-       
-                whileTap={{ scale: 0.9 }}
-              className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
-                   
-                
-                             onClick={() => createInbox()}>Login To Continue</motion.button></Link>
+
+                  whileTap={{ scale: 0.9 }}
+                  className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
+
+
+                  onClick={() => createInbox()}>Login To Continue</motion.button></Link>
               )
             }
           </div>
