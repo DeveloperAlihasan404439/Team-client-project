@@ -11,6 +11,7 @@ import DashHome from '../Dashboard/DashHome';
 import Users from '../Dashboard/Users';
 import ArticleUpdated from '../Dashboard/ArticleUpdated';
 import Blog from '../Dashboard/Blog';
+import AddArticle from '../Dashboard/AddArticle';
 
 
 export const router = createBrowserRouter([
@@ -21,7 +22,7 @@ export const router = createBrowserRouter([
             {
                 path:'/:email?',
                 element: <Home/>,
-                loader: ({ params }) => fetch(`https://server-side-bice.vercel.app/users/${params.email}`)
+                loader: ({ params }) => fetch(`https://team-project-server.vercel.app/users/${params.email}`)
             },
             {
                 path: '/login',
@@ -43,7 +44,6 @@ export const router = createBrowserRouter([
             {
                 path: '/articledetails/:id',
                 element:<ArticleDetails/>,
-                loader: ({params})=>fetch(`artical/${params.id}`)
             },
             
         ]
@@ -59,6 +59,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/users',
                 element: <Users/>
+            },
+            {
+                path: '/dashboard/addArticle',
+                element: <AddArticle/>
             },
             {
                 path: '/dashboard/articleUpdated',

@@ -48,24 +48,24 @@ const Login = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
        if(result.user){
-        const userEmail = result.user?.email;
-        const userPhoto = result.user?.photoURL;
-        const userName = result.user?.displayName;
-        const dataToInsert = { userEmail, userPhoto, userName };
-        navigate(`/${userEmail}`);
+        const email = result.user?.email;
+        const photoURL = result.user?.photoURL;
+        const name = result.user?.displayName;
+        const dataToInsert = { name, photoURL, email };
+        navigate(`/${email}`);
         // store user to the database and checking if user exist
         axiosPublick.post("/users", dataToInsert)
-          .then((result) => {
-            if(result){
-                Swal.fire({
-                  position: "center",
-                  icon: "success",
-                  title: 'Success Google Sing In',
-                  showConfirmButton: false,
-                  background: "#017E77",
-                  color: "#ffffff",
-                  timer: 2000,
-                  });
+          .then((res) => {
+            if (res.data.InsertedId>0) {
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Successfull User Updated",
+                showConfirmButton: false,
+                background: '#144248',
+                color: '#EEEEEE',
+                timer: 2000
+              }); 
             }
           }
           );
@@ -75,7 +75,7 @@ const Login = () => {
             title: "Successfull Google Sing In",
             showConfirmButton: false,
             background: "#144248",
-            color: "#ffffff",
+            color: '#EEEEEE',
             timer: 1500,
           });
        }
