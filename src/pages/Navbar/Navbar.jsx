@@ -5,12 +5,12 @@ import logo from "../../assets/BannerL&Logo/Logo.png";
 import { FaRegFilePdf } from "react-icons/fa";
 import Headroom from "react-headroom";
 import { TbPasswordUser } from "react-icons/tb";
-import { MdFeaturedPlayList } from "react-icons/md";
+
 import { RiUserLocationLine } from "react-icons/ri";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
 import { useContext } from "react";
 import { FaPeopleGroup } from "react-icons/fa6";
-import { RiDashboardFill } from "react-icons/ri";
+
 import { AuthContext } from "../../provider/AuthProvider";
 import { motion } from "framer-motion";
 
