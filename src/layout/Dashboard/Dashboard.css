@@ -13,7 +13,7 @@ nav{
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 .nav-list .active{
     background-color: #EEEEEE ;
@@ -21,31 +21,6 @@ nav{
     position: relative;
     border-radius: 100vw 0 0 100vw;
 }
-/* .nav-list .active::before,
-.nav-list .active::after{
-    --border-redius: 1rem;
-
-    content: "";
-    position: absolute;
-    width: var(--border-redius);
-    height: var(--border-redius);
-    right: 0;
-    background-color: red;
-
-    
-}
-.nav-list .active::before{
-   top: calc(var(--border-redius)*-1);
-   border-radius: 0 0 100vw 0;
-   box-shadow: 10 10 0 10px #EEEEEE ;
-    
-}
-.nav-list .active::after{
-    bottom: calc(var(--border-redius)*-1); 
-   border-radius:0 100vw  0  0;
-   box-shadow: 10 10 0 10px #EEEEEE ;   
-} */
-
 .nav-list a{
     border-radius: 100vw 0 0 100vw;
 }

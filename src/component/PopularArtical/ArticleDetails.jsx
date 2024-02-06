@@ -1,9 +1,19 @@
-import { Link, useLoaderData} from "react-router-dom";
+import { Link, useParams} from "react-router-dom";
 import { MdOutlineCheckCircle } from "react-icons/md";
+import { FaTentArrowTurnLeft } from "react-icons/fa6";
 import SuggestArticle from "./SuggestArticle";
+import useAxios from "../../Hooks/useAxios";
+import { useQuery } from "@tanstack/react-query";
 const ArticleDetails = () => {
-  const data = useLoaderData();
-  console.log(data);
+  const {id} = useParams()
+  const axiosPublick = useAxios()
+  const {data: article={}} = useQuery({
+    queryKey: ['articleDetails',id],
+    queryFn: async() =>{
+        const {data} = await axiosPublick.get(`/article/${id}`)
+        return data
+    },
+  })
   const {
     img,
     title,
@@ -14,14 +24,14 @@ const ArticleDetails = () => {
     useToHelp,
     benefits,
     suggestArticle,
-  } = data;
+  } = article;
 
   return (
     <div className=" bg-[#EEEEEE] py-10  w-full">
       <div className="p-1 md:px-2 max-w-screen-xl  mx-auto">
         <div className="grid grid-col-1 md:grid-cols-12 gap-10">
           <div className="col-span-7 ">
-            <Link to ="/" className="bg-[#017E77] rounded-lg  mb-5 px-4 py-2 text-white" >Back Home</Link>
+            <Link to ="/" className="bg-[#017E77] rounded-lg  mb-5 px-4 py-2 text-[#EEEEEE] flex items-center gap-2 w-fit" ><FaTentArrowTurnLeft/> Back Home</Link>
             <img className="rounded-xl mt-5" src={img} alt=""/>
             <div className="font-inter space-y-3 mt-8">
               <p className="text-3xl font-semibold">{title}</p>
@@ -43,27 +53,27 @@ const ArticleDetails = () => {
                 <span className="text-xl text-black font-semibold">Date : </span> {date}
               </p>
 
-              <p className="text-xl font-semibold">
+              <div className="text-xl font-semibold">
                 <span>Benifit : </span> {benefits?.map((benifit, i) => 
                 <p key={i} className="flex gap-2 items-center text-lg font-medium">
                    <MdOutlineCheckCircle className="text-[#019D91]"/> {benifit}
                 </p>)}
-              </p>
+              </div>
 
              
 
             </div>
           </div>
-          {/* suggestArticle section  */}
+          {/* suggestArticle section */}
           <div
-            className="md:col-span-5 col-span-12 flex flex-col  rounded-xl items-center p-4 bg-[#019d901d]">
+            className="md:col-span-5 col-span-12 flex flex-col  rounded-xl items-center p-4 bg-[#019d901d] h-screen">
              <h1 className="text-3xl font-inter font-semibold text-[#019D91]">Read More Article</h1>
              <div className="flex flex-col overflow-y-scroll h-[90vh] gap-3  mt-5">
                 {suggestArticle?.map(suggest => <SuggestArticle key={suggest.id} suggest={suggest}/>)}
              </div>
           </div>
         </div>
-      </div>
+      </div> 
     </div>
   );
 };
