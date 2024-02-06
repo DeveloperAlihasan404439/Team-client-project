@@ -307,8 +307,6 @@ const NavBar = () => {
               </Link>
             </>
           )}
-
-          {/* <Link to='/login'> <Button name={'Login'}></Button></Link> */}
         </div>
       </div>
     </Headroom>

@@ -12,44 +12,146 @@ const UserReview = () => {
     
 
       return (
-        <div className=' max-w-7xl mx-auto'>
+        <div className=' max-w-6xl mx-auto'>
           <h1 className='text-4xl drop-shadow  font-bold '> Review section </h1>
           <seqment className="flex justify-center items-center gap-20">  
           <Swiper
             effect={'cards'}
             grabCursor={true}
-            modules={[EffectCards ,Autoplay]}
-            className="mySwiper  h-[300px] w-[60%]" 
+            modules={[ EffectCards,Autoplay]}
+            className="mySwiper  h-[300px] w-[100%]" 
             autoplay={{
-                delay: 500,
+                delay: 3500,
                 disableOnInteraction: false,
               }}
           >
-            <SwiperSlide  className='bg-slate-300'>
+            <SwiperSlide  className='bg-[#EEEEEE] '>
          
-<div className="flex items-center justify-center px-5 py-5">
-    <div className="w-full max-w-xl px-5 pt-5 pb-10 mx-auto text-gray-800 bg-white rounded-lg shadow-lg dark:bg-gray-800 dark:text-gray-50">
+<div className="flex items-center justify-center ">
+    <div className="w-full mx-auto rounded-lg ">
         <div className="w-full pt-1 pb-5 mx-auto -mt-16 text-center">
             <a href="#" className="relative block">
                 <img alt="profil" src="/images/person/1.jpg" className="mx-auto object-cover rounded-full h-20 w-20 "/>
             </a>
         </div>
         <div className="w-full mb-10">
-            <div className="h-3 text-3xl leading-tight text-left text-indigo-500">
+            <div className="h-3 text-3xl leading-tight text-left ">
                 “
             </div>
-            <p className="px-5 text-sm text-center text-gray-600 dark:text-gray-100">
-                To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself
+            <p className="px-5 text-black text-sm text-center ">
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quisquam eum? Laborum dolorum odio iste neque tenetur voluptatem dignissimos? Quam.                To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself
             </p>
-            <div className="h-3 -mt-3 text-3xl leading-tight text-right text-indigo-500">
+            <div className="h-3 -mt-3 text-3xl leading-tight text-right ">
                 ”
             </div>
         </div>
         <div className="w-full">
-            <p className="font-bold text-center text-indigo-500 text-md">
+            <p className="font-bold text-center  text-md">
                 Tom Hardy
             </p>
-            <p className="text-xs text-center text-gray-500 dark:text-gray-300">
+            <p className="text-xs text-center ">
+                @thom.hardy
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+</SwiperSlide>
+            <SwiperSlide  className='bg-[#EEEEEE] '>
+         
+<div className="flex items-center justify-center px-5 text-black py-5">
+    <div className="w-full px-5 text-black pt-5 pb-10 mx-auto rounded-lg ">
+        <div className="w-full pt-1 pb-5 mx-auto -mt-16 text-center">
+            <a href="#" className="relative block">
+                <img alt="profil" src="/images/person/1.jpg" className="mx-auto object-cover rounded-full h-20 w-20 "/>
+            </a>
+        </div>
+        <div className="w-full mb-10">
+            <div className="h-3 text-3xl leading-tight text-left ">
+                “
+            </div>
+            <p className="px-5 text-black text-sm text-center ">
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quisquam eum? Laborum dolorum odio iste neque tenetur voluptatem dignissimos? Quam.                To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself
+            </p>
+            <div className="h-3 -mt-3 text-3xl leading-tight text-right ">
+                ”
+            </div>
+        </div>
+        <div className="w-full">
+            <p className="font-bold text-center  text-md">
+                Tom Hardy
+            </p>
+            <p className="text-xs text-center ">
+                @thom.hardy
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+</SwiperSlide>
+            <SwiperSlide  className='bg-[#EEEEEE] '>
+         
+<div className="flex items-center justify-center px-5 text-black py-5">
+    <div className="w-full px-5 text-black pt-5 pb-10 mx-auto rounded-lg ">
+        <div className="w-full pt-1 pb-5 mx-auto -mt-16 text-center">
+            <a href="#" className="relative block">
+                <img alt="profil" src="/images/person/1.jpg" className="mx-auto object-cover rounded-full h-20 w-20 "/>
+            </a>
+        </div>
+        <div className="w-full mb-10">
+            <div className="h-3 text-3xl leading-tight text-left ">
+                “
+            </div>
+            <p className="px-5 text-black text-sm text-center ">
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quisquam eum? Laborum dolorum odio iste neque tenetur voluptatem dignissimos? Quam.                To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself
+            </p>
+            <div className="h-3 -mt-3 text-3xl leading-tight text-right ">
+                ”
+            </div>
+        </div>
+        <div className="w-full">
+            <p className="font-bold text-center  text-md">
+                Tom Hardy
+            </p>
+            <p className="text-xs text-center ">
+                @thom.hardy
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+</SwiperSlide>
+            <SwiperSlide  className='bg-[#EEEEEE] '>
+         
+<div className="flex items-center justify-center px-5 text-black py-5">
+    <div className="w-full px-5 text-black pt-5 pb-10 mx-auto rounded-lg ">
+        <div className="w-full pt-1 pb-5 mx-auto -mt-16 text-center">
+            <a href="#" className="relative block">
+                <img alt="profil" src="/images/person/1.jpg" className="mx-auto object-cover rounded-full h-20 w-20 "/>
+            </a>
+        </div>
+        <div className="w-full mb-10">
+            <div className="h-3 text-3xl leading-tight text-left ">
+                “
+            </div>
+            <p className="px-5 text-black text-sm text-center ">
+ Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quisquam eum? Laborum dolorum odio iste neque tenetur voluptatem dignissimos? Quam.                To get social media testimonials like these, keep your customers engaged with your social media accounts by posting regularly yourself
+            </p>
+            <div className="h-3 -mt-3 text-3xl leading-tight text-right ">
+                ”
+            </div>
+        </div>
+        <div className="w-full">
+            <p className="font-bold text-center  text-md">
+                Tom Hardy
+            </p>
+            <p className="text-xs text-center ">
                 @thom.hardy
             </p>
         </div>
@@ -60,9 +162,10 @@ const UserReview = () => {
 
 </SwiperSlide>
           </Swiper>
-          <section className='bg-red-400 w-[40%] border-2'>
+          {/* <section className='bg-red-400 w-[40%] border-2'>
 kela
-          </section></seqment>
+          </section> */}
+          </seqment>
         </div>
       );
     }

@@ -8,7 +8,6 @@ import NavBar from "../../pages/Navbar/Navbar";
 import Footer from './../../pages/Footer/Footer';
 
 
-
 const IpTracker = () => {
   const [ipv4Address, setIpv4Address] = useState("");
   const [ipv6Address, setIpv6Address] = useState("");
@@ -47,10 +46,10 @@ console.log(getInfo);
   const ipv6= ipv6Address|| "Click Location info button to see the details";
   const as= getInfo?.as || "Click Location info button to see the details";
 
-  
-  useEffect(() => {
-    const latitue  =getInfo?.lat || 51.505;
+  const latitue  =getInfo?.lat || 51.505;
     const longitude =getInfo.lon || -0.09 
+  useEffect(() => {
+    
  
      if (isNaN(latitue) || isNaN(longitude)) {
         console.error('Invalid latitude or longitude values:', latitue, longitude);
@@ -70,7 +69,8 @@ console.log(getInfo);
 
  
     L.marker([getInfo?.lat || 51.505, longitude]).addTo(map);
-  }, [getInfo.lat, getInfo.lon]);
+  }, [latitue,longitude]);
+
 
 
   return (
@@ -93,7 +93,6 @@ console.log(getInfo);
         <section className="  ">
 
         <div id="map" className="h-[500px] w-[100vw] max-w-7xl mx-auto rounded drop-shadow" />
-
 
          </section>
        
