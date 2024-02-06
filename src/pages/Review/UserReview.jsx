@@ -12,9 +12,9 @@ const UserReview = () => {
     
 
       return (
-        <div className=' max-w-6xl mx-auto'>
-          <h1 className='text-4xl drop-shadow  font-bold '> Review section </h1>
-          <seqment className="flex justify-center items-center gap-20">  
+        <div className=' max-w-6xl mx-auto '>
+          <h1 className='text-4xl text-center drop-shadow  font-bold '> Review section </h1>
+          <seqment className="flex justify-center items-center mt-10 gap-20">  
           <Swiper
             effect={'cards'}
             grabCursor={true}

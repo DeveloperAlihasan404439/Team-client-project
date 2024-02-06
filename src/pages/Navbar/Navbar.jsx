@@ -215,7 +215,7 @@ const NavBar = () => {
                   <button className="p-2 flex w-fit text-nowrap items-center gap-1">
                     {item.icon}
                     {item.Title}
-                    <ul className="absolute hidden group-hover:block transition-opacity duration-500 delay-200 top-8   rounded mt-2  bg-[#EEEEEE]  shadow-lg">
+                    <ul className="absolute hidden group-hover:block transition-opacity duration-500 delay-200 top-8  -left-1  rounded mt-2  bg-[#EEEEEE]  shadow-lg">
                       {item.subMenu &&
                         item.subMenu.length > 0 && 
                         item.subMenu.map((menu) => (
