@@ -11,6 +11,18 @@ body{
         /* text-[#144248] */
     
    }
-   p{
-    font-size: 1rem;
+   .animation{
+    animation: faq 100s  .4s infinite ;
+   }
+   @keyframes faq {
+    0%{
+        
+        opacity: 2.3;
+    }
+    50%{
+        opacity: 1.1;
+    }
+    50%{
+        opacity: 2;
+    }
    }
