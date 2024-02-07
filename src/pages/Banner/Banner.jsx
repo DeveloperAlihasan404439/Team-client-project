@@ -1,6 +1,9 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import img from '../../assets/BannerL&Logo/banner2.jpg'
 import { motion, useScroll, useTransform } from "framer-motion"
+// import { Application } from '@splinetool/runtime';
+// import Spline from '@splinetool/react-spline';
+import gif from '../../assets/image/laptop.gif'
 
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
@@ -50,9 +53,19 @@ const Banner = () => {
         setLoading(false)
       })
   }
+
+
+  // useEffect(() => {
+  //   const canvas = document.getElementById('canvas3d');
+  //   const app = new Application(canvas);
+  //   app.load('https://prod.spline.design/5fzbTu9-6FtFf-yJ/scene.splinecode');
+
+   
+  // }, []);
+
   return (
 
-    // 
+ 
     <motion.div ref={ref} className="hero place-items-center  items-center mt-0 relative -top-20   h-screen" >
       <div className='absolute inset-0 ' style={{
         backgroundImage: `url(${img})`, backgroundSize: 'cover',backgroundPosition:'center',
@@ -60,21 +73,23 @@ const Banner = () => {
 
       ></div>
       {/* <img className='w-full h-full object-fill' src={img} alt="BANNER" /> */}
-
-      <motion.div style={{ y: textY }} className="hero-content text-center text-[#144248]">
-        <div className='bg-white bg-opacity-50 rounded-md'>
+    
+      <motion.div style={{ y: textY }} className="hero-content z-80  text-center text-[#144248]">
+        <div className='bg-white bg-opacity-50 z-80  rounded-md'>
           <h2 className='mt-9 text-2xl text-[#144248]'>Your Temporary Email Address</h2>
           <div className="lg:w-[45rem] rounded-lg w-[17rem] h-[15rem] flex items-center justify-center">
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
           </div>
-          <div className='flex items-center justify-center gap-5 mb-6'>
+          <div className='flex items-center relative  justify-center gap-5 mb-6'>
+
+     
             {
               user ? (
                 tempMail ? (
                   <motion.button
                   disabled onClick={() => createInbox()}
         whileTap={{ scale: 0.9 }}
-      className="hover:bg-[#017E77] cursor-not-allowed font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 ">
+      className="hover:bg-[#017E77] cursor-not-allowed font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded  flex justify-center items-center gap-2 ">
            Create Inbox
         </motion.button>
                   
@@ -109,7 +124,15 @@ const Banner = () => {
             }
           </div>
         </div>
+        
       </motion.div>
+      <div className='relative z-10 w-full '>
+   
+      {/* <canvas className='object-cover' id="canvas3d" /> */}
+<img className='h-80 absolute -left-1 top-10 ' src={gif} alt="" />
+    
+      </div>
+     
     </motion.div>
 
   );

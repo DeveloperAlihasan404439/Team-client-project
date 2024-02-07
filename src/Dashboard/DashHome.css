@@ -57,8 +57,3 @@
     -ms-transform: rotatey(-80deg);
     transform: rotatey(-80deg);
   }
-  
-  p {
-    font-size: 20px;
-    font-weight: bolder;
-  }
