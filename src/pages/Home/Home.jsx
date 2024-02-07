@@ -1,8 +1,6 @@
 import { useEffect } from "react";
 import PopularArtical from "../../component/PopularArtical/PopularArtical";
 import Banner from "../Banner/Banner";
-import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
 import WhyUS from "../Whyus/WhyUS";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
@@ -21,7 +19,6 @@ useEffect(()=>{
   },[])
     return (
         <div className="overflow-x-hidden">
-            <Navbar></Navbar>
             <Banner  ></Banner>
             <WhyUS></WhyUS>
             <HowToUse></HowToUse>

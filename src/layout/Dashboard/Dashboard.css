@@ -1,6 +1,3 @@
-*{
-    box-sizing: border-box;
-}
 nav{
     position: sticky;
     top: 0;
@@ -13,7 +10,7 @@ nav{
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .nav-list .active{
     background-color: #EEEEEE ;
