@@ -13,6 +13,8 @@ import ArticleUpdated from '../Dashboard/ArticleUpdated';
 import Blog from '../Dashboard/Blog';
 import AddArticle from '../Dashboard/AddArticle';
 import IpTracker from '../component/IpAddress/IpTracker';
+import RequstReview from '../Dashboard/RequstReview';
+import RequstArticle from '../Dashboard/RequstArticle';
 
 
 export const router = createBrowserRouter([
@@ -24,10 +26,6 @@ export const router = createBrowserRouter([
                 path:'/:email?',
                 element: <Home/>,
                 loader: ({ params }) => fetch(`https://team-project-server.vercel.app/users/${params.email}`)
-            },
-            {
-                path: '/login',
-                element: <Login></Login>
             },
             {
                 path: '/terms',
@@ -54,6 +52,10 @@ export const router = createBrowserRouter([
         ]
     },
     {
+        path: '/login',
+        element: <Login></Login>
+    },
+    {
         path: '/dashboard',
         element: <Dashboard/>,
         children:[
@@ -74,9 +76,13 @@ export const router = createBrowserRouter([
                 element: <ArticleUpdated/>
             },
             {
-                path: '/dashboard/blog',
-                element: <Blog/>
-            }
+                path: '/dashboard/requstReview',
+                element: <RequstReview/>
+            },
+            {
+                path: '/dashboard/requstArticle',
+                element: <RequstArticle/>
+            },
         ]
     }
 ])

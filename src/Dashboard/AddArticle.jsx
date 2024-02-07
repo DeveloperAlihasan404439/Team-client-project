@@ -1,11 +1,18 @@
 import { useForm } from "react-hook-form";
 import Button from "../pages/Shared/Button";
 import { useState } from "react";
+import useAxios from "../Hooks/useAxios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
+const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
+const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
 const AddArticle = () => {
   const [benefitsData, setBenefitsData] = useState("");
   const [benefits, setBenefits] = useState([]);
-
+  const [imgLoader, setImgLoader] = useState(false);
+  const axiosPublick = useAxios()
+  const navigate = useNavigate()
   if (!benefits.includes(benefitsData)) {
     if (benefitsData !== "") {
       setBenefits((e) => [...e, benefitsData]);
@@ -61,102 +68,127 @@ const AddArticle = () => {
   // console.log(article);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
-    const addArticle = {
-      img: data.img,
-      title: data.title,
-      description: data.description,
-      shortDescription: data.shortDescription,
-      date: data.date,
-      whyToUse: data.whyToUse,
-      whereToUse: data.whereToUse,
-      useToHelp: data.useToHelp,
-      benefits,
-      suggestArticle,
-    };
+    const fromImages = { image: data.image[0] };
+    const res = await axiosPublick.post(images_hosting_api, fromImages, {
+      headers: {
+        "content-type": "multipart/form-data",
+      }
+    })
+    if (res.data.success) {
+      setImgLoader(false)
+      const photoURL = res?.data?.data?.display_url;
+      const addArticle = {
+        img: photoURL,
+        title: data.title,
+        description: data.description,
+        shortDescription: data.shortDescription,
+        date: data.date,
+        whyToUse: data.whyToUse,
+        whereToUse: data.whereToUse,
+        useToHelp: data.useToHelp,
+        benefits,
+        suggestArticle,
+      };
+      axiosPublick.post('/article',addArticle)
+      .then((res) => {
+        if (res?.data?.insertedId) {
+          reset()
+          navigate('/dashboard/articleUpdated')
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfull Article added",
+            showConfirmButton: false,
+            background: '#144248',
+            color: '#EEEEEE',
+            timer: 2000
+          }); 
+        }
+      })
+    }
+    setImgLoader(true)
   };
+  
+  const styleInput = "mt-1 shadow-sm w-full text-[#144248] px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-none rounded-lg bg-gray-50 focus:outline-none focus:ring-gray-50 focus:ring-offset-gray-300";
   return (
-    <div className="max-w-5xl my-10">
+    <div className="max-w-5xl mx-auto my-10">
       <h1 className="text-4xl text-center font-bold text-[#144248] ">
         Add an <span className=" text-[#019D90]  ">Article</span>
       </h1>
-      <p className=" text-center font-inter  text-[#144248] font-medium  mt-4">
-        Be a part of our community! <br /> shaping a platform of diverse ideas
-        and perspectives. Start enriching our <br />
+      <p className=" text-center font-inter text-[#144248] font-medium  mt-4">
+        Be a part of our community!  shaping a platform of diverse ideas
+        and perspectives.<br /> Start enriching our
         community with your unique articles.
       </p>
       <div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-[#EEEEEE] rounded-xl relative text-left flex justify-start items-start
- p-6 w-full space-y-6"
+          className="bg-[#EEEEEE] rounded-xl relative text-left flex justify-start items-start p-6 w-full space-y-3"
         >
           <div className="md:flex gap-5 items-center w-full">
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium  "> Title </label>
-              <div>
+              <label className=" mb-2 font-medium text-[#144248]  "> Title </label>
                 <input
                   {...register("title", { required: true })}
                   type="text"
                   placeholder="Title"
-                  className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                  className={styleInput}
                 />
-              </div>
             </div>
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium  "> Input File </label>
+              <label className=" mb-2 font-medium text-[#144248]  "> Input File </label>
               <div>
-                <input
-                  {...register("img", { required: true })}
-                  type="url"
-                  placeholder="Photo Url"
-                  className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
-                />
+              <input
+                {...register("image")}
+                type="file"
+                className="file-input mt-1 file-input-bordered file-input-success w-full  focus:outline-none border-none"
+              />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium  "> Why To Use</label>
+              <label className=" mb-2 font-medium text-[#144248]  "> Why To Use</label>
               <div>
                 <input
                   {...register("whyToUse", { required: true })}
                   type="text"
                   placeholder="Why To Use"
-                  className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                  className={styleInput}
                 />
               </div>
             </div>
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium  "> Use To Help </label>
+              <label className=" mb-2 font-medium text-[#144248]  "> Use To Help </label>
               <div>
                 <input
                   {...register("useToHelp", { required: true })}
                   type="text"
                   placeholder="Use To Help"
-                  className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                  className={styleInput}
                 />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium  "> Where To Use </label>
+              <label className=" mb-2 font-medium text-[#144248]  "> Where To Use </label>
               <div>
                 <input
                   {...register("whereToUse", { required: true })}
                   type="text"
                   placeholder="Where To Use"
-                  className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                  className={styleInput}
                 />
               </div>
             </div>
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium  "> Date </label>
+              <label className=" mb-2 font-medium text-[#144248]  "> Date </label>
               <div>
                 <input
                   {...register("date", { required: true })}
                   type="date"
-                  className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                  className={styleInput}
                 />
               </div>
             </div>
@@ -169,16 +201,16 @@ const AddArticle = () => {
                   {...register("shortDescription", { required: true })}
                   type="text"
                   placeholder="Short Description"
-                  className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                  className={styleInput}
                 />
               </div>
             </div>
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium  "> Benefits </label>
+              <label className=" mb-2 font-medium text-[#144248]  "> Benefits </label>
               <div className="mt-1">
                 <select
                   onChange={(e) => setBenefitsData(e.target.value)}
-                  className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                  className={styleInput}
                 >
                   <option>Select Benefits</option>
                   <option value="Enhanced online security">
@@ -212,14 +244,14 @@ const AddArticle = () => {
                 type="text"
                 required=""
                 placeholder="Your description"
-                className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+                className={styleInput}
               />
             </div>
-            <div className="flex justify-center items-center  mt-10">
+            <div className="flex justify-start items-center mt-5 ml-5">
               <Button
                 type="submit"
                 className="mx-auto"
-                name={"Submit "}
+                name={imgLoader?"Waiting...":"Submit "}
               ></Button>
             </div>
           </div>
