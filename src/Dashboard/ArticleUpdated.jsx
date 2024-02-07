@@ -4,10 +4,29 @@ import { MdAutoDelete, MdBrowserUpdated } from "react-icons/md";
 import Button from "../pages/Shared/Button";
 import useArticle from "../Hooks/useArticle";
 import { Link } from "react-router-dom";
+import useAxios from "../Hooks/useAxios";
+import Swal from "sweetalert2";
 moment().format();
 const ArticleUpdated = () => {
-  const { article, isLoading } = useArticle();
-  console.log(article);
+  const { article, isLoading,refetch } = useArticle();
+  const axiosPublick = useAxios()
+  function hendelArticleDelete(id){
+    axiosPublick.delete(`/article?id=${id}`)
+    .then(res =>{
+      if(res.data.deletedCount>0){
+        refetch()
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfull Article Deteled",
+          showConfirmButton: false,
+          background: '#144248',
+          color: '#EEEEEE',
+          timer: 2000
+        }); 
+      }
+    })
+  }
   return (
     <div className=" my-10 max-w-5xl mx-auto">
       <div>
@@ -81,9 +100,8 @@ const ArticleUpdated = () => {
                         scale: 1.02,
                         transition: { duration: 0.3 },
                       }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <h1 className="w-full flex justify-center">
+                      whileTap={{ scale: 0.9 }}>
+                      <h1 onClick={()=>hendelArticleDelete(arc._id)} className="w-full flex justify-center">
                         <MdAutoDelete />
                       </h1>
                     </motion.div>

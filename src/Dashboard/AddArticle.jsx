@@ -1,11 +1,15 @@
 import { useForm } from "react-hook-form";
 import Button from "../pages/Shared/Button";
 import { useState } from "react";
+import useAxios from "../Hooks/useAxios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddArticle = () => {
   const [benefitsData, setBenefitsData] = useState("");
   const [benefits, setBenefits] = useState([]);
-
+  const axiosPublick = useAxios()
+  const navigate = useNavigate()
   if (!benefits.includes(benefitsData)) {
     if (benefitsData !== "") {
       setBenefits((e) => [...e, benefitsData]);
@@ -73,6 +77,22 @@ const AddArticle = () => {
       benefits,
       suggestArticle,
     };
+    axiosPublick.post('/article',addArticle)
+    .then((res) => {
+      if (res?.data?.insertedId) {
+        reset()
+        navigate('/dashboard/articleUpdated')
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Successfull Article added",
+          showConfirmButton: false,
+          background: '#144248',
+          color: '#EEEEEE',
+          timer: 2000
+        }); 
+      }
+    })
   };
   return (
     <div className="max-w-5xl my-10">

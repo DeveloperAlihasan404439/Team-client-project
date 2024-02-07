@@ -56,7 +56,7 @@ const Login = () => {
         // store user to the database and checking if user exist
         axiosPublick.post("/users", dataToInsert)
           .then((res) => {
-            if (res.data.InsertedId>0) {
+            if (res.data.insertedId) {
               Swal.fire({
                 position: "center",
                 icon: "success",

@@ -64,7 +64,7 @@ const DashHome = () => {
             {user?.displayName}
           </h1>
           <img
-            src={user?.photoURL}
+            src={user?user.photoURL:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlJqngNJ42uWE0Zy6S6rHTuW8pn6p-cuogyQ&usqp=CAU'}
             alt=""
             className="w-12 h-12 rounded-[50%] border-2 border-[#019D90] "
           />
