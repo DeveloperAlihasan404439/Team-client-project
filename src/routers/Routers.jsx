@@ -15,6 +15,8 @@ import AddArticle from '../Dashboard/AddArticle';
 import IpTracker from '../component/IpAddress/IpTracker';
 import RequstReview from '../Dashboard/RequstReview';
 import RequstArticle from '../Dashboard/RequstArticle';
+import PopularArtical from '../component/PopularArtical/PopularArtical';
+import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
 
 
 export const router = createBrowserRouter([
@@ -29,20 +31,28 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/terms',
-                element: <TermsAndConditions></TermsAndConditions>
+                element: <TermsAndConditions/>
             },
             {
                 path: '/privacy',
-                element:<PrivacyPolicy></PrivacyPolicy>
+                element:<PrivacyPolicy/>
             },
             {
                 path: '/IpAddress',
-                element:<IpTracker></IpTracker>
+                element:<IpTracker/>
+            },
+            {
+                path: '/password/strength/check',
+                element:<PasswordStrengthChecker/>
             },
             
             {
+                path: '/articles',
+                element:<PopularArtical/>
+            },
+            {
                 path: '/aboutUs',
-                element:<AboutUs></AboutUs>
+                element:<AboutUs/>
             },
             {
                 path: '/articledetails/:id',
