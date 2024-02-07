@@ -8,6 +8,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'
 import HowToUse from "../Whyus/HowToUse";
 import FqSection from "../../component/FqSection/FqSection";
+import UserReview from "../Review/UserReview";
 const Home = () => {
     
 useEffect(()=>{
@@ -25,6 +26,7 @@ useEffect(()=>{
             <WhyUS></WhyUS>
             <HowToUse></HowToUse>
             <PopularArtical/>
+            <UserReview></UserReview>
             <FqSection/>
             <Footer></Footer>
         </div>
