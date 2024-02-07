@@ -16,13 +16,19 @@ const GeneratedEmails = ({ tempMail }) => {
         <div className="lg:flex">
             <div>
                 {
-                    user ? (
-                        <div className="bg-gray-500 lg:w-full md:w-full w-full p-2 rounded-l-md bg-opacity-50 font-bold text-black">
-                            <h2>{emailAddress}</h2>
-                        </div>
+                    emailAddress ? (
+                        user ? (
+                            <div className="bg-gray-500 lg:w-full md:w-full w-full p-2 rounded-l-md bg-opacity-50 font-bold text-black">
+                                <h2>{emailAddress}</h2>
+                            </div>
+                        ) : (
+                            <div className="bg-gray-500 lg:w-[30rem] md:w-[30rem] w-full p-2 rounded-md bg-opacity-50 font-bold text-black">
+                                <h2>Login to see generated email address</h2>
+                            </div>
+                        )
                     ) : (
-                        <div className="bg-gray-500 lg:w-[30rem] md:w-[30rem] w-full p-2 rounded-md bg-opacity-50 font-bold text-black">
-                            <h2>Login to see generated email address</h2>
+                        <div className="bg-gray-500 lg:w-full md:w-full w-full p-2 rounded-l-md bg-opacity-50 font-bold text-black">
+                            Click create inbox button to see temporary email address
                         </div>
                     )
                 }

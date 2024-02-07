@@ -10,12 +10,12 @@ import GeneratedEmails from './GeneratedEmails';
 import Problem from './Problem';
 const Banner = () => {
   const ref = useRef(null)
-  const { user } = useContext(AuthContext)
+  const { user, loading } = useContext(AuthContext)
   const { email } = useParams();
   const loader = useLoaderData();
   const { emailAddress, inboxId } = loader;
   const [emails, setEmails] = useState([]);
-  const [loading, setLoading] = useState(null)
+  const [loading1, setLoading] = useState(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
@@ -28,21 +28,14 @@ const Banner = () => {
   const { data: tempMail = {}, refetch } = useQuery({
     queryKey: ['tempMail'],
     queryFn: async () => {
-      const res = await axios.get(`https://server-side-bice.vercel.app/users/${email}`);
-      // console.log(res.data)
+      if (!user) return; // Return early if user is not loaded
+      const res = await axios.get(`https://server-side-bice.vercel.app/users/${user.email}`);
       return res.data;
-    }
+    },
+    enabled: !!user, // Only enable the query if user is available
   });
-  const inboxIds = tempMail.inboxId;
-  console.log(inboxIds)
-  useEffect(() => {
-    axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
-      .then(res => {
-        refetch()
-        setEmails(res.data)
-      })
-  }, [inboxIds, refetch])
-  const userEmail = email
+
+  const userEmail = user?.email
   const createInbox = async () => {
     setLoading(true)
     axios.post('https://server-side-bice.vercel.app/create-inbox', { userEmail })
@@ -51,6 +44,18 @@ const Banner = () => {
         setLoading(false)
       })
   }
+
+  const inboxIds = tempMail.inboxId;
+  console.log(inboxIds)
+  useEffect(() => {
+    if (inboxIds) {
+      axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
+        .then(res => {
+          refetch()
+          setEmails(res.data)
+        })
+    }
+  }, [inboxIds, refetch])
   return (
 
     // 
@@ -66,7 +71,10 @@ const Banner = () => {
         <div className='bg-white bg-opacity-50 rounded-md'>
           <h2 className='mt-9 text-2xl text-[#144248]'>Your Temporary Email Address</h2>
           <div className="lg:w-[45rem] rounded-lg w-[17rem] h-[15rem] flex items-center justify-center">
+
+
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
+
           </div>
           <div className='flex items-center justify-center gap-5 mb-6'>
             {
@@ -80,7 +88,7 @@ const Banner = () => {
                   </motion.button>
 
                 ) : (
-                  loading ? (
+                  loading1 ? (
                     <motion.button
 
                       whileTap={{ scale: 0.9 }}

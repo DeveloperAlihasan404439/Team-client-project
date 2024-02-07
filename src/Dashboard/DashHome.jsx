@@ -19,8 +19,10 @@ const DashHome = () => {
     }
   });
   // http://localhost:5000/
+  const test = [createdInboxes]
+  console.log(test.length)
   useEffect(() => {
-    if (createdInboxes) {
+    if (test.length > 0) {
       axios.get(`https://api.mailslurp.com/inboxes?apiKey=${createdInboxes}`)
         .then(response => {
           const inboxes = response.data;
