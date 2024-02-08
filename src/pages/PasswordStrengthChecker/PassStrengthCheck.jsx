@@ -60,38 +60,47 @@ const PasswordStrengthChecker = () => {
     };
 
     return (
-        <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] md:w-[50%] font-serif w-full m-auto p-3 mb-6 rounded-md'>
-            <div className='flex items-center justify-between'>
-                <div>
-                    <input
-                        type="text"
-                        id="password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                        placeholder="Enter your password or click generate button"
-                        className=" w-[37rem] p-2 border rounded-l-md"
-                    />
-                </div>
-                <div>
-                    <button onClick={handleGenerateClick} className='border-2 font-serif hover:bg-green-800 hover:text-white rounded-r-md hover:border-gray-500 border-green-500 p-2 text-green-600 font-bold border-l-0'>Generate</button>
-                </div>
+        <div>
+            <div className='bg-[#017E77] lg:text-6xl md:text-6xl text-xl text-center mb-5 p-4 text-[#EEEEEE] font-inter'>
+                <h2>How Secure Is Your Password</h2>
             </div>
-
-            <div className='mb-3'>
-                <p className='text-[12px] font-serif'>Character {characterCount}</p>
+            <div className='lg:w-[50%] md:w-[50%] m-auto text-2xl'>
+                <h2>Take the Password Test</h2>
+                <h2 className='text-xl'>Tip: Stronger passwords use different types of characters</h2>
             </div>
-
-            {
-                password && (
-                    <div className="w-full h-2 bg-gray-300 rounded">
-                        <div
-                            className={`h-full ${getProgressBarColor()} rounded`}
-                            style={{ width: `${strength === 'Weak' ? 25 : strength === 'Moderate' ? 50 : 100}%` }}
-                        ></div>
+            <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] md:w-[50%] font-serif w-full m-auto p-3 mb-6 rounded-md'>
+                <div className='flex items-center justify-between'>
+                    <div>
+                        <input
+                            type="text"
+                            id="password"
+                            value={password}
+                            onChange={handlePasswordChange}
+                            placeholder="Enter your password or click generate button"
+                            className="lg:w-[37rem] md:w-full w-full p-2 border rounded-l-md"
+                        />
                     </div>
-                )
-            }
-            {password && <p>Password Strength: {strength}</p>}
+                    <div>
+                        <button onClick={handleGenerateClick} className='border-2 font-serif hover:bg-green-800 hover:text-white rounded-r-md hover:border-gray-500 border-green-500 p-2 text-green-600 font-bold border-l-0'>Generate</button>
+                    </div>
+                </div>
+
+                <div className='mb-3'>
+                    <p className='text-[12px] font-serif'>Character {characterCount}</p>
+                </div>
+
+                {
+                    password && (
+                        <div className="w-full h-2 bg-gray-300 rounded">
+                            <div
+                                className={`h-full ${getProgressBarColor()} rounded`}
+                                style={{ width: `${strength === 'Weak' ? 25 : strength === 'Moderate' ? 50 : 100}%` }}
+                            ></div>
+                        </div>
+                    )
+                }
+                {password && <p>Password Strength: {strength}</p>}
+            </div>
         </div>
     );
 };

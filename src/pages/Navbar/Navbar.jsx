@@ -49,7 +49,7 @@ const NavBar = () => {
         },
      
         {
-          Title: "Password ",
+          Title: "Password Strength Checker",
           icon: <TbPasswordUser />,
           Route: "/password/strength/check",
         },
