@@ -1,10 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
-import logo from "../../assets/BannerL&Logo/Logo.png";
+import logo from "../../assets/BannerL&Logo/Logo white.png";
 import "./Dashboard.css";
 import { FaUsers, FaHome,  } from "react-icons/fa";
 import { BsDatabaseFillAdd } from "react-icons/bs";
-import { TbSignalLte } from "react-icons/tb";
-import { FaMicroblog } from "react-icons/fa6";
+import { IoGitPullRequestSharp } from "react-icons/io5";
+import { FaBookOpen } from "react-icons/fa6";
+import { SiAutodeskrevit,SiHomeassistantcommunitystore } from "react-icons/si";
+
 const Dashboard = () => {
   const dashNavItems = [
     {
@@ -14,32 +16,37 @@ const Dashboard = () => {
     },
 
     {
-      Title: "All Users",
+      Title: "All People",
       Route: "/dashboard/users",
       icon:<FaUsers />,
     },
     {
       Title: "Add Article",
       Route: "/dashboard/addArticle",
-      icon:<BsDatabaseFillAdd />,
+      icon:<FaBookOpen />,
     },
     {
       Title: "Articles All",
       Route: "/dashboard/articleUpdated",
-      icon:<TbSignalLte />,
+      icon:<BsDatabaseFillAdd />,
     },
 
     {
-      Title: "Blog",
-      Route: "/dashboard/blog",
-      icon:<FaMicroblog />,
+      Title: "User Review",
+      Route: "/dashboard/requstReview",
+      icon:<SiAutodeskrevit />,
+    },
+    {
+      Title: "Requst Article",
+      Route: "/dashboard/requstArticle",
+      icon:<IoGitPullRequestSharp />,
     },
   ];
   return (
     <div className="flex">
-      <nav className="w-[20%] h-screen sticky top-0 left-0">
-        <div className="py-[20px] flex justify-center">
-          <img src={logo} alt="" className="w-36" />
+      <nav className="w-[17%] h-screen sticky top-0 left-0">
+        <div className="py-[25px] flex justify-center">
+          <img src={logo} alt="" className="w-48" />
         </div>
         <ul className="nav-list">
           {dashNavItems.map((item, i) => (
@@ -55,15 +62,18 @@ const Dashboard = () => {
         </ul>
         <dir className="border-b border-[#eeeeee] w-full"></dir>
         <ul className="nav-list">
+          <li>
           <NavLink
             to="/"
-            className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[20px]"
+            className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[20px] flex items-center gap-3"
           >
+            <SiHomeassistantcommunitystore/>
             Home
           </NavLink>
+          </li>
         </ul>
       </nav>
-      <div className="w-[80%]">
+      <div className="w-[83%]">
         <Outlet />
       </div>
     </div>

@@ -14,21 +14,21 @@ const RecievedEmails = () => {
     const { data: tempMail = {}, refetch } = useQuery({
         queryKey: ['tempMail'],
         queryFn: async () => {
-            if (!user) return; // Return early if user is not loaded
-            const res = await axios.get(`https://server-side-bice.vercel.app/users/${user.email}`);
-            return res.data;
+          if (!user) return; // Return early if user is not loaded
+          const res = await axios.get(`https://server-side-bice.vercel.app/users/${user.email}`);
+          return res.data;
         },
         enabled: !!user, // Only enable the query if user is available
-    });
+      });
     const inboxIds = tempMail.inboxId;
     useEffect(() => {
         if (inboxIds) {
             axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
-                .then(res => {
-                    refetch()
-                    setEmails(res.data)
-                })
-        }
+              .then(res => {
+                refetch()
+                setEmails(res.data)
+              })
+          }
     }, [inboxIds, refetch])
 
     const reloadEmails = () => {
@@ -42,7 +42,7 @@ const RecievedEmails = () => {
 
 
 
-
+ 
 
     return (
         <div className="mt-4">
@@ -65,8 +65,8 @@ const RecievedEmails = () => {
                 </div>
                 {
                     user ? (
-                        tempMail?.length <= 0 ? (
-                            <h2 className="text-center text-xl mt-6 bg-yellow-500 bg-opacity-40 p-3 border border-gray rounded-md">Reload to see the result make sure you used it somewhere</h2>
+                        emails?.length <= 0 ? (
+                            <h2 className="text-center text-xl bg-yellow-500 bg-opacity-40 p-3 border mt-10 border-gray rounded-md font-inter">Waiting For Emails...</h2>
                         ) : (
                             emails?.map((mail, index) => <GetMessages key={index} mail={mail} index={index}></GetMessages>)
 
@@ -77,7 +77,7 @@ const RecievedEmails = () => {
                 }
             </div>
 
-
+            
         </div>
     );
 };

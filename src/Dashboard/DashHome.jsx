@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import useUsers from "../Hooks/useUsers";
 import { AuthContext } from "../provider/AuthProvider";
+import { FaUsers } from "react-icons/fa6";
 import "./DashHome.css";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -54,8 +55,8 @@ const DashHome = () => {
   }
 
   return (
-    <div className="max-w-5xl mx-auto">
-      <div className="mt-5 flex justify-between items-center rounded-lg bg-white py-2 px-3">
+    <div className="">
+      <div className="max-w-6xl mx-auto mt-5 flex justify-between items-center rounded-lg bg-white py-2 px-3">
         <h1 className="text-2xl uppercase tracking-[4px] font-semibold text-[#144248]">
           Dashboard
         </h1>
@@ -64,9 +65,13 @@ const DashHome = () => {
             {user?.displayName}
           </h1>
           <img
-            src={user?.photoURL}
+            src={
+              user
+                ? user.photoURL
+                : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlJqngNJ42uWE0Zy6S6rHTuW8pn6p-cuogyQ&usqp=CAU"
+            }
             alt=""
-            className="w-12 h-12 rounded-[50%] border-2 border-[#019D90] "
+            className="w-12 h-12 rounded-[50%] border-2  "
           />
         </div>
       </div>
@@ -116,10 +121,14 @@ const DashHome = () => {
             <p>Hover Email</p>
           </div>
         </div>
-        <div className="book">
-          <p>Total Inbox :</p>
-          <div className="cover">
-            <p>Hover Inbox</p>
+        <div className="notification hover:cursor-pointer">
+          <div className="notititle h-full">
+            <div className=" text-3xl p-2 border text-[#144248] bg-white mb-2 w-fit rounded-full">
+              <FaUsers />
+            </div>
+            <h1 className="text-lg text-[#EEEEEE] tracking-[3px] uppercase">
+              Totle People : {usersData.length}
+            </h1>
           </div>
         </div>
       </div>

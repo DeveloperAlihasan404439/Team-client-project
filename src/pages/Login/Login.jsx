@@ -20,7 +20,6 @@ import { useForm } from "react-hook-form";
 //  images hostion
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
-console.log(images_hosting_api);
 //  images hostion
 const Login = () => {
   const [isSignUpMode, setSignUpMode] = useState(false);
@@ -32,7 +31,7 @@ const Login = () => {
   const axiosPublick = useAxios()
   // create user
   const [success, setSuccess] = useState("");
-  const [loager, setLoager] = useState(false);
+  const [imgLoader, setImgLoader] = useState(false);
   const [open, setOpen] = useState(true);
 
   const handleSignUpClick = () => {
@@ -56,7 +55,7 @@ const Login = () => {
         // store user to the database and checking if user exist
         axiosPublick.post("/users", dataToInsert)
           .then((res) => {
-            if (res.data.InsertedId>0) {
+            if (res.data.insertedId) {
               Swal.fire({
                 position: "center",
                 icon: "success",
@@ -130,7 +129,7 @@ const Login = () => {
       );
       return;
     }
-    setLoager(true)
+    setImgLoader(true)
     const fromImages = { image: data.image[0] };
     const res = await axiosPublick.post(images_hosting_api, fromImages, {
       headers: {
@@ -138,7 +137,7 @@ const Login = () => {
       }
     })
     if (res.data.success) {
-      setLoager(false)
+      setImgLoader(false)
       const name = data.name;
       const email = data.email;
       const password = data.password;
@@ -262,7 +261,7 @@ const Login = () => {
                 className="file-input mt-3 file-input-bordered file-input-success w-full max-w-xs"
               />
               {success && <p className="text-green-700">{success}</p>}
-              <input type="submit" value={loager?"Waiting...":"Sign up"} className="btnn solid" />
+              <input type="submit" value={imgLoader?"Waiting...":"Sign up"} className="btnn solid" />
               <div className="divider">OR</div>
               <p className="social-text">Sign up with social platforms</p>
               <div className="social-media">

@@ -1,13 +1,11 @@
 import { useEffect } from "react";
-import PopularArtical from "../../component/PopularArtical/PopularArtical";
 import Banner from "../Banner/Banner";
-import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
 import WhyUS from "../Whyus/WhyUS";
 import AOS from 'aos';
 import 'aos/dist/aos.css'
 import HowToUse from "../Whyus/HowToUse";
 import FqSection from "../../component/FqSection/FqSection";
+import UserReview from "../Review/UserReview";
 const Home = () => {
     
 useEffect(()=>{
@@ -20,13 +18,11 @@ useEffect(()=>{
   },[])
     return (
         <div className="overflow-x-hidden">
-            <Navbar></Navbar>
             <Banner  ></Banner>
             <WhyUS></WhyUS>
             <HowToUse></HowToUse>
-            <PopularArtical/>
+            <UserReview></UserReview>
             <FqSection/>
-            <Footer></Footer>
         </div>
     );
 };

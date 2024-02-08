@@ -12,6 +12,11 @@ import Users from '../Dashboard/Users';
 import ArticleUpdated from '../Dashboard/ArticleUpdated';
 import Blog from '../Dashboard/Blog';
 import AddArticle from '../Dashboard/AddArticle';
+import IpTracker from '../component/IpAddress/IpTracker';
+import RequstReview from '../Dashboard/RequstReview';
+import RequstArticle from '../Dashboard/RequstArticle';
+import PopularArtical from '../component/PopularArtical/PopularArtical';
+import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
 
 
 export const router = createBrowserRouter([
@@ -25,21 +30,29 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://team-project-server.vercel.app/users/${params.email}`)
             },
             {
-                path: '/login',
-                element: <Login></Login>
-            },
-            {
                 path: '/terms',
-                element: <TermsAndConditions></TermsAndConditions>
+                element: <TermsAndConditions/>
             },
             {
                 path: '/privacy',
-                element:<PrivacyPolicy></PrivacyPolicy>
+                element:<PrivacyPolicy/>
+            },
+            {
+                path: '/IpAddress',
+                element:<IpTracker/>
+            },
+            {
+                path: '/password/strength/check',
+                element:<PasswordStrengthChecker/>
             },
             
             {
+                path: '/articles',
+                element:<PopularArtical/>
+            },
+            {
                 path: '/aboutUs',
-                element:<AboutUs></AboutUs>
+                element:<AboutUs/>
             },
             {
                 path: '/articledetails/:id',
@@ -47,6 +60,10 @@ export const router = createBrowserRouter([
             },
             
         ]
+    },
+    {
+        path: '/login',
+        element: <Login></Login>
     },
     {
         path: '/dashboard',
@@ -69,9 +86,13 @@ export const router = createBrowserRouter([
                 element: <ArticleUpdated/>
             },
             {
-                path: '/dashboard/blog',
-                element: <Blog/>
-            }
+                path: '/dashboard/requstReview',
+                element: <RequstReview/>
+            },
+            {
+                path: '/dashboard/requstArticle',
+                element: <RequstArticle/>
+            },
         ]
     }
 ])
