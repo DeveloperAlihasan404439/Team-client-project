@@ -1,12 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import NavBar from '../../pages/Navbar/Navbar';
 
 const PrivacyPolicy = () => {
 
     return (
-    <div>   
-        <NavBar></NavBar>
         <motion.div 
       className="terms-container mt-4 max-w-7xl  mx-auto p-8 border-t-2 rounded-md shadow-lg"
       initial={{ opacity: 0 }}
@@ -231,7 +228,6 @@ import { motion } from 'framer-motion';
         </li>
         </ul>
         </motion.div >
-    </div>
   
         
         

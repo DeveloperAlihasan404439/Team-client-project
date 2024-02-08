@@ -45,28 +45,28 @@ const UpdateModal = ({ updatedArticle, refetch }) => {
         benefits,
         suggestArticle,
       };
-      axiosPublick.put(`/article/${_id}`,addArticle)
-      .then((res) => {
-        if (res?.data?.modifiedCount>0) {
-          reset()
-          refetch()
+      axiosPublick.put(`/article/${_id}`, addArticle).then((res) => {
+        if (res?.data?.modifiedCount > 0) {
+          reset();
+          refetch();
           Swal.fire({
             position: "center",
             icon: "success",
             title: "Successfull Article updated",
             showConfirmButton: false,
-            background: '#144248',
-            color: '#EEEEEE',
-            timer: 2000
-          }); 
+            background: "#144248",
+            color: "#EEEEEE",
+            timer: 2000,
+          });
         }
-      })
+      });
     }
   };
   useEffect(() => {
     setOpon(true);
   }, [open]);
-  const styleInput = "mt-1 shadow-sm w-full text-[#144248] px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-none rounded-lg bg-gray-50 focus:outline-none focus:ring-gray-50 focus:ring-offset-gray-300";
+  const styleInput =
+    "mt-1 shadow-sm w-full text-[#144248] px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-none rounded-lg bg-gray-50 focus:outline-none focus:ring-gray-50 focus:ring-offset-gray-300";
   return (
     <>
       {open ? (
@@ -74,9 +74,9 @@ const UpdateModal = ({ updatedArticle, refetch }) => {
           <input type="checkbox" id="my_modal_6" className="modal-toggle" />
           <div className="modal" role="dialog">
             <div className="modal-box max-w-5xl bg-[#EEEEEE] p-0 ">
-            <h1 className="text-4xl mt-5 font-bold text-[#144248] text-center">
-          Update <span className=" text-[#019D90]  ">Article</span>
-        </h1>
+              <h1 className="text-4xl mt-5 font-bold text-[#144248] text-center">
+                Update <span className=" text-[#019D90]  ">Article</span>
+              </h1>
               <form
                 onSubmit={handleSubmit(onSubmit)}
                 className=" text-left flex justify-start items-start
@@ -84,57 +84,69 @@ p-6 w-full space-y-3"
               >
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] "> Title </label>
+                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                      {" "}
+                      Title{" "}
+                    </label>
                     <div>
                       <input
                         {...register("title", { required: true })}
                         type="text"
                         defaultValue={title}
                         placeholder="Title"
-                        className={styleInput}
+                        className="input-text"
                       />
                     </div>
                   </div>
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] "> Input File </label>
+                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                      {" "}
+                      Input File{" "}
+                    </label>
                     <div>
                       <input
                         {...register("image")}
                         type="file"
-                        className="file-input mt-1 file-input-bordered file-input-success w-full  focus:outline-none border-none"
+                        className="input-file"
                       />
                     </div>
                   </div>
                 </div>
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] "> Why To Use</label>
+                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                      {" "}
+                      Why To Use
+                    </label>
                     <div>
                       <input
                         {...register("whyToUse", { required: true })}
                         type="text"
                         defaultValue={whyToUse}
                         placeholder="Why To Use"
-                        className={styleInput}
+                        className="input-text"
                       />
                     </div>
                   </div>
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] "> Use To Help </label>
+                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                      {" "}
+                      Use To Help{" "}
+                    </label>
                     <div>
                       <input
                         {...register("useToHelp", { required: true })}
                         type="text"
                         defaultValue={useToHelp}
                         placeholder="Use To Help"
-                        className={styleInput}
+                        className="input-text"
                       />
                     </div>
                   </div>
                 </div>
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] ">
+                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
                       {" "}
                       Where To Use{" "}
                     </label>
@@ -144,39 +156,48 @@ p-6 w-full space-y-3"
                         type="text"
                         defaultValue={whereToUse}
                         placeholder="Where To Use"
-                        className={styleInput}
+                        className="input-text"
                       />
                     </div>
                   </div>
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] "> Date </label>
+                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                      {" "}
+                      Date{" "}
+                    </label>
                     <div>
                       <input
                         {...register("date", { required: true })}
                         type="date"
                         defaultValue={date}
-                        className={styleInput}
+                        className="input-text"
                       />
                     </div>
                   </div>
                 </div>
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
-                    <label className="font-medium"> short Description </label>
+                    <label className="mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
+                      {" "}
+                      short Description{" "}
+                    </label>
                     <div className="mt-1">
                       <input
                         {...register("shortDescription", { required: true })}
                         type="text"
                         defaultValue={shortDescription}
                         placeholder="Short Description"
-                        className={styleInput}
+                        className="input-text"
                       />
                     </div>
                   </div>
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] "> Benefits </label>
+                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                      {" "}
+                      Benefits{" "}
+                    </label>
                     <div className="mt-1">
-                      <select disabled className={styleInput}>
+                      <select disabled className="input-text">
                         <option>Select Benefits</option>
                         <option value="Enhanced online security">
                           Enhanced online security
@@ -202,7 +223,10 @@ p-6 w-full space-y-3"
                 </div>
 
                 <div className="w-full">
-                  <label className="font-medium"> Description </label>
+                  <label className="mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
+                    {" "}
+                    Description{" "}
+                  </label>
                   <div className="mt-1">
                     <textarea
                       {...register("description", { required: true })}
@@ -212,7 +236,7 @@ p-6 w-full space-y-3"
                       defaultValue={description}
                       required=""
                       placeholder="Your description"
-                      className={styleInput}
+                      className="input-text"
                     />
                   </div>
                   <div className="flex justify-end items-center mt-5 gap-5">

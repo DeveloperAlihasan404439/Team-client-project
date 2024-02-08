@@ -258,7 +258,7 @@ const Login = () => {
               <input
                 {...register("image")}
                 type="file"
-                className="file-input mt-3 file-input-bordered file-input-success w-full max-w-xs"
+                className="input-file my-3"
               />
               {success && <p className="text-green-700">{success}</p>}
               <input type="submit" value={imgLoader?"Waiting...":"Sign up"} className="btnn solid" />
