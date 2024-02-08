@@ -13,6 +13,7 @@ import { FaPeopleGroup } from "react-icons/fa6";
 
 import { AuthContext } from "../../provider/AuthProvider";
 import { motion } from "framer-motion";
+import DarkMode from "../Shared/DarkMode/DarkMode";
 
 const NavBar = () => {
 
@@ -250,7 +251,10 @@ const NavBar = () => {
             ))}
           </ul>
         </div>
+
+
         <div className="navbar-end">
+          <DarkMode/>
           {user ? (
             <>
               <div className="dropdown dropdown-end ">
@@ -300,7 +304,7 @@ const NavBar = () => {
                 <Link to="/login">
                   <motion.button
                     whileTap={{ scale: 0.9 }}
-                    className="hover:bg-[#017E77] font-semibold bg-[#019D91] border-2 border-[#EEEEEE]  text-[#EEEEEE]  p-3 rounded-lg   "
+                    className="hover:bg-[#017E77] font-semibold Hover:bg-[#019D91] ml-3 border hover:border  border-[#017E77] font-inter hover:text-[#EEEEEE] px-5 py-2 rounded-md   "
                   >
                     Login
                   </motion.button>
