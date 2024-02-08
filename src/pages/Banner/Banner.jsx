@@ -49,7 +49,6 @@ const Banner = () => {
   }
 
   const inboxIds = tempMail.inboxId;
-  console.log(inboxIds)
   useEffect(() => {
     if (inboxIds) {
       axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
@@ -68,14 +67,11 @@ const Banner = () => {
       }}
 
       ></div>
-      {/* <img className='w-full h-full object-fill' src={img} alt="BANNER" /> */}
     
       <motion.div style={{ y: textY }} className="hero-content z-80  text-center text-[#144248]">
         <div className='bg-white bg-opacity-50 z-80  rounded-md'>
-          <h2 className='mt-9 text-2xl text-[#144248]'>Your Temporary Email Address</h2>
+          <h2 className='mt-9 text-2xl text-[#019d90c0]'>Your Temporary Email Address</h2>
           <div className="lg:w-[45rem] rounded-lg w-[17rem] h-[15rem] flex items-center justify-center">
-
-
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
 
           </div>
@@ -125,12 +121,6 @@ const Banner = () => {
         </div>
         
       </motion.div>
-      <div className='relative z-10 w-full '>
-   
-      {/* <canvas className='object-cover' id="canvas3d" /> */}
-{/* <img className='h-80 absolute -left-1 top-10 ' src={gif} alt="" /> */}
-    
-      </div>
      
     </motion.div>
 

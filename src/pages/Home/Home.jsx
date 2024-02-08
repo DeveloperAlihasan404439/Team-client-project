@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import PopularArtical from "../../component/PopularArtical/PopularArtical";
 import Banner from "../Banner/Banner";
 import WhyUS from "../Whyus/WhyUS";
 import AOS from 'aos';
@@ -22,10 +21,8 @@ useEffect(()=>{
             <Banner  ></Banner>
             <WhyUS></WhyUS>
             <HowToUse></HowToUse>
-            <PopularArtical/>
             <UserReview></UserReview>
             <FqSection/>
-            <Footer></Footer>
         </div>
     );
 };

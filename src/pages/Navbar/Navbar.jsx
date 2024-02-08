@@ -51,7 +51,7 @@ const NavBar = () => {
         {
           Title: "Password ",
           icon: <TbPasswordUser />,
-          Route: "/pass",
+          Route: "/password/strength/check",
         },
       ],
     },
@@ -59,7 +59,7 @@ const NavBar = () => {
     {
       Title: "Articles",
       icon: <PiArticleDuotone />,
-      Route: "/login",
+      Route: "/articles",
     },
     {
       Title: "About Us",
