@@ -14,21 +14,21 @@ const RecievedEmails = () => {
     const { data: tempMail = {}, refetch } = useQuery({
         queryKey: ['tempMail'],
         queryFn: async () => {
-          if (!user) return; // Return early if user is not loaded
-          const res = await axios.get(`https://server-side-bice.vercel.app/users/${user.email}`);
-          return res.data;
+            if (!user) return; // Return early if user is not loaded
+            const res = await axios.get(`https://server-side-bice.vercel.app/users/${user.email}`);
+            return res.data;
         },
         enabled: !!user, // Only enable the query if user is available
-      });
+    });
     const inboxIds = tempMail.inboxId;
     useEffect(() => {
         if (inboxIds) {
             axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
-              .then(res => {
-                refetch()
-                setEmails(res.data)
-              })
-          }
+                .then(res => {
+                    refetch()
+                    setEmails(res.data)
+                })
+        }
     }, [inboxIds, refetch])
 
     const reloadEmails = () => {
@@ -42,7 +42,7 @@ const RecievedEmails = () => {
 
 
 
- 
+
 
     return (
         <div className="mt-4">
@@ -77,7 +77,7 @@ const RecievedEmails = () => {
                 }
             </div>
 
-            
+
         </div>
     );
 };
