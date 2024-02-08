@@ -1,8 +1,8 @@
 const FqSection = () => {
   return (
-    <div className="relative mx-auto rounded-xl shadow bg-[#019D90]    bg-cover bg-no-repeat my-10">
-    <div className="max-w-screen-xl mx-auto">
-      <div className="w-full h-full absolute bg-BackGround_two animation "></div>
+    <div className="relative   mx-auto rounded-xl shadow bg-[#019D90]    bg-cover bg-no-repeat my-10">
+    <div className=" w-full mx-auto">
+      <div className="w-full h-full absolute bg-BackGround_two bg-cover  animation "></div>
       <div className=" font-manrope text-center py-8">
         <p className="text-gray-300 text-lg">Common Question</p>
         <p className="text-5xl font-bold text-white py-5">
