@@ -1,112 +1,123 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const PasswordStrengthChecker = () => {
-    const [password, setPassword] = useState('');
-    const [strength, setStrength] = useState('');
-    const [characterCount, setCharacterCount] = useState(0);
+    const [strength, setStrength] = useState("");
+    const [password, setPassword] = useState("");
 
-    const handleGenerateClick = () => {
-        const newPassword = generatePassword();
-        setPassword(newPassword);
-
-        updatePasswordStrength(newPassword);
-        setCharacterCount(newPassword.length);
-    };
+    const [showPassword, setShowPassword] = useState(true);
 
     const handlePasswordChange = (e) => {
         const newPassword = e.target.value;
+        setStrength("")
+        if (newPassword.length > 5) {
+            setStrength("Weak");
+            if (
+                /[a-z]/.test(newPassword) &&
+                /[0-9]/.test(newPassword) &&
+                /[A-Z]/.test(newPassword) &&
+                /[@#$%^&*]/.test(newPassword)
+            ) {
+                setStrength("Strong");
+            } else if (
+                /[a-z]/.test(newPassword) &&
+                /[0-9]/.test(newPassword) &&
+                /[A-Z]/.test(newPassword)
+            ) {
+                setStrength("Good");
+            } else if (/[a-z]/.test(newPassword) && /[0-9]/.test(newPassword)) {
+                setStrength("Moderate");
+            }
+        }
+
         setPassword(newPassword);
-        setCharacterCount(newPassword.length);
-
-        updatePasswordStrength(newPassword);
     };
-
-    const updatePasswordStrength = (newPassword) => {
-        let newStrength = 'Weak';
-
-        if (newPassword.length >= 12) {
-            newStrength = 'Strong';
-        } else if (newPassword.length >= 8) {
-            newStrength = 'Moderate';
-        }
-
-        setStrength(newStrength);
-    };
-
-    const generatePassword = () => {
-        const length = 12;
-        const charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJK@$%&8748948LMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+';
-        let newPassword = '';
-
-        for (let i = 0; i < length; i++) {
-            const randomIndex = Math.floor(Math.random() * charset.length);
-            newPassword += charset[randomIndex];
-        }
-
-        return newPassword;
-    };
-
-    const getProgressBarColor = () => {
-        switch (strength) {
-            case 'Weak':
-                return 'bg-red-400';
-            case 'Moderate':
-                return 'bg-yellow-400';
-            case 'Strong':
-                return 'bg-green-400';
-            default:
-                return '';
-        }
-    };
-
     return (
-        <div className='font-inter'>
-            <div className='lg:w-[50%] md:w-[50%] m-auto text-2xl'>
-                <h2>Take the Password Test</h2>
-                <h2 className='text-xl'>Tip: Stronger passwords use different types of characters</h2>
-            </div>
-            <div className='bg-gray-500 bg-opacity-25 lg:w-[50%] md:w-[50%] font-serif w-full m-auto p-3 mb-6 rounded-md'>
-                <div className='flex items-center justify-between'>
-                    <div>
-                        <input
-                            type="text"
-                            id="password"
-                            value={password}
-                            onChange={handlePasswordChange}
-                            placeholder="Enter your password or click generate button"
-                            className="lg:w-[37rem] md:w-full w-full p-2 border rounded-l-md"
-                        />
-                    </div>
-                    <div>
-                        <button onClick={handleGenerateClick} className='border-2 font-serif hover:bg-green-800 hover:text-white rounded-r-md hover:border-gray-500 border-green-500 p-2 text-green-600 font-bold border-l-0'>Generate</button>
+        <div className="max-w-5xl mx-auto py-10">
+            <h2 className="text-center text-3xl pb-2 text-[#144248]">
+                Password Strength Meter{" "}
+                <span className="text-[#019D90]">Design Pattern</span>
+            </h2>
+            <div className="md:w-[70%] p-10 rounded bg-white shadow-xl mx-auto mt-3 md:mt-6">
+                <h1 className="text-xl font-medium mb-5 text-[#144248]">
+                    Password Strength Indicate
+                </h1>
+                <div className="relative">
+                    <input
+                        onChange={handlePasswordChange}
+                        className="input-text"
+                        type={showPassword ? "password" : "text"}
+                        placeholder="Your Password"
+                    />
+                    <div
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute top-2 right-2 text-xl uppercase font-bold tracking-wide"
+                    >
+                        {showPassword ? (
+                            <span className="text-[#019D90]">Show</span>
+                        ) : (
+                            <span className="text-[#e6a328]">Hide</span>
+                        )}
                     </div>
                 </div>
-
-                <div className='mb-3'>
-                    <p className='text-[12px] font-serif'>Character {characterCount}</p>
+                <div className="flex items-center justify-between gap-5 mt-5">
+                    <div
+                        className={`border-y-4 rounded ${strength === "Weak" ||
+                                strength === "Moderate" ||
+                                strength === "Good" ||
+                                strength === "Strong"
+                                ? "border-red-500"
+                                : "border-white"
+                            }  w-[33%]`}
+                    ></div>
+                    <div
+                        className={`border-y-4 rounded ${strength === "Moderate" ||
+                                strength === "Good" ||
+                                strength === "Strong"
+                                ? "border-[#e6a328]"
+                                : "border-white"
+                            }  w-[33%]`}
+                    ></div>
+                    <div
+                        className={`border-y-4 rounded ${strength === "Good" || strength === "Strong"
+                                ? "border-[#9de919]"
+                                : "border-white"
+                            }  w-[33%]`}
+                    ></div>
+                    <div
+                        className={`border-y-4 rounded ${strength === "Strong" ? "border-[#22ad5c] " : "border-white"
+                            }  w-[33%]`}
+                    ></div>
                 </div>
-
-                {
-                    password && (
-                        <div className="w-full h-2 bg-gray-300 rounded">
-                            <div
-                                className={`h-full ${getProgressBarColor()} rounded`}
-                                style={{ width: `${strength === 'Weak' ? 25 : strength === 'Moderate' ? 50 : 100}%` }}
-                            ></div>
-                        </div>
-                    )
-                }
-                {password && <p>Password Strength: {strength}</p>}
+                {password ? (
+                    <>
+                        {strength ? (
+                            <h1
+                                className={`text-xl font-medium mt-4 text-center ${strength === "Weak" ? "text-red-500" : "text-[#144248]"
+                                    } ${strength === "Moderate" ? "text-[#e6a328]" : "text-[#144248]"
+                                    } ${strength === "Strong" ? "text-[#9de919]" : "text-[#144248]"}
+            ${strength === "Strong" ? "text-[#22ad5c]" : "text-[#144248]"}`}
+                            >
+                                Your password is {strength}
+                            </h1>
+                        ) : (
+                            <h1 className="text-xl font-medium mt-4 text-center text-[#144248]">
+                                Your password minimum 6 characters
+                            </h1>
+                        )}
+                    </>
+                ) : (
+                    ""
+                )}
             </div>
-            <div className='max-w-6xl mx-auto font-inter p-2'>
-                <div className=' bg-gray-400 border-gray-300 border-2 p-2 bg-opacity-15'>
+            <div className='max-w-6xl mx-auto font-inter p-2 mt-4'>
+                <div className='rounded-sm bg-white shadow-md border-2 p-2 bg-opacity-50'>
                     <div className=''>
                         <h2 className='text-3xl text-[#144248] font-bold'>Problem Summary</h2>
                         <p className='text-2xl'>You want to make sure your users' passwords are sufficiently strong in order to prevent malicious attacks.</p>
                     </div>
                     <div className="mt-2">
                         <h2 className='text-[#144248] font-bold text-3xl'>Example</h2>
-                        <img className='flex justify-start items-center text-center mt-4' src="https://i.ibb.co/ZG3Hkcp/Screenshot-2024-02-09-090857.png" alt="" />
+                        <img className='flex justify-start items-center text-center mt-4' src="https://i.ibb.co/Ns7cQ1h/Screenshot-2024-02-09-105800.png" alt="" />
                         <h2 className='text-[#144248] text-3xl font-bold'>Usage</h2>
                     </div>
                     <ol className='text-2xl ml-[2rem] mt-2 list-decimal'>
@@ -118,10 +129,9 @@ const PasswordStrengthChecker = () => {
                 <div className='max-w-6xl font-inter text-3xl mt-2 font-bold text-[#144248]'>
                     <h2>More Examples</h2>
                     <div className='lg:flex md:flex gap-2'>
-                        <img className='lg:w-[15rem] h-[12rem]' src="https://i.ibb.co/ZG3Hkcp/Screenshot-2024-02-09-090857.png" alt="" />
-                        <img className='lg:w-[15rem] h-[12rem]' src="https://i.ibb.co/ZG3Hkcp/Screenshot-2024-02-09-090857.png" alt="" />
-                        <img className='lg:w-[15rem] h-[12rem]' src="https://i.ibb.co/ZG3Hkcp/Screenshot-2024-02-09-090857.png" alt="" />
-                        <img className='lg:w-[15rem] h-[12rem]' src="https://i.ibb.co/ZG3Hkcp/Screenshot-2024-02-09-090857.png" alt="" />
+                        <img className='lg:w-[15rem] h-[9rem]' src="https://i.ibb.co/fNkdYQC/Screenshot-2024-02-09-105730.png" alt="" />
+                        <img className='lg:w-[15rem] h-[9rem]' src="https://i.ibb.co/Yd6bW9Y/Screenshot-2024-02-09-105658.png" alt="" />
+                        <img className='lg:w-[15rem] h-[9rem]' src="https://i.ibb.co/Ns7cQ1h/Screenshot-2024-02-09-105800.png" alt="" />
                     </div>
                 </div>
 

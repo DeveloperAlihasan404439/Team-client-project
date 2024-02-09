@@ -1,5 +1,3 @@
-import NavBar from "./../../pages/Navbar/Navbar";
-import Footer from "./../../pages/Footer/Footer";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { useState } from "react";
@@ -21,9 +19,7 @@ const AboutUs = () => {
 
 
   return (
-    <div className="">
-         
-      <NavBar></NavBar>
+    <>
       <section className="max-w-7xl text-[#144248] mx-auto mt-10 ">
         <h1 className="text-4xl   font-bold drop-shadow-md  text-center lg:text-left" >About  <span className="text-[#019D90]"> Us</span> </h1>
         <Tabs className={"mt-6"}>
@@ -99,9 +95,7 @@ const AboutUs = () => {
       </section>
       <MeetTeam></MeetTeam>
       <ContactUs></ContactUs>
-    
-      <Footer></Footer>
-    </div>
+    </>
   );
 };
 

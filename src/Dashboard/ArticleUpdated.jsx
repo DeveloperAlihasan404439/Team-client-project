@@ -8,6 +8,7 @@ import useAxios from "../Hooks/useAxios";
 import Swal from "sweetalert2";
 import UpdateModal from "./UpdateModal";
 import { useState } from "react";
+import Loader from "../pages/Shared/Loader";
 moment().format();
 const ArticleUpdated = () => {
   const { article, isLoading, refetch } = useArticle();
@@ -31,8 +32,8 @@ const ArticleUpdated = () => {
     });
   }
   function hendelUpdatedArticle(id) {
-    setupdatedArticle({})
-    if(id){
+    setupdatedArticle({});
+    if (id) {
       const updatedArticle = article.find(
         (updatedArticle) => updatedArticle._id === id
       );
@@ -46,10 +47,10 @@ const ArticleUpdated = () => {
           A Design <span className=" text-[#019D90]  ">Guide</span>
         </h1>
         <p className=" text-center font-inter  text-[#144248] font-medium  mt-4 mb-10">
-          Explore the realm of user experience design, delving into
-          principles that shape compelling digital interfaces. <br /> This article
-          unveils insights into user-centric design, effective usability
-          testing, and the psychology of user interaction.
+          Explore the realm of user experience design, delving into principles
+          that shape compelling digital interfaces. <br /> This article unveils
+          insights into user-centric design, effective usability testing, and
+          the psychology of user interaction.
         </p>
       </div>
       <div className="px-10 flex justify-between items-center text-xl text-[#144248] font-semibold">
@@ -58,23 +59,21 @@ const ArticleUpdated = () => {
           <Button name="Add Article" />
         </Link>
       </div>
-      <div className="overflow-x-auto border-x-2 mt-5  rounded-t-[30px]">
-        <table className="table">
-          <thead>
-            <tr className="w-full bg-[#144248] text-[#ffffff] ">
-              <th></th>
-              <th className="text-xl">Photo</th>
-              <th className="text-xl text-center">Title</th>
-              <th className="text-xl text-center">Date</th>
-              <th className="text-xl flex-1 text-center">Update</th>
-              <th className="text-xl flex-1 text-center">delete</th>
-            </tr>
-          </thead>
-          {isLoading ? (
-            <h1 className="text-5xl font-medium">
-              Loading data...........ArticleUpdated line 28
-            </h1>
-          ) : (
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="overflow-x-auto border-x-2 mt-5  rounded-t-[30px]">
+          <table className="table">
+            <thead>
+              <tr className="w-full bg-[#144248] text-[#ffffff] ">
+                <th></th>
+                <th className="text-xl">Photo</th>
+                <th className="text-xl text-center">Title</th>
+                <th className="text-xl text-center">Date</th>
+                <th className="text-xl flex-1 text-center">Update</th>
+                <th className="text-xl flex-1 text-center">delete</th>
+              </tr>
+            </thead>
             <tbody>
               {article?.map((arc, i) => (
                 <tr
@@ -127,9 +126,9 @@ const ArticleUpdated = () => {
                 </tr>
               ))}
             </tbody>
-          )}
-        </table>
-      </div>
+          </table>
+        </div>
+      )}
 
       <UpdateModal updatedArticle={updatedArticle} refetch={refetch} />
     </div>
