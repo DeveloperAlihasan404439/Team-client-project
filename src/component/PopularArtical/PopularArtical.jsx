@@ -4,6 +4,7 @@ import { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import './PopularArtical.css'
+import Loader from "../../pages/Shared/Loader";
 const PopularArtical = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { article, isLoading } = useArticle();
@@ -26,9 +27,7 @@ const PopularArtical = () => {
         </p>
       </div>
       {isLoading ? (
-        <h1 className="text-5xl font-medium">
-          Loading data...........PopularArtical line 18
-        </h1>
+        <Loader/>
       ) : (
         <>
           <div className="max-w-screen-xl mt-12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
