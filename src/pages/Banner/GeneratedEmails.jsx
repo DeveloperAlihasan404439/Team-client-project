@@ -27,15 +27,12 @@ const GeneratedEmails = ({ tempMail }) => {
           )
         ) : (
           <div className="bg-[#EEEEEE] border lg:w-full md:w-full w-full px-4 py-3 rounded-l-md bg-opacity-50 font-bold text-[#019d90c0]">
-           Click create inbox button to see temporary
+            Click create inbox button to see temporary
           </div>
         )}
       </div>
-      <div>
-        <Button
-          onClick={handleCopy}
-          name={copied ? "Copied!" : "Copy"}
-          />  
+      <div onClick={handleCopy}>
+        <Button name={copied ? "Copied!" : "Copy"} />
       </div>
     </div>
   );

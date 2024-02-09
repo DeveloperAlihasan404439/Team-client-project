@@ -13,7 +13,6 @@ const DashHome = () => {
   const { user } = useContext(AuthContext);
   const [filed, setField] = useState(false);
   const [createdInbox, setCreatedInboxes] = useState("");
-  // https://server-side-bice.vercel.app/createdInboxes
   const { data: createdInboxes = [], refetch } = useQuery({
     queryKey: ["createdInboxes"],
     queryFn: async () => {
@@ -23,7 +22,6 @@ const DashHome = () => {
       return res.data;
     },
   });
-  // http://localhost:5000/
   const test = [createdInboxes];
   useEffect(() => {
     if (test.length > 0) {
@@ -56,8 +54,13 @@ const DashHome = () => {
       .then(() => {
         refetch();
         Swal.fire({
-          title: "Api key upgraded!",
+          position: "center",
           icon: "success",
+          title: "Successfull Api Updated",
+          showConfirmButton: false,
+          background: "#144248",
+          color: "#EEEEEE",
+          timer: 2000,
         });
       });
   };
