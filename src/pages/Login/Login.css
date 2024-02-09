@@ -1,6 +1,6 @@
 
 .container{
-    /* dekha lagbe pore aitar ki obaotha  */
+ margin: 0 auto;
     position: relative;  
     width: 100% !important;
     min-height: 100vh;
