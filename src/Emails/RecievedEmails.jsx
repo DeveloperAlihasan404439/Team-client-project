@@ -47,8 +47,8 @@ const RecievedEmails = () => {
       });
   };
   return (
-    <div className="mt-4">
-      <div className="bg-white w-full lg:w-[50%] m-auto rounded-md ">
+    <div className="">
+      <div className="bg-white w-full lg:w-[50%] m-auto rounded-lg ">
         <div
           className="flex justify-between bg-[#10a295] items-center
                  px-5 py-2 rounded-t-lg"
@@ -62,8 +62,8 @@ const RecievedEmails = () => {
                 onClick={() => reloadEmails()}
                 className="px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
               >
-                {" "}
-                <span className="animate-spin infinite">
+                
+                <span className="animate-spin infinite ">
                   <TbLoader2  />
                 </span>
                 Loading
@@ -73,7 +73,7 @@ const RecievedEmails = () => {
                 onClick={() => reloadEmails()}
                 className="px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
               >
-                {" "}
+                
                 <span className="animate-spin infinite">
                   <IoReload />
                 </span>

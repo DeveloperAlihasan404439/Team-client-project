@@ -1,16 +1,23 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import img from '../../assets/BannerL&Logo/banner2.jpg'
+import mail from '../../assets/BannerL&Logo/mail.json'
 import { motion, useScroll, useTransform } from "framer-motion"
 // import { Application } from '@splinetool/runtime';
 // import Spline from '@splinetool/react-spline';
 import gif from '../../assets/image/laptop.gif'
-
+import Lottie from 'lottie-react';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import GeneratedEmails from './GeneratedEmails';
 import Problem from './Problem';
+
+
+
+
+
+
 const Banner = () => {
   const ref = useRef(null)
   const { user, loading } = useContext(AuthContext)
@@ -60,17 +67,17 @@ const Banner = () => {
   }, [inboxIds, refetch])
   return (
 
- 
-    <motion.div ref={ref} className="hero place-items-center  items-center mt-0 relative -top-20   h-screen" >
-      <div className='absolute inset-0 ' style={{
-        backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center',
-      }}
+    <motion.div ref={ref} className="hero place-items-center   items-center  relative w-full  -top-20  h-screen " >
+    <div className='absolute inset-0 ' style={{
+      backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center',
+    }}
 
-      ></div>
+    ></div>
+
     
       <motion.div style={{ y: textY }} className="hero-content z-80  text-center text-[#144248]">
         <div className='bg-white bg-opacity-50 z-80  rounded-md'>
-          <h2 className='mt-9 text-2xl text-[#019d90c0]'>Your Temporary Email Address</h2>
+          <h2 className='mt-9   text-2xl md:text-3xl font-medium '>Your Temporary Email Address</h2>
           <div className="lg:w-[45rem] rounded-lg w-full h-[15rem] flex items-center justify-center">
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
 
@@ -120,8 +127,13 @@ const Banner = () => {
           </div>
         </div>
         
+
       </motion.div>
-     
+      <div className='relative z-10 w-full '>
+ 
+ <Lottie className='lg:w-72 md:w-48 top-16 hidden md:block left-10 h-80 md:absolute ' animationData={mail} loop={true} />
+
+ </div>
     </motion.div>
 
   );
