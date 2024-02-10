@@ -110,7 +110,7 @@ const AddArticle = () => {
   };
   
   return (
-    <div className="max-w-5xl mx-auto my-10">
+    <div className="max-w-5xl mx-auto my-4">
       <h1 className="text-4xl text-center font-bold text-[#144248] ">
         Add an <span className=" text-[#019D90]  ">Article</span>
       </h1>

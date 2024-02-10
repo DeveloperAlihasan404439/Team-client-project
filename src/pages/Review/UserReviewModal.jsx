@@ -66,10 +66,10 @@ const UserReviewModal = () => {
           <div className="modal" role="dialog">
             <div className="modal-box max-w-4xl bg-[#EEEEEE] p-0 ">
               <h1 className="text-2xl md:text-4xl font-bold text-[#144248] my-5 md:mt-10 px-5 text-center">
-                Voices Unveiled:{" "}
+                Voices Unveiled:
                 <span className=" text-[#019D90]  ">Authentic Experiences</span>
               </h1>
-              <p className="text-sm md:text-lg font-bold text-[#144248] text-center px-5">
+              <p className="text-sm md:text-lg font-medium text-[#144248] text-center px-5">
                 Dive into genuine user testimonials with our dynamic swiper.
                 Explore insights effortlessly, empowered by our intuitive
                 interface. Discover the heartbeat of our community.
@@ -81,9 +81,9 @@ p-6 w-full space-y-3"
               >
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="mb-4 md:mb-0 md:w-[50%]">
-                    <label className=" md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Your Name{" "}
+                    <label className=" md:mb-2 font-medium text-[#144248] text-[18px] tracking-[1px] uppercase ">
+                      
+                      Your Name
                     </label>
                     <div>
                       <input
@@ -97,8 +97,8 @@ p-6 w-full space-y-3"
                   </div>
                   <div className="mb-4 md:mb-0 md:w-[50%]">
                     <label className=" md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Input File{" "}
+                      
+                      Input File
                     </label>
                     <div>
                       <input
@@ -112,8 +112,8 @@ p-6 w-full space-y-3"
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="mb-4 md:mb-0 md:w-[50%]">
                     <label className=" md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Your Email{" "}
+                      
+                      Your Email
                     </label>
                     <div>
                       <input
@@ -126,8 +126,8 @@ p-6 w-full space-y-3"
                   </div>
                   <div className="mb-4 md:mb-0 md:w-[50%]">
                     <label className=" md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Date{" "}
+                      
+                      Date
                     </label>
                     <div>
                       <input
@@ -140,8 +140,8 @@ p-6 w-full space-y-3"
                 </div>
                 <div className="mb-4 md:mb-0 md:w-full">
                   <label className=" md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                    {" "}
-                    Rating{" "}
+                    
+                    Rating
                   </label>
                   <div>
                     <input
@@ -155,8 +155,8 @@ p-6 w-full space-y-3"
 
                 <div className="mb-4 md:mb-0 w-full">
                   <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
-                    {" "}
-                    Reveiw{" "}
+                    
+                    Reveiw
                   </label>
                   <div className="mt-1">
                     <textarea

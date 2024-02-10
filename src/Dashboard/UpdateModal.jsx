@@ -85,8 +85,8 @@ p-6 w-full space-y-3"
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
                     <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Title{" "}
+                     
+                      Title
                     </label>
                     <div>
                       <input
@@ -100,8 +100,8 @@ p-6 w-full space-y-3"
                   </div>
                   <div className="md:w-[50%]">
                     <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Input File{" "}
+                     
+                      Input File
                     </label>
                     <div>
                       <input
@@ -115,7 +115,7 @@ p-6 w-full space-y-3"
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
                     <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
+                     
                       Why To Use
                     </label>
                     <div>
@@ -130,8 +130,8 @@ p-6 w-full space-y-3"
                   </div>
                   <div className="md:w-[50%]">
                     <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Use To Help{" "}
+                     
+                      Use To Help
                     </label>
                     <div>
                       <input
@@ -147,8 +147,8 @@ p-6 w-full space-y-3"
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
                     <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Where To Use{" "}
+                     
+                      Where To Use
                     </label>
                     <div>
                       <input
@@ -162,8 +162,8 @@ p-6 w-full space-y-3"
                   </div>
                   <div className="md:w-[50%]">
                     <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Date{" "}
+                     
+                      Date
                     </label>
                     <div>
                       <input
@@ -178,8 +178,8 @@ p-6 w-full space-y-3"
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
                     <label className="mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
-                      {" "}
-                      short Description{" "}
+                     
+                      short Description
                     </label>
                     <div className="mt-1">
                       <input
@@ -193,8 +193,8 @@ p-6 w-full space-y-3"
                   </div>
                   <div className="md:w-[50%]">
                     <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
-                      {" "}
-                      Benefits{" "}
+                     
+                      Benefits
                     </label>
                     <div className="mt-1">
                       <select disabled className="input-text">
@@ -224,8 +224,8 @@ p-6 w-full space-y-3"
 
                 <div className="w-full">
                   <label className="mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
-                    {" "}
-                    Description{" "}
+                   
+                    Description
                   </label>
                   <div className="mt-1">
                     <textarea

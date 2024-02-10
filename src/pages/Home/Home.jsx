@@ -17,13 +17,13 @@ const Home = () => {
     });
   }, []);
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden relative">
       <Banner />
       <RecievedEmails />
       <WhyUS />
       <HowToUse />
       <UserReview />
-      <FqSection />
+     
     </div>
   );
 };

@@ -37,7 +37,7 @@ const Dashboard = () => {
       icon:<SiAutodeskrevit />,
     },
     {
-      Title: "Requst Article",
+      Title: "Request Article",
       Route: "/dashboard/requstArticle",
       icon:<IoGitPullRequestSharp />,
     },
@@ -70,6 +70,11 @@ const Dashboard = () => {
             <SiHomeassistantcommunitystore/>
             Home
           </NavLink>
+          </li>
+          <li className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[20px] flex items-center gap-3">
+          <IoGitPullRequestSharp />
+            LogOut
+       
           </li>
         </ul>
       </nav>

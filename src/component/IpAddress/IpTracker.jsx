@@ -75,7 +75,7 @@
     
     
       return (
-        <div className="text-[#144248] max-w-7xl mx-auto pt-10 p-6">
+        <div className="text-[#144248] max-w-7xl mx-auto pt-4 p-6">
     
           <h1 className=" text-3xl md:text-4xl text-center font-bold drop-shadow ">
             Discover Your World: <br className="md:hidden" />
