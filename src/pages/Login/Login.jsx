@@ -287,7 +287,7 @@ const Login = () => {
                 className="file-input mt-3 file-input-bordered file-input-success w-full max-w-xs"
               />
               {success && <p className="text-green-700">{success}</p>}
-              <input type="submit" value={"Sign up"} className="btnn solid" />
+              <input type="submit" value={ loager?"Waiting...":"Sign up"} className="btnn solid" />
               <div className="divider">OR</div>
               <p className="social-text">Sign up with social platforms</p>
               <div className="social-media">
