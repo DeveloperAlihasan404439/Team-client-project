@@ -1,6 +1,6 @@
 import { IoLogoFacebook, IoLogoGithub, IoLogoGoogle } from "react-icons/io5";
 import { FaChevronLeft, FaEye, FaEyeSlash } from "react-icons/fa";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import "../Login/Login.css";
 
 import singupimage from "../../../src/assets/image/undraw_feeling_proud_qne1.svg";
@@ -9,6 +9,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   GoogleAuthProvider,
   getAuth,
+  sendPasswordResetEmail,
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
@@ -17,6 +18,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import useAxios from "../../Hooks/useAxios";
 import { useForm } from "react-hook-form";
+
 //  images hostion
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
@@ -42,7 +44,8 @@ const Login = () => {
   const handleSignInClick = () => {
     setSignUpMode(false);
   };
-
+  //for reset passoword
+  const emailRef = useRef(null);
   //google signIn
   const handleGoogleSingIn = () => {
     signInWithPopup(auth, googleProvider)
@@ -137,6 +140,7 @@ const Login = () => {
         "content-type": "multipart/form-data",
       }
     })
+    console.log(res)
     if (res.data.success) {
       setLoager(false)
       const name = data.name;
@@ -156,7 +160,6 @@ const Login = () => {
             };
             axiosPublick.post("/users", userInfo).then((res) => {
               if (res.data.insertedId) {
-                logOut();
                 reset();
                 Swal.fire({
                   position: "center",
@@ -184,7 +187,28 @@ const Login = () => {
           });
         });
     }
-  };
+  }
+
+  const handleForgetPassword = () =>{
+    const email = emailRef.current.value;
+    if(!email){
+      console.log('please provide an email',emailRef.current.value)
+      return;
+    }
+    else if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/.test(email)){
+      console.log("please write a valid email")
+      return;
+    }
+    
+    sendPasswordResetEmail(auth,email)
+    .then(()=>{
+      alert('please check your email')
+    })
+    .catch(error =>{
+      console.log(error)
+    })
+  }
+
   return (
     <div className="body">
       <div className={`container ${isSignUpMode ? "sign-up-mode" : ""}`}>
@@ -195,12 +219,13 @@ const Login = () => {
               <h2 className="title">Sign in</h2>
               <div className="input-field">
                 <i className="fas fa-user"></i>
-                <input name="email" type="email" placeholder="Email" />
+                <input name="email" ref={emailRef} type="email" placeholder="Email" />
               </div>
               <div className="input-field">
                 <i className="fas fa-user"></i>
                 <input name="password" type="password" placeholder="Password" />
               </div>
+              <a className="text-sm mt-2 link link-hover" onClick={handleForgetPassword}>Forget password ?</a>
               <input type="submit" value={"login"} className="btnn solid" />
 
               <div className="divider">OR</div>
@@ -262,7 +287,7 @@ const Login = () => {
                 className="file-input mt-3 file-input-bordered file-input-success w-full max-w-xs"
               />
               {success && <p className="text-green-700">{success}</p>}
-              <input type="submit" value={loager?"Waiting...":"Sign up"} className="btnn solid" />
+              <input type="submit" value={"Sign up"} className="btnn solid" />
               <div className="divider">OR</div>
               <p className="social-text">Sign up with social platforms</p>
               <div className="social-media">
