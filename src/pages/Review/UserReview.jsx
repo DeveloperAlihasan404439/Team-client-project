@@ -104,6 +104,13 @@ const UserReview = () => {
         >
           <AiTwotoneEdit className="text-2xl" /> Write a review
         </motion.label>
+
+        {/* Put this part before </body> tag */}
+        <input
+          type="checkbox"
+          id="my_modal_6"
+          className="modal-toggle  bg-[#EEEEEE]"
+        />
         <UserReviewModal />
       </section>
     </div>
