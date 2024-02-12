@@ -67,8 +67,8 @@ const Banner = () => {
   }, [inboxIds, refetch])
   return (
 
-    <motion.div ref={ref} className="hero place-items-center   items-center  relative w-full  -top-20  h-screen " >
-    <div className='absolute inset-0 ' style={{
+    <motion.div ref={ref} className="hero place-items-center  mb-10  items-center  relative w-full  h-screen mt-0 " >
+    <div className='absolute z-90 -top-20 right-0 left-0 bottom-0 object-cover' style={{
       backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center',
     }}
 

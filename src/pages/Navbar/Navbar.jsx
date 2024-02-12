@@ -77,7 +77,7 @@ const NavBar = () => {
         transition: "all .5s ease-in-out",
       }}
     >
-      <div className="navbar  backdrop-blur rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto z-50">
+      <div className="navbar z-0  backdrop-blur rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto ">
         <div className="navbar-start   ">
           <div className="dropdown w-fit h-fit ">
             <button

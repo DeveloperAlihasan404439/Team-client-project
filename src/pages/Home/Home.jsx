@@ -7,6 +7,7 @@ import HowToUse from "../Whyus/HowToUse";
 import FqSection from "../../component/FqSection/FqSection";
 import UserReview from "../Review/UserReview";
 import RecievedEmails from "../../Emails/RecievedEmails";
+import NavBar from './../Navbar/Navbar';
 const Home = () => {
   useEffect(() => {
     AOS.init({
@@ -18,6 +19,7 @@ const Home = () => {
   }, []);
   return (
     <div className="overflow-x-hidden relative">
+   
       <Banner />
       <RecievedEmails />
       <WhyUS />
