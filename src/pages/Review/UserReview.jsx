@@ -6,29 +6,20 @@ import "./ReviewStyle.css";
 import { IoIosStarOutline } from "react-icons/io";
 import "@smastrom/react-rating/style.css";
 import { EffectCards } from "swiper/modules";
-import { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { LuClipboardEdit } from "react-icons/lu";
 import { AiTwotoneEdit } from "react-icons/ai";
 import Rating from "react-rating";
 import { IoMdStar } from "react-icons/io";
 import { IoIosStarHalf } from "react-icons/io";
-import { AuthContext } from "../../provider/AuthProvider";
 import { motion } from "framer-motion";
-
+import useReview from "../../Hooks/useReview";
+import moment from "moment";
+import UserReviewModal from "./UserReviewModal";
+moment().format();
 const UserReview = () => {
-  const [data, setData] = useState([]);
-
-  const { user } = useContext(AuthContext);
-  useEffect(() => {
-    axios.get("/review.json").then((res) => {
-      setData(res.data);
-      console.log(res.data);
-    });
-  }, []);
+  const { review, isLoading } = useReview();
 
   return (
-    <div className=" max-w-[1200px]  mx-auto p-6">
+    <div className=" max-w-[1200px]  mx-auto p-6 mt-10">
       <h1 className="text-4xl text-center drop-shadow  font-bold ">
         User <span className="text-[#019D90] ">Reviews </span> : Hear What
         Others Have to <span className="text-[#019D90] ">Say!</span>
@@ -52,7 +43,7 @@ const UserReview = () => {
             disableOnInteraction: false,
           }}
         >
-          {data?.map((item) => (
+          {review?.map((item) => (
             <SwiperSlide key={item.email} className="bg-[#E5E5E5]  ">
               <div className="flex flex-col  md:flex-row items-center text-[#333333]  justify-center gap-6 box-border  p-2">
                 <div className="md:w-[30%] lg:w-[20%] lg:h-[37dvh] h-[70dvh] md:h-full p-2 ">
@@ -94,7 +85,9 @@ const UserReview = () => {
                       {item.email}
                     </p>
 
-                    <p className=" text-[#019D90]">{item.date}</p>
+                    <p className=" text-[#019D90]">
+                      {moment(item.date).format("ddd, MMM YYYY")}
+                    </p>
                   </div>
                 </section>
               </div>
@@ -111,23 +104,14 @@ const UserReview = () => {
         >
           <AiTwotoneEdit className="text-2xl" /> Write a review
         </motion.label>
+
         {/* Put this part before </body> tag */}
         <input
           type="checkbox"
           id="my_modal_6"
           className="modal-toggle  bg-[#EEEEEE]"
         />
-        <div className="modal  bg-[#EEEEEE]" role="dialog">
-          <div className="modal-box  bg-[#EEEEEE]">
-            <h3 className="font-bold text-lg">Hello!</h3>
-            <p className="py-4">This modal works with a hidden checkbox!</p>
-            <div className="modal-action">
-              <label htmlFor="my_modal_6" className="btn">
-                Close!
-              </label>
-            </div>
-          </div>
-        </div>
+        <UserReviewModal />
       </section>
     </div>
   );

@@ -7,8 +7,6 @@
     import L from 'leaflet';
     import 'leaflet/dist/leaflet.css';
     import { motion } from "framer-motion";
-    import NavBar from "../../pages/Navbar/Navbar";
-    import Footer from './../../pages/Footer/Footer';
     
     
     const IpTracker = () => {
@@ -77,9 +75,7 @@
     
     
       return (
-        <div>
-          <NavBar></NavBar>
-        <div className="text-[#144248] max-w-7xl mx-auto pt-10 p-6">
+        <div className="text-[#144248] max-w-7xl mx-auto pt-4 p-6">
     
           <h1 className=" text-3xl md:text-4xl text-center font-bold drop-shadow ">
             Discover Your World: <br className="md:hidden" />
@@ -185,7 +181,6 @@
     
          
         </div>
-        <Footer></Footer></div>
       );
     };
     

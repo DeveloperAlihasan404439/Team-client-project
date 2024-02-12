@@ -109,9 +109,8 @@ const AddArticle = () => {
     setImgLoader(true)
   };
   
-  const styleInput = "mt-1 shadow-sm w-full text-[#144248] px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-none rounded-lg bg-gray-50 focus:outline-none focus:ring-gray-50 focus:ring-offset-gray-300";
   return (
-    <div className="max-w-5xl mx-auto my-10">
+    <div className="max-w-5xl mx-auto my-4">
       <h1 className="text-4xl text-center font-bold text-[#144248] ">
         Add an <span className=" text-[#019D90]  ">Article</span>
       </h1>
@@ -127,90 +126,91 @@ const AddArticle = () => {
         >
           <div className="md:flex gap-5 items-center w-full">
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248]  "> Title </label>
+              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Title </label>
                 <input
                   {...register("title", { required: true })}
                   type="text"
                   placeholder="Title"
-                  className={styleInput}
+                  className="input-text"
                 />
             </div>
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248]  "> Input File </label>
+              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Input File </label>
               <div>
               <input
                 {...register("image")}
                 type="file"
-                className="file-input mt-1 file-input-bordered file-input-success w-full  focus:outline-none border-none"
+                className="input-file"
+                // className="file-input mt-1 file-input-bordered file-input-success w-full  focus:outline-none border-none"
               />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248]  "> Why To Use</label>
+              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Why To Use</label>
               <div>
                 <input
                   {...register("whyToUse", { required: true })}
                   type="text"
                   placeholder="Why To Use"
-                  className={styleInput}
+                  className="input-text"
                 />
               </div>
             </div>
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248]  "> Use To Help </label>
+              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Use To Help </label>
               <div>
                 <input
                   {...register("useToHelp", { required: true })}
                   type="text"
                   placeholder="Use To Help"
-                  className={styleInput}
+                  className="input-text"
                 />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248]  "> Where To Use </label>
+              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Where To Use </label>
               <div>
                 <input
                   {...register("whereToUse", { required: true })}
                   type="text"
                   placeholder="Where To Use"
-                  className={styleInput}
+                  className="input-text"
                 />
               </div>
             </div>
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248]  "> Date </label>
+              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Date </label>
               <div>
                 <input
                   {...register("date", { required: true })}
                   type="date"
-                  className={styleInput}
+                  className="input-text"
                 />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="md:w-[50%]">
-              <label className="font-medium"> short Description </label>
+              <label className="mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> short Description </label>
               <div className="mt-1">
                 <input
                   {...register("shortDescription", { required: true })}
                   type="text"
                   placeholder="Short Description"
-                  className={styleInput}
+                  className="input-text"
                 />
               </div>
             </div>
             <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248]  "> Benefits </label>
+              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Benefits </label>
               <div className="mt-1">
                 <select
                   onChange={(e) => setBenefitsData(e.target.value)}
-                  className={styleInput}
+                  className="input-text"
                 >
                   <option>Select Benefits</option>
                   <option value="Enhanced online security">
@@ -235,7 +235,7 @@ const AddArticle = () => {
           </div>
 
           <div className="w-full">
-            <label className="font-medium"> Description </label>
+            <label className="mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> Description </label>
             <div className="mt-1">
               <textarea
                 {...register("description", { required: true })}
@@ -244,7 +244,7 @@ const AddArticle = () => {
                 type="text"
                 required=""
                 placeholder="Your description"
-                className={styleInput}
+                className="input-text"
               />
             </div>
             <div className="flex justify-start items-center mt-5 ml-5">
