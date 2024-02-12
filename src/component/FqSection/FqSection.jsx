@@ -1,7 +1,7 @@
 const FqSection = () => {
   return (
-    <div className="relative   mx-auto rounded-xl shadow bg-[#019D90]    bg-cover bg-no-repeat my-10">
-    <div className=" w-full mx-auto">
+    <div className="relative max-w-screen-xl  mx-auto rounded-xl shadow bg-[#003430]  bg-cover bg-no-repeat my-10">
+    <div className=" max-w-screen-xl mx-auto">
       <div className="w-full h-full absolute bg-BackGround_two bg-cover  animation "></div>
       <div className=" font-manrope text-center py-8">
         <p className="text-gray-300 text-lg">Common Question</p>
@@ -11,9 +11,9 @@ const FqSection = () => {
       </div>
 
       {/* main que and ans  */}
-      <div className="flex gap-8 justify-center py-20">
+      <div className="flex gap-8 md:flex-row flex-col justify-center py-20">
         {/* nuber 1one  */}
-        <div className=" font-inter w-[500px] flex flex-col gap-5">
+        <div className=" font-inter w-full md:w-[500px] flex flex-col gap-5">
           <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur  bg-black/20">
             <input type="radio" name="my-accordion-2" checked="checked" />
 
@@ -68,7 +68,7 @@ const FqSection = () => {
           </div>
         </div>
 
-        <div className="font-manrope w-[500px] flex flex-col gap-5">
+        <div className="font-manrope w-full md:w-[500px] flex flex-col gap-5">
           <div className="collapse p-3 border border-[#feffff8b] border-l-4  rounded-xl collapse-arrow backdrop-blur bg-black/20">
             <input type="radio" name="my-accordion-2" checked="checked" />
 

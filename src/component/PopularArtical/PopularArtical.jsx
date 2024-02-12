@@ -4,6 +4,7 @@ import { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import './PopularArtical.css'
+import FqSection from "../FqSection/FqSection";
 const PopularArtical = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { article, isLoading } = useArticle();
@@ -45,6 +46,8 @@ const PopularArtical = () => {
           </div>
         </>
       )}
+
+      <FqSection/>
     </div>
   );
 };
