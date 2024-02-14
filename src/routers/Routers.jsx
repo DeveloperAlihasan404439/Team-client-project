@@ -17,6 +17,7 @@ import RequstReview from '../Dashboard/RequstReview';
 import RequstArticle from '../Dashboard/RequstArticle';
 import PopularArtical from '../component/PopularArtical/PopularArtical';
 import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
+import Notes from '../pages/Notes/Notes';
 
 
 
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
             {
                 path: '/password/strength/check',
                 element:<PasswordStrengthChecker/>
+            },
+            {
+                path: '/notes',
+                element:<Notes/>
             },
             
             {

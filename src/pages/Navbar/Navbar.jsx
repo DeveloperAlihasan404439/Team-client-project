@@ -1,22 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
-import { PiArticleDuotone } from "react-icons/pi";
 import logo from "../../assets/BannerL&Logo/Logo.png";
-import { FaRegFilePdf } from "react-icons/fa";
 import Headroom from "react-headroom";
-import { TbPasswordUser } from "react-icons/tb";
 
+import { PiArticleDuotone } from "react-icons/pi";
+import { TbPasswordUser } from "react-icons/tb";
 import { RiDashboardFill, RiUserLocationLine } from "react-icons/ri";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
-import { useContext } from "react";
 import { FaPeopleGroup } from "react-icons/fa6";
+import { GrNotes } from "react-icons/gr";
 
+import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { motion } from "framer-motion";
 import DarkMode from "../Shared/DarkMode/DarkMode";
 
 const NavBar = () => {
-
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
@@ -24,7 +23,6 @@ const NavBar = () => {
       .then(() => {})
       .catch((error) => console.log(error));
   };
- 
 
   const NavItems = [
     {
@@ -33,26 +31,25 @@ const NavBar = () => {
       Route: "/",
     },
     {
-      Title: "Dashboard",
-      icon:<RiDashboardFill />,
-      Route: "/dashboard/home",
-    },
-
-    {
       Title: "Extra Features",
-      icon:<MdOutlineFeaturedPlayList />,
-      Route: "/sads",
+      icon: <MdOutlineFeaturedPlayList />,
+      Route: "",
       subMenu: [
         {
           Title: "Ip Address tracker",
           icon: <RiUserLocationLine />,
           Route: "/IpAddress",
         },
-     
+
         {
           Title: "Password Strength Checker",
           icon: <TbPasswordUser />,
           Route: "/password/strength/check",
+        },
+        {
+          Title: "Notes",
+          icon: <GrNotes />,
+          Route: "/notes",
         },
       ],
     },
@@ -67,7 +64,6 @@ const NavBar = () => {
       icon: <FaPeopleGroup />,
       Route: "/aboutUs",
     },
-    
   ];
   return (
     <Headroom
@@ -132,59 +128,57 @@ const NavBar = () => {
               tabIndex={0}
               className="  menu menu-sm bg-[#EEEEEE]  justify-start gap-2 text-start dropdown-content mt-3 z-[1] shadow  border-r-2  rounded-lg w-fit"
             >
-             
-            {NavItems.map((item) => (
-              <li
-                className="hover:bg-[#017E77] relative group   border border-[#019D91] rounded-lg  hover:text-[#EEEEEE] flex  justify-center items-center "
-                key={item.Title}
-              >
-                <NavLink
+              {NavItems.map((item) => (
+                <li
+                  className="hover:bg-[#017E77] text-[#144248] relative group   border border-[#019D91] rounded-lg  hover:text-[#EEEEEE] flex  justify-center items-center "
                   key={item.Title}
-                  to={item.Route}
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? `bg-[#019D91] hover:bg-[#017E77] border-none flex justify-center items-center text-nowrap    w-full text-[#EEEEEE] `
-                      : ""
-                  }
                 >
-                  <button className="p-2 flex w-fit text-nowrap items-center gap-1">
-                    {item.icon}
-                    {item.Title}
-                    <ul className="absolute hidden group-hover:block duration-500 delay-200 top-8 left-20  z-50 rounded-lg mt-2  bg-[#EEEEEE]   shadow-lg">
-                      {item.subMenu &&
-                        item.subMenu.length > 0 && 
-                        item.subMenu.map((menu) => (
-                          <li
-
-                            key={menu.Title}
-                            className="hover:bg-[#017E77] text-[#144248] hover:text-[#EEEEEE] rounded-lg flex px-3 py-2 my-1 mx-2 items-center"
-                          >
-                            <NavLink
-                              to={menu.Route}
-                              className={({ isActive, isPending }) =>
-                                `hover:bg-[#017E77] rounded-lg flex items-center ${
-                                  isPending
-                                    ? "pending"
-                                    : isActive
-                                    ? "bg-[#019D91] hover-bg-[#017E77] px-3 py-2  text-[#EEEEEE]"
-                                    : ""
-                                }`
-                              }
+                  <NavLink
+                    key={item.Title}
+                    to={item.Route}
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? `bg-[#019D91] hover:bg-[#017E77] border-none flex justify-center items-center text-nowrap    w-full text-[#EEEEEE] `
+                        : ""
+                    }
+                  >
+                    <button className="p-2 flex w-fit text-nowrap items-center gap-1">
+                      {item.icon}
+                      {item.Title}
+                      <ul className="absolute hidden group-hover:block duration-500 delay-200 top-8 left-20  z-50 rounded-lg mt-2  bg-[#EEEEEE]   shadow-lg">
+                        {item.subMenu &&
+                          item.subMenu.length > 0 &&
+                          item.subMenu.map((menu) => (
+                            <li
+                              key={menu.Title}
+                              className="hover:bg-[#017E77] text-[#144248] hover:text-[#EEEEEE] rounded-lg flex px-3 py-2 my-1 mx-2 items-center "
                             >
-                              <button className="flex justify-center  text-nowrap  items-center gap-1">
-                               {menu.icon} {menu.Title} 
-                              </button>
-                            </NavLink>
-                          </li>
-                        ))}
-                    </ul>
-                  </button>
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+                              <NavLink
+                                to={menu.Route}
+                                className={({ isActive, isPending }) =>
+                                  `hover:bg-[#017E77] rounded-lg flex items-center ${
+                                    isPending
+                                      ? "pending"
+                                      : isActive
+                                      ? "bg-[#019D91] hover-bg-[#017E77] px-3 py-2  text-[#EEEEEE]"
+                                      : ""
+                                  }`
+                                }
+                              >
+                                <button className="flex justify-center  text-nowrap  items-center gap-1">
+                                  {menu.icon} {menu.Title}
+                                </button>
+                              </NavLink>
+                            </li>
+                          ))}
+                      </ul>
+                    </button>
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
           </div>
           <motion.button
             whileHover={{
@@ -200,7 +194,7 @@ const NavBar = () => {
           <ul className=" flex justify-center   items-center font-semibold gap-4 ">
             {NavItems.map((item) => (
               <li
-                className="hover:bg-[#017E77] relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center "
+                className="hover:bg-[#017E77] text-[#144248] relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center "
                 key={item.Title}
               >
                 <NavLink
@@ -210,7 +204,7 @@ const NavBar = () => {
                     isPending
                       ? "pending"
                       : isActive
-                      ? `bg-[#019D91] hover:bg-[#017E77] border-none   w-fit text-nowrap text-[#EEEEEE] `
+                      ? `bg-[#019D91] hover:bg-[#017E77] border-none w-fit text-nowrap text-[#EEEEEE] `
                       : ""
                   }
                 >
@@ -219,10 +213,9 @@ const NavBar = () => {
                     {item.Title}
                     <ul className="absolute hidden group-hover:block transition-opacity duration-500 delay-200 top-8  -left-1  rounded mt-2  bg-[#EEEEEE]  shadow-lg">
                       {item.subMenu &&
-                        item.subMenu.length > 0 && 
+                        item.subMenu.length > 0 &&
                         item.subMenu.map((menu) => (
                           <li
-
                             key={menu.Title}
                             className="hover:bg-[#017E77] text-[#144248] hover:text-[#EEEEEE] rounded-lg flex px-3 py-2 my-1 mx-2 items-center"
                           >
@@ -239,7 +232,7 @@ const NavBar = () => {
                               }
                             >
                               <button className="flex justify-center items-center gap-1">
-                               {menu.icon} {menu.Title} 
+                                {menu.icon} {menu.Title}
                               </button>
                             </NavLink>
                           </li>
@@ -264,14 +257,14 @@ const NavBar = () => {
                   className="btn btn-ghost btn-circle avatar"
                 >
                   <div className="w-10 rounded-full">
-                    {user && user?.photoURL !== null ? (
-                      <img src={user?.photoURL} alt="User" />
-                    ) : (
-                      <img
-                        src="https://i.ibb.co/zShG8zr/default-image.png"
-                        alt="Default User"
-                      />
-                    )}
+                    <img
+                      src={
+                        user.photoURL
+                          ? user.photoURL
+                          : "https://i.ibb.co/zShG8zr/default-image.png"
+                      }
+                      alt="Default User"
+                    />
                   </div>
                 </label>
                 <ul
@@ -279,19 +272,21 @@ const NavBar = () => {
                   className="menu menu-sm dropdown-content z-[1] p-2 shadow bg-[#EEEEEE] rounded-box w-52  text-[#144248]"
                 >
                   <li>
-                    <a className="justify-between">
+                    <a className="justify-between hover:bg-[#019D91] hover:text-[#EEE]">
                       <p>
-                        {user && user?.displayName !== null ? (
-                          <p>{user?.displayName}</p>
-                        ) : (
-                          <p>name nott found</p>
-                        )}
+                        {user.displayName
+                          ? user.displayName
+                          : "name nott found"}
                       </p>
                     </a>
                   </li>
-
                   <li>
-                    <a onClick={handleLogOut} className="  hover:bg-sky-500">
+                    <Link to='/dashboard/home' className="  hover:bg-[#019D91] hover:text-[#EEE]">
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <a onClick={handleLogOut} className="  hover:bg-[#019D91] hover:text-[#EEE]">
                       Sign Out
                     </a>
                   </li>
