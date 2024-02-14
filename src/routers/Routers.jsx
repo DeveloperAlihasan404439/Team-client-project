@@ -17,7 +17,7 @@ import RequstReview from '../Dashboard/RequstReview';
 import RequstArticle from '../Dashboard/RequstArticle';
 import PopularArtical from '../component/PopularArtical/PopularArtical';
 import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
-import Payment from '../pages/Payment/Payment';
+
 
 
 export const router = createBrowserRouter([
@@ -59,10 +59,7 @@ export const router = createBrowserRouter([
                 path: '/articledetails/:id',
                 element:<ArticleDetails/>,
             },
-            {
-                path: '/payment',
-                element: <Payment></Payment>
-            }
+            
             
         ]
     },

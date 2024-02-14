@@ -6,6 +6,8 @@ import "aos/dist/aos.css";
 import HowToUse from "../Whyus/HowToUse";
 import FqSection from "../../component/FqSection/FqSection";
 import UserReview from "../Review/UserReview";
+import Blog from "../../component/Blog/Blog";
+
 import RecievedEmails from "../../Emails/RecievedEmails";
 import { Link } from "react-router-dom";
 const Home = () => {
@@ -16,16 +18,16 @@ const Home = () => {
       easing: "ease-in-sine",
       delay: 100,
     });
-  }, []);
-  return (
-    <div className="overflow-x-hidden relative">
-      <Banner />
-      <Link to="/payment"><button className="btn-ghost btn">pay for premium</button></Link>
-      <RecievedEmails />
-      <WhyUS />
-      <HowToUse />
-      <UserReview />
-      
+
+  },[])
+    return (
+        <div className="overflow-x-hidden">
+            <Banner  ></Banner>
+            <WhyUS></WhyUS>
+            <HowToUse></HowToUse>
+            <UserReview></UserReview>
+            <Blog/> 
+            <RecievedEmails />
      
     </div>
   );
