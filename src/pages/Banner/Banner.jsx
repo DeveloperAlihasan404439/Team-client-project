@@ -41,33 +41,42 @@ const Banner = () => {
   const userEmail = user?.email
   const createInbox = async () => {
     setLoading(true)
-    axios.post('https://server-side-bice.vercel.app/create-inbox', { userEmail })
-      .then(() => {
-        refetch();
-        setLoading(false)
-      })
+    if (!user) {
+      return setEmails(false)
+    } else {
+      axios.post('https://server-side-bice.vercel.app/create-inbox', { userEmail })
+        .then(() => {
+          refetch();
+          setLoading(false)
+        })
+    }
   }
 
   const inboxIds = tempMail.inboxId;
+
+
   useEffect(() => {
-    if (inboxIds) {
+    if (!inboxIds) {
+      return;
+    } else {
       axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
         .then(res => {
           refetch()
           setEmails(res.data)
         })
     }
+
   }, [inboxIds, refetch])
   return (
 
- 
+
     <motion.div ref={ref} className="hero place-items-center  items-center mt-0 relative -top-20   h-screen" >
       <div className='absolute inset-0 ' style={{
         backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center',
       }}
 
       ></div>
-    
+
       <motion.div style={{ y: textY }} className="hero-content z-80  text-center text-[#144248]">
         <div className='bg-white bg-opacity-50 z-80  rounded-md'>
           <h2 className='mt-9 text-2xl text-[#019d90c0]'>Your Temporary Email Address</h2>
@@ -77,7 +86,7 @@ const Banner = () => {
           </div>
           <div className='flex items-center relative  justify-center gap-5 mb-6'>
 
-     
+
             {
               user ? (
                 tempMail ? (
@@ -119,9 +128,9 @@ const Banner = () => {
             }
           </div>
         </div>
-        
+
       </motion.div>
-     
+
     </motion.div>
 
   );

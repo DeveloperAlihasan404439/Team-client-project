@@ -41,6 +41,7 @@
     "react-toastify": "^10.0.4",
     "recharts": "^2.11.0",
     "redux": "^5.0.1",
+    "socket.io-client": "^4.7.4",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.10.3",
     "swiper": "^11.0.5",

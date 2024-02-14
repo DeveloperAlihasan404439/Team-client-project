@@ -17,6 +17,7 @@ import RequstReview from '../Dashboard/RequstReview';
 import RequstArticle from '../Dashboard/RequstArticle';
 import PopularArtical from '../component/PopularArtical/PopularArtical';
 import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
+import TextToVoiceCnv from '../Dashboard/TextToVoiceCnv';
 
 
 export const router = createBrowserRouter([
@@ -92,6 +93,10 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/requstArticle',
                 element: <RequstArticle/>
+            },
+            {
+                path: '/dashboard/text-to-voice',
+                element: <TextToVoiceCnv/>
             },
         ]
     }

@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import useUsers from "../Hooks/useUsers";
 import { AuthContext } from "../provider/AuthProvider";
-import { FaUsers,FaBoxOpen  } from "react-icons/fa6";
-import { MdForwardToInbox  } from "react-icons/md";
+import { FaUsers, FaBoxOpen } from "react-icons/fa6";
+import { MdForwardToInbox } from "react-icons/md";
 import "./DashHome.css";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -13,6 +13,7 @@ const DashHome = () => {
   const { user } = useContext(AuthContext);
   const [filed, setField] = useState(false);
   const [createdInbox, setCreatedInboxes] = useState("");
+
   const { data: createdInboxes = [], refetch } = useQuery({
     queryKey: ["createdInboxes"],
     queryFn: async () => {
@@ -22,9 +23,11 @@ const DashHome = () => {
       return res.data;
     },
   });
+
   const test = [createdInboxes];
+  console.log(test)
   useEffect(() => {
-    if (test.length > 0) {
+    if (createdInboxes) {
       axios
         .get(`https://api.mailslurp.com/inboxes?apiKey=${createdInboxes}`)
         .then((response) => {
@@ -144,7 +147,7 @@ const DashHome = () => {
           <div class="notiborderglow"></div>
           <div class="notititle">
             <h1 className="text-2xl rounded-full bg-[#EEE] w-fit p-2 text-[#001e22]">
-              <MdForwardToInbox  />
+              <MdForwardToInbox />
             </h1>
             <h1 className="mt-3 text-xl font-medium tracking-wider uppercase">Total Inbox : {createdInbox}</h1>
           </div>
@@ -160,7 +163,7 @@ const DashHome = () => {
           </div>
         </div>
       </div>
-      <BarCharts/>
+      <BarCharts />
     </div>
   );
 };

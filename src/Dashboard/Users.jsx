@@ -5,8 +5,23 @@ import "./Users.css";
 import Button from "../pages/Shared/Button";
 import useAxios from "../Hooks/useAxios";
 import Swal from "sweetalert2";
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 const Users = () => {
   const { usersData, refetch } = useUsers();
+  const axiosSecure = useAxiosSecure();
+  const { data: users = []} = useQuery({
+    queryKey: ["createdInboxes"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/all-users`);
+      console.log(res.data)
+      return res.data;
+    },
+  });
+
+
+
   const axiosPublick = useAxios();
   function hendalUserUpdated(id) {
     axiosPublick.patch(`/users?id=${id}`).then((res) => {

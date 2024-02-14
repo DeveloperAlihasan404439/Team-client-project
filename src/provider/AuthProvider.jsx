@@ -3,6 +3,7 @@ import { useState } from "react";
 import app from "../firebase/firebase.config";
 import { createContext } from "react";
 import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut} from "firebase/auth"
+import axios from "axios";
 
 
 export const AuthContext = createContext(null);
@@ -28,15 +29,33 @@ const AuthProvider = ({children}) => {
         return signOut(auth);
     }
 
-    useEffect(()=>{
-       const unSubscribe =  onAuthStateChanged(auth, currentUser =>{
+    useEffect(() => {
+        const unsubsCribe = onAuthStateChanged(auth, (currentUser) => {
+            console.log(currentUser)
+            if (currentUser) {
+                const userInfo = { email: currentUser.email };
+                axios.post('https://server-side-bice.vercel.app/jwt', userInfo)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token);
+                            setLoading(false)
+
+                        }
+                    })
+            } else {
+                localStorage.removeItem('access-token')
+                setLoading(false)
+
+            }
+            
             setUser(currentUser)
-            setLoading(false)
-        });
-        return() =>{
-            unSubscribe();
+            
+        })
+        return () => {
+            return unsubsCribe();
         }
-    },[])
+        
+    }, [axios])
 
     const authInfo = {
         user,
