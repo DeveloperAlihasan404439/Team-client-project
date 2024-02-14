@@ -7,9 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
 } from "recharts";
-
 const BarCharts = () => {
   const data = [
     {
@@ -64,7 +62,7 @@ const BarCharts = () => {
   return (
     <div className="mt-10 w-full flex justify-center">
       <BarChart
-        width={700}
+        width={600}
         height={300}
         data={data}
         margin={{

@@ -13,7 +13,6 @@ const RecievedEmails = () => {
   const { user } = useContext(AuthContext);
   const { email } = useParams();
   const [isLoading, setIsLoading] = useState(null);
-
   const { data: tempMail = {}, refetch } = useQuery({
     queryKey: ["tempMail"],
     queryFn: async () => {

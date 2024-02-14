@@ -66,13 +66,13 @@ const DashHome = () => {
   };
 
   return (
-    <div className="">
-      <div className="max-w-6xl mx-auto mt-5 flex justify-between items-center rounded-lg bg-white py-2 px-3">
-        <h1 className="text-2xl uppercase tracking-[4px] font-semibold text-[#144248]">
+    <div>
+      <div className="w-11/12 md:max-w-6xl mx-auto mt-5 flex justify-between items-center rounded-lg bg-white py-2 px-3">
+        <h1 className="text-xl md:text-2xl uppercase md:tracking-[4px] font-semibold text-[#144248]">
           Dashboard
         </h1>
         <div className="flex items-center gap-5">
-          <h1 className="text-lg font-semibold text-[#144248]">
+          <h1 className="text-sm md:text-lg font-semibold text-[#144248]">
             {user?.displayName}
           </h1>
           <img
@@ -128,11 +128,11 @@ const DashHome = () => {
           ) : null}
         </div>
       </div>
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-7 mt-6">
-        <div class="notification">
-          <div class="notiglow"></div>
-          <div class="notiborderglow"></div>
-          <div class="notititle">
+      <div className="w-11/12 md:max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-7 mt-6">
+        <div class="notification w-full">
+          <div class="notiglow w-full"></div>
+          <div class="notiborderglow w-full" ></div>
+          <div class="notititle w-full">
             <h1 className="text-2xl rounded-full bg-[#EEE] w-fit p-2 text-[#001e22]">
               <FaUsers />
             </h1>
@@ -160,7 +160,7 @@ const DashHome = () => {
           </div>
         </div>
       </div>
-      <BarCharts/>
+      {/* <BarCharts/> */}
     </div>
   );
 };

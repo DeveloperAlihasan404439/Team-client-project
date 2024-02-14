@@ -110,8 +110,8 @@ const AddArticle = () => {
   };
   
   return (
-    <div className="max-w-5xl mx-auto my-4">
-      <h1 className="text-4xl text-center font-bold text-[#144248] ">
+    <div className="w-11/12 md:max-w-5xl mx-auto my-4">
+      <h1 className="text-2xl md:text-4xl text-center font-bold text-[#144248] ">
         Add an <span className=" text-[#019D90]  ">Article</span>
       </h1>
       <p className=" text-center font-inter text-[#144248] font-medium  mt-4">
@@ -125,8 +125,8 @@ const AddArticle = () => {
           className="bg-[#EEEEEE] rounded-xl relative text-left flex justify-start items-start p-6 w-full space-y-3"
         >
           <div className="md:flex gap-5 items-center w-full">
-            <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Title </label>
+            <div className="mb-4 md:mb-0 md:w-[50%]">
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Title </label>
                 <input
                   {...register("title", { required: true })}
                   type="text"
@@ -134,8 +134,8 @@ const AddArticle = () => {
                   className="input-text"
                 />
             </div>
-            <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Input File </label>
+            <div className="mb-4 md:mb-0 md:w-[50%]">
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Input File </label>
               <div>
               <input
                 {...register("image")}
@@ -147,8 +147,8 @@ const AddArticle = () => {
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
-            <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Why To Use</label>
+            <div className="mb-4 md:mb-0 md:w-[50%]">
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Why To Use</label>
               <div>
                 <input
                   {...register("whyToUse", { required: true })}
@@ -158,8 +158,8 @@ const AddArticle = () => {
                 />
               </div>
             </div>
-            <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Use To Help </label>
+            <div className="mb-4 md:mb-0 md:w-[50%]">
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Use To Help </label>
               <div>
                 <input
                   {...register("useToHelp", { required: true })}
@@ -171,8 +171,8 @@ const AddArticle = () => {
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
-            <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Where To Use </label>
+            <div className="mb-4 md:mb-0 md:w-[50%]">
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Where To Use </label>
               <div>
                 <input
                   {...register("whereToUse", { required: true })}
@@ -182,8 +182,8 @@ const AddArticle = () => {
                 />
               </div>
             </div>
-            <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Date </label>
+            <div className="mb-4 md:mb-0 md:w-[50%]">
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Date </label>
               <div>
                 <input
                   {...register("date", { required: true })}
@@ -194,8 +194,8 @@ const AddArticle = () => {
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
-            <div className="md:w-[50%]">
-              <label className="mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> short Description </label>
+            <div className="mb-4 md:mb-0 md:w-[50%]">
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> short Description </label>
               <div className="mt-1">
                 <input
                   {...register("shortDescription", { required: true })}
@@ -205,28 +205,28 @@ const AddArticle = () => {
                 />
               </div>
             </div>
-            <div className="md:w-[50%]">
-              <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Benefits </label>
+            <div className="mb-4 md:mb-0 md:w-[50%]">
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Benefits </label>
               <div className="mt-1">
                 <select
                   onChange={(e) => setBenefitsData(e.target.value)}
                   className="input-text"
                 >
-                  <option>Select Benefits</option>
-                  <option value="Enhanced online security">
+                  <option style={{ backgroundColor: "#144248", color: "#EEE" }}>Select Benefits</option>
+                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
                     Enhanced online security
                   </option>
-                  <option value="Enhanced online security">
+                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
                     Privacy protection
                   </option>
-                  <option value="Enhanced online security">
+                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
                     Reduced risk of identity theft
                   </option>
-                  <option value="Inbox organization">Inbox organization</option>
-                  <option value="Improved productivity">
+                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Inbox organization">Inbox organization</option>
+                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Improved productivity">
                     Improved productivity
                   </option>
-                  <option value="Reduced risk of identity theft">
+                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Reduced risk of identity theft">
                     Reduced risk of identity theft
                   </option>
                 </select>
@@ -235,7 +235,7 @@ const AddArticle = () => {
           </div>
 
           <div className="w-full">
-            <label className="mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> Description </label>
+            <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> Description </label>
             <div className="mt-1">
               <textarea
                 {...register("description", { required: true })}
