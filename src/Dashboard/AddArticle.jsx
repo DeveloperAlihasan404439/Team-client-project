@@ -118,6 +118,7 @@ const AddArticle = () => {
         Be a part of our community!  shaping a platform of diverse ideas
         and perspectives.<br /> Start enriching our
         community with your unique articles.
+        
       </p>
       <div>
         <form
