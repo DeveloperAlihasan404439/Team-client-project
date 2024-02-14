@@ -1,34 +1,34 @@
 import { useEffect } from "react";
-import PopularArtical from "../../component/PopularArtical/PopularArtical";
 import Banner from "../Banner/Banner";
-import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
 import WhyUS from "../Whyus/WhyUS";
-import AOS from 'aos';
-import 'aos/dist/aos.css'
+import AOS from "aos";
+import "aos/dist/aos.css";
 import HowToUse from "../Whyus/HowToUse";
 import FqSection from "../../component/FqSection/FqSection";
+import UserReview from "../Review/UserReview";
+import RecievedEmails from "../../Emails/RecievedEmails";
+import { Link } from "react-router-dom";
 const Home = () => {
-    
-useEffect(()=>{
+  useEffect(() => {
     AOS.init({
       offset: 200,
       duration: 600,
-      easing: 'ease-in-sine',
+      easing: "ease-in-sine",
       delay: 100,
     });
-  },[])
-    return (
-        <div className="overflow-x-hidden">
-            <Navbar></Navbar>
-            <Banner  ></Banner>
-            <WhyUS></WhyUS>
-            <HowToUse></HowToUse>
-            <PopularArtical/>
-            <FqSection/>
-            <Footer></Footer>
-        </div>
-    );
+  }, []);
+  return (
+    <div className="overflow-x-hidden relative">
+      <Banner />
+      <Link to="/payment"><button className="btn-ghost btn">pay for premium</button></Link>
+      <RecievedEmails />
+      <WhyUS />
+      <HowToUse />
+      <UserReview />
+      
+     
+    </div>
+  );
 };
 
 export default Home;

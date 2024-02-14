@@ -1,11 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import NavBar from './../../pages/Navbar/Navbar';
 
 const TermsAndConditions = () => {
   return (
-    <div>
-        <NavBar></NavBar>
     <motion.div 
       className="terms-container mt-4 max-w-7xl  mx-auto p-8 border-t-2 rounded-md shadow-lg"
       initial={{ opacity: 0 }}
@@ -111,7 +108,7 @@ The limitations and prohibitions of liability set in this Section and elsewhere 
 
 As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.
 </p>
-    </motion.div></div>
+    </motion.div>
   );
 };
 

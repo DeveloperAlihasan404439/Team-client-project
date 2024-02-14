@@ -9,26 +9,19 @@ import img3 from '../../assets/BannerL&Logo/verific.json'
 import AOS from 'aos';
 
 import 'aos/dist/aos.css'
-import RecievedEmails from '../../Emails/RecievedEmails';
-
-
 const WhyUS = () => {
 
     AOS.init({
-
-
     });
 
     return (
-        <div className=" mt-20 relative  ">
-                <RecievedEmails></RecievedEmails>
-            
+        <div className="mt-5 relative  ">
             <section className='max-w-7xl shadow-md rounded-xl border-t-2 text-gray-600 bg-[#EEEEEE]  p-6 mx-auto text-center z-90 '>
                 <header >
                     <h1 className="text-3xl drop-shadow-md  text-[#144248] font-bold">Why <span className="text-[#019D90] font-bold">Swifty Mail !</span> </h1>
                     <p className="font-semibold py-4">Elevate Your Online Privacy with Our Secure Temporary Email Service.Discover the convenience and security of <span className="text-[#019D90] font-bold">Swifty Mail</span>, <br /> your go-to destination for hassle-free temporary email services. Safeguard your privacy, avoid spam, and simplify your <br /> online interactions with our easy-to-use platform. Choose us for a seamless and secure online experience.</p>
                 </header>
-                <body className='grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6  mt-10'>
+                <section className='grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6  mt-10'>
                     <aside data-aos="fade-right" data-aos-duration="1000" className='text-center flex flex-col justify-center items-center lg:gap-4 '>
                         <img className='h-28 rounded-xl' src="https://1st-it.com/wp-content/uploads/2017/05/cyber-attack.gif" alt="" />
                         <h1 className='text-xl font-bold drop-shadow-md '>Privacy and Security First</h1>
@@ -56,7 +49,7 @@ const WhyUS = () => {
                         <p className=' text-sm'>
                             Gain control over your online presence with Swifty Mail. Easily generate, manage, and discard temporary emails as needed. Enjoy the convenience of disposable emails without sacrificing security and control</p>
                     </aside>
-                </body>
+                </section>
             </section>
 
         </div>

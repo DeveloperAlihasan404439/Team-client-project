@@ -4,6 +4,8 @@ import { useState } from "react";
 import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic.css";
 import './PopularArtical.css'
+import Loader from "../../pages/Shared/Loader";
+import FqSection from "../FqSection/FqSection";
 const PopularArtical = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { article, isLoading } = useArticle();
@@ -13,12 +15,13 @@ const PopularArtical = () => {
   const currentItems = article?.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(article.length / ItemsPerPage);
   return (
-    <div className="mt-20 my-20 px-1 md:px-2">
-      <div className="flex flex-col font-inter justify-center items-center">
+    <div className="  px-1 md:px-2">
+      <div>
+        <div className="flex flex-col font-inter justify-center items-center">
         <h1 className="text-4xl font-bold text-[#144248] ">
           Article <span className=" text-[#019D90]  ">Hub</span>
         </h1>
-        <p className=" text-center font-inter  text-[#144248] font-medium  mt-4">
+        <p className=" text-center font-inter  text-[#144248] font-medium  my-4">
           Discover the proven methods and life hacks that successful
           individualsswear by to boost productivity. <br /> From time management
           tips to focus-enhancing techniques, this article unveils the key
@@ -26,12 +29,10 @@ const PopularArtical = () => {
         </p>
       </div>
       {isLoading ? (
-        <h1 className="text-5xl font-medium">
-          Loading data...........PopularArtical line 18
-        </h1>
+        <Loader/>
       ) : (
         <>
-          <div className="max-w-screen-xl mt-12 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="max-w-screen-xl  mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
             {currentItems?.map((item) => (
               <ArticalCard key={item.id} data={item} />
             ))}
@@ -45,6 +46,9 @@ const PopularArtical = () => {
           </div>
         </>
       )}
+       <FqSection />
+      </div>
+      
     </div>
   );
 };
