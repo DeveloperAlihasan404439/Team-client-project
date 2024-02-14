@@ -45,7 +45,7 @@ const PopularArtical = () => {
           </div>
         </>
       )}
-       {/* <FqSection /> */}
+       <FqSection />
     </div>
   );
 };

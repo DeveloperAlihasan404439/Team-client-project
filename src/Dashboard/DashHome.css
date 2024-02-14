@@ -3,7 +3,6 @@
   flex-direction: column;
   isolation: isolate;
   position: relative;
-  width: 18rem;
   height: 8rem;
   background: #144248;
   border-radius: 1rem;
@@ -62,7 +61,6 @@
 .notiglow,
 .notiborderglow {
   position: absolute;
-  width: 20rem;
   height: 20rem;
   transform: translate(-50%, -50%);
   background: radial-gradient(circle closest-side at center, white, transparent);
@@ -84,15 +82,4 @@
 
 .notification:hover .notiborderglow {
   opacity: 0.1
-}
-
-.note {
-  color: var(--color);
-  position: fixed;
-  top: 80%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  font-size: 0.9rem;
-  width: 75%;
 }
