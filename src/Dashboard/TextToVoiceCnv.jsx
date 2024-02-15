@@ -58,7 +58,7 @@ const TextToVoiceCnv = () => {
         <div>
             <div className="max-w-6xl mx-auto mt-5 flex justify-between items-center rounded-lg bg-white py-2 px-3">
                 <h1 className="text-2xl uppercase tracking-[4px] font-semibold text-[#144248]">
-                    Convert text to voice | Voice to text
+                    Convert text to voice | Voice to text's
                 </h1>
             </div>
 
