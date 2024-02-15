@@ -15,6 +15,8 @@ const Dashboard = () => {
   const {user} = useContext(AuthContext)
   const [openDashboard, setOpenDashboard] = useState(true);
   const { usersData } = useUsers();
+
+  //admin routes
   const adminNavItems = [
     {
       Title: "Home",
@@ -53,7 +55,14 @@ const Dashboard = () => {
       Route: "/dashboard/notes",
       icon: <GrNotes />,
     },
+    {
+      Title: "Text to Voice",
+      Route: "/dashboard/text-to-voice",
+      icon: <GrNotes />,
+    },
   ];
+
+  // user routes
   const userNavItems = [
     {
       Title: "Profile",
@@ -76,9 +85,14 @@ const Dashboard = () => {
       Route: "/dashboard/notes",
       icon: <GrNotes />,
     },
+    {
+      Title: "Text to Voice",
+      Route: "/dashboard/text-to-voice",
+      icon: <GrNotes />,
+    },
   ];
   // const userDashboard = usersData.filter((user) => user.role === "user");
-  const adminDashboard = usersData.find((users) => users.email === user.email);
+  const adminDashboard = usersData.find((users) => users.email === user?.email);
 
   console.log(adminDashboard);
   return (
