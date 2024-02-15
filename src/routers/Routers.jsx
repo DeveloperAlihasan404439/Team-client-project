@@ -18,6 +18,7 @@ import RequstArticle from '../Dashboard/RequstArticle';
 import PopularArtical from '../component/PopularArtical/PopularArtical';
 import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
 import Notes from '../pages/Notes/Notes';
+import Payment from '../pages/Payment/Payment';
 
 
 
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
                 path: '/articledetails/:id',
                 element:<ArticleDetails/>,
             },
+            {
+                path: '/payment',
+                element: <Payment></Payment>
+            }
             
             
         ]

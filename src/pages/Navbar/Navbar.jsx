@@ -13,7 +13,8 @@ import { GrNotes } from "react-icons/gr";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { motion } from "framer-motion";
-import DarkMode from "../Shared/DarkMode/DarkMode";
+import Payment from "../Payment/Payment";
+// import DarkMode from "../Shared/DarkMode/DarkMode";
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -64,6 +65,12 @@ const NavBar = () => {
       icon: <FaPeopleGroup />,
       Route: "/aboutUs",
     },
+    {
+      Title: "Premium",
+      icon: <FaPeopleGroup />,
+      Route: "/payment",
+    },
+    
   ];
   return (
     <Headroom
@@ -247,7 +254,7 @@ const NavBar = () => {
 
 
         <div className="navbar-end">
-          <DarkMode/>
+          {/* <DarkMode/> */}
           {user ? (
             <>
               <div className="dropdown dropdown-end ">
