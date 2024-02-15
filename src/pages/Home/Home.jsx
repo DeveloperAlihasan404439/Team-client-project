@@ -23,7 +23,7 @@ const Home = () => {
     return (
         <div className="overflow-x-hidden">
             <Banner  ></Banner>
-            <TimeDifference/>
+            {/* <TimeDifference/> */}
             <WhyUS></WhyUS>
             <HowToUse></HowToUse>
             <UserReview></UserReview>

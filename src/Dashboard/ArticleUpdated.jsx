@@ -13,6 +13,9 @@ moment().format();
 const ArticleUpdated = () => {
   const { article, isLoading, refetch } = useArticle();
   const [updatedArticle, setupdatedArticle] = useState({});
+
+  const confrimArticle = article.filter(confirm => confirm.status==="confrom")
+
   const axiosPublick = useAxios();
   // delete article code
   function hendelArticleDelete(id) {
@@ -89,7 +92,7 @@ const ArticleUpdated = () => {
               </tr>
             </thead>
             <tbody>
-              {article?.map((arc, i) => (
+              {confrimArticle?.map((arc, i) => (
                 <tr
                   key={i}
                   className="bg-base-100 border-b-2 text-lg border-[#144248] text-[#144248]"

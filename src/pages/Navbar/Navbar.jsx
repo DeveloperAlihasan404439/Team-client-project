@@ -46,11 +46,6 @@ const NavBar = () => {
           icon: <TbPasswordUser />,
           Route: "/password/strength/check",
         },
-        {
-          Title: "Notes",
-          icon: <GrNotes />,
-          Route: "/notes",
-        },
       ],
     },
 
@@ -63,12 +58,7 @@ const NavBar = () => {
       Title: "About Us",
       icon: <FaPeopleGroup />,
       Route: "/aboutUs",
-    },
-    {
-      Title: "Payment",
-      icon: <FaPeopleGroup />,
-      Route: "/payment",
-    },
+    }
   ];
   return (
     <Headroom
