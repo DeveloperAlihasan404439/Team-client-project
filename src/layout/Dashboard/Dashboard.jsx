@@ -1,28 +1,27 @@
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../../assets/BannerL&Logo/Logo white.png";
 import "./Dashboard.css";
-import { FaUsers, FaHome } from "react-icons/fa";
+import { FaUsers, FaHome, } from "react-icons/fa";
 import { BsDatabaseFillAdd } from "react-icons/bs";
 import { IoGitPullRequestSharp } from "react-icons/io5";
 import { FaBookOpen } from "react-icons/fa6";
 import { SiAutodeskrevit, SiHomeassistantcommunitystore } from "react-icons/si";
-import { GrNotes } from "react-icons/gr";
-import { IoMenu, IoCloseSharp } from "react-icons/io5";
-import { useContext, useState } from "react";
-import useUsers from "../../Hooks/useUsers";
-import { AuthContext } from "../../provider/AuthProvider";
-import { MdOutlineRecordVoiceOver } from "react-icons/md";
-const Dashboard = () => {
-  const {user} = useContext(AuthContext)
-  const [openDashboard, setOpenDashboard] = useState(true);
-  const { usersData } = useUsers();
+import useUserRole from "../../Hooks/useUserRole";
+import { FaTextHeight } from "react-icons/fa6";
 
-  const adminNavItems = [
+const Dashboard = () => {
+  const [isAdmin] = useUserRole()
+  //const [isAdmin] = useAdmin();
+  console.log(isAdmin?.admin)
+
+  const adminRoutes = [
     {
-      Title: "Home",
+      Title: "Dashboard",
       Route: "/dashboard/home",
       icon: <FaHome />,
+      userRole: "user"
     },
+    
 
     {
       Title: "All People",
@@ -33,32 +32,53 @@ const Dashboard = () => {
       Title: "Add Article",
       Route: "/dashboard/addArticle",
       icon: <FaBookOpen />,
+      userRole: "admin"
+
     },
     {
       Title: "Articles All",
       Route: "/dashboard/articleUpdated",
       icon: <BsDatabaseFillAdd />,
+      userRole: isAdmin ? "admin" : "regular"
+
     },
 
     {
       Title: "User Review",
       Route: "/dashboard/requstReview",
       icon: <SiAutodeskrevit />,
+      userRole: isAdmin ? "admin" : "regular"
+
     },
     {
       Title: "Request Article",
       Route: "/dashboard/requstArticle",
       icon: <IoGitPullRequestSharp />,
-    },
-    {
-      Title: "Notes",
-      Route: "/dashboard/notes",
-      icon: <GrNotes />,
+      userRole: isAdmin ? "admin" : "regular"
+
     },,
     {
-      Title: "Text to Voice",
+      Title: "Text to voice",
       Route: "/dashboard/text-to-voice",
-      icon: <MdOutlineRecordVoiceOver />,
+      icon: <FaTextHeight />,
+      userRole: isAdmin ? "admin" : "regular"
+
+    },
+  ];
+
+  const PrUserRoutes = [
+    {
+      Title: "Dashboard",
+      Route: "/dashboard/home",
+      icon: <FaHome />,
+      userRole: "user"
+    },
+    {
+      Title: "Requst Article",
+      Route: "/dashboard/requstArticle",
+      icon: <IoGitPullRequestSharp />,
+      userRole: isAdmin ? "admin" : "regular"
+
     },
   ];
   const userNavItems = [
@@ -169,72 +189,56 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="md:flex">
-        <div className="hidden md:w-[20%] md:flex relative">
-          <nav
-            className={`h-screen md:sticky top-0 left-0 bg-[#144248] ${
-              openDashboard
-                ? "absolute top-0 left-0"
-                : "absolute top-0 -left-10"
-            }`}
-          >
-            <div className="py-[25px] flex justify-center">
-              <img src={logo} alt="" className="w-32 lg:w-48" />
-            </div>
-            <ul className="nav-list">
-              {adminDashboard?.role ==="admin"? (
-                <>
-                  {adminNavItems.map((item, i) => (
-                    <NavLink
-                      key={i}
-                      to={item.Route}
-                      className="text-[#EEEEEE] md:px-[26px] lg:px-[32px] py-[0.5rem] md:ml-[8px] lg:ml-[15px] text-sm lg:text-lg flex items-center gap-3"
-                    >
-                      {item.icon}
-                      {item.Title}
-                    </NavLink>
-                  ))}
-                </>
-              ) : (
-                <>
-                  {userNavItems.map((item, i) => (
-                    <NavLink
-                      key={i}
-                      to={item.Route}
-                      className="text-[#EEEEEE] md:px-[26px] lg:px-[32px] py-[0.5rem] md:ml-[8px] lg:ml-[15px] text-sm lg:text-lg flex items-center gap-3"
-                    >
-                      {item.icon}
-                      {item.Title}
-                    </NavLink>
-                  ))}
-                </>
-              )}
-            </ul>
-            <dir className="border-b border-[#eeeeee] w-full"></dir>
-            <ul className="nav-list">
-              <li>
+        <ul className="nav-list">
+          {
+            isAdmin?.admin ? (
+              adminRoutes.map((item, i) => (
                 <NavLink
-                  to="/"
-                  className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[20px] flex items-center gap-3"
+                  key={i}
+                  to={item.Route}
+                  className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[15px] flex items-center gap-3"
                 >
-                  <SiHomeassistantcommunitystore />
-                  Home
+                  {item.icon}
+                        {item.Title}
                 </NavLink>
-              </li>
-              <li className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[20px] flex items-center gap-3">
-                <IoGitPullRequestSharp />
-                LogOut
-              </li>
-            </ul>
-          </nav>
-          <div className="block md:hidden text-[#EEE] text-3xl py-1 px-2 h-fit mt-5 bg-[#144248] rounded-r-xl">
-            <span onClick={() => setOpenDashboard(!openDashboard)}>
-              {openDashboard ? <IoMenu /> : <IoCloseSharp />}
-            </span>
-          </div>
-        </div>
-        <div className="w-full md:w-[80%]">{<Outlet />}</div>
+              ))
+            ) : (
+              PrUserRoutes.map((item, i) => (
+                <NavLink
+                  key={i}
+                  to={item.Route}
+                  className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[15px] flex items-center gap-3"
+                >
+                  {
+                    !item.adminRoute && isAdmin?.admin ? (
+                      <>{item.icon},
+                        {item.Title}</>
+                    ) : (
+                      <>{item.icon}
+                      {item.Title}
+                      </>
+                    )
+                  }
+                </NavLink>
+              ))
+            )
+          }
+        </ul>
+        <dir className="border-b border-[#eeeeee] w-full"></dir>
+        <ul className="nav-list">
+          <li>
+            <NavLink
+              to="/"
+              className="text-[#EEEEEE] px-[2rem] py-[0.5rem] ml-[20px] flex items-center gap-3"
+            >
+              <SiHomeassistantcommunitystore />
+              Home
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+      <div className="w-[83%]">
+        <Outlet />
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ import img2 from '../../assets/BannerL&Logo/spam.json'
 import img3 from '../../assets/BannerL&Logo/verific.json'
 
 import AOS from 'aos';
-
 import 'aos/dist/aos.css'
 const WhyUS = () => {
 
