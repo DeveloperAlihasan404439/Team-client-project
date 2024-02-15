@@ -80,7 +80,6 @@ const Dashboard = () => {
   // const userDashboard = usersData.filter((user) => user.role === "user");
   const adminDashboard = usersData.find((users) => users.email === user.email);
 
-  console.log(adminDashboard);
   return (
     <div className="w-full">
       <div className="block sticky top-0 left-0 bg-[#144248] md:hidden z-50 ">
