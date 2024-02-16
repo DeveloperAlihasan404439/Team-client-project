@@ -6,7 +6,6 @@ const TextToVoiceCnv = () => {
     const [errorMessage, setErrorMessage] = useState('');
     const [isListening, setIsListening] = useState(false);
     let recognition = null;
-
     const toggleListening = () => {
         if (isListening) {
             recognition.stop(); // Stop recognition

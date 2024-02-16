@@ -70,22 +70,22 @@ const Dashboard = () => {
 
     {
       Title: "Add Article",
-      Route: "/dashboard/users",
+      Route: "/dashboard/user/addArticle",
       icon: <FaUsers />,
     },
     {
       Title: "Articles",
-      Route: "/dashboard/addArticle",
+      Route: "/dashboard/user/all/Article",
       icon: <FaBookOpen />,
     },
     {
       Title: "Notes",
-      Route: "/dashboard/notes",
+      Route: "/dashboard/user/notes",
       icon: <GrNotes />,
     },
     {
       Title: "Text to Voice",
-      Route: "/dashboard/notes",
+      Route: "/dashboard/text-to-voice",
       icon: <MdOutlineRecordVoiceOver />,
     },
   ];
