@@ -20,7 +20,7 @@ import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStreng
 
 import UserAddArticle from '../Dashboard/UserDashboard/UserAddArticle';
 import UserAllArticle from '../Dashboard/UserDashboard/UserAllArticle';
-import Notes from '../Dashboard/UserDashboard/Notes';
+ import Notes from '../Dashboard/UserDashboard/Notes';
 import TextToVoiceCnv from '../Dashboard/UserDashboard/TextToVoiceCnv';
 
 
