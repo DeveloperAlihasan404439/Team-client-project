@@ -71,7 +71,7 @@ const Login = () => {
         Swal.fire({
             position: "center",
             icon: "success",
-            title: "Successfull Google Sing In",
+            title: "Successfull Google Sign In",
             showConfirmButton: false,
             background: "#144248",
             color: '#EEEEEE',

@@ -114,7 +114,7 @@ export const router = createBrowserRouter([
             },
             // user rout 
             {
-                path: '/dashboard/users/addArticle',
+                path: '/dashboard/user/addArticle',
                 element: <UserAddArticle/>
             },
             {
