@@ -43,8 +43,9 @@ const Dashboard = () => {
     },
   ];
   return (
-    <div className="flex">
-      <nav className="w-[17%] h-screen sticky top-0 left-0">
+   <div>
+     <div className="flex flex-col md:flex-row">
+      <nav className=" w-full md:w-[17%] h-screen sticky top-0 left-0">
         <div className="py-[25px] flex justify-center">
           <img src={logo} alt="" className="w-48" />
         </div>
@@ -60,7 +61,7 @@ const Dashboard = () => {
             </NavLink>
           ))}
         </ul>
-        <dir className="border-b border-[#eeeeee] w-full"></dir>
+        <div className="border-b border-[#eeeeee] w-full"></div>
         <ul className="nav-list">
           <li>
           <NavLink
@@ -78,10 +79,11 @@ const Dashboard = () => {
           </li>
         </ul>
       </nav>
-      <div className="w-[83%]">
+      <div className="md:w-[83%] w-full">
         <Outlet />
       </div>
     </div>
+   </div>
   );
 };
 

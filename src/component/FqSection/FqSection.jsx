@@ -1,85 +1,38 @@
 const FqSection = () => {
   return (
-
-    <div className="relative max-w-screen-xl  mx-auto rounded-xl shadow bg-[#003430]  bg-cover bg-no-repeat my-10">
-    <div className=" max-w-screen-xl mx-auto">
-      <div className="w-full h-full absolute bg-BackGround_two bg-cover  animation "></div>
-      <div className=" font-manrope text-center py-8">
-        <p className="text-gray-300 text-lg">Common Question</p>
-        <p className="text-5xl font-bold text-white py-5">
-          Frequently asked questions
-        </p>
-      </div>
-
-      {/* main que and ans  */}
-      <div className="flex gap-8 md:flex-row flex-col justify-center py-20">
-        {/* nuber 1one  */}
-        <div className=" font-inter w-full md:w-[500px] flex flex-col gap-5">
-          <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur  bg-black/20">
-            <input type="radio" name="my-accordion-2" checked="checked" />
-
-            <div className="collapse-title text-xl text-white">
-              What is Disposable Temporary Email?
-            </div>
-
-            <div className="collapse-content">
-              <p className="text-gray-100 font-light border-l-2 border-[#019D90] rounded font-inter px-3 leading-snug  ">
-                Your temporary email address is above, they're great when
-                registering with web sites you don't quite trust yet – and might
-                never in the future. It's how you'll keep your real email
-                address safe and private and still receive emails from them.
-              </p>
-            </div>
-          </div>
-
-          {/* 2number  */}
-          <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur bg-black/20">
-            <input type="radio" name="my-accordion-2" checked="checked" />
-
-            <div className="collapse-title text-xl text-white">
-              When should I use a Disposable Temporary Email?
-            </div>
-
-            <div className="collapse-content">
-              <p className="text-gray-100 font-light border-l-2 border-[#019D90] rounded font-inter px-3 leading-snug  ">
-                It's best not to use Inboxes for important information or emails
-                that you'll need to keep safe. Specifically services like
-                banking, buying cryptocurrencies, or registering for services
-                you use daily.
-              </p>
-            </div>
-          </div>
-
-          {/* 3 number  */}
-          <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur bg-black/20">
-            <input type="radio" name="my-accordion-2" checked="checked" />
-
-            <div className="collapse-title text-xl text-white">
-              Are disposable temporary emails anonymous?
-            </div>
-
-            <div className="collapse-content">
-              <p className="text-gray-100 font-light border-l-2 border-[#019D90] rounded font-inter px-3 leading-snug ">
-                Inboxes.com make every effort to protect your anonymity, and as
-                you'd expect no personal details are logged or collected by our
-                service. Please read our terms and conditions carefully before
-                starting.
-              </p>
-            </div>
-          </div>
+    <div className="relative mx-auto rounded-xl shadow max-w-screen-xl bg-[#019D90] bg-cover bg-no-repeat my-10">
+      <div className="max-w-screen-xl mx-auto">
+        <div className="w-full h-full absolute bg-BackGround_two  object-cover animation "></div>
+        <div className=" font-manrope text-center py-8">
+          <p className="text-[#eee] text-lg">Common Question</p>
+          <p className="text-5xl font-bold text-[#eee] pb-5">
+            Frequently asked questions
+          </p>
         </div>
 
-        <div className="font-manrope w-full md:w-[500px] flex flex-col gap-5">
-          <div className="collapse p-3 border border-[#feffff8b] border-l-4  rounded-xl collapse-arrow backdrop-blur bg-black/20">
-            <input type="radio" name="my-accordion-2" checked="checked" />
-
-            <div className="collapse-title text-xl text-white">
-              How long will my disposable temporary email last?
-
+        {/* main que and ans  */}
+        <div className="flex gap-8 justify-center pb-16">
+          {/* nuber 1one  */}
+          <div className=" font-inter w-[500px] flex flex-col gap-5">
+            <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur  bg-black/20">
+              <input type="radio" name="my-accordion-2"  />
+              <div className="collapse-title text-xl text-[#eee]">
+                What is Disposable Temporary Email?
+              </div>
+              <div className="collapse-content">
+                <p className="text-gray-100 font-light border-l-2 border-[#019D90] rounded font-inter px-3 leading-snug  ">
+                  Your temporary email address is above, they're great when
+                  registering with web sites you don't quite trust yet – and
+                  might never in the future. It's how you'll keep your real
+                  email address safe and private and still receive emails from
+                  them.
+                </p>
+              </div>
+            </div>
 
             {/* 2number  */}
             <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur bg-black/20">
-              <input type="radio" name="my-accordion-2" checked="checked" />
+              <input type="radio" name="my-accordion-2"  />
 
               <div className="collapse-title text-xl text-white">
                 When should I use a Disposable Temporary Email?
@@ -97,7 +50,7 @@ const FqSection = () => {
 
             {/* 3 number  */}
             <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur bg-black/20">
-              <input type="radio" name="my-accordion-2" checked="checked" />
+              <input type="radio" name="my-accordion-2"   />
 
               <div className="collapse-title text-xl text-white">
                 Are disposable temporary emails anonymous?
@@ -116,7 +69,7 @@ const FqSection = () => {
 
           <div className="font-manrope w-[500px] flex flex-col gap-5">
             <div className="collapse p-3 border border-[#feffff8b] border-l-4  rounded-xl collapse-arrow backdrop-blur bg-black/20">
-              <input type="radio" name="my-accordion-2" checked="checked" />
+              <input type="radio" name="my-accordion-2" />
 
               <div className="collapse-title text-xl text-white">
                 How long will my disposable temporary email last?
@@ -134,7 +87,7 @@ const FqSection = () => {
             </div>
             {/* 2number  */}
             <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur bg-black/20">
-              <input type="radio" name="my-accordion-2" checked="checked" />
+              <input type="radio" name="my-accordion-2"  />
 
               <div className="collapse-title text-xl text-white">
                 Who is behind this magical Disposable Temporary Email?
@@ -152,7 +105,7 @@ const FqSection = () => {
             </div>
             {/* 3 number  */}
             <div className="collapse p-3 border border-[#feffff8b] border-l-4  rounded-xl collapse-arrow backdrop-blur  bg-black/20">
-              <input type="radio" name="my-accordion-2" checked="checked" />
+              <input type="radio" name="my-accordion-2" />
 
               <div className="collapse-title text-xl text-white">
                 I'm a criminal, will Disposable Temporary Email help me?

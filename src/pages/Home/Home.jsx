@@ -17,17 +17,16 @@ const Home = () => {
       easing: "ease-in-sine",
       delay: 100,
     });
-
-  },[])
-    return (
-        <div className="overflow-x-hidden">
-            <Banner  ></Banner>
-            <WhyUS></WhyUS>
-            <HowToUse></HowToUse>
-            <UserReview></UserReview>
-            <Blog/> 
+  }, []);
+  return (
+    <div className="overflow-x-hidden">
+      
+      <Banner></Banner>
+      <WhyUS></WhyUS>
+      <HowToUse></HowToUse>
+      <UserReview></UserReview>
       <RecievedEmails />
-     
+      <Blog />
     </div>
   );
 };
