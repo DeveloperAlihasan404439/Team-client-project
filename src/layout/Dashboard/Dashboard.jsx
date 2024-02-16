@@ -11,10 +11,12 @@ import { IoMenu, IoCloseSharp } from "react-icons/io5";
 import { useContext, useState } from "react";
 import useUsers from "../../Hooks/useUsers";
 import { AuthContext } from "../../provider/AuthProvider";
+import { MdOutlineRecordVoiceOver } from "react-icons/md";
 const Dashboard = () => {
   const {user} = useContext(AuthContext)
   const [openDashboard, setOpenDashboard] = useState(true);
   const { usersData } = useUsers();
+
   const adminNavItems = [
     {
       Title: "Home",
@@ -52,6 +54,11 @@ const Dashboard = () => {
       Title: "Notes",
       Route: "/dashboard/notes",
       icon: <GrNotes />,
+    },,
+    {
+      Title: "Text to Voice",
+      Route: "/dashboard/text-to-voice",
+      icon: <MdOutlineRecordVoiceOver />,
     },
   ];
   const userNavItems = [
@@ -76,9 +83,14 @@ const Dashboard = () => {
       Route: "/dashboard/notes",
       icon: <GrNotes />,
     },
+    {
+      Title: "Text to Voice",
+      Route: "/dashboard/notes",
+      icon: <MdOutlineRecordVoiceOver />,
+    },
   ];
   // const userDashboard = usersData.filter((user) => user.role === "user");
-  const adminDashboard = usersData.find((users) => users.email === user.email);
+  const adminDashboard = usersData.find((users) => users.email === user?.email);
 
   return (
     <div className="w-full">
