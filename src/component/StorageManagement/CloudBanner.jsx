@@ -17,7 +17,7 @@ const CloudBanner = () => {
       // }}
     >
       <motion.section
-        animate={{ x: 0 }}
+        animate={{ x: 10 }}
         transition={{ type: "spring", stiffness: 100 }}
         className="max-w-7xl  mx-auto "
       >

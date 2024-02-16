@@ -19,6 +19,7 @@ const Storage = () => {
   const [files, setFiles] = useState(null);
   const storage = getStorage(app);
   const fileListRef = ref(storage, `${user?.email}/`);
+  const[error, setError]=useState(null)
 
   useEffect(() => {
     if (!fileListRef) return;
@@ -36,6 +37,7 @@ const Storage = () => {
       })
       .catch((error) => {
         console.error("Error listing files:", error);
+        setError(error)
       });
   }, [filesList]);
 
@@ -84,9 +86,13 @@ const handleDelete=(id)=>{
       transition: Bounce,
       });
   }).catch((error) => {
-    // Uh-oh, an error occurred!
+    console.log(error);
   });
 }
+ 
+
+
+
   return (
     <div className="">
       <CloudBanner></CloudBanner>
@@ -147,25 +153,32 @@ const handleDelete=(id)=>{
           Cilck here to Download the uploaded files
         </h1>
        
-        <div className="max-w-5xl mx-auto  overflow-auto ">
+        <div className="max-w-5xl mx-auto overflow-auto">
   <ol className="md:list-decimal flex flex-col gap-2">
-   {filesList.length> 0 ?  filesList?.map((url, index) => (
-      
-      <li key={index} className="">
-          <span className="md:hidden">{index + 1}.&nbsp;</span> 
-        <p className="flex flex-col lg:flex-row justify-center items-center gap-2">
-        
-          <a className="underline text-gray-600" href={url} download>
-            {url}
-          </a>
-          <button onClick={()=>handleDelete()} className="text-[#e74c3c] hover:rotate-[20deg] hover:duration-300 text-3xl">
-            <MdDelete />
-          </button>
-        </p>
-      </li>
-    )) : <div className="text-3xl font-bold flex justify-center items-center"> No files has been uploaded </div>}
+    {filesList.length > 0 ? (
+      filesList?.map((url, index) => (
+        <li key={index} className="">
+          <span className="md:hidden">{index + 1}.</span>
+          <p className="flex flex-col lg:flex-row justify-center items-center gap-2">
+            <a className="underline text-gray-600" href={url} download>
+              {url}
+            </a>
+            <button onClick={() => handleDelete()} className="text-[#e74c3c] hover:rotate-[20deg] hover:duration-300 text-3xl">
+              <MdDelete />
+            </button>
+          </p>
+        </li>
+      ))
+    ) : (
+      error ? (
+        <div>{error}</div>
+      ) : (
+        <div className="text-3xl font-bold flex justify-center items-center"> No files have been uploaded </div>
+      )
+    )}
   </ol>
 </div>
+
 
   
       </motion.div>
