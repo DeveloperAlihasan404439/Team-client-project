@@ -22,7 +22,7 @@
           setIpv4Address(await response.text());
           const response2 = await fetch("https://api64.ipify.org");
           setIpv6Address(await response2.text());
-          const response3 = await fetch(`http://ip-api.com/json/${ipv4Address}`);
+          const response3 = await fetch(`https://ip-api.com/json/${ipv4Address}`);
     
           setGetInfo(await response3.json());
         } catch (err) {

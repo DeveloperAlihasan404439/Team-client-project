@@ -1,19 +1,20 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAtoBPlLKT_lMqGDAN32QmA7mh1WMz6Osk",
-  authDomain: "team-project-fake-mail.firebaseapp.com",
-  projectId: "team-project-fake-mail",
-  storageBucket: "team-project-fake-mail.appspot.com",
-  messagingSenderId: "840220264794",
-  appId: "1:840220264794:web:7260152b42c646bc274b63"
+  apiKey: "AIzaSyDIMrbZT5qJ4ZK3XfA7nh3clVXrWbufCQw",
+  authDomain: "swiftymail.firebaseapp.com",
+  projectId: "swiftymail",
+  storageBucket: "swiftymail.appspot.com",
+  messagingSenderId: "598365628430",
+  appId: "1:598365628430:web:2451dea90f1f78000ef45f",
+  measurementId: "G-6HFSWPYWCF"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-export default app;
+export default app 

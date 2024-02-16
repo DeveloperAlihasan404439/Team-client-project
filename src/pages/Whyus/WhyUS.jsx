@@ -7,8 +7,8 @@ import img2 from '../../assets/BannerL&Logo/spam.json'
 import img3 from '../../assets/BannerL&Logo/verific.json'
 
 import AOS from 'aos';
-
 import 'aos/dist/aos.css'
+import RecievedEmails from '../../Emails/RecievedEmails';
 const WhyUS = () => {
 
     AOS.init({
@@ -16,6 +16,7 @@ const WhyUS = () => {
 
     return (
         <div className="mt-5 relative  ">
+            <RecievedEmails></RecievedEmails>
             <section className='max-w-7xl shadow-md rounded-xl border-t-2 text-gray-600 bg-[#EEEEEE]  p-6 mx-auto text-center z-90 '>
                 <header >
                     <h1 className="text-3xl drop-shadow-md  text-[#144248] font-bold">Why <span className="text-[#019D90] font-bold">Swifty Mail !</span> </h1>
@@ -33,7 +34,7 @@ const WhyUS = () => {
                         <Lottie data-aos="zoom-in" className='h-28 col-span-2 row-span-2' animationData={img2} loop={true} />
                         <h1 className='text-xl font-bold drop-shadow-md '>Avoid Spam and Unwanted Emails</h1>
                         <p className=' text-sm'>
-                            Tired of receiving endless spam in your primary inbox? Swifty Mail helps you create temporary emails for one-time use, keeping your primary inbox clutter-free and ensuring you only receive the emails you want.</p>
+                            Tired of receiving endless spa in your primary inbox? Swifty Mail helps you create temporary emails for one-time use, keeping your primary inbox clutter-free and ensuring you only receive the emails you want.</p>
                     </aside>
 
                     <aside data-aos="fade-right" data-aos-duration="1000" className='text-center flex flex-col justify-center items-center gap-4 '>

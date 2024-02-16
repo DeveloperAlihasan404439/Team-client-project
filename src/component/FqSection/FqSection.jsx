@@ -40,10 +40,10 @@ const FqSection = () => {
 
               <div className="collapse-content">
                 <p className="text-gray-100 font-light border-l-2 border-[#019D90] rounded font-inter px-3 leading-snug  ">
-                  It's best not to use Inboxes for important information or
-                  emails that you'll need to keep safe. Specifically services
-                  like banking, buying cryptocurrencies, or registering for
-                  services you use daily.
+                  It's best not to use Inboxes for important information or emails
+                  that you'll need to keep safe. Specifically services like
+                  banking, buying cryptocurrencies, or registering for services
+                  you use daily.
                 </p>
               </div>
             </div>
@@ -58,23 +58,59 @@ const FqSection = () => {
 
               <div className="collapse-content">
                 <p className="text-gray-100 font-light border-l-2 border-[#019D90] rounded font-inter px-3 leading-snug ">
-                  Inboxes.com make every effort to protect your anonymity, and
-                  as you'd expect no personal details are logged or collected by
-                  our service. Please read our terms and conditions carefully
-                  before starting.
+                  Inboxes.com make every effort to protect your anonymity, and as
+                  you'd expect no personal details are logged or collected by our
+                  service. Please read our terms and conditions carefully before
+                  starting.
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="font-manrope w-[500px] flex flex-col gap-5">
+          <div className="font-manrope w-full md:w-[500px] flex flex-col gap-5">
             <div className="collapse p-3 border border-[#feffff8b] border-l-4  rounded-xl collapse-arrow backdrop-blur bg-black/20">
               <input type="radio" name="my-accordion-2" />
 
               <div className="collapse-title text-xl text-white">
                 How long will my disposable temporary email last?
-              </div>
+                {/* 2number  */}
+                <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur bg-black/20">
+                  <input type="radio" name="my-accordion-2" checked="checked" />
 
+                  <div className="collapse-title text-xl text-white">
+                    When should I use a Disposable Temporary Email?
+                  </div>
+
+                  <div className="collapse-content">
+                    <p className="text-gray-100 font-light border-l-2 border-[#019D90] rounded font-inter px-3 leading-snug  ">
+                      It's best not to use Inboxes for important information or
+            emails that you'll need to keep safe. Specifically
+                      services like banking, buying cryptocurrencies, or
+                      registering for services you use daily.
+                    </p>
+                  </div>
+                </div>
+
+                {/* 3 number  */}
+                <div className="collapse p-3 border border-[#feffff8b] border-l-4 rounded-xl collapse-arrow backdrop-blur bg-black/20">
+                  <input type="radio" name="my-accordion-2" checked="checked" />
+
+                  <div className="collapse-title text-xl text-white">
+                    Are disposable temporary emails anonymous?
+                  </div>
+
+                  <div className="collapse-content">
+                    <p className="text-gray-100 font-light border-l-2 border-[#019D90] rounded font-inter px-3 leading-snug ">
+
+                      Inboxes.com make every effort to protect your anonymity,
+                      and as you'd expect no personal details are logged or
+                      collected by our service. Please read our terms and
+                      conditions carefully before starting.
+
+                    </p>
+                  </div>
+                </div>
+              </div>
               <div className="collapse-content">
                 <p className="text-gray-100 font-light border-l-2 border-[#019D90] rounded font-inter px-3 leading-snug  ">
                   Inboxes are not deleted and can be used for as long as we keep

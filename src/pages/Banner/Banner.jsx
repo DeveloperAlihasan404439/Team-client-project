@@ -48,35 +48,47 @@ const Banner = () => {
   const userEmail = user?.email
   const createInbox = async () => {
     setLoading(true)
-    axios.post('https://server-side-bice.vercel.app/create-inbox', { userEmail })
-      .then(() => {
-        refetch();
-        setLoading(false)
-      })
+    if (!user) {
+      return setEmails(false)
+    } else {
+      axios.post('https://server-side-bice.vercel.app/create-inbox', { userEmail })
+        .then(() => {
+          refetch();
+          setLoading(false)
+        })
+    }
   }
 
   const inboxIds = tempMail.inboxId;
+
+
   useEffect(() => {
-    if (inboxIds) {
+    if (!inboxIds) {
+      return;
+    } else {
       axios.get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
         .then(res => {
           refetch()
           setEmails(res.data)
         })
     }
+
   }, [inboxIds, refetch])
   return (
-
-    <motion.div ref={ref} className="hero place-items-center   items-center  relative w-full  -top-20  h-screen " >
-    <div className='absolute inset-0 ' style={{
+    <motion.div ref={ref} className="hero place-items-center  mb-10  items-center  relative w-full  h-screen mt-0 " >
+    <div className='absolute z-90 -top-20 right-0 left-0 bottom-0 object-cover' style={{
       backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center',
     }}
 
-    ></div>
+    <motion.div ref={ref} className="hero place-items-center  items-center mt-0 relative -top-20   h-screen" >
+      <div className='absolute inset-0 ' style={{
+        backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center',
+      }}
 
-    
+      ></div>
+
       <motion.div style={{ y: textY }} className="hero-content z-80  text-center text-[#144248]">
-        <div className='bg-white bg-opacity-50 z-80  rounded-md'>
+        <div className='bg-white cloudBannerZ z-80  rounded-md'>
           <h2 className='mt-9   text-2xl md:text-3xl font-medium '>Your Temporary Email Address</h2>
           <div className="lg:w-[45rem] rounded-lg w-full h-[15rem] flex items-center justify-center">
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
@@ -84,7 +96,7 @@ const Banner = () => {
           </div>
           <div className='flex items-center relative  justify-center gap-5 mb-6'>
 
-     
+
             {
               user ? (
                 tempMail ? (
@@ -126,14 +138,9 @@ const Banner = () => {
             }
           </div>
         </div>
-        
 
       </motion.div>
-      <div className='relative z-10 w-full '>
- 
- <Lottie className='lg:w-72 md:w-48 top-16 hidden md:block left-10 h-80 md:absolute ' animationData={mail} loop={true} />
 
- </div>
     </motion.div>
 
   );

@@ -19,7 +19,7 @@ const UserReview = () => {
   const { review, isLoading } = useReview();
 
   return (
-    <div className=" max-w-[1200px]  mx-auto p-6 mt-10">
+    <div className=" max-w-7xl shadow-md border-t-2  rounded-xl mx-auto p-6 mt-10">
       <h1 className="text-4xl text-center drop-shadow  font-bold ">
         User <span className="text-[#019D90] ">Reviews </span> : Hear What
         Others Have to <span className="text-[#019D90] ">Say!</span>
@@ -32,7 +32,7 @@ const UserReview = () => {
         control – swipe, drag, or let it shuffle, making it easy to browse
         through authentic experiences shared by our community.
       </p>
-      <seqment className="flex justify-center  items-center md:mt-6 lg:mt-10 ">
+      <seqment className="flex justify-center max-w-[1100px]  mx-auto items-center md:mt-6 lg:mt-10 ">
         <Swiper
           effect={"cards"}
           grabCursor={true}
@@ -95,12 +95,12 @@ const UserReview = () => {
           ))}
         </Swiper>
       </seqment>
-      <section className="flex justify-end mt-8 items-center gap-2">
-        {/* The button to open modal */}
+      <section className="flex justify-end mt-16  items-center gap-2">
+       
         <motion.label
           htmlFor="my_modal_6"
           whileTap={{ scale: 0.9 }}
-          className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 bg-[#EEEEEE] p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl  shadow-md"
+          className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl  shadow-md"
         >
           <AiTwotoneEdit className="text-2xl" /> Write a review
         </motion.label>

@@ -2,7 +2,6 @@ nav{
     position: sticky;
     top: 0;
     max-height: 100svh;
-    background-color: #144248;
 }
 .nav-list{
     margin: 0;
@@ -10,7 +9,6 @@ nav{
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-size: 1rem;
 }
 .nav-list .active{
     background-color: #EEEEEE ;
