@@ -2,10 +2,10 @@ import { Link, NavLink } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
 import { PiArticleDuotone } from "react-icons/pi";
 import logo from "../../assets/BannerL&Logo/Logo.png";
-import { FaRegFilePdf } from "react-icons/fa";
+
 import Headroom from "react-headroom";
 import { TbPasswordUser } from "react-icons/tb";
-
+import { TiCloudStorageOutline } from "react-icons/ti";
 import { RiDashboardFill, RiUserLocationLine } from "react-icons/ri";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
 import { useContext } from "react";
@@ -13,6 +13,7 @@ import { FaPeopleGroup } from "react-icons/fa6";
 
 import { AuthContext } from "../../provider/AuthProvider";
 import { motion } from "framer-motion";
+import Storage from './../../component/StorageManagement/Storage';
 
 const NavBar = () => {
 
@@ -53,6 +54,11 @@ const NavBar = () => {
           icon: <TbPasswordUser />,
           Route: "/password/strength/check",
         },
+        {
+          Title: "Storage Drive",
+          icon: <TiCloudStorageOutline />,
+          Route: "/UserDrive",
+        },
       ],
     },
 
@@ -70,14 +76,18 @@ const NavBar = () => {
   ];
   return (
     <Headroom
-      style={{
+      style={
+      
+        
+        {
+        
         webkitTransition: "all .5s ease-in-out",
         mozTransition: "all .5s ease-in-out",
         oTransition: "all .5s ease-in-out",
         transition: "all .5s ease-in-out",
       }}
     >
-      <div className="navbar z-0  backdrop-blur rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto ">
+      <div className="navbar z-0 cloudBannerZ   rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto ">
         <div className="navbar-start   ">
           <div className="dropdown w-fit h-fit ">
             <button
@@ -167,7 +177,7 @@ const NavBar = () => {
                                   isPending
                                     ? "pending"
                                     : isActive
-                                    ? "bg-[#019D91] hover-bg-[#017E77] px-3 py-2  text-[#EEEEEE]"
+                                    ? "bg-[#019D91] hover-bg-[#017E77] px-3 py-2 w-full  text-[#EEEEEE]"
                                     : ""
                                 }`
                               }
@@ -209,7 +219,7 @@ const NavBar = () => {
                     isPending
                       ? "pending"
                       : isActive
-                      ? `bg-[#019D91] hover:bg-[#017E77] border-none   w-fit text-nowrap text-[#EEEEEE] `
+                      ? `bg-[#019D91] hover:bg-[#017E77] border-none   w-full text-nowrap text-[#EEEEEE] `
                       : ""
                   }
                 >
@@ -232,7 +242,7 @@ const NavBar = () => {
                                   isPending
                                     ? "pending"
                                     : isActive
-                                    ? "bg-[#019D91] hover-bg-[#017E77] w-fit py-2 px-3 text-[#EEEEEE]"
+                                    ? "bg-[#019D91] hover-bg-[#017E77] w-full py-2 px-3 text-[#EEEEEE]"
                                     : ""
                                 }`
                               }

@@ -78,7 +78,7 @@ const ArticleUpdated = () => {
               {article?.map((arc, i) => (
                 <tr
                   key={i}
-                  className="bg-base-100 border-b-2 border-[#144248] text-[#144248]"
+                  className="bg-base-100 border-b-2 border-[#144248]  text-[#144248]"
                 >
                   <th className="w-[50px]">{i + 1}</th>
                   <td className="w-[80px] text-left text-lg">

@@ -1,7 +1,8 @@
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getStorage, ref } from "firebase/storage";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+
 const firebaseConfig = {
   apiKey: "AIzaSyDIMrbZT5qJ4ZK3XfA7nh3clVXrWbufCQw",
   authDomain: "swiftymail.firebaseapp.com",
@@ -14,18 +15,5 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const storage = getStorage();
 
-
-const imagesRef = ref(storage, 'images');
-
-
-const spaceRef = ref(storage, 'images/space.jpg');
-const storageRef = ref(storage, 'some-child');
-
-const bytes = new Uint8Array([0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x2c, 0x20, 0x77, 0x6f, 0x72, 0x6c, 0x64, 0x21]);
-uploadBytes(storageRef, bytes).then((snapshot) => {
-  console.log('Uploaded an array!');
-});
-
-export default app;
+export default app 

@@ -8,6 +8,7 @@ import FqSection from "../../component/FqSection/FqSection";
 import UserReview from "../Review/UserReview";
 import RecievedEmails from "../../Emails/RecievedEmails";
 import NavBar from './../Navbar/Navbar';
+import Storage from "../../component/StorageManagement/Storage";
 const Home = () => {
   useEffect(() => {
     AOS.init({
@@ -22,6 +23,7 @@ const Home = () => {
    
       <Banner />
       <RecievedEmails />
+    
       <WhyUS />
       <HowToUse />
       <UserReview />

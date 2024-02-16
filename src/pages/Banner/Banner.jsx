@@ -76,7 +76,7 @@ const Banner = () => {
 
     
       <motion.div style={{ y: textY }} className="hero-content z-80  text-center text-[#144248]">
-        <div className='bg-white bg-opacity-50 z-80  rounded-md'>
+        <div className='bg-white cloudBannerZ z-80  rounded-md'>
           <h2 className='mt-9   text-2xl md:text-3xl font-medium '>Your Temporary Email Address</h2>
           <div className="lg:w-[45rem] rounded-lg w-full h-[15rem] flex items-center justify-center">
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
