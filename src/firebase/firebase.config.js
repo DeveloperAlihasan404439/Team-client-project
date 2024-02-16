@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyDIMrbZT5qJ4ZK3XfA7nh3clVXrWbufCQw",
   authDomain: "swiftymail.firebaseapp.com",
