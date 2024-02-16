@@ -3,7 +3,7 @@ import useAxios from "./useAxios";
 const useUsers = () => {
     const axiosPublick = useAxios()
     const {data: usersData=[], isLoading,refetch} = useQuery({
-        queryKey: ['repoData'],
+        queryKey: ['users'],
         queryFn: async() =>{
             const {data} = await axiosPublick.get('/users')
             return data

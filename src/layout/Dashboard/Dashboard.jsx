@@ -15,8 +15,6 @@ const Dashboard = () => {
   const {user} = useContext(AuthContext)
   const [openDashboard, setOpenDashboard] = useState(true);
   const { usersData } = useUsers();
-
-  //admin routes
   const adminNavItems = [
     {
       Title: "Home",
@@ -50,19 +48,7 @@ const Dashboard = () => {
       Route: "/dashboard/requstArticle",
       icon: <IoGitPullRequestSharp />,
     },
-    {
-      Title: "Notes",
-      Route: "/dashboard/notes",
-      icon: <GrNotes />,
-    },
-    {
-      Title: "Text to Voice",
-      Route: "/dashboard/text-to-voice",
-      icon: <GrNotes />,
-    },
   ];
-
-  // user routes
   const userNavItems = [
     {
       Title: "Profile",
@@ -72,30 +58,25 @@ const Dashboard = () => {
 
     {
       Title: "Add Article",
-      Route: "/dashboard/users",
+      Route: "/dashboard/user/addArticle",
       icon: <FaUsers />,
     },
     {
-      Title: "Articles",
-      Route: "/dashboard/addArticle",
+      Title: "All Articles",
+      Route: "/dashboard/user/allArticle",
       icon: <FaBookOpen />,
     },
     {
       Title: "Notes",
-      Route: "/dashboard/notes",
-      icon: <GrNotes />,
-    },
-    {
-      Title: "Text to Voice",
-      Route: "/dashboard/text-to-voice",
+      Route: "/dashboard/user/notes",
       icon: <GrNotes />,
     },
   ];
   // const userDashboard = usersData.filter((user) => user.role === "user");
   const adminDashboard = usersData.find((users) => users.email === user?.email);
-
+console.log(usersData)
   return (
-    <div className="w-full">
+    <div className="w-full bg-[#EEE]">
       <div className="block sticky top-0 left-0 bg-[#144248] md:hidden z-50 ">
         <div className="py-2  flex justify-between items-center w-[90%] lg:w-[30%] mx-auto flex-row-reverse lg:flex-row">
           <div className="block lg:hidden">
@@ -174,7 +155,7 @@ const Dashboard = () => {
       <div className="md:flex">
         <div className="hidden md:w-[20%] md:flex relative">
           <nav
-            className={`h-screen md:sticky top-0 left-0 bg-[#144248] ${
+            className={`h-screen w-full md:sticky top-0 left-0 bg-[#144248] ${
               openDashboard
                 ? "absolute top-0 left-0"
                 : "absolute top-0 -left-10"
@@ -235,7 +216,7 @@ const Dashboard = () => {
             </span>
           </div>
         </div>
-        <div className="w-full md:w-[80%]">{<Outlet />}</div>
+        <div className="w-11/12 md:w-[80%] mx-auto">{<Outlet />}</div>
       </div>
     </div>
   );

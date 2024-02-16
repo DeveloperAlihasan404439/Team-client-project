@@ -25,7 +25,6 @@ const DashHome = () => {
   });
 
   const test = [createdInboxes];
-  console.log(test)
   useEffect(() => {
     if (createdInboxes) {
       axios
@@ -132,30 +131,30 @@ const DashHome = () => {
         </div>
       </div>
       <div className="w-11/12 md:max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-7 mt-6">
-        <div class="notification w-full">
-          <div class="notiglow w-full"></div>
-          <div class="notiborderglow w-full" ></div>
-          <div class="notititle w-full">
+        <div className="notification w-full">
+          <div className="notiglow w-full"></div>
+          <div className="notiborderglow w-full" ></div>
+          <div className="notititle w-full">
             <h1 className="text-2xl rounded-full bg-[#EEE] w-fit p-2 text-[#001e22]">
               <FaUsers />
             </h1>
             <h1 className="mt-3 text-xl font-medium tracking-wider uppercase">Total People : {usersData.length}</h1>
           </div>
         </div>
-        <div class="notification">
-          <div class="notiglow"></div>
-          <div class="notiborderglow"></div>
-          <div class="notititle">
+        <div className="notification">
+          <div className="notiglow"></div>
+          <div className="notiborderglow"></div>
+          <div className="notititle">
             <h1 className="text-2xl rounded-full bg-[#EEE] w-fit p-2 text-[#001e22]">
               <MdForwardToInbox />
             </h1>
             <h1 className="mt-3 text-xl font-medium tracking-wider uppercase">Total Inbox : {createdInbox}</h1>
           </div>
         </div>
-        <div class="notification">
-          <div class="notiglow"></div>
-          <div class="notiborderglow"></div>
-          <div class="notititle">
+        <div className="notification">
+          <div className="notiglow"></div>
+          <div className="notiborderglow"></div>
+          <div className="notititle">
             <h1 className="text-2xl rounded-full bg-[#EEE] w-fit p-2 text-[#001e22]">
               < FaBoxOpen />
             </h1>
