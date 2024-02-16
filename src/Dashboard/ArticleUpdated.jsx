@@ -95,7 +95,7 @@ const ArticleUpdated = () => {
               {confrimArticle?.map((arc, i) => (
                 <tr
                   key={i}
-                  className="bg-base-100 border-b-2 text-lg border-[#144248] text-[#144248]"
+                  className="bg-base-100 border-b-2 border-[#144248]  text-[#144248]"
                 >
                   <th >{i + 1}</th>
                   <td >

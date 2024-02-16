@@ -75,7 +75,10 @@ const Banner = () => {
 
   }, [inboxIds, refetch])
   return (
-
+    <motion.div ref={ref} className="hero place-items-center  mb-10  items-center  relative w-full  h-screen mt-0 " >
+    <div className='absolute z-90 -top-20 right-0 left-0 bottom-0 object-cover' style={{
+      backgroundImage: `url(${img})`, backgroundSize: 'cover', backgroundPosition: 'center',
+    }}
 
     <motion.div ref={ref} className="hero place-items-center  items-center mt-0 relative -top-20   h-screen" >
       <div className='absolute inset-0 ' style={{
@@ -85,7 +88,7 @@ const Banner = () => {
       ></div>
 
       <motion.div style={{ y: textY }} className="hero-content z-80  text-center text-[#144248]">
-        <div className='bg-white bg-opacity-50 z-80  rounded-md'>
+        <div className='bg-white cloudBannerZ z-80  rounded-md'>
           <h2 className='mt-9   text-2xl md:text-3xl font-medium '>Your Temporary Email Address</h2>
           <div className="lg:w-[45rem] rounded-lg w-full h-[15rem] flex items-center justify-center">
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>

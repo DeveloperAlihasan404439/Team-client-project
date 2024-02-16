@@ -9,7 +9,9 @@ import UserReview from "../Review/UserReview";
 import Blog from "../../component/Blog/Blog";
 
 import RecievedEmails from "../../Emails/RecievedEmails";
+
 import TimeDifference from "../../Hooks/TimeDifference";
+
 const Home = () => {
   useEffect(() => {
     AOS.init({
@@ -18,6 +20,7 @@ const Home = () => {
       easing: "ease-in-sine",
       delay: 100,
     });
+
 
   },[])
     return (
@@ -29,6 +32,7 @@ const Home = () => {
             <UserReview></UserReview>
             <Blog/> 
       <RecievedEmails />
+
      
     </div>
   );

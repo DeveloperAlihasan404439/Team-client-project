@@ -17,6 +17,7 @@ import RequstReview from '../Dashboard/RequstReview';
 import RequstArticle from '../Dashboard/RequstArticle';
 import PopularArtical from '../component/PopularArtical/PopularArtical';
 import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
+import Storage from '../component/StorageManagement/Storage';
 
 import UserAddArticle from '../Dashboard/UserDashboard/UserAddArticle';
 import UserAllArticle from '../Dashboard/UserDashboard/UserAllArticle';
@@ -64,10 +65,17 @@ export const router = createBrowserRouter([
                 path: '/articledetails/:id',
                 element:<ArticleDetails/>,
             },
+
+            {
+                path: '/UserDrive',
+                element:<Storage></Storage>,
+            },
+
             /* {
                 path: '/payment',
                 element:<Payment/>,
             }, */
+
             
         ]
     },

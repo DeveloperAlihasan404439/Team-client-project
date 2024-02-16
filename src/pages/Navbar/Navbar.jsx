@@ -1,10 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
 import logo from "../../assets/BannerL&Logo/Logo.png";
+
+import Headroom from "react-headroom";
+import { TbPasswordUser } from "react-icons/tb";
+import { TiCloudStorageOutline } from "react-icons/ti";
+
 import Headroom from "react-headroom";
 
 import { PiArticleDuotone } from "react-icons/pi";
 import { TbPasswordUser } from "react-icons/tb";
+
 import { RiDashboardFill, RiUserLocationLine } from "react-icons/ri";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
 import { FaPeopleGroup } from "react-icons/fa6";
@@ -13,7 +19,11 @@ import { GrNotes } from "react-icons/gr";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { motion } from "framer-motion";
+
+import Storage from './../../component/StorageManagement/Storage';
+
 import DarkMode from "../Shared/DarkMode/DarkMode";
+
 
 const NavBar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -47,9 +57,10 @@ const NavBar = () => {
           Route: "/password/strength/check",
         },
         {
-          Title: "Notes",
-          icon: <GrNotes />,
-          Route: "/notes",
+          Title: "Storage Drive",
+          icon: <TiCloudStorageOutline />,
+          Route: "/UserDrive",
+
         },
       ],
     },
@@ -72,14 +83,18 @@ const NavBar = () => {
   ];
   return (
     <Headroom
-      style={{
+      style={
+      
+        
+        {
+        
         webkitTransition: "all .5s ease-in-out",
         mozTransition: "all .5s ease-in-out",
         oTransition: "all .5s ease-in-out",
         transition: "all .5s ease-in-out",
       }}
     >
-      <div className="navbar  backdrop-blur rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto z-50">
+      <div className="navbar z-0 cloudBannerZ   rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto ">
         <div className="navbar-start   ">
           <div className="dropdown w-fit h-fit ">
             <button
@@ -138,27 +153,29 @@ const NavBar = () => {
                   className="hover:bg-[#017E77] text-[#144248] relative group   border border-[#019D91] rounded-lg  hover:text-[#EEEEEE] flex  justify-center items-center "
                   key={item.Title}
                 >
-                  <NavLink
-                    key={item.Title}
-                    to={item.Route}
-                    className={({ isActive, isPending }) =>
-                      isPending
-                        ? "pending"
-                        : isActive
-                        ? `bg-[#019D91] hover:bg-[#017E77] border-none flex justify-center items-center text-nowrap    w-full text-[#EEEEEE] `
-                        : ""
-                    }
-                  >
-                    <button className="p-2 flex w-fit text-nowrap items-center gap-1">
-                      {item.icon}
-                      {item.Title}
-                      <ul className="absolute hidden group-hover:block duration-500 delay-200 top-8 left-20  z-50 rounded-lg mt-2  bg-[#EEEEEE]   shadow-lg">
-                        {item.subMenu &&
-                          item.subMenu.length > 0 &&
-                          item.subMenu.map((menu) => (
-                            <li
-                              key={menu.Title}
-                              className="hover:bg-[#017E77] text-[#144248] hover:text-[#EEEEEE] rounded-lg flex px-3 py-2 my-1 mx-2 items-center "
+ <button className="p-2 flex w-fit text-nowrap items-center gap-1">
+                    {item.icon}
+                    {item.Title}
+                    <ul className="absolute hidden group-hover:block duration-500 delay-200 top-8 left-20  z-50 rounded-lg mt-2  bg-[#EEEEEE]   shadow-lg">
+                      {item.subMenu &&
+                        item.subMenu.length > 0 && 
+                        item.subMenu.map((menu) => (
+                          <li
+
+                            key={menu.Title}
+                            className="hover:bg-[#017E77] text-[#144248] hover:text-[#EEEEEE] rounded-lg flex px-3 py-2 my-1 mx-2 items-center"
+                          >
+                            <NavLink
+                              to={menu.Route}
+                              className={({ isActive, isPending }) =>
+                                `hover:bg-[#017E77] rounded-lg flex items-center ${
+                                  isPending
+                                    ? "pending"
+                                    : isActive
+                                    ? "bg-[#019D91] hover-bg-[#017E77] px-3 py-2 w-full  text-[#EEEEEE]"
+                                    : ""
+                                }`
+                              }
                             >
                               <NavLink
                                 to={menu.Route}
@@ -209,7 +226,9 @@ const NavBar = () => {
                     isPending
                       ? "pending"
                       : isActive
-                      ? `bg-[#019D91] hover:bg-[#017E77] border-none w-fit text-nowrap text-[#EEEEEE] `
+
+                      ? `bg-[#019D91] hover:bg-[#017E77] border-none   w-full text-nowrap text-[#EEEEEE] `
+
                       : ""
                   }
                 >
@@ -231,7 +250,7 @@ const NavBar = () => {
                                   isPending
                                     ? "pending"
                                     : isActive
-                                    ? "bg-[#019D91] hover-bg-[#017E77] w-fit py-2 px-3 text-[#EEEEEE]"
+                                    ? "bg-[#019D91] hover-bg-[#017E77] w-full py-2 px-3 text-[#EEEEEE]"
                                     : ""
                                 }`
                               }
