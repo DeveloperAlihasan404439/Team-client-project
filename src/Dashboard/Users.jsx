@@ -10,7 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 const Users = () => {
   const { usersData, refetch } = useUsers();
-  const axiosSecure = useAxiosSecure();
+  /* const axiosSecure = useAxiosSecure();
   const { data: users = []} = useQuery({
     queryKey: ["createdInboxes"],
     queryFn: async () => {
@@ -38,7 +38,7 @@ const Users = () => {
         });
       }
     });
-  }
+  } */
   return (
     <div className="w-11/12 md:max-w-5xl mx-auto my-5 md:my-10">
       <h1 className="text-xl md:text-4xl font-bold text-[#144248] text-center">

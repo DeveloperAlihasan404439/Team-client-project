@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
-import HomepageUi from "../Shared/HomePageUI/HomepageUi";
+import HomepageUi from "../../pages/Shared/HomePageUI/HomepageUi";
 import useAxios from "../../Hooks/useAxios";
 import { AuthContext } from "../../provider/AuthProvider";
 import useNotes from "../../Hooks/useNotes";
+import { FaX } from "react-icons/fa6";
+import Swal from "sweetalert2";
 
 const Notes = () => {
   const [notesText, setNotesText] = useState("");
@@ -33,16 +35,46 @@ const Notes = () => {
     }
     return notesWord;
   }
+  function hendelNotesDelete(id) {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#019D90",
+      cancelButtonColor: "#991b1b",
+      confirmButtonText: "Yes, delete it!",
+      background: "#144248",
+      color: "#EEEEEE",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublick.delete(`/notes?id=${id}`).then((res) => {
+          if (res?.data?.modifiedCount > 0) {
+            refetch();
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Successfull Requst Article Confirm",
+              showConfirmButton: false,
+              background: "#144248",
+              color: "#EEEEEE",
+              timer: 2000,
+            });
+          }
+        });
+      }
+    });
+  }
   return (
-    <HomepageUi>
-      <div>
+    <div className=" my-5 md:my-10">
+      <div className="w-10/12 md:max-w-5xl mx-auto">
         <h1 className="text-3xl font-medium text-[#144248]">Notes</h1>
         {/* <input type="text" className="input-text"/> */}
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {notes?.map((notesText) => (
             <div
               key={notesText._id}
-              className="relative rounded-xl p-2 h-[180px] text-[#EEE] bg-[#144248]"
+              className="relative rounded-xl p-2 h-[200px] text-[#EEE] bg-[#144248]"
             >
               <h1>{notesText.notes}</h1>
               <div className="px-5 py-1 w-full h-[40px] bg-[#017E77] text-[#EEE] border-none rounded-b-xl flex justify-between items-center absolute left-0 bottom-0">
@@ -53,9 +85,10 @@ const Notes = () => {
                   className="w-7 h-7 rounded-full"
                 />
               </div>
+              <div className="absolute top-2 right-2 bg-[#eee] text-[#144248] p-1 rounded-full" onClick={() => hendelNotesDelete(notesText._id)}><FaX/></div>
             </div>
           ))}
-          <div className="h-[180px] rounded-xl relative">
+          <div className="h-[200px] rounded-xl relative">
             <textarea
               onChange={(e) => setNotesText(e.target.value)}
               name=""
@@ -77,7 +110,7 @@ const Notes = () => {
           </div>
         </div>
       </div>
-    </HomepageUi>
+    </div>
   );
 };
 
