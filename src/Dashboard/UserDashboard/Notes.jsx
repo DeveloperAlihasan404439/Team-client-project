@@ -1,10 +1,8 @@
 import { useContext, useState } from "react";
-import HomepageUi from "../../pages/Shared/HomePageUI/HomepageUi";
+
 import useAxios from "../../Hooks/useAxios";
 import { AuthContext } from "../../provider/AuthProvider";
 import useNotes from "../../Hooks/useNotes";
-import { FaX } from "react-icons/fa6";
-import Swal from "sweetalert2";
 
 const Notes = () => {
   const [notesText, setNotesText] = useState("");
@@ -35,42 +33,11 @@ const Notes = () => {
     }
     return notesWord;
   }
-  function hendelNotesDelete(id) {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#019D90",
-      cancelButtonColor: "#991b1b",
-      confirmButtonText: "Yes, delete it!",
-      background: "#144248",
-      color: "#EEEEEE",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosPublick.delete(`/notes?id=${id}`).then((res) => {
-          if (res?.data?.modifiedCount > 0) {
-            refetch();
-            Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Successfull Requst Article Confirm",
-              showConfirmButton: false,
-              background: "#144248",
-              color: "#EEEEEE",
-              timer: 2000,
-            });
-          }
-        });
-      }
-    });
-  }
   return (
-    <div className=" my-5 md:my-10">
-      <div className="w-10/12 md:max-w-5xl mx-auto">
+       <div className="md:mr-16 my-5 md:my-10">
         <h1 className="text-3xl font-medium text-[#144248]">Notes</h1>
         {/* <input type="text" className="input-text"/> */}
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {notes?.map((notesText) => (
             <div
               key={notesText._id}
@@ -85,7 +52,7 @@ const Notes = () => {
                   className="w-7 h-7 rounded-full"
                 />
               </div>
-              <div className="absolute top-2 right-2 bg-[#eee] text-[#144248] p-1 rounded-full" onClick={() => hendelNotesDelete(notesText._id)}><FaX/></div>
+
             </div>
           ))}
           <div className="h-[200px] rounded-xl relative">
@@ -110,7 +77,7 @@ const Notes = () => {
           </div>
         </div>
       </div>
-    </div>
+
   );
 };
 

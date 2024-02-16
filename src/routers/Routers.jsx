@@ -17,9 +17,12 @@ import RequstReview from '../Dashboard/RequstReview';
 import RequstArticle from '../Dashboard/RequstArticle';
 import PopularArtical from '../component/PopularArtical/PopularArtical';
 import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
-import Notes from '../Dashboard/UserDashboard/Notes';
+
 import UserAddArticle from '../Dashboard/UserDashboard/UserAddArticle';
 import UserAllArticle from '../Dashboard/UserDashboard/UserAllArticle';
+import Notes from '../Dashboard/UserDashboard/Notes';
+import TextToVoiceCnv from '../Dashboard/UserDashboard/TextToVoiceCnv';
+
 
 
 export const router = createBrowserRouter([
@@ -61,6 +64,10 @@ export const router = createBrowserRouter([
                 path: '/articledetails/:id',
                 element:<ArticleDetails/>,
             },
+            /* {
+                path: '/payment',
+                element:<Payment/>,
+            }, */
             
         ]
     },
@@ -97,19 +104,22 @@ export const router = createBrowserRouter([
                 path: '/dashboard/requstArticle',
                 element: <RequstArticle/>
             },
-            // user dashboard router create 
-            
+            // user rout 
             {
-                path: '/dashboard/user/addArticle',
-                element:<UserAddArticle/>
+                path: '/dashboard/users/addArticle',
+                element: <UserAddArticle/>
             },
             {
-                path: '/dashboard/user/allArticle',
-                element:<UserAllArticle/>
+                path: '/dashboard/user/all/Article',
+                element: <UserAllArticle/>
             },
             {
                 path: '/dashboard/user/notes',
-                element:<Notes/>
+                element: <Notes/>
+            },
+            {
+                path: '/dashboard/text-to-voice',
+                element: <TextToVoiceCnv/>
             },
         ]
     }

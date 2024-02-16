@@ -11,10 +11,12 @@ import { IoMenu, IoCloseSharp } from "react-icons/io5";
 import { useContext, useState } from "react";
 import useUsers from "../../Hooks/useUsers";
 import { AuthContext } from "../../provider/AuthProvider";
+import { MdOutlineRecordVoiceOver } from "react-icons/md";
 const Dashboard = () => {
   const {user} = useContext(AuthContext)
   const [openDashboard, setOpenDashboard] = useState(true);
   const { usersData } = useUsers();
+
   const adminNavItems = [
     {
       Title: "Home",
@@ -48,6 +50,17 @@ const Dashboard = () => {
       Route: "/dashboard/requstArticle",
       icon: <IoGitPullRequestSharp />,
     },
+
+    {
+      Title: "Notes",
+      Route: "/dashboard/notes",
+      icon: <GrNotes />,
+    },,
+    {
+      Title: "Text to Voice",
+      Route: "/dashboard/text-to-voice",
+      icon: <MdOutlineRecordVoiceOver />,
+    },
   ];
   const userNavItems = [
     {
@@ -62,8 +75,9 @@ const Dashboard = () => {
       icon: <FaUsers />,
     },
     {
-      Title: "All Articles",
-      Route: "/dashboard/user/allArticle",
+
+      Title: "Articles",
+      Route: "/dashboard/user/all/Article",
       icon: <FaBookOpen />,
     },
     {
@@ -71,10 +85,15 @@ const Dashboard = () => {
       Route: "/dashboard/user/notes",
       icon: <GrNotes />,
     },
+    {
+      Title: "Text to Voice",
+      Route: "/dashboard/text-to-voice",
+      icon: <MdOutlineRecordVoiceOver />,
+    },
   ];
   // const userDashboard = usersData.filter((user) => user.role === "user");
   const adminDashboard = usersData.find((users) => users.email === user?.email);
-console.log(usersData)
+
   return (
     <div className="w-full bg-[#EEE]">
       <div className="block sticky top-0 left-0 bg-[#144248] md:hidden z-50 ">

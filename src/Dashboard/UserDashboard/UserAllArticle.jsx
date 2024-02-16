@@ -12,8 +12,10 @@ const UserAllArticle = () => {
   const userArticle = article.filter(
     (userArticle) => userArticle.user_Email === user?.email
   );
+
+  console.log(userArticle);
   return (
-    <div className=" my-5 md:my-10">
+    <div className="md:mr-16 my-5 md:my-10">
       <div className="w-10/12 md:max-w-5xl mx-auto">
         <h1 className="text-xl md:text-4xl font-bold text-[#144248] text-center">
           A Design <span className=" text-[#019D90]  ">Guide</span>
@@ -25,7 +27,7 @@ const UserAllArticle = () => {
           the psychology of user interaction.
         </p>
       </div>
-      <div className="px-10  md:mx-10 mb-5 flex justify-between items-center text-xl text-[#144248] font-semibold">
+      <div className="px-10 mb-5 flex justify-between items-center text-xl text-[#144248] font-semibold">
         <h1>Total Article : {article.length}</h1>
         <Link to="/dashboard/user/addArticle">
           <Button name="Add Article" />
@@ -73,5 +75,4 @@ const UserAllArticle = () => {
     </div>
   );
 };
-
 export default UserAllArticle;
