@@ -17,6 +17,7 @@ import RequstReview from '../Dashboard/RequstReview';
 import RequstArticle from '../Dashboard/RequstArticle';
 import PopularArtical from '../component/PopularArtical/PopularArtical';
 import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
+
 import UserAddArticle from '../Dashboard/UserDashboard/UserAddArticle';
 import UserAllArticle from '../Dashboard/UserDashboard/UserAllArticle';
 import Notes from '../Dashboard/UserDashboard/Notes';
@@ -78,6 +79,7 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard/>,
         children:[
+            // admin dashboard router creat 
             {
                 path: '/dashboard/home',
                 element: <DashHome/>

@@ -12,6 +12,7 @@ const UserAllArticle = () => {
   const userArticle = article.filter(
     (userArticle) => userArticle.user_Email === user?.email
   );
+
   console.log(userArticle);
   return (
     <div className="md:mr-16 my-5 md:my-10">
@@ -74,5 +75,4 @@ const UserAllArticle = () => {
     </div>
   );
 };
-
 export default UserAllArticle;

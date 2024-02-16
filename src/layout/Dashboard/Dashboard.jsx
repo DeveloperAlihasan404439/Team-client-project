@@ -50,6 +50,7 @@ const Dashboard = () => {
       Route: "/dashboard/requstArticle",
       icon: <IoGitPullRequestSharp />,
     },
+
     {
       Title: "Notes",
       Route: "/dashboard/notes",
@@ -74,6 +75,7 @@ const Dashboard = () => {
       icon: <FaUsers />,
     },
     {
+
       Title: "Articles",
       Route: "/dashboard/user/all/Article",
       icon: <FaBookOpen />,
@@ -93,7 +95,7 @@ const Dashboard = () => {
   const adminDashboard = usersData.find((users) => users.email === user?.email);
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-[#EEE]">
       <div className="block sticky top-0 left-0 bg-[#144248] md:hidden z-50 ">
         <div className="py-2  flex justify-between items-center w-[90%] lg:w-[30%] mx-auto flex-row-reverse lg:flex-row">
           <div className="block lg:hidden">
@@ -172,7 +174,7 @@ const Dashboard = () => {
       <div className="md:flex">
         <div className="hidden md:w-[20%] md:flex relative">
           <nav
-            className={`h-screen md:sticky top-0 left-0 bg-[#144248] ${
+            className={`h-screen w-full md:sticky top-0 left-0 bg-[#144248] ${
               openDashboard
                 ? "absolute top-0 left-0"
                 : "absolute top-0 -left-10"
@@ -233,7 +235,7 @@ const Dashboard = () => {
             </span>
           </div>
         </div>
-        <div className="w-full md:w-[80%]">{<Outlet />}</div>
+        <div className="w-11/12 md:w-[80%] mx-auto">{<Outlet />}</div>
       </div>
     </div>
   );

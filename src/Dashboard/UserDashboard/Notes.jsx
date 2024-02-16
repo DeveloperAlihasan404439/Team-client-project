@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+
 import useAxios from "../../Hooks/useAxios";
 import { AuthContext } from "../../provider/AuthProvider";
 import useNotes from "../../Hooks/useNotes";
@@ -51,6 +52,7 @@ const Notes = () => {
                   className="w-7 h-7 rounded-full"
                 />
               </div>
+
             </div>
           ))}
           <div className="h-[200px] rounded-xl relative">
@@ -75,6 +77,7 @@ const Notes = () => {
           </div>
         </div>
       </div>
+
   );
 };
 

@@ -13,12 +13,15 @@ moment().format();
 const ArticleUpdated = () => {
   const { article, isLoading, refetch } = useArticle();
   const [updatedArticle, setupdatedArticle] = useState({});
+
+  const confrimArticle = article.filter(confirm => confirm.status==="confrom")
+
   const axiosPublick = useAxios();
   // delete article code
   function hendelArticleDelete(id) {
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      text: "You won't to delete the notes!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#019D90",
@@ -34,7 +37,7 @@ const ArticleUpdated = () => {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Successfull Article Deteled",
+              title: "Successfull Deleted Notes",
               showConfirmButton: false,
               background: "#144248",
               color: "#EEEEEE",
@@ -68,7 +71,7 @@ const ArticleUpdated = () => {
         </p>
       </div>
       <div className="px-10 mb-5 flex justify-between items-center text-xl text-[#144248] font-semibold">
-        <h1>Total Article : {article.length}</h1>
+        <h1>Total Article : {confrimArticle.length}</h1>
         <Link to="/dashboard/addArticle">
           <Button name="Add Article" />
         </Link>
@@ -89,7 +92,7 @@ const ArticleUpdated = () => {
               </tr>
             </thead>
             <tbody>
-              {article?.map((arc, i) => (
+              {confrimArticle?.map((arc, i) => (
                 <tr
                   key={i}
                   className="bg-base-100 border-b-2 text-lg border-[#144248] text-[#144248]"
