@@ -31,7 +31,6 @@ const AuthProvider = ({children}) => {
 
     useEffect(() => {
         const unsubsCribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log(currentUser)
             if (currentUser) {
                 const userInfo = { email: currentUser.email };
                 axios.post('https://server-side-bice.vercel.app/jwt', userInfo)

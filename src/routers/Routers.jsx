@@ -17,8 +17,12 @@ import RequstReview from '../Dashboard/RequstReview';
 import RequstArticle from '../Dashboard/RequstArticle';
 import PopularArtical from '../component/PopularArtical/PopularArtical';
 import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
-import Notes from '../pages/Notes/Notes';
-import TextToVoiceCnv from '../Dashboard/TextToVoiceCnv';
+
+import UserAddArticle from '../Dashboard/UserDashboard/UserAddArticle';
+import UserAllArticle from '../Dashboard/UserDashboard/UserAllArticle';
+import Notes from '../Dashboard/UserDashboard/Notes';
+import TextToVoiceCnv from '../Dashboard/UserDashboard/TextToVoiceCnv';
+
 
 
 export const router = createBrowserRouter([
@@ -47,10 +51,6 @@ export const router = createBrowserRouter([
                 path: '/password/strength/check',
                 element:<PasswordStrengthChecker/>
             },
-            {
-                path: '/notes',
-                element:<Notes/>
-            },
             
             {
                 path: '/articles',
@@ -64,6 +64,10 @@ export const router = createBrowserRouter([
                 path: '/articledetails/:id',
                 element:<ArticleDetails/>,
             },
+            /* {
+                path: '/payment',
+                element:<Payment/>,
+            }, */
             
         ]
     },
@@ -75,6 +79,7 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard/>,
         children:[
+            // admin dashboard router creat 
             {
                 path: '/dashboard/home',
                 element: <DashHome/>
@@ -98,6 +103,19 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/requstArticle',
                 element: <RequstArticle/>
+            },
+            // user rout 
+            {
+                path: '/dashboard/users/addArticle',
+                element: <UserAddArticle/>
+            },
+            {
+                path: '/dashboard/user/all/Article',
+                element: <UserAllArticle/>
+            },
+            {
+                path: '/dashboard/user/notes',
+                element: <Notes/>
             },
             {
                 path: '/dashboard/text-to-voice',

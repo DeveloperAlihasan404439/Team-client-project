@@ -1,18 +1,21 @@
 import { useForm } from "react-hook-form";
-import Button from "../pages/Shared/Button";
-import { useState } from "react";
-import useAxios from "../Hooks/useAxios";
+import { useContext, useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAxios from "../../Hooks/useAxios";
+import Button from "../../pages/Shared/Button";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
-const AddArticle = () => {
+
+const UserAddArticle = () => {
   const [benefitsData, setBenefitsData] = useState("");
   const [benefits, setBenefits] = useState([]);
   const [imgLoader, setImgLoader] = useState(false);
-  const axiosPublick = useAxios()
-  const navigate = useNavigate()
+  const {user} = useContext(AuthContext)
+  const axiosPublick = useAxios();
+  const navigate = useNavigate();
   if (!benefits.includes(benefitsData)) {
     if (benefitsData !== "") {
       setBenefits((e) => [...e, benefitsData]);
@@ -72,13 +75,13 @@ const AddArticle = () => {
     const res = await axiosPublick.post(images_hosting_api, fromImages, {
       headers: {
         "content-type": "multipart/form-data",
-      }
-    })
+      },
+    });
     if (res.data.success) {
-      setImgLoader(false)
-      const photoURL = res?.data?.data?.display_url;
+      setImgLoader(false);
+      const hosting = res?.data?.data?.display_url;
       const addArticle = {
-        img: photoURL,
+        img: hosting,
         title: data.title,
         description: data.description,
         shortDescription: data.shortDescription,
@@ -88,37 +91,39 @@ const AddArticle = () => {
         useToHelp: data.useToHelp,
         benefits,
         suggestArticle,
+        status: "panding",
+        user_Email: user?.email,
+        user_Name: user?.displayName,
+        user_photo: user?.photoUrl,
       };
-      axiosPublick.post('/article',addArticle)
-      .then((res) => {
+      axiosPublick.post("/article", addArticle).then((res) => {
         if (res?.data?.insertedId) {
-          reset()
-          navigate('/dashboard/articleUpdated')
+          reset();
+          navigate("/dashboard/articleUpdated");
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Successfull Article added",
+            title: "Successfull User Article added",
             showConfirmButton: false,
-            background: '#144248',
-            color: '#EEEEEE',
-            timer: 2000
-          }); 
+            background: "#144248",
+            color: "#EEEEEE",
+            timer: 2000,
+          });
         }
-      })
+      });
     }
-    setImgLoader(true)
+    setImgLoader(true);
   };
-  
+
   return (
-    <div className="w-11/12 md:max-w-5xl mx-auto my-4">
+    <div className="md:mr-16 my-5 md:my-10">
       <h1 className="text-2xl md:text-4xl text-center font-bold text-[#144248] ">
-        Add an <span className=" text-[#019D90]  ">Article</span>
+        Add The User <span className=" text-[#019D90]  ">Article</span>
       </h1>
       <p className=" text-center font-inter text-[#144248] font-medium  mt-4">
-        Be a part of our community!  shaping a platform of diverse ideas
-        and perspectives.<br /> Start enriching our
-        community with your unique articles.
-        
+        Be a part of our community! shaping a platform of diverse ideas and
+        perspectives.
+        <br /> Start enriching our community with your unique articles.
       </p>
       <div>
         <form
@@ -127,29 +132,38 @@ const AddArticle = () => {
         >
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Title </label>
-                <input
-                  {...register("title", { required: true })}
-                  type="text"
-                  placeholder="Title"
-                  className="input-text"
-                />
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                {" "}
+                Title{" "}
+              </label>
+              <input
+                {...register("title", { required: true })}
+                type="text"
+                placeholder="Title"
+                className="input-text"
+              />
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Input File </label>
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                {" "}
+                Input File{" "}
+              </label>
               <div>
-              <input
-                {...register("image")}
-                type="file"
-                className="input-file"
-                // className="file-input mt-1 file-input-bordered file-input-success w-full  focus:outline-none border-none"
-              />
+                <input
+                  {...register("image")}
+                  type="file"
+                  className="input-file"
+                  // className="file-input mt-1 file-input-bordered file-input-success w-full  focus:outline-none border-none"
+                />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Why To Use</label>
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                {" "}
+                Why To Use
+              </label>
               <div>
                 <input
                   {...register("whyToUse", { required: true })}
@@ -160,7 +174,10 @@ const AddArticle = () => {
               </div>
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Use To Help </label>
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                {" "}
+                Use To Help{" "}
+              </label>
               <div>
                 <input
                   {...register("useToHelp", { required: true })}
@@ -173,7 +190,10 @@ const AddArticle = () => {
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Where To Use </label>
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                {" "}
+                Where To Use{" "}
+              </label>
               <div>
                 <input
                   {...register("whereToUse", { required: true })}
@@ -184,7 +204,10 @@ const AddArticle = () => {
               </div>
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Date </label>
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                {" "}
+                Date{" "}
+              </label>
               <div>
                 <input
                   {...register("date", { required: true })}
@@ -196,7 +219,10 @@ const AddArticle = () => {
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> short Description </label>
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
+                {" "}
+                short Description{" "}
+              </label>
               <div className="mt-1">
                 <input
                   {...register("shortDescription", { required: true })}
@@ -207,27 +233,52 @@ const AddArticle = () => {
               </div>
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Benefits </label>
+              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                {" "}
+                Benefits{" "}
+              </label>
               <div className="mt-1">
                 <select
                   onChange={(e) => setBenefitsData(e.target.value)}
                   className="input-text"
                 >
-                  <option style={{ backgroundColor: "#144248", color: "#EEE" }}>Select Benefits</option>
-                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
+                  <option style={{ backgroundColor: "#144248", color: "#EEE" }}>
+                    Select Benefits
+                  </option>
+                  <option
+                    style={{ backgroundColor: "#144248", color: "#EEE" }}
+                    value="Enhanced online security"
+                  >
                     Enhanced online security
                   </option>
-                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
+                  <option
+                    style={{ backgroundColor: "#144248", color: "#EEE" }}
+                    value="Enhanced online security"
+                  >
                     Privacy protection
                   </option>
-                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
+                  <option
+                    style={{ backgroundColor: "#144248", color: "#EEE" }}
+                    value="Enhanced online security"
+                  >
                     Reduced risk of identity theft
                   </option>
-                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Inbox organization">Inbox organization</option>
-                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Improved productivity">
+                  <option
+                    style={{ backgroundColor: "#144248", color: "#EEE" }}
+                    value="Inbox organization"
+                  >
+                    Inbox organization
+                  </option>
+                  <option
+                    style={{ backgroundColor: "#144248", color: "#EEE" }}
+                    value="Improved productivity"
+                  >
                     Improved productivity
                   </option>
-                  <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Reduced risk of identity theft">
+                  <option
+                    style={{ backgroundColor: "#144248", color: "#EEE" }}
+                    value="Reduced risk of identity theft"
+                  >
                     Reduced risk of identity theft
                   </option>
                 </select>
@@ -236,7 +287,10 @@ const AddArticle = () => {
           </div>
 
           <div className="w-full">
-            <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> Description </label>
+            <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
+              {" "}
+              Description{" "}
+            </label>
             <div className="mt-1">
               <textarea
                 {...register("description", { required: true })}
@@ -252,7 +306,7 @@ const AddArticle = () => {
               <Button
                 type="submit"
                 className="mx-auto"
-                name={imgLoader?"Waiting...":"Submit "}
+                name={imgLoader ? "Waiting..." : "Submit "}
               ></Button>
             </div>
           </div>
@@ -262,4 +316,4 @@ const AddArticle = () => {
   );
 };
 
-export default AddArticle;
+export default UserAddArticle;

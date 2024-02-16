@@ -64,6 +64,11 @@ const NavBar = () => {
       icon: <FaPeopleGroup />,
       Route: "/aboutUs",
     },
+    {
+      Title: "Payment",
+      icon: <FaPeopleGroup />,
+      Route: "/payment",
+    },
   ];
   return (
     <Headroom
