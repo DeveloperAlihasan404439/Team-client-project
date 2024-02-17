@@ -24,6 +24,7 @@ import UserAllArticle from '../Dashboard/UserDashboard/UserAllArticle';
  import Notes from '../Dashboard/UserDashboard/Notes';
 import TextToVoiceCnv from '../Dashboard/UserDashboard/TextToVoiceCnv';
 import Payment from './../pages/Payment/Payment';
+import ErrorPage from './../component/ErrorPage/ErrorPage';
 
 
 
@@ -31,6 +32,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main/>,
+        ErrorPage:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/:email?',

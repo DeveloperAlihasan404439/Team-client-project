@@ -14,6 +14,8 @@ import TimeDifference from "../DiffarenceTime/TimeDifference";
 import { data } from "autoprefixer";
 import useComment from "../../Hooks/useComment";
 import CommentSection from "../DiffarenceTime/CommentSection";
+import Footer from "../../pages/Footer/Footer";
+import NavBar from "../../pages/Navbar/Navbar";
 const ArticleDetails = () => {
   const { id } = useParams();
   const axiosPublick = useAxios();
@@ -87,8 +89,9 @@ const ArticleDetails = () => {
   console.log(oldDate, currentTime);
    
   return (
-    <div className=" bg-[#EEEEEE] py-10  w-full">
-      <div className="p-1 md:px-2 max-w-screen-xl  mx-auto">
+    <div className=" bg-[#EEEEEE]  w-full">
+      <NavBar></NavBar>
+      <div className="p-1 md:px-2 my-10 max-w-screen-xl  mx-auto">
         <div className="grid grid-col-1 md:grid-cols-12 gap-10">
           <div className="col-span-7 ">
             
@@ -98,45 +101,45 @@ const ArticleDetails = () => {
 
               <p className=" text-gray-600 font-semibold">
                 <span className="text-xl text-black font-semibold">
-                  Description :{" "}
-                </span>{" "}
+                  Description :
+                </span>
                 {description}
               </p>
               <p className="text-gray-600 font-semibold">
                 <span className="text-xl text-black font-semibold">
-                  Why to Use :{" "}
-                </span>{" "}
+                  Why to Use :
+                </span>
                 {whyToUse}
               </p>
               <p className="text-gray-600 font-semibold">
                 <span className="text-xl text-black font-semibold">
-                  Where to use :{" "}
-                </span>{" "}
+                  Where to use :
+                </span>
                 {whereToUse}
               </p>
               <p className="text-gray-600 font-semibold">
                 <span className="text-xl text-black font-semibold">
-                  Use to help :{" "}
-                </span>{" "}
+                  Use to help :
+                </span>
                 {useToHelp}
               </p>
 
               <p className=" text-[#019D91] font-medium">
                 <span className="text-xl text-black font-semibold">
-                  Date :{" "}
-                </span>{" "}
+                  Date :
+                </span>
                 {date}
               </p>
 
               <div className="text-xl flex  justify-between font-semibold">
                 <div>
-                  <span>Benifit : </span>{" "}
+                  <span>Benifit : </span>
                   {benefits?.map((benifit, i) => (
                     <p
                       key={i}
                       className="flex gap-2 items-center text-lg font-medium"
                     >
-                      <MdOutlineCheckCircle className="text-[#019D91]" />{" "}
+                      <MdOutlineCheckCircle className="text-[#019D91]" />
                       {benifit}
                     </p>
                   ))}
@@ -148,7 +151,7 @@ const ArticleDetails = () => {
                       onClick={handleLike}
                       className="bg-gray-100 border     text-black  px-2 flex items-center  rounded-full p-1 "
                     >
-                      {" "}
+                     
                       <AiFillLike className="text-md font-light hover:text-black text-sky-500" />
                     </button>
                   ) : (
@@ -156,8 +159,8 @@ const ArticleDetails = () => {
                       disabled
                       className="bg-gray-200 border border-sky-400 disabled:text-sky-300 disabled:border-none text-black p-2 rounded-full flex items-center font-mono uppercase  "
                     >
-                      {" "}
-                      <AiFillLike className="text-md border-sky-400 disabled:text-sky-200 font-light   " />{" "}
+                     
+                      <AiFillLike className="text-md border-sky-400 disabled:text-sky-200 font-light   " />
                     </button>
                   )}
                   {like > 0 ? (
@@ -196,6 +199,7 @@ const ArticleDetails = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </div>
   );
 };

@@ -17,7 +17,7 @@ const HowToUse = () => {
     });
 
     return (
-        <div   data-aos="zoom-in" className='max-w-7xl shadow-md border-t-2 text-gray-600 border-t-gray-200 rounded-2xl p-6 mt-10 mx-auto '> 
+        <div   data-aos="zoom-in" className='max-w-7xl shadow-md border-t-2 text-gray-600 border-t-gray-200 rounded-2xl p-6 mt-6 mx-auto '> 
        
         <div className="flex flex-col lg:flex-row lg:justify-start  lg:items-start  gap-10">
       

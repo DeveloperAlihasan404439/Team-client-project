@@ -16,8 +16,8 @@ const ContactUs = () => {
   <section className='lg:w-1/2'>
 
             <Lottie className='h-80 w-full lg:col-span-2 lg:row-span-2' animationData={contact} loop={true} />
-            <div className=' p-4 rounded-xl backdrop-blur'> 
-                <h1 className='text-2xl backdrop-blur font-semibold'>Maximizing Your <span className='font-semibold text-[#019D90]'>Swifty Mail </span> Experience: A Guide to Optimal Output</h1>
+            <div className=' p-4 rounded-xl cloudBannerZ'> 
+                <h1 className='text-2xl  font-semibold'>Maximizing Your <span className='font-semibold text-[#019D90]'>Swifty Mail </span> Experience: A Guide to Optimal Output</h1>
                 <BestOutput title={"Explore Customization Features:"} description={'Personalize your temporary email experience by exploring customization options. Tailor settings to match your preferences, ensuring seamless integration with your online activities.'}></BestOutput>
                 <BestOutput title={"Efficient Email Management:"} description={'Learn the ins and outs of managing your temporary emails effortlessly. From creation to disposal, understand the features that make email management a breeze.'}></BestOutput>
                 <BestOutput title={"Advanced Verification Techniques:"} description={'Dive into advanced techniques for efficient email verification. Discover how Swifty Mail simplifies the verification process, saving you time and ensuring you never miss an important confirmation.'}></BestOutput>
@@ -27,8 +27,8 @@ const ContactUs = () => {
             </div>
             </section>
             <section className='lg:w-1/2 text-center  '>
-            <h1 className="text-4xl   font-bold backdrop-blur  " >Have Questions? <br className='md:hidden' /> Shoot Us on   <span className="text-[#019D90] font-black"> Email</span> </h1>
-            <div className='mt-8 flex flex-wrap justify-center items-center gap-8 backdrop-blur rounded-xl'>
+            <h1 className="text-4xl   font-bold   " >Have Questions? <br className='md:hidden' /> Shoot Us on   <span className="text-[#019D90] font-black"> Email</span> </h1>
+            <div className='mt-8 flex flex-wrap justify-center items-center gap-5 cloudBannerZ p-2 rounded-xl'>
             <segment className='flex flex-col justify-center items-center gap-2'> <p className='text-5xl text-[#019D90] font-black'><MdMarkEmailRead /></p> 
              <p className='text-lg font-semibold'>Email Us </p> 
             <p className='text-sm'>zzayedghost@gmail.com</p>

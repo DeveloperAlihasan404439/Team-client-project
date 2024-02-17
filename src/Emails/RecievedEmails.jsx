@@ -89,7 +89,7 @@ const RecievedEmails = () => {
                     onClick={() => reloadEmails()}
                     className="px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
                   >
-                    {" "}
+                  
                     <span className="animate-spin infinite">
                       <TbLoader2 />
                     </span>
@@ -100,7 +100,7 @@ const RecievedEmails = () => {
                     onClick={() => reloadEmails()}
                     className="px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
                   >
-                    {" "}
+                  
 
                     Reload
                   </button>

@@ -66,7 +66,7 @@ const NavBar = () => {
     },
 
     {
-      Title: "Articles",
+      Title: "Our Forums",
       icon: <PiArticleDuotone />,
       Route: "/articles",
     },
@@ -99,7 +99,7 @@ const NavBar = () => {
         transition: "all .5s ease-in-out",
       }}
     >
-      <div className="navbar z-0 cloudBannerZ  rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto ">
+      <div className="navbar z-80 cloudBannerZ  rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto ">
         <div className="navbar-start   ">
           <div className="dropdown w-fit h-fit ">
             <button

@@ -20,14 +20,14 @@ const Blog = () => {
   });
   console.log(blog);
   return (
-    <div>
+    <div className="mt-6 shadow-md max-w-7xl mx-auto border-t-2 p-4 rounded-lg">
       <div>
-        <h1 className="text-center font-bold text-4xl py-4 font-inter ">
+        <h1 className="text-center drop-shadow font-bold text-4xl py-2 font-inter ">
           Most Popular <span className="text-[#019D90]">Blog</span>
         </h1>
-        <p className="text-center font-inter text-lg leading-relaxed">Embark on a virtual journey through captivating narratives, <br/> vivid imagery, and the allure of exploration as we delve into the beauty of diverse cultures, landscapes, <br/> and travel experiences.</p>
+        <p className="text-center font-inter mb-8 pt-2 text-lg leading-relaxed">Embark on a virtual journey through captivating narratives,vivid imagery,<br />  and the allure of exploration as we delve into the beauty of diverse cultures, landscapes, and travel experiences.</p>
       </div>
-      <div className="max-w-screen-xl text-dark py-20 mx-auto">
+      <div className="max-w-screen-xl mb-10 text-dark  mx-auto">
         <>
           <Swiper
             autoplay={{
@@ -43,9 +43,9 @@ const Blog = () => {
             <div className="scroll-smooth">
               {blog.map((item) => (
                 <SwiperSlide>
-                  <div className="flex justify-between flex-col md:flex-row  gap-10 mb-10 object-cover  rounded-sm border-[#019d9069] text-black p-3  border-b">
+                  <div className="flex justify-between flex-col md:flex-row mb-10 gap-10 object-cover  rounded-sm border-[#019d9069] text-black p-3  border-b">
                     <img
-                      className="md:w-72 w-full object-cover rounded-xl  mx-auto"
+                      className="md:w-72 w-full object-cover rounded-xl z-10 mx-auto"
                       src={item.image}
                       alt=""
                     />
@@ -96,7 +96,7 @@ const Blog = () => {
           </Swiper>
         </>
       </div>
-      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+      <div className="max-w-screen-xl mb-6 mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5">
         {blog.map((blogs, index) => (
           <BlogCard key={index} blogs={blogs} />
         ))}

@@ -84,9 +84,9 @@ const Banner = () => {
 
       ></div>
 
-      <motion.div style={{ y: textY }} className="hero-content z-80  text-center text-[#144248]">
-        <div className='bg-white cloudBannerZ z-80  rounded-md'>
-          <h2 className='mt-9   text-2xl md:text-3xl font-medium '>Your Temporary Email Address</h2>
+      <motion.div style={{ y: textY }} className="hero-content z-80 mt-10  text-center text-[#144248]">
+        <div className='bg-white cloudBannerZ z-80 p-4 rounded-md'>
+          <h2 className='mt-9   text-2xl md:text-4xl font-medium '>Your Temporary Email Address</h2>
           <div className="lg:w-[45rem] rounded-lg w-full h-[15rem] flex items-center justify-center">
             <GeneratedEmails tempMail={tempMail}></GeneratedEmails>
 
@@ -117,7 +117,7 @@ const Banner = () => {
                     <motion.button
 
                       whileTap={{ scale: 0.9 }}
-                      className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
+                      className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2  text-lg rounded   flex justify-center items-center gap-2 "
 
 
                       onClick={() => createInbox()}>Create Inbox</motion.button>

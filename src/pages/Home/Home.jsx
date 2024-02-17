@@ -30,7 +30,7 @@ const Home = () => {
       <WhyUS></WhyUS>
       <HowToUse></HowToUse>
       <UserReview></UserReview>
-      <RecievedEmails />
+     
       <Blog />
      <Footer></Footer>
     </div>

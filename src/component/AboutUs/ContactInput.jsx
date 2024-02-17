@@ -17,12 +17,12 @@ const ContactInput = () => {
     });
   };
   return (
-    <div className="mt-[112px] w-full backdrop-blur rounded-xl">
+    <div className="mt-[85px] w-full backdrop-blur rounded-xl">
       <h1 className="text-3xl font-bold pb-4">
         Let's <span className="text-[#019D90]">Connect</span> – Drop Us a Line!
       </h1>
       <p className="pb-8">
-        {" "}
+     
         Have a question, suggestion, or just want to say hello? Our virtual
         doors are always open. Fill out the form below, and let the conversation
         begin. Your thoughts matter, and we're here to ensure your Swifty Mail
@@ -30,7 +30,7 @@ const ContactInput = () => {
       </p>
       <form
         onSubmit={handleSubmit}
-        className="bg-[#EEEEEE] rounded-xl relative text-left flex justify-start items-start
+        className="bg-[#EEEEEE]   rounded-xl relative text-left flex justify-start items-start
  p-6 w-full space-y-6"
       >
         <div className="w-full">
@@ -64,7 +64,7 @@ const ContactInput = () => {
             <textarea
               name="Message"
               cols={20}
-              rows={7}
+              rows={8}
               type="text"
               required=""
               placeholder="Your precious comment"

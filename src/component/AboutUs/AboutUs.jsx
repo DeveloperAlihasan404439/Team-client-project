@@ -15,16 +15,19 @@ import join from '../../assets/BannerL&Logo/join.gif';
 import TabPanelZ from "./TabPanelZ";
 import ContactUs from "./ContactUs";
 import MeetTeam from "./MeetTeam";
+import NavBar from "../../pages/Navbar/Navbar";
+import Footer from "../../pages/Footer/Footer";
 const AboutUs = () => {
 
 
   return (
     <>
-      <section className="max-w-7xl text-[#144248] mx-auto mt-10 ">
-        <h1 className="text-4xl   font-bold drop-shadow-md  text-center lg:text-left" >About  <span className="text-[#019D90]"> Us</span> </h1>
+    <NavBar></NavBar>
+      <section className="max-w-7xl text-[#144248] mx-auto pb-6 mt-10 cloudBannerZ  rounded-lg ">
+        <h1 className="text-4xl  tracking-wide font-bold px-4 pt-4 drop-shadow-md  text-center lg:text-left" >About  <span className="text-[#019D90]"> Us</span> </h1>
         <Tabs className={"mt-6"}>
           <TabList
-            className={`flex justify-center flex-wrap`}
+            className={`flex justify-center  flex-wrap`}
           >
             <Tab 
             >
@@ -95,6 +98,7 @@ const AboutUs = () => {
       </section>
       <MeetTeam></MeetTeam>
       <ContactUs></ContactUs>
+      <Footer></Footer>
     </>
   );
 };

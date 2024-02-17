@@ -59,8 +59,7 @@ const TeamMember = () => {
           <div className="flex flex-col mt-4 text-center">
             <p className="text-lg font-bold  ">{member.name}</p>
             <p className=" py-1 text-sm  ">{member.education}</p>
-            <p className="mb-2 text-sm "> <span className="font-medium">Position :</span>  <span className="text-[#019D90] font-semibold">{member.title} </span></p>
-
+            <p>Portfolio Link</p>
             <div className="flex absolute bottom-1 left-[45%] right-[45%] cursor-pointer  items-center space-x-3 justify-center">
               <p className="text-3xl text-[#019D90]">
                 <FaSquareFacebook />

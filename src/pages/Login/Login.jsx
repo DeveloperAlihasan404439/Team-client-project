@@ -2,7 +2,7 @@ import { IoLogoFacebook, IoLogoGithub, IoLogoGoogle } from "react-icons/io5";
 import { FaChevronLeft, FaEye, FaEyeSlash } from "react-icons/fa";
 import { useContext, useState } from "react";
 import "../Login/Login.css";
-
+import { FaTentArrowTurnLeft } from "react-icons/fa6";
 import singupimage from "../../../src/assets/image/undraw_feeling_proud_qne1.svg";
 import singinimage from "../../../src/assets/image/undraw_maker_launch_re_rq81.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -59,7 +59,7 @@ const Login = () => {
               Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "Successfull User Updated",
+                title: `${user.email} is updated Successfully  `,
                 showConfirmButton: false,
                 background: '#144248',
                 color: '#EEEEEE',
@@ -71,7 +71,7 @@ const Login = () => {
         Swal.fire({
             position: "center",
             icon: "success",
-            title: "Successfull Google Sing In",
+            title: "Google Sign In Successful",
             showConfirmButton: false,
             background: "#144248",
             color: '#EEEEEE',
@@ -95,7 +95,7 @@ const Login = () => {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "Successfull User Sing In",
+                title: `${user.email} Log in Success `,
                 showConfirmButton: false,
                 background: "#144248",
                 color: "#ffffff",
@@ -160,7 +160,7 @@ const Login = () => {
                 Swal.fire({
                   position: "center",
                   icon: "success",
-                  title: "Successfull User Sing Up",
+                  title: `Sign Up Successfull `,
                   showConfirmButton: false,
                   background: "#017E77",
                   color: "#ffffff",
@@ -220,12 +220,12 @@ const Login = () => {
                 </a>
               </div>
               <div className=" absolute top-0 lg:-mt-10 mr-3 font-bold ">
-                <Link to="/">
-                  <div className="flex justify-center items-center gap-2 hover:text-[#019D91]">
-                    <FaChevronLeft />
-                    BACK TO HOME
-                  </div>
-                </Link>
+              <Link
+              to="/"
+              className="bg-[#017E77] text-sm md:text-md rounded-lg  lg:static bottom-1 right-0  px-4 py-2 text-[#EEEEEE] flex items-center gap-2 w-fit text-nowrap mx-auto "
+            >
+              <FaTentArrowTurnLeft /> Back To Home
+            </Link>
               </div>
             </form>
 
@@ -240,7 +240,7 @@ const Login = () => {
                 <i className="fas fa-user"></i>
                 <input {...register("email", { required: true })} type="email" placeholder="Email" />
               </div>
-              <div className="input-field relative">
+              <div className="input-field  relative">
                 <i className="fas fa-user"></i>
                 <input {...register("password", { required: true })} 
                 type={open ? "password" : "text"} placeholder="Password" />
@@ -258,7 +258,7 @@ const Login = () => {
               <input
                 {...register("image")}
                 type="file"
-                className="input-file my-3"
+                className="input-file my-3 mt-6 lg:w-[80%]"
               />
               {success && <p className="text-green-700">{success}</p>}
               <input type="submit" value={imgLoader?"Waiting...":"Sign up"} className="btnn solid" />
@@ -304,7 +304,7 @@ const Login = () => {
           <div className="panel right-panel">
             <div className="content -mt-8">
               <h3 className="font-semibold">
-                {" "}
+               
                 Welcome Back ! Swift Account Access
               </h3>
               <p className="my-2 ">

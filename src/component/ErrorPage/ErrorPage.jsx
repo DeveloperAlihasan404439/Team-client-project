@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import error from '../../assets/BannerL&Logo/error.json'
+import error from '../../assets/BannerL&Logo/errorSign.json'
 
 const ErrorPage = () => {
     return (
