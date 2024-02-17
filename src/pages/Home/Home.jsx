@@ -6,9 +6,14 @@ import "aos/dist/aos.css";
 import HowToUse from "../Whyus/HowToUse";
 import FqSection from "../../component/FqSection/FqSection";
 import UserReview from "../Review/UserReview";
+import Blog from "../../component/Blog/Blog";
+
 import RecievedEmails from "../../Emails/RecievedEmails";
+
+import TimeDifference from "../../Hooks/TimeDifference";
 import NavBar from './../Navbar/Navbar';
-import Storage from "../../component/StorageManagement/Storage";
+import Footer from './../Footer/Footer';
+
 const Home = () => {
   useEffect(() => {
     AOS.init({
@@ -19,15 +24,15 @@ const Home = () => {
     });
   }, []);
   return (
-    <div className="overflow-x-hidden relative">
-   
-      <Banner />
+    <div className="overflow-x-hidden">
+      <NavBar></NavBar>
+      <Banner></Banner>
+      <WhyUS></WhyUS>
+      <HowToUse></HowToUse>
+      <UserReview></UserReview>
       <RecievedEmails />
-    
-      <WhyUS />
-      <HowToUse />
-      <UserReview />
-     
+      <Blog />
+     <Footer></Footer>
     </div>
   );
 };

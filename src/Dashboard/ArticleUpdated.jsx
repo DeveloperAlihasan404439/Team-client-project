@@ -13,20 +13,37 @@ moment().format();
 const ArticleUpdated = () => {
   const { article, isLoading, refetch } = useArticle();
   const [updatedArticle, setupdatedArticle] = useState({});
+
+  const confrimArticle = article.filter(confirm => confirm.status==="confrom")
+
   const axiosPublick = useAxios();
   // delete article code
   function hendelArticleDelete(id) {
-    axiosPublick.delete(`/article?id=${id}`).then((res) => {
-      if (res.data.deletedCount > 0) {
-        refetch();
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Successfull Article Deteled",
-          showConfirmButton: false,
-          background: "#144248",
-          color: "#EEEEEE",
-          timer: 2000,
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't to delete the notes!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#019D90",
+      cancelButtonColor: "#991b1b",
+      confirmButtonText: "Yes, delete it!",
+      background: "#144248",
+      color: "#EEEEEE",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublick.delete(`/article?id=${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            refetch();
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Successfull Deleted Notes",
+              showConfirmButton: false,
+              background: "#144248",
+              color: "#EEEEEE",
+              timer: 2000,
+            });
+          }
         });
       }
     });
@@ -41,9 +58,9 @@ const ArticleUpdated = () => {
     }
   }
   return (
-    <div className=" my-10 max-w-5xl mx-auto">
-      <div>
-        <h1 className="text-4xl font-bold text-[#144248] text-center">
+    <div className=" my-5 md:my-10">
+      <div className="w-10/12 md:max-w-5xl mx-auto">
+        <h1 className="text-xl md:text-4xl font-bold text-[#144248] text-center">
           A Design <span className=" text-[#019D90]  ">Guide</span>
         </h1>
         <p className=" text-center font-inter  text-[#144248] font-medium  mt-4 mb-10">
@@ -53,8 +70,8 @@ const ArticleUpdated = () => {
           the psychology of user interaction.
         </p>
       </div>
-      <div className="px-10 flex justify-between items-center text-xl text-[#144248] font-semibold">
-        <h1>Total Article : {article.length}</h1>
+      <div className="px-10 mb-5 flex justify-between items-center text-xl text-[#144248] font-semibold">
+        <h1>Total Article : {confrimArticle.length}</h1>
         <Link to="/dashboard/addArticle">
           <Button name="Add Article" />
         </Link>
@@ -62,37 +79,37 @@ const ArticleUpdated = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="overflow-x-auto border-x-2 mt-5  rounded-t-[30px]">
+        <div className="w-11/12 mx-auto overflow-x-auto border-x-2  rounded-t-[30px]">
           <table className="table">
             <thead>
               <tr className="w-full bg-[#144248] text-[#ffffff] ">
                 <th></th>
                 <th className="text-xl">Photo</th>
-                <th className="text-xl text-center">Title</th>
-                <th className="text-xl text-center">Date</th>
-                <th className="text-xl flex-1 text-center">Update</th>
-                <th className="text-xl flex-1 text-center">delete</th>
+                <th className="text-xl">Title</th>
+                <th className="text-xl">Date</th>
+                <th className="text-xl">Update</th>
+                <th className="text-xl flex-1">delete</th>
               </tr>
             </thead>
             <tbody>
-              {article?.map((arc, i) => (
+              {confrimArticle?.map((arc, i) => (
                 <tr
                   key={i}
                   className="bg-base-100 border-b-2 border-[#144248]  text-[#144248]"
                 >
-                  <th className="w-[50px]">{i + 1}</th>
-                  <td className="w-[80px] text-left text-lg">
+                  <th >{i + 1}</th>
+                  <td >
                     <img
                       src={arc.img}
                       alt=""
                       className="w-14 h-14 rounded-full border-2 border-[#019D90]"
                     />
                   </td>
-                  <td className="text-lg  w-[440px] text-left">{arc.title}</td>
-                  <td className="text-lg  text-center">
+                  <td >{arc.title}</td>
+                  <td className="w-fit">
                     {moment(arc.date).format("ddd, MMM YYYY")}
                   </td>
-                  <td className="text-3xl flex justify-center mt-2">
+                  <td className="text-3xl ">
                     <motion.div
                       whileHover={{
                         scale: 1.02,
@@ -107,7 +124,7 @@ const ArticleUpdated = () => {
                       </span>
                     </motion.div>
                   </td>
-                  <td className="text-3xl flex-1s text-red-800">
+                  <td className="text-3xl text-red-800">
                     <motion.div
                       whileHover={{
                         scale: 1.02,

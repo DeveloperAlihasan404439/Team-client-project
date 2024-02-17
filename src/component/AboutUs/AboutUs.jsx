@@ -24,7 +24,7 @@ const AboutUs = () => {
         <h1 className="text-4xl   font-bold drop-shadow-md  text-center lg:text-left" >About  <span className="text-[#019D90]"> Us</span> </h1>
         <Tabs className={"mt-6"}>
           <TabList
-            className={`border-b-2 border-b-[#019D90] w-full bg-[#EEEEEE]`}
+            className={`flex justify-center flex-wrap`}
           >
             <Tab 
             >

@@ -198,23 +198,23 @@ p-6 w-full space-y-3"
                     </label>
                     <div className="mt-1">
                       <select disabled className="input-text">
-                        <option>Select Benefits</option>
-                        <option value="Enhanced online security">
+                        <option style={{ backgroundColor: "#144248", color: "#EEE" }}>Select Benefits</option>
+                        <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
                           Enhanced online security
                         </option>
-                        <option value="Enhanced online security">
+                        <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
                           Privacy protection
                         </option>
-                        <option value="Enhanced online security">
+                        <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
                           Reduced risk of identity theft
                         </option>
-                        <option value="Inbox organization">
+                        <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Inbox organization">
                           Inbox organization
                         </option>
-                        <option value="Improved productivity">
+                        <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Improved productivity">
                           Improved productivity
                         </option>
-                        <option value="Reduced risk of identity theft">
+                        <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Reduced risk of identity theft">
                           Reduced risk of identity theft
                         </option>
                       </select>

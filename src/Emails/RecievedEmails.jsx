@@ -5,15 +5,18 @@ import { useParams } from "react-router-dom";
 import GetMessages from "./GetMessages";
 import { AuthContext } from "../provider/AuthProvider";
 import { IoReload } from "react-icons/io5";
-import { TbLoader2  } from "react-icons/tb";
+import { TbLoader2 } from "react-icons/tb";
 import inbox from "../assets/BannerL&Logo/inbox.jpg";
 import inboxIcon from "../assets/BannerL&Logo/inbox-icon.jpg";
+import Lottie from 'lottie-react';
+import img3 from './Animation - 1707735098842.json'
+import Swal from "sweetalert2";
+
 const RecievedEmails = () => {
   const [emails, setEmails] = useState([]);
   const { user } = useContext(AuthContext);
   const { email } = useParams();
   const [isLoading, setIsLoading] = useState(null);
-
   const { data: tempMail = {}, refetch } = useQuery({
     queryKey: ["tempMail"],
     queryFn: async () => {
@@ -26,8 +29,14 @@ const RecievedEmails = () => {
     enabled: !!user, // Only enable the query if user is available
   });
   const inboxIds = tempMail.inboxId;
+
+
+
+
   useEffect(() => {
-    if (inboxIds) {
+    if (!inboxIds) {
+      return;
+    } else {
       axios
         .get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
         .then((res) => {
@@ -35,20 +44,36 @@ const RecievedEmails = () => {
           setEmails(res.data);
         });
     }
-  }, [inboxIds, refetch]);
+  }, [inboxIds]);
 
   const reloadEmails = () => {
     setIsLoading(true);
-    axios
-      .get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
-      .then((res) => {
-        setEmails(res.data);
-        setIsLoading(false);
+    if (!inboxIds) {
+      setIsLoading(false)
+      Swal.fire({
+        position: "center",
+        icon: "warning",
+        title: "Create Inbox",
+        showConfirmButton: false,
+        background: '#144248',
+        color: '#EEEEEE',
+        timer: 2000
       });
+    } else {
+      axios
+        .get(`https://server-side-bice.vercel.app/get-emails/${inboxIds}`)
+        .then((res) => {
+          setEmails(res.data)
+          console.log(res.data)
+          setIsLoading(false)
+        })
+    }
+
   };
   return (
-    <div className="">
-      <div className="bg-white w-full lg:w-[50%] m-auto rounded-lg ">
+    <div className="mt-4">
+      <div className="bg-white w-full lg:w-[50%] m-auto rounded-md ">
+
         <div
           className="flex justify-between bg-[#10a295] items-center
                  px-5 py-2 rounded-t-lg"
@@ -57,47 +82,55 @@ const RecievedEmails = () => {
             Inbox
           </h2>
           <div>
-            {isLoading ? (
+            {
+              user ? (
+                isLoading ? (
+                  <button
+                    onClick={() => reloadEmails()}
+                    className="px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
+                  >
+                    {" "}
+                    <span className="animate-spin infinite">
+                      <TbLoader2 />
+                    </span>
+                    Loading
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => reloadEmails()}
+                    className="px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
+                  >
+                    {" "}
+
+                    Reload
+                  </button>
+
+                )
+              ) : (
                 <button
-                onClick={() => reloadEmails()}
-                className="px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
-              >
-                
-                <span className="animate-spin infinite ">
-                  <TbLoader2  />
-                </span>
-                Loading
-              </button>
-            ) : (
-              <button
-                onClick={() => reloadEmails()}
-                className="px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
-              >
-                
-                <span className="animate-spin infinite">
-                  <IoReload />
-                </span>
-                Reload
-              </button>
-              
-            )}
+                  disabled
+                  onClick={() => reloadEmails()}
+                  className="cursor-not-allowed px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
+                >
+
+                  Reload
+                </button>
+              )
+            }
           </div>
         </div>
-        <div className="bg-white mb-10 h-[500px] w-full flex items-center justify-center flex-col border-b-lg">
-          <div className="relative">
-            <div className="animate-spin infinite delay-50000">
-              <img src={inbox} alt="" className="w-72 h-72" />
-            </div>
-            <span className="absolute top-12 left-12">
-              <img src={inboxIcon} alt="" className="w-44 " />
-            </span>
-          </div>
+        <div className="bg-white mb-10 h-[500px] w-full flex  flex-col border-b-lg">
+
 
           {user ? (
             emails?.length <= 0 ? (
-              <h2 className="mt-5 text-xl text-[#144248] text-center">
-                Waiting For Emails...
-              </h2>
+              <>
+                <Lottie className='h-36 col-span-2 row-span-2 text-red-500 mt-5' animationData={img3} loop={true} />
+
+                <h2 className="mt-5 text-xl text-[#144248] text-center">
+                  Waiting For Emails...
+                </h2>
+              </>
             ) : (
               emails?.map((mail, index) => (
                 <GetMessages

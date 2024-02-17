@@ -19,6 +19,13 @@ import PopularArtical from '../component/PopularArtical/PopularArtical';
 import PasswordStrengthChecker from '../pages/PasswordStrengthChecker/PassStrengthCheck';
 import Storage from '../component/StorageManagement/Storage';
 
+import UserAddArticle from '../Dashboard/UserDashboard/UserAddArticle';
+import UserAllArticle from '../Dashboard/UserDashboard/UserAllArticle';
+ import Notes from '../Dashboard/UserDashboard/Notes';
+import TextToVoiceCnv from '../Dashboard/UserDashboard/TextToVoiceCnv';
+import Payment from './../pages/Payment/Payment';
+
+
 
 export const router = createBrowserRouter([
     {
@@ -59,10 +66,17 @@ export const router = createBrowserRouter([
                 path: '/articledetails/:id',
                 element:<ArticleDetails/>,
             },
+
             {
                 path: '/UserDrive',
                 element:<Storage></Storage>,
             },
+
+            {
+                path: '/payment',
+                element:<Payment/>,
+            }, 
+
             
         ]
     },
@@ -74,6 +88,7 @@ export const router = createBrowserRouter([
         path: '/dashboard',
         element: <Dashboard/>,
         children:[
+            // admin dashboard router creat 
             {
                 path: '/dashboard/home',
                 element: <DashHome/>
@@ -97,6 +112,23 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/requstArticle',
                 element: <RequstArticle/>
+            },
+            // user rout 
+            {
+                path: '/dashboard/users/addArticle',
+                element: <UserAddArticle/>
+            },
+            {
+                path: '/dashboard/user/all/Article',
+                element: <UserAllArticle/>
+            },
+            {
+                path: '/dashboard/user/notes',
+                element: <Notes/>
+            },
+            {
+                path: '/dashboard/text-to-voice',
+                element: <TextToVoiceCnv/>
             },
         ]
     }
