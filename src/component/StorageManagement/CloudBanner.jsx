@@ -9,7 +9,7 @@ import img2 from '../../assets/BannerL&Logo/cloud1 (1).json'
 const CloudBanner = () => {
   return (
     <div
-      className="lg:relative lg:h-screen  top-0 lg:-top-20  right-0 left-0 bottom-0 "
+      className="lg:relative   top-0 lg:-top-20  right-0 left-0 bottom-0 "
       // style={{
       //   backgroundImage: `url(${img})`,
       //   backgroundSize: "cover",
@@ -21,7 +21,7 @@ const CloudBanner = () => {
         transition={{ type: "spring", stiffness: 100 }}
         className="max-w-7xl  mx-auto "
       >
-        <div className="lg:pt-24 flex flex-col lg:flex-row mx-10 box-border  justify-center items-start gap-8 ">
+        <div className="lg:mt-28 flex flex-col lg:flex-row mx-10 box-border  justify-center items-start gap-8 ">
         <div className="lg:w-[50%] flex flex-col justify-center items-center gap-4">
           <h1 className="lg:text-6xl mt-10 lg:mt-0 text-4xl font-black ">
             More Than just
@@ -91,7 +91,7 @@ const CloudBanner = () => {
        
           
       </motion.section>
-      <section className="max-w-7xl mx-auto grid  grid-cols-1 rounded  lg:grid-cols-3 gap-8 ">
+      <section className="max-w-7xl mx-auto grid  grid-cols-1   lg:grid-cols-3 gap-8 ">
         <div><StorageCards
           title="Easy File Uploads"
           des="Seamlessly upload your files with just a few clicks.

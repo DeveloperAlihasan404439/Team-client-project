@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import NavBar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 const PasswordStrengthChecker = () => {
     const [strength, setStrength] = useState("");
@@ -32,6 +34,8 @@ const PasswordStrengthChecker = () => {
         setPassword(newPassword);
     };
     return (
+        <>
+   <NavBar></NavBar>
         <div className="max-w-5xl mx-auto py-10">
             <h2 className="text-center text-3xl pb-2 text-[#144248]">
                 Password Strength Meter{" "}
@@ -273,6 +277,8 @@ const PasswordStrengthChecker = () => {
                 </div>
             </div>
         </div>
+<Footer></Footer>
+        </>
     );
 };
 

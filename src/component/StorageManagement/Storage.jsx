@@ -12,6 +12,8 @@ import { AuthContext } from "./../../provider/AuthProvider";
 import { motion } from "framer-motion";
 import CloudBanner from "./CloudBanner";
 import { toast } from "react-toastify";
+import NavBar from './../../pages/Navbar/Navbar';
+import Footer from "../../pages/Footer/Footer";
 
 const Storage = () => {
   const { user } = useContext(AuthContext);
@@ -95,6 +97,7 @@ const handleDelete=(id)=>{
 
   return (
     <div className="">
+      <NavBar></NavBar>
       <CloudBanner></CloudBanner>
 
       <motion.div
@@ -104,7 +107,7 @@ const handleDelete=(id)=>{
           ease: "linear",
           duration: 2,
         }}
-        className="flex max-w-7xl mx-auto  gap-8 border-t-2 flex-col lg:mt-32"
+        className="flex max-w-7xl mx-auto  gap-8 border-t-2 flex-col "
       >
         <section className=" flex justify-between items-center cloudBannerZ w-full p-6 rounded-lg mt-10 ">
           <h1 className="text-lg">
@@ -182,6 +185,7 @@ const handleDelete=(id)=>{
 
   
       </motion.div>
+      <Footer></Footer>
     </div>
   );
 };

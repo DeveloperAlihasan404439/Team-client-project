@@ -7,6 +7,8 @@
     import L from 'leaflet';
     import 'leaflet/dist/leaflet.css';
     import { motion } from "framer-motion";
+import NavBar from "../../pages/Navbar/Navbar";
+import Footer from "../../pages/Footer/Footer";
     
     
     const IpTracker = () => {
@@ -75,9 +77,12 @@
     
     
       return (
-        <div className="text-[#144248] max-w-7xl mx-auto pt-4 p-6">
-    
-          <h1 className=" text-3xl md:text-4xl text-center font-bold drop-shadow ">
+        <>
+        <NavBar></NavBar>
+        <div className="text-[#144248] max-w-7xl mx-auto ">
+  
+    <div className="mt-10 "> 
+     <h1 className=" text-3xl md:text-4xl text-center font-bold drop-shadow ">
             Discover Your World: <br className="md:hidden" />
             <span className=" text-[#019D90] ">IP Address & Location</span>
             <br className="md:hidden" /> Tracking system
@@ -88,6 +93,8 @@
             coordinates. Understand where you are and discover the fascinating world
             around you. Your digital journey starts here!
           </p>
+          </div>
+        
           <article className="flex flex-col justify-center items-center gap-4 pt-4">
             <section className="  ">
     
@@ -179,8 +186,9 @@
             </div>
           </article>
     
-         
+       
         </div>
+        <Footer></Footer></>
       );
     };
     
