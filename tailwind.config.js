@@ -5,17 +5,8 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-
-    extend: {
-      backgroundImage : {
-        BackGround_one : "url('https://i.ibb.co/cJJ6FFH/back-Ground-Img.png')",
-        BackGround_two : "url('https://i.ibb.co/nr4wHgs/ajscb-1.png')",
-        BackGround_three : "url('https://i.ibb.co/XS2g8h0/Frame.png')"
-      },
-      fontFamily : {
-        inter : "'Inter';"
-      }
-    },
+    extend: {},
   },
+  // eslint-disable-next-line no-undef
   plugins: [require("daisyui")],
 }
