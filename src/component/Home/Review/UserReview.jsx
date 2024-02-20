@@ -73,14 +73,14 @@ const UserReview = () => {
 
                   <div className="w-full text-lg py-4">
                     <p className="text-lg  font-medium px-6">
-                      <span className="text-[#019D90] text-2xl "> {'"'} </span>{" "}
+                      <span className="text-[#019D90] text-2xl "> </span>
                       {item.review}
-                      <span className="text-[#019D90] text-2xl "> {'"'} </span>
+                      <span className="text-[#019D90] text-2xl "> </span>
                     </p>
                   </div>
                   <div className="w-full flex px-6 md:px-0 lg:pr-10 flex-col md:flex-row pb-4  md:justify-between md:items-center gap-2">
                     <p className="  text-md">
-                      {" "}
+                      
                       <span className="text-[#019D90] ">User Email : </span>
                       {item.email}
                     </p>
