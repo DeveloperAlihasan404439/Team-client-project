@@ -17,14 +17,14 @@ const Home = () => {
              <Helmet>
                 <title>Swifty Mail | Home</title>
             </Helmet>
-            <div>
+            
                 <Banner/>
                 <RecievedEmails/>
                 <WhyUS/>
                 <HowToUse/>
                 <UserReview/>
                 <Blog/>
-            </div>
+            
         </div>
         <Footer></Footer>
         </>

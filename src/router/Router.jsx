@@ -63,11 +63,13 @@ const router = createBrowserRouter([
   },
   {
     path:'/login',
-    element: <Login/>
+    element: <Login/>,
+    errorElement:<ErrorPage></ErrorPage>,
   },
   {
     path: '/dashboard',
     element: <Dashboard/>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
         // admin dashboard router creat 
         {

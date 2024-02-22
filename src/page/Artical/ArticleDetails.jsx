@@ -74,45 +74,45 @@ const ArticleDetails = () => {
 
               <p className=" text-gray-600 font-semibold">
                 <span className="text-xl text-black font-semibold">
-                  Description :{" "}
-                </span>{" "}
+                  Description :
+                </span>
                 {description}
               </p>
               <p className="text-gray-600 font-semibold">
                 <span className="text-xl text-black font-semibold">
-                  Why to Use :{" "}
-                </span>{" "}
+                  Why to Use :
+                </span>
                 {whyToUse}
               </p>
               <p className="text-gray-600 font-semibold">
                 <span className="text-xl text-black font-semibold">
-                  Where to use :{" "}
-                </span>{" "}
+                  Where to use :
+                </span>
                 {whereToUse}
               </p>
               <p className="text-gray-600 font-semibold">
                 <span className="text-xl text-black font-semibold">
-                  Use to help :{" "}
-                </span>{" "}
+                  Use to help :
+                </span>
                 {useToHelp}
               </p>
 
               <p className=" text-[#019D91] font-medium">
                 <span className="text-xl text-black font-semibold">
-                  Date :{" "}
-                </span>{" "}
+                  Date :
+                </span>
                 {date}
               </p>
 
               <div className="text-xl flex  justify-between font-semibold">
                 <div>
-                  <span>Benifit : </span>{" "}
+                  <span>Benifit : </span>
                   {benefits?.map((benifit, i) => (
                     <p
                       key={i}
                       className="flex gap-2 items-center text-lg font-medium"
                     >
-                      <MdOutlineCheckCircle className="text-[#019D91]" />{" "}
+                      <MdOutlineCheckCircle className="text-[#019D91]" />
                       {benifit}
                     </p>
                   ))}
@@ -124,7 +124,7 @@ const ArticleDetails = () => {
                       onClick={handleLike}
                       className="bg-gray-100 border     text-black  px-2 flex items-center  rounded-full p-1 "
                     >
-                      {" "}
+                      
                       <AiFillLike className="text-md font-light hover:text-black text-sky-500" />
                     </button>
                   ) : (
@@ -132,8 +132,8 @@ const ArticleDetails = () => {
                       disabled
                       className="bg-gray-200 border border-sky-400 disabled:text-sky-300 disabled:border-none text-black p-2 rounded-full flex items-center font-mono uppercase  "
                     >
-                      {" "}
-                      <AiFillLike className="text-md border-sky-400 disabled:text-sky-200 font-light   " />{" "}
+                      
+                      <AiFillLike className="text-md border-sky-400 disabled:text-sky-200 font-light   " />
                     </button>
                   )}
                   {like > 0 ? (

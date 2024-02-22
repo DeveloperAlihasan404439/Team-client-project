@@ -104,10 +104,10 @@ const Navber = () => {
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-              <ul className="menu w-60 min-h-full  bg-base-200">
+              <ul className="menu w-60 min-h-full  text-lg font-medium">
                 {NavItems.map((item) => (
                   <li
-                    className="hover:bg-[#017E77] text-[#144248] relative group border border-[#019D91] rounded-lg  hover:text-[#EEEEEE] flex  justify-center items-center mb-2"
+                    className="hover:bg-[#017E77] text-[#144248] relative group border border-[#019D91] rounded-lg  hover:text-[#EEEEEE] flex  justify-center items-center mb-2 "
                     key={item.Title}
                   >
                     <div>
@@ -172,10 +172,10 @@ const Navber = () => {
           </motion.button>
         </div>
         <div className=" hidden lg:flex ">
-          <ul className=" flex justify-center   items-center font-semibold gap-4 ">
+          <ul className=" flex justify-center text-lg font-medium  items-center  gap-4 ">
             {NavItems.map((item) => (
               <li
-                className="hover:bg-[#017E77] text-[#144248] relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded font-semibold   hover:text-[#EEEEEE] flex  justify-center items-center "
+                className="hover:bg-[#017E77] text-[#144248] relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center "
                 key={item.Title}
               >
                 <NavLink
@@ -192,7 +192,7 @@ const Navber = () => {
                   <div className="p-2 flex w-fit text-nowrap items-center gap-1">
                     {item.icon}
                     {item.Title}
-                    <ul className="absolute hidden group-hover:block transition-opacity duration-500 delay-200 top-8  -left-1  rounded mt-2  bg-[#EEEEEE]  shadow-lg">
+                    <ul className="absolute hidden group-hover:block transition-opacity duration-500 delay-200 top-8  text-lg font-medium -left-1  rounded mt-2  bg-[#EEEEEE]  shadow-lg">
                       {item.subMenu &&
                         item.subMenu.length > 0 &&
                         item.subMenu.map((menu) => (
@@ -285,7 +285,7 @@ const Navber = () => {
               <Link to="/login">
                 <motion.button
                   whileTap={{ scale: 0.9 }}
-                  className="hover:bg-[#017E77] font-semibold Hover:bg-[#019D91] ml-3 border hover:border  border-[#017E77] font-inter hover:text-[#EEEEEE] px-5 py-2 rounded-md   "
+                  className="hover:bg-[#017E77]  Hover:bg-[#019D91] ml-3 border hover:border  border-[#017E77] font-inter hover:text-[#EEEEEE] px-5 py-2 rounded-md   "
                 >
                   Login
                 </motion.button>

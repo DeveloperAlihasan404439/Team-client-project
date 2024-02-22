@@ -15,6 +15,7 @@
     "@tanstack/react-query": "^5.20.5",
     "aos": "^2.3.4",
     "autoprefixer": "^10.4.17",
+    "aws-sdk": "^2.1562.0",
     "axios": "^1.6.7",
     "daisyui": "^4.7.2",
     "firebase": "^10.8.0",

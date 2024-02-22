@@ -50,18 +50,18 @@ const BlogCard = ({ blogs }) => {
           />
           <div className="font-inter">
             <h1 className="text-lg font-medium flex items-center gap-2">
-              {authorName} <MdVerified className="text-[#019D90] text-xl" />{" "}
+              {authorName} <MdVerified className="text-[#019D90] text-xl" />
             </h1>
             <h1 className="text-lg text-gray-500 font-medium ">
               {authorPosition}
               <span className="text-sm font-blod text-gray-400 uppercase">
-                {" "}
+                
                 | Developer
               </span>
             </h1>
           </div>
         </div>
-        <div className="bg-white  w-full h-full rounded-md overflow-hidden top-32  left-0 right-0 -z-30  absolute"></div>
+        <div className="  w-full h-full rounded-md overflow-hidden top-32  left-0 right-0 -z-30  absolute"></div>
       </div>
     </motion.div>
   );
