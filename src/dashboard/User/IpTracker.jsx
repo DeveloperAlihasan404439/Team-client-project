@@ -2,11 +2,16 @@ import { useState,useEffect } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
 
 const IpTracker = () => {
   const [ipv4Address, setIpv4Address] = useState("");
   const [ipv6Address, setIpv6Address] = useState("");
   const [getInfo, setGetInfo] = useState({});
+  const [lat, setlat] = useState(21.4241);
+  const [lon, setlon] = useState(39.8173);
+  const [Acc, setAcc] = useState(5);
+
 
   const getUserAddress = async () => {
     try {
@@ -18,34 +23,63 @@ const IpTracker = () => {
 
       setGetInfo(await response3.json());
     } catch (err) {
-      console.log(`Failed to fetch${err}`);
+      console.log(`Failed to fetch ${err}`);
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title:` Failed to fetch${err}`,
+        showConfirmButton: false,
+        background: "#144248",
+        color: "#EEEEEE",
+        timer: 2000,
+      });
     }
+    const LocationInfo = async () =>{
+      try {
+        const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`);
+        const data = await response.json();
+        
+        setGetInfo(data)
+       
+      } catch (error) {
+        console.error('Error fetching location info:', error);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title:` Failed to fetch${error}`,
+          showConfirmButton: false,
+          background: "#144248",
+          color: "#EEEEEE",
+          timer: 2000,
+        });
+        return null;
+      }
+    }
+    LocationInfo()
   };
-  const countryCode =
-    getInfo?.countryCode || "Click Location info button to see the details";
-  const country =
-    getInfo?.country || "Click Location info button to see the details";
-  const city = getInfo?.city || "Click Location info button to see the details";
-  const region =
-    getInfo?.regionName || "Click Location info button to see the details";
-  const time =
-    getInfo?.timezone || "Click Location info button to see the details";
-  const isp = getInfo?.isp || "Click Location info button to see the details";
-  const zip = getInfo?.zip || "Click Location info button to see the details";
-  const lat = getInfo?.lat || "Click Location info button to see the details";
-  const lon = getInfo?.lon || "Click Location info button to see the details";
-  const ipv4 = ipv4Address || "Click Location info button to see the details";
-  const ipv6 = ipv6Address || "Click Location info button to see the details";
-  const as = getInfo?.as || "Click Location info button to see the details";
 
-  const latitue = getInfo?.lat || 51.505;
-  const longitude = getInfo.lon || -0.09;
+  const click ='Click Location info button to see the details'
+ 
+  
+   
+  const city = getInfo?.osm_id || click;
+  const region =
+    getInfo?.display_name || click;
+ 
+  const isp = getInfo?.osm_type|| click;
+  const zip = getInfo?.addresstype || click;
+
+  const ipv4 = ipv4Address || click;
+  const ipv6 = ipv6Address || click;
+  const AreaType = getInfo?.type || click;
+
+ 
   useEffect(() => {
-    if (isNaN(latitue) || isNaN(longitude)) {
+    if (isNaN(lat) || isNaN(lon)) {
       console.error(
-        "Invalid latitude or longitude values:",
-        latitue,
-        longitude
+        "Invalid lat or lon values:",
+        lat,
+        lon
       );
       return;
     }
@@ -54,14 +88,41 @@ const IpTracker = () => {
       existingMap._leaflet_id = null;
     }
 
-    const map = L.map("map").setView([latitue, longitude], 13);
+    const map = L.map("map").setView([lat, lon], 13);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "FunctionFusion",
     }).addTo(map);
 
-    L.marker([getInfo?.lat || 51.505, longitude]).addTo(map);
-  }, [getInfo?.lat, latitue, longitude]);
+   
+    L.featureGroup([ L.marker([ lat,lon]),
+    L.circle([lat,lon],{radius:Acc})]).addTo(map)
+if(!navigator.geolocation){
+  Swal.fire({
+    position: "center",
+    icon: "error",
+    title: "Your browser doesnt support geolocation feature",
+    showConfirmButton: false,
+    background: "#144248",
+    color: "#EEEEEE",
+    timer: 2000,
+  });
+
+  }  else{
+ navigator.geolocation.getCurrentPosition((params)=>{
+  setInterval(() => {
+    setlat(params.coords.latitude)
+      setlon(params.coords.longitude)
+      setAcc(params.coords.accuracy)
+     
+  }, 5000);
+      
+    });
+}
+
+
+  }, [ lat, lon,Acc]);
+
 
   return (
     <div className="text-[#144248] max-w-7xl mx-auto pt-4 p-6">
@@ -100,65 +161,37 @@ const IpTracker = () => {
                   </th>
                   <td className="border-2 md:text-xl">{ipv6}</td>
                 </tr>
+              
+               
                 <tr>
-                  <th className=" md:text-lg font-semibold border-2   w-[40%]  ">
-                    Country Code
+                  <th className=" md:text-lg font-semibold border-2   w-[40%] ">
+                    Regoin
                   </th>
-                  <td className="border-2 md:text-lg"> {countryCode}</td>
+                  <td className="border-2 md:text-lg">{region}</td>
                 </tr>
-
+             
+                <tr>
+                  <th className=" md:text-lg font-semibold border-2  ">
+                   Address Type
+                  </th>
+                  <td className="border-2 md:text-lg">{zip}</td>
+                </tr>
+                
                 <tr>
                   <th className=" md:text-lg font-semibold border-2  w-[40%]  ">
-                    Country{" "}
-                  </th>
-                  <td className="border-2 md:text-lg">{country}</td>
-                </tr>
-
-                <tr>
-                  <th className=" md:text-lg font-semibold border-2  w-[40%]  ">
-                    City{" "}
+                   Osm Id 
                   </th>
                   <td className="border-2 md:text-lg"> {city}</td>
                 </tr>
                 <tr>
-                  <th className=" md:text-lg font-semibold border-2   w-[40%] ">
-                    Regoin{" "}
-                  </th>
-                  <td className="border-2 md:text-lg">{region}</td>
-                </tr>
-                <tr>
-                  <th className=" md:text-lg font-semibold border-2  w-[40%]  ">
-                    Latitude{" "}
-                  </th>
-                  <td className="border-2 md:text-lg"> {lat}</td>
-                </tr>
-                <tr>
-                  <th className=" md:text-lg font-semibold border-2  w-[40%]  ">
-                    Longitude
-                  </th>
-                  <td className="border-2 md:text-lg"> {lon}</td>
-                </tr>
-                <tr>
-                  <th className=" md:text-lg font-semibold border-2  w-[40%] ">
-                    Time Zone
-                  </th>
-                  <td className="border-2 md:text-lg">{time}</td>
-                </tr>
-                <tr>
                   <th className=" md:text-lg font-semibold border-2  ">
-                    Zip Code{" "}
-                  </th>
-                  <td className="border-2 md:text-lg">{zip}</td>
-                </tr>
-                <tr>
-                  <th className=" md:text-lg font-semibold border-2  ">
-                    Isp provider
+                   Osm Type
                   </th>
                   <td className="border-2 md:text-lg">{isp}</td>
                 </tr>
                 <tr>
-                  <th className=" md:text-lg font-semibold border-2  ">AS</th>
-                  <td className="border-2 md:text-lg">{as}</td>
+                  <th className=" md:text-lg font-semibold border-2  ">Area Type</th>
+                  <td className="border-2 md:text-lg">{AreaType}</td>
                 </tr>
               </tbody>
             </table>

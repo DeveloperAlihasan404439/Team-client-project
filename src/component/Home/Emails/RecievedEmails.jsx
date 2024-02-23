@@ -73,7 +73,7 @@ const RecievedEmails = () => {
   };
   return (
     <HomepageUi>
-      <div className="bg-white w-full lg:w-[50%] m-auto rounded-md ">
+      <div className="bg-white -mt-16 w-full lg:w-[50%] m-auto rounded-md ">
 
         <div
           className="flex justify-between bg-[#10a295] items-center

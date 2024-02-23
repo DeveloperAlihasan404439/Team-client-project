@@ -68,13 +68,11 @@ const UserReviewModal = () => {
         <div className="modal" role="dialog">
         <div className="modal-box max-w-4xl bg-[#EEEEEE] p-0 ">
               <h1 className="text-2xl md:text-4xl font-bold text-[#144248] my-5 md:mt-10 px-5 text-center">
-                Voices Unveiled:
-                <span className=" text-[#019D90]  ">Authentic Experiences</span>
+              Add some <span className=" text-[#019D90]  ">Heartfelt Words</span>  
+                
               </h1>
               <p className="text-sm md:text-lg font-medium text-[#144248] text-center px-5">
-                Dive into genuine user testimonials with our dynamic swiper.
-                Explore insights effortlessly, empowered by our intuitive
-                interface. Discover the heartbeat of our community.
+              Dive into a world of joy and satisfaction! Our review section is a playground of happiness where every comment is like a sprinkle of confetti. Join the fun and discover why our customers can't stop singing praises. From heartwarming anecdotes to delightful affirmations, it's where smiles meet satisfaction. Let's spread the love, one review at a time!
               </p>
               <form
                 onSubmit={handleSubmit(onSubmit)}

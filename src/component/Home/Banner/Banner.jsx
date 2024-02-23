@@ -24,11 +24,11 @@ const Banner = () => {
 
   // const BackgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
-  // main and tranStack query code start from here
+
   const { data: tempMail = {}, refetch } = useQuery({
     queryKey: ["tempMail"],
     queryFn: async () => {
-      if (!user) return; // Return early if user is not loaded
+      if (!user) return;
       const res = await axios.get(
         `https://server-side-bice.vercel.app/users/${user.email}`
       );

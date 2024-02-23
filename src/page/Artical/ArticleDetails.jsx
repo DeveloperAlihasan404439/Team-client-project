@@ -77,81 +77,79 @@ const ArticleDetails = () => {
               <img className="rounded-xl " src={img} alt="" />
               <div className="font-inter space-y-3 mt-8">
                 <p className="text-3xl font-semibold">{title}</p>
+              <p className=" text-gray-600 font-semibold">
+                <span className="text-xl text-black font-semibold">
+                  Description :
+                </span>
+                {description}
+              </p>
+              <p className="text-gray-600 font-semibold">
+                <span className="text-xl text-black font-semibold">
+                  Why to Use :
+                </span>
+                {whyToUse}
+              </p>
+              <p className="text-gray-600 font-semibold">
+                <span className="text-xl text-black font-semibold">
+                  Where to use :
+                </span>
+                {whereToUse}
+              </p>
+              <p className="text-gray-600 font-semibold">
+                <span className="text-xl text-black font-semibold">
+                  Use to help :
+                </span>
+                {useToHelp}
+              </p>
 
-                <p className=" text-gray-600 font-semibold">
-                  <span className="text-xl text-black font-semibold">
-                    Description :{" "}
-                  </span>{" "}
-                  {description}
-                </p>
-                <p className="text-gray-600 font-semibold">
-                  <span className="text-xl text-black font-semibold">
-                    Why to Use :{" "}
-                  </span>{" "}
-                  {whyToUse}
-                </p>
-                <p className="text-gray-600 font-semibold">
-                  <span className="text-xl text-black font-semibold">
-                    Where to use :{" "}
-                  </span>{" "}
-                  {whereToUse}
-                </p>
-                <p className="text-gray-600 font-semibold">
-                  <span className="text-xl text-black font-semibold">
-                    Use to help :{" "}
-                  </span>{" "}
-                  {useToHelp}
-                </p>
+              <p className=" text-[#019D91] font-medium">
+                <span className="text-xl text-black font-semibold">
+                  Date :
+                </span>
+                {date}
+              </p>
 
-                <p className=" text-[#019D91] font-medium">
-                  <span className="text-xl text-black font-semibold">
-                    Date :{" "}
-                  </span>{" "}
-                  {date}
-                </p>
-
-                <div className="text-xl flex  justify-between font-semibold">
-                  <div>
-                    <span>Benifit : </span>{" "}
-                    {benefits?.map((benifit, i) => (
-                      <p
-                        key={i}
-                        className="flex gap-2 items-center text-lg font-medium"
-                      >
-                        <MdOutlineCheckCircle className="text-[#019D91]" />{" "}
-                        {benifit}
-                      </p>
-                    ))}
-                  </div>
-                  {/* like part  */}
-                  <div className="flex gap-3 border rounded-full px-5 py-2 justify-end bottom-0 border-[#37afa550] h-max   items-center">
-                    {user ? (
-                      <button
-                        onClick={handleLike}
-                        className="bg-gray-100 border     text-black  px-2 flex items-center  rounded-full p-1 "
-                      >
-                        {" "}
-                        <AiFillLike className="text-md font-light hover:text-black text-sky-500" />
-                      </button>
-                    ) : (
-                      <button
-                        disabled
-                        className="bg-gray-200 border border-sky-400 disabled:text-sky-300 disabled:border-none text-black p-2 rounded-full flex items-center font-mono uppercase  "
-                      >
-                        {" "}
-                        <AiFillLike className="text-md border-sky-400 disabled:text-sky-200 font-light   " />{" "}
-                      </button>
-                    )}
-                    {like > 0 ? (
-                      <button className="flex  items-center gap-2 border font-inter font-light border-sky-200 px-3 bg-skyow-300 rounded-full text-black text-sm">
-                        {like}
-                      </button>
-                    ) : (
-                      ""
-                    )}
-                    {/* commnet part  */}
-                    <CommentSection id={_id} handleComment={handleComment} />
-                  </div>
+              <div className="text-xl flex  justify-between font-semibold">
+                <div>
+                  <span>Benifit : </span>
+                  {benefits?.map((benifit, i) => (
+                    <p
+                      key={i}
+                      className="flex gap-2 items-center text-lg font-medium"
+                    >
+                      <MdOutlineCheckCircle className="text-[#019D91]" />
+                      {benifit}
+                    </p>
+                  ))}
+                </div>
+                {/* like part  */}
+                <div className="flex gap-3 border rounded-full px-5 py-2 justify-end bottom-0 border-[#37afa550] h-max   items-center">
+                  {user ? (
+                    <button
+                      onClick={handleLike}
+                      className="bg-gray-100 border     text-black  px-2 flex items-center  rounded-full p-1 "
+                    >
+                      
+                      <AiFillLike className="text-md font-light hover:text-black text-sky-500" />
+                    </button>
+                  ) : (
+                    <button
+                      disabled
+                      className="bg-gray-200 border border-sky-400 disabled:text-sky-300 disabled:border-none text-black p-2 rounded-full flex items-center font-mono uppercase  "
+                    >
+                      
+                      <AiFillLike className="text-md border-sky-400 disabled:text-sky-200 font-light   " />
+                    </button>
+                  )}
+                  {like > 0 ? (
+                    <button className="flex  items-center gap-2 border font-inter font-light border-sky-200 px-3 bg-skyow-300 rounded-full text-black text-sm">
+                      {like}
+                    </button>
+                  ) : (
+                    ""
+                  )}
+                  {/* commnet part  */}
+                  <CommentSection id={_id} handleComment={handleComment} />
                 </div>
               </div>
             </div>

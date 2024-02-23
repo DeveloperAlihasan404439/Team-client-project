@@ -21,17 +21,18 @@ import AddArticle from "../dashboard/Admin/AddArticle";
 import Articles from "../dashboard/Admin/Articles";
 import UserReview from "../dashboard/Admin/UserReview";
 import RequstArticle from "../dashboard/Admin/RequstArticle";
+import ErrorPage from "../shared/ErrorPage/ErrorPage";
 
 import Payment from "../page/Payment/Payment";
 import Premium from "../page/Premium/Premium";
 
 import UserProfile from "../dashboard/User/UserProfile";
 import Help from "../page/Help/Help";
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLauOut />,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -77,11 +78,13 @@ const router = createBrowserRouter([
   },
   {
     path:'/login',
-    element: <Login/>
+    element: <Login/>,
+    errorElement:<ErrorPage></ErrorPage>,
   },
   {
     path: '/dashboard',
     element: <Dashboard/>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
         // admin dashboard router creat 
         {

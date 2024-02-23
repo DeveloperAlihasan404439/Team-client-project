@@ -67,11 +67,11 @@ const Navber = () => {
         transition: "all .5s ease-in-out",
       }}
     >
-      <div className="navbar z-80 cloudBannerZ   rounded-lg h-20 flex justify-center items-center    max-w-7xl mx-auto ">
+      <div className="navbar z-80 cloudBannerZ   rounded-lg h-16 lg:h-20 flex justify-center items-center    max-w-7xl mx-auto ">
         <div className="navbar-start    ">
-          <div className="drawer block  md:hidden">
+          <div className="drawer block bg-[#EEEEEE] lg:hidden">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
+            <div className="drawer-content ">
               {/* Page content here */}
               <label htmlFor="my-drawer">
                 <svg
@@ -117,63 +117,40 @@ const Navber = () => {
                 </svg>
               </label>
             </div>
-            <div className="drawer-side  mt-20 z-50">
+            <div className="drawer-side rounded-lg  mt-16  z-50">
               <label
                 htmlFor="my-drawer"
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-             <ul className="menu w-60 min-h-full  bg-base-200">
+              <ul className="menu w-40 md:w-60  min-h-full bg-[#EEEEEE] md:text-lg font-medium">
+
                 {NavItems.map((item) => (
                   <li
-                    className="hover:bg-[#017E77] text-[#144248] relative group border border-[#019D91] rounded-lg  hover:text-[#EEEEEE] flex  justify-center items-center mb-2"
+                    className="hover:bg-[#017E77] text-[#144248]   border border-[#019D91] rounded-lg     hover:text-[#EEEEEE]   mb-2  "
                     key={item.Title}
                   >
-                    <div>
+                
                       <NavLink
                         key={item.Title}
                         to={item.Route}
                         className={({ isActive, isPending }) =>
                           isPending
                             ? "pending"
-                            : isActive? `bg-[#019D91] hover:bg-[#017E77] border-none flex justify-center items-center text-nowrap font-semibold  w-full text-[#EEEEEE] `
+
+                            : isActive
+                            ? `bg-[#019D91] rounded-lg   text-nowrap   text-[#EEEEEE] `
 
                             : ""
                         }
                       >
-                        <div className="flex w-fit text-nowrap items-center gap-1 text-xl">
+                        <div className="flex w-full justify-center text-nowrap items-center text-center mx-auto gap-1  text-lg">
                           {item.icon}
                           {item.Title}
-                          <ul className="absolute hidden group-hover:block duration-500 delay-200 top-8 left-20  z-50 rounded-lg mt-2  bg-[#EEEEEE]   shadow-lg">
-                            {item.subMenu &&
-                              item.subMenu.length > 0 &&
-                              item.subMenu.map((menu) => (
-                                <li
-                                  key={menu.Title}
-                                  className="hover:bg-[#017E77] text-[#144248] hover:text-[#EEEEEE] bg-[#EEEEEE] rounded-lg flex  my-1 mx-2 items-center "
-                                >
-                                  <NavLink
-                                    to={menu.Route}
-                                    className={({ isActive, isPending }) =>
-                                      `hover:bg-[#017E77] rounded-lg flex items-center ${
-                                        isPending
-                                          ? "pending"
-                                          : isActive
-                                          ? "bg-[#019D91] hover-bg-[#017E77] px-3 py-2  text-[#EEEEEE]"
-                                          : ""
-                                      }`
-                                    }
-                                  >
-                                    <div className="flex justify-center  text-nowrap  items-center gap-1">
-                                      {menu.icon} {menu.Title}
-                                    </div>
-                                  </NavLink>
-                                </li>
-                              ))}
-                          </ul>
+                          
                         </div>
                       </NavLink>
-                    </div>
+                   
                   </li>
                 ))}
               </ul>
@@ -186,15 +163,16 @@ const Navber = () => {
               transition: { duration: 1 },
             }}
             whileTap={{ scale: 0.9 }}
+            className="flex justify-center items-center "
           >
-            <img className="h-8 ml-6" src={logo} alt="" />
+            <img className="md:h-8 lg:ml-0 ml-20 mt-2 " src={logo} alt="" />
           </motion.button>
         </div>
         <div className=" hidden lg:flex ">
-          <ul className=" flex justify-center   items-center font-semibold gap-4 ">
+          <ul className=" flex justify-center md:text-lg font-medium  items-center  gap-4 ">
             {NavItems.map((item) => (
               <li
-                className="hover:bg-[#017E77] text-[#144248] relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded font-semibold   hover:text-[#EEEEEE] flex  justify-center items-center "
+                className="hover:bg-[#017E77] text-[#144248] relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center "
                 key={item.Title}
               >
                 <NavLink
@@ -211,35 +189,7 @@ const Navber = () => {
                   <div className="p-2 flex w-fit text-nowrap items-center gap-1">
                     {item.icon}
                     {item.Title}
-                    <ul className="absolute hidden group-hover:block transition-opacity duration-500 delay-200 top-8  -left-1  rounded mt-2  bg-[#EEEEEE]  shadow-lg">
-                      {item.subMenu &&
-                        item.subMenu.length > 0 &&
-                        item.subMenu.map((menu) => (
-                          <li
-                            key={menu.Title}
-                            className="hover:bg-[#b6bdbc] text-[#144248] hover:text-[#EEEEEE] rounded-lg flex px-3 py-2 my-1 mx-2 items-center"
-                          >
-                            <div>
-                              <NavLink
-                                to={menu.Route}
-                                className={({ isActive, isPending }) =>
-                                  `hover:bg-[#017E77] rounded-lg flex items-center ${
-                                    isPending
-                                      ? "pending"
-                                      : isActive
-                                      ? "bg-[#019D91] hover-bg-[#017E77] w-fit py-2 px-3 text-[#EEEEEE]"
-                                      : ""
-                                  }`
-                                }
-                              >
-                                <div className="flex justify-center items-center gap-1">
-                                  {menu.icon} {menu.Title}
-                                </div>
-                              </NavLink>
-                            </div>
-                          </li>
-                        ))}
-                    </ul>
+                    
                   </div>
                 </NavLink>
               </li>
@@ -316,7 +266,7 @@ const Navber = () => {
               <Link to="/login">
                 <motion.button
                   whileTap={{ scale: 0.9 }}
-                  className="hover:bg-[#017E77] font-semibold Hover:bg-[#019D91] ml-3 border hover:border  border-[#017E77] font-inter hover:text-[#EEEEEE] px-5 py-2 rounded-md   "
+                  className="hover:bg-[#017E77]  Hover:bg-[#019D91] ml-3 border hover:border  border-[#017E77] font-inter hover:text-[#EEEEEE] px-5 py-2 rounded-md   "
                 >
                   Login
                 </motion.button>
