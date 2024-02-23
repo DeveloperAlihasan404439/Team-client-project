@@ -6,9 +6,10 @@ export default function NotesModal({ updatedNotes, refetch }) {
   const [open, setOpon] = useState(true);
   const axiosPublick = useAxios();
   function hendelUpdatedeNotes() {
+    console.log(notesText)
     setOpon(false);
     axiosPublick
-      .patch(`/notes/update/${updatedNotes._id}`, { notesText: notesText })
+      .patch(`/notes/update/${updatedNotes._id}`,{notesText})
       .then((res) => {
         if (res.data.matchedCount > 0) {
           refetch();
@@ -37,7 +38,7 @@ export default function NotesModal({ updatedNotes, refetch }) {
             <div className="modal-box bg-[#144248]">
               <textarea
                 defaultValue={updatedNotes?.notes}
-                onClick={(e) => setNotesText(e.target.value)}
+                onChange={(e) => setNotesText(e.target.value)}
                 name=""
                 id=""
                 cols="30"

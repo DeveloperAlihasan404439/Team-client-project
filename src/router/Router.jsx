@@ -21,6 +21,7 @@ import AddArticle from "../dashboard/Admin/AddArticle";
 import Articles from "../dashboard/Admin/Articles";
 import UserReview from "../dashboard/Admin/UserReview";
 import RequstArticle from "../dashboard/Admin/RequstArticle";
+import UserProfile from "../dashboard/User/UserProfile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
             element: <RequstArticle/>
         },
         // user rout 
+        {
+            path: '/dashboard/user/profile',
+            element: <UserProfile/>
+        },
         {
             path: '/dashboard/user/addArticle',
             element: <UserAddArticle/>
