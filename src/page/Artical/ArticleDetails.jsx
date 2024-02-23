@@ -8,6 +8,10 @@ import useAuth from "../../shared/Auth/useAuth";
 import CommentSection from "../../shared/DiffarenceTime/CommentSection";
 import SuggestArticle from "./SuggestArticle";
 import useAxios from "../../Hooks/useAxios";
+
+import Navber from "../../shared/Navber/Navber";
+import Footer from "../../shared/Footer/Footer";
+
 const ArticleDetails = () => {
   const { id } = useParams();
   const axiosPublick = useAxios();
@@ -64,14 +68,15 @@ const ArticleDetails = () => {
   };
 
   return (
-    <div className=" bg-[#EEEEEE] py-10  w-full">
-      <div className="p-1 md:px-2 max-w-screen-xl  mx-auto">
-        <div className="grid grid-col-1 md:grid-cols-12 gap-10">
-          <div className="col-span-7 ">
-            <img className="rounded-xl " src={img} alt="" />
-            <div className="font-inter space-y-3 mt-8">
-              <p className="text-3xl font-semibold">{title}</p>
-
+    <>
+      <Navber></Navber>
+      <div className=" bg-[#EEEEEE] py-10  w-full">
+        <div className="p-1 md:px-2 max-w-screen-xl  mx-auto">
+          <div className="grid grid-col-1 md:grid-cols-12 gap-10">
+            <div className="col-span-7 ">
+              <img className="rounded-xl " src={img} alt="" />
+              <div className="font-inter space-y-3 mt-8">
+                <p className="text-3xl font-semibold">{title}</p>
               <p className=" text-gray-600 font-semibold">
                 <span className="text-xl text-black font-semibold">
                   Description :
@@ -148,21 +153,23 @@ const ArticleDetails = () => {
                 </div>
               </div>
             </div>
-          </div>
-          {/* suggestArticle section */}
-          <div className="md:col-span-5 col-span-12 relative flex flex-col  rounded-xl items-center p-4 bg-[#019d901d] h-screen">
-            <h1 className="text-3xl font-inter font-semibold text-[#019D91]">
-              Read More Article
-            </h1>
-            <div className="flex flex-col overflow-y-scroll h-[90vh] gap-3  mt-5">
-              {suggestArticle?.map((suggest) => (
-                <SuggestArticle key={suggest.id} suggest={suggest} />
-              ))}
+            {/* suggestArticle section */}
+            <div className="md:col-span-5 col-span-12 relative flex flex-col  rounded-xl items-center p-4 bg-[#019d901d] h-screen">
+              <h1 className="text-3xl font-inter font-semibold text-[#019D91]">
+                Read More Article
+              </h1>
+              <div className="flex flex-col overflow-y-scroll h-[90vh] gap-3  mt-5">
+                {suggestArticle?.map((suggest) => (
+                  <SuggestArticle key={suggest.id} suggest={suggest} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <Footer></Footer>
+    </>
+
   );
 };
 export default ArticleDetails;

@@ -1,15 +1,28 @@
 import { Link, NavLink } from "react-router-dom";
-import { IoHomeOutline } from "react-icons/io5";
 import logo from "../../assets/BannerL&Logo/Logo.png";
 import Headroom from "react-headroom";
 
+import { IoHomeOutline } from "react-icons/io5";
 import { PiArticleDuotone } from "react-icons/pi";
+import { SiHelpscout } from "react-icons/si";
 import { FaPeopleGroup } from "react-icons/fa6";
+import { MdDashboardCustomize } from "react-icons/md";
 import { motion } from "framer-motion";
 import useAuth from "../Auth/useAuth";
+import { useState } from "react";
+import { useEffect } from "react";
+import useAxios from "../../Hooks/useAxios";
 // import DarkMode from "../Shared/DarkMode/DarkMode";
 const Navber = () => {
   const { user, logOut } = useAuth();
+  const [admin, setAdmin] = useState({})
+  const axiosPublick = useAxios()
+  useEffect(()=>{
+    axiosPublick.get(`/users/single?email=${user?.email}`).then(res=>{
+    setAdmin(res.data)
+    })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[user])
 
   const handleLogOut = () => {
     logOut()
@@ -34,10 +47,16 @@ const Navber = () => {
       Route: "/aboutUs",
     },
     {
-      Title: "Payment",
+
+      Title: "Premium",
       icon: <FaPeopleGroup />,
-      Route: "/payment",
-    }
+      Route: "/premium",
+    },
+    {
+      Title: "Help",
+      icon: <SiHelpscout />,
+      Route: "/help",
+    },
   ];
   return (
     <Headroom
@@ -105,6 +124,7 @@ const Navber = () => {
                 className="drawer-overlay"
               ></label>
               <ul className="menu w-40 md:w-60  min-h-full bg-[#EEEEEE] md:text-lg font-medium">
+
                 {NavItems.map((item) => (
                   <li
                     className="hover:bg-[#017E77] text-[#144248]   border border-[#019D91] rounded-lg     hover:text-[#EEEEEE]   mb-2  "
@@ -117,8 +137,10 @@ const Navber = () => {
                         className={({ isActive, isPending }) =>
                           isPending
                             ? "pending"
+
                             : isActive
                             ? `bg-[#019D91] rounded-lg   text-nowrap   text-[#EEEEEE] `
+
                             : ""
                         }
                       >
@@ -172,6 +194,26 @@ const Navber = () => {
                 </NavLink>
               </li>
             ))}
+
+            {user && (
+              <li className="hover:bg-[#017E77] text-[#144248] py-2 px-3 relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded font-semibold   hover:text-[#EEEEEE] flex  justify-center items-center ">
+                <NavLink
+                  to={admin?.role ==="admin"? "/dashboard/home":"/dashboard/user/profile"}
+                  className={({ isActive, isPending }) =>
+                    `hover:bg-[#017E77] rounded-lg flex items-center gap-1 ${
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "bg-[#019D91] hover-bg-[#017E77] w-fit py-2 px-3 text-[#EEEEEE]"
+                        : ""
+                    }`
+                  }
+                >
+                  <MdDashboardCustomize/>
+                  Dashboard
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
         <div className="navbar-end ">
@@ -207,14 +249,6 @@ const Navber = () => {
                           : "name nott found"}
                       </p>
                     </div>
-                  </li>
-                  <li>
-                    <Link
-                      to="/dashboard/home"
-                      className="  hover:bg-[#019D91] hover:text-[#EEE]"
-                    >
-                      Dashboard
-                    </Link>
                   </li>
                   <li>
                     <div

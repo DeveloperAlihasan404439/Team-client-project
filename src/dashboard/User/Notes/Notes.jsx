@@ -14,6 +14,15 @@ const Notes = () => {
   const { user } = useAuth();
   const [updatedNotes, setUpdatedNotes] = useState({});
 
+  function hendelNotesLength() {
+    let notesWord = 100;
+    if (notesText) {
+      return (notesWord -= notesText.length);
+    }
+    return notesWord;
+  }
+  const notesWord = hendelNotesLength();
+
   const { notes, isLoading, refetch } = useNotes();
   function hendelNotexPost() {
     if (notesText && user) {
@@ -23,21 +32,38 @@ const Notes = () => {
         user_Email: user?.email,
         user_images: user?.photoURL,
       };
-      axiosPublick.post("/notes", notes).then((res) => {
-        if (res?.data?.insertedId) {
-          refetch();
-        }
-      });
+
+      if (notesWord > 0) {
+        axiosPublick.post("/notes", notes).then((res) => {
+          if (res?.data?._id) {
+            setNotesText("");
+            refetch();
+            return Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Successfull Notes Added",
+              showConfirmButton: false,
+              background: "#144248",
+              color: "#EEEEEE",
+              timer: 2000,
+            });
+          }
+        });
+      } else {
+        return Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Please write less than 100 words",
+          showConfirmButton: false,
+          background: "#144248",
+          color: "#EEEEEE",
+          timer: 2000,
+        });
+      }
     }
   }
 
-  function hendelNotesLength() {
-    let notesWord = 100;
-    if (notesText) {
-      return (notesWord -= notesText.length);
-    }
-    return notesWord;
-  }
+
   function hendelDeleteNotes(id) {
     Swal.fire({
       title: "Are you sure?",
@@ -142,6 +168,8 @@ function startDrag(event) {
             <div className="h-[200px] rounded-xl relative">
               <textarea
                 onChange={(e) => setNotesText(e.target.value)}
+
+                defaultValue={notesText}
                 name=""
                 id=""
                 cols="30"
@@ -150,7 +178,8 @@ function startDrag(event) {
                 className="w-full h-full rounded-xl p-2 text-[#EEE] bg-[#144248] outline-none text-xl"
               ></textarea>
               <div className="px-5 py-1 w-full h-[40px] bg-[#017E77] text-[#EEE] border-none rounded-b-xl flex justify-between items-center absolute left-0 bottom-0">
-                <h1>{hendelNotesLength()} Left</h1>
+
+                <h1>{notesWord} Left</h1>
                 <button
                   onClick={hendelNotexPost}
                   className="px-3 py-1 tracking-[3px] rounded bg-[#144248]"
@@ -159,7 +188,8 @@ function startDrag(event) {
                 </button>
               </div>
             </div>
-          </div>
+
+          </div> 
         </>
       )}
     </div>
