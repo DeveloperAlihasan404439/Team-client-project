@@ -26,6 +26,7 @@ import Payment from "../page/Payment/Payment";
 import Premium from "../page/Premium/Premium";
 
 import UserProfile from "../dashboard/User/UserProfile";
+import Help from "../page/Help/Help";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "/premium",
         element: <Premium></Premium>
+      },
+      {
+        path: "/help",
+        element: <Help/>
       }
     ],
   },

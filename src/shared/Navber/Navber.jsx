@@ -1,12 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
-import { IoHomeOutline } from "react-icons/io5";
 import logo from "../../assets/BannerL&Logo/Logo.png";
 import Headroom from "react-headroom";
 
+import { IoHomeOutline } from "react-icons/io5";
 import { PiArticleDuotone } from "react-icons/pi";
+import { SiHelpscout } from "react-icons/si";
 import { FaPeopleGroup } from "react-icons/fa6";
-
-import { BsStripe } from "react-icons/bs";
 import { MdDashboardCustomize } from "react-icons/md";
 import { motion } from "framer-motion";
 import useAuth from "../Auth/useAuth";
@@ -52,7 +51,12 @@ const Navber = () => {
       Title: "Premium",
       icon: <FaPeopleGroup />,
       Route: "/premium",
-    }
+    },
+    {
+      Title: "Help",
+      icon: <SiHelpscout />,
+      Route: "/help",
+    },
   ];
   return (
     <Headroom
@@ -119,7 +123,7 @@ const Navber = () => {
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-              <ul className="menu w-60 min-h-full  bg-base-200">
+             <ul className="menu w-60 min-h-full  bg-base-200">
                 {NavItems.map((item) => (
                   <li
                     className="hover:bg-[#017E77] text-[#144248] relative group border border-[#019D91] rounded-lg  hover:text-[#EEEEEE] flex  justify-center items-center mb-2"
@@ -132,10 +136,8 @@ const Navber = () => {
                         className={({ isActive, isPending }) =>
                           isPending
                             ? "pending"
-                            : isActive
+                            : isActive? `bg-[#019D91] hover:bg-[#017E77] border-none flex justify-center items-center text-nowrap font-semibold  w-full text-[#EEEEEE] `
 
-                            ? `bg-[#019D91] hover:bg-[#017E77] border-none flex justify-center items-center text-nowrap font-semibold  w-full text-[#EEEEEE] `
->
                             : ""
                         }
                       >
