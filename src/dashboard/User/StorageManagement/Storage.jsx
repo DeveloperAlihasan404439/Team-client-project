@@ -248,7 +248,7 @@ const Storage = () => {
        </ol>
      </div>
    </motion.div>
-   <section className=" flex justify-between items-center cloudBannerZ w-full lg:w-[90%] mx-auto p-6 rounded-lg mt-10 ">
+   {/* <section className=" flex justify-between items-center cloudBannerZ w-full lg:w-[90%] mx-auto p-6 rounded-lg mt-10 ">
        <h1 className="text-lg">
          <p>
          
@@ -319,7 +319,7 @@ const Storage = () => {
          )}
        </ol>
      </div>
-   </motion.div>
+   </motion.div> */}
   </section>
 }
     

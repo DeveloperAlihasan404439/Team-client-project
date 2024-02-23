@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useDragControls } from "framer-motion";
 import { IoCloseSharp } from "react-icons/io5";
 import { RiEditFill } from "react-icons/ri";
 import Swal from "sweetalert2";
@@ -74,12 +74,18 @@ const Notes = () => {
     if (id) {
       const updatedNotes = notes.find(
         (updatedNotes) => updatedNotes._id === id
-      );
+      );                       
       setUpdatedNotes(updatedNotes);
     }
   }
+
+  const dragControls = useDragControls()
+
+function startDrag(event) {
+  dragControls.start(event, { snapToCursor: true })
+}
   return (
-    <div className="mx-10 my-5 md:my-10">
+    <div  className="mx-10 my-5  md:my-10">
       <h1 className="text-3xl font-medium text-[#144248]">Notes</h1>
       {/* <input type="text" className="input-text"/> */}
       {isLoading ? (
@@ -88,7 +94,9 @@ const Notes = () => {
         <>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {notes?.map((notesText) => (
-              <div
+              <motion.div
+              drag dragControls={dragControls} 
+              // dragConstraints={{ top: 0, bottom: 0,left:0,right:0 }}
                 key={notesText._id}
                 className="relative rounded-2xl p-2 h-[200px] text-[#EEE] bg-[#144248]"
               >
@@ -129,7 +137,7 @@ const Notes = () => {
                     <IoCloseSharp />
                   </span>
                 </motion.div>
-              </div>
+              </motion.div>
             ))}
             <div className="h-[200px] rounded-xl relative">
               <textarea
