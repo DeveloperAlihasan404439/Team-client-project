@@ -10,7 +10,7 @@ import Login from "../page/Login/Login";
 import IpTracker from "../dashboard/User/IpTracker";
 import PasswordStrengthChecker from "../dashboard/User/PasswordStrengthChecker";
 import Storage from "../dashboard/User/StorageManagement/Storage";
-import Payment from "../dashboard/User/Payment/Payment";
+
 import Dashboard from "../layout/Dashboard";
 import Notes from "../dashboard/User/Notes/Notes";
 import UserAddArticle from "../dashboard/User/UserAddArticle";
@@ -21,7 +21,12 @@ import AddArticle from "../dashboard/Admin/AddArticle";
 import Articles from "../dashboard/Admin/Articles";
 import UserReview from "../dashboard/Admin/UserReview";
 import RequstArticle from "../dashboard/Admin/RequstArticle";
+
+import Payment from "../page/Payment/Payment";
+import Premium from "../page/Premium/Premium";
+
 import UserProfile from "../dashboard/User/UserProfile";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -56,8 +61,13 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-        element: <Payment />,
+
+        element: <Payment></Payment>
       },
+      {
+        path: "/premium",
+        element: <Premium></Premium>
+      }
     ],
   },
   {
@@ -95,6 +105,7 @@ const router = createBrowserRouter([
         },
         // user rout 
         {
+
             path: '/dashboard/user/profile',
             element: <UserProfile/>
         },

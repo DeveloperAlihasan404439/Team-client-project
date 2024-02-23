@@ -38,7 +38,7 @@ const UserReviewModal = () => {
         email: user?.email,
       };
       axiosPublick.post(`/review`, addArticle).then((res) => {
-        console.log(res.data)
+
         if (res?.data?.modifiedCount > 0) {
           reset();
           refetch();

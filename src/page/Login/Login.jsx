@@ -1,5 +1,7 @@
 import { IoLogoFacebook, IoLogoGithub, IoLogoGoogle } from "react-icons/io5";
+
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+
 import { useState } from "react";
 import "../Login/Login.css";
 
@@ -17,19 +19,25 @@ import { useForm } from "react-hook-form";
 import useAxios from "../../Hooks/useAxios";
 import useAuth from "../../shared/Auth/useAuth";
 import app from "../../shared/Auth/Firebase";
+
 import { FaTentArrowTurnLeft } from "react-icons/fa6";
+
 //  images hostion
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
 //  images hostion
 const Login = () => {
   const [isSignUpMode, setSignUpMode] = useState(false);
+
   const { singIn, createUser, logOut } = useAuth();
+
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
+
   const axiosPublick = useAxios();
+
   // create user
   const [success, setSuccess] = useState("");
   const [imgLoader, setImgLoader] = useState(false);
@@ -47,6 +55,7 @@ const Login = () => {
   const handleGoogleSingIn = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+
         if (result.user) {
           const email = result.user?.email;
           const photoURL = result.user?.photoURL;
@@ -54,12 +63,14 @@ const Login = () => {
           const dataToInsert = { name, photoURL, email };
           // store user to the database and checking if user exist
           axiosPublick.post("/users", dataToInsert).then((res) => {
+
             if (res.data.insertedId) {
               Swal.fire({
                 position: "center",
                 icon: "success",
                 title: "Successfull User Updated",
                 showConfirmButton: false,
+
                 background: "#144248",
                 color: "#EEEEEE",
                 timer: 2000,
@@ -67,15 +78,18 @@ const Login = () => {
             }
           });
           Swal.fire({
+
             position: "center",
             icon: "success",
             title: "Successfull Google Sign In",
             showConfirmButton: false,
             background: "#144248",
+
             color: "#EEEEEE",
             timer: 1500,
           });
         }
+
       })
       .catch((error) => {
         console.error(error);
@@ -89,6 +103,7 @@ const Login = () => {
     const password = form.get("password");
     singIn(email, password)
       .then((result) => {
+
         if (result.user) {
           Swal.fire({
             position: "center",
@@ -99,6 +114,7 @@ const Login = () => {
             color: "#ffffff",
             timer: 1500,
           });
+
         }
 
         navigate(location?.state ? location.state : "/");
@@ -108,7 +124,9 @@ const Login = () => {
         Swal.fire({
           position: "center",
           icon: "error",
+
           title: { message },
+
           showConfirmButton: false,
           background: "#017E77",
           color: "#ffffff",
@@ -127,19 +145,24 @@ const Login = () => {
       );
       return;
     }
+
     setImgLoader(true);
+
     const fromImages = { image: data.image[0] };
     const res = await axiosPublick.post(images_hosting_api, fromImages, {
       headers: {
         "content-type": "multipart/form-data",
+
       },
     });
     if (res.data.success) {
       setImgLoader(false);
+
       const name = data.name;
       const email = data.email;
       const password = data.password;
       const photoURL = res?.data?.data?.display_url;
+
       createUser(email, password)
         .then((result) => {
           updateProfile(result.user, {
@@ -150,9 +173,11 @@ const Login = () => {
               name,
               email,
               photoURL,
+
             };
             axiosPublick.post("/users/post", userInfo).then((res) => {
               if (res.data) {
+
                 logOut();
                 reset();
                 Swal.fire({
@@ -169,10 +194,12 @@ const Login = () => {
           });
         })
         .catch((error) => {
+
           Swal.fire({
             position: "center",
             icon: "error",
             title: `${ error?.message }`,
+
             showConfirmButton: false,
             background: "#017E77",
             color: "#ffffff",
@@ -189,7 +216,9 @@ const Login = () => {
             {/* signIn from */}
             <form onSubmit={handleLogin} className="sing-in-from">
               <h2 className="title">Sign in</h2>
+
               <div className="input-field ">
+
                 <i className="fas fa-user"></i>
                 <input name="email" type="email" placeholder="Email" />
               </div>
@@ -203,6 +232,7 @@ const Login = () => {
               <p className="social-text">Sign in with social platforms</p>
               <div className="social-media">
                 <a href="#" className="social-icon">
+
                   <IoLogoGithub />
                 </a>
                 <a
@@ -214,12 +244,14 @@ const Login = () => {
                 </a>
               </div>
               <div className=" absolute top-0 lg:-mt-10 mr-3 font-bold ">
+
                 <Link
                   to="/"
                   className="flex justify-center items-center px-4 py-2 bg-[#019D91] gap-2 text-[#EEEEEE] rounded"
                 >
                   <FaTentArrowTurnLeft />
                   BACK TO HOME
+
                 </Link>
               </div>
             </form>
@@ -274,6 +306,7 @@ const Login = () => {
                 value={imgLoader ? "Waiting..." : "Sign up"}
                 className="btnn solid"
               />
+
               <div className="divider">OR</div>
               <p className="social-text">Sign up with social platforms</p>
               <div className="social-media">

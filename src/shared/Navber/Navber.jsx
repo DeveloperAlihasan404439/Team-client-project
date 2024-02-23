@@ -5,6 +5,7 @@ import Headroom from "react-headroom";
 
 import { PiArticleDuotone } from "react-icons/pi";
 import { FaPeopleGroup } from "react-icons/fa6";
+
 import { BsStripe } from "react-icons/bs";
 import { MdDashboardCustomize } from "react-icons/md";
 import { motion } from "framer-motion";
@@ -47,10 +48,11 @@ const Navber = () => {
       Route: "/aboutUs",
     },
     {
-      Title: "Payment",
-      icon: <BsStripe />,
-      Route: "/payment",
-    },
+
+      Title: "Premium",
+      icon: <FaPeopleGroup />,
+      Route: "/premium",
+    }
   ];
   return (
     <Headroom
@@ -131,7 +133,9 @@ const Navber = () => {
                           isPending
                             ? "pending"
                             : isActive
+
                             ? `bg-[#019D91] hover:bg-[#017E77] border-none flex justify-center items-center text-nowrap font-semibold  w-full text-[#EEEEEE] `
+>
                             : ""
                         }
                       >
@@ -238,6 +242,7 @@ const Navber = () => {
                 </NavLink>
               </li>
             ))}
+
             {user && (
               <li className="hover:bg-[#017E77] text-[#144248] py-2 px-3 relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded font-semibold   hover:text-[#EEEEEE] flex  justify-center items-center ">
                 <NavLink

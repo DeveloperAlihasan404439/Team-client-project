@@ -8,12 +8,15 @@ import useAuth from "../../shared/Auth/useAuth";
 import CommentSection from "../../shared/DiffarenceTime/CommentSection";
 import SuggestArticle from "./SuggestArticle";
 import useAxios from "../../Hooks/useAxios";
+
 import Navber from "../../shared/Navber/Navber";
 import Footer from "../../shared/Footer/Footer";
+
 const ArticleDetails = () => {
   const { id } = useParams();
   const axiosPublick = useAxios();
   const { user } = useAuth();
+
 
   const { data: article = {}, refetch } = useQuery({
     queryKey: ["articleDetails", id],
@@ -35,6 +38,7 @@ const ArticleDetails = () => {
     suggestArticle,
     like,
   } = article;
+
 
   const [liker, setLiker] = useState(like);
   // eslint-disable-next-line no-unused-vars
@@ -167,6 +171,7 @@ const ArticleDetails = () => {
       </div>
       <Footer></Footer>
     </>
+
   );
 };
 export default ArticleDetails;

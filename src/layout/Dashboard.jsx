@@ -9,6 +9,7 @@ import { FaBookOpen, FaPeopleGroup } from "react-icons/fa6";
 import { SiAutodeskrevit, SiHomeassistantcommunitystore } from "react-icons/si";
 import { GrNotes } from "react-icons/gr";
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
+
 import {  useEffect, useState } from "react";
 import useAuth from "../shared/Auth/useAuth";
 import { RiUserLocationLine } from "react-icons/ri";
@@ -63,7 +64,9 @@ const Dashboard = () => {
   const userNavItems = [
     {
       Title: "Profile",
+
       Route: "/dashboard/user/profile",
+
       icon: <FaHome />,
     },
 
@@ -98,9 +101,9 @@ const Dashboard = () => {
       icon: <FaPeopleGroup />,
       Route: "/dashboard/user/storage",
     },
+
   ];
   
-  // const admin = usersData?.find((users) => users.email === user?.email);
 
   return (
     <div className="w-full bg-[#EEE]">
@@ -129,7 +132,9 @@ const Dashboard = () => {
                 ></label>
                 <div className="w-52 h-[94vh] bg-[#144248]">
                   <ul className="px-5">
+
                     {admin?.role==="admin"? (
+
                       <>
                         {adminNavItems.map((item, i) => (
                           <NavLink
@@ -179,7 +184,9 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+
       <div className="md:flex bg-[#EEE]">
+
         <div className="hidden md:w-[17%] md:flex relative">
           <nav
             className={`h-screen w-full md:sticky top-0 left-0 bg-[#144248] ${
@@ -192,7 +199,9 @@ const Dashboard = () => {
               <img src={logo} alt="" className="w-32 lg:w-48" />
             </div>
             <ul className="nav-list">
+
               {admin?.role ==="admin"? (
+
                 <>
                   {adminNavItems.map((item, i) => (
                     <NavLink
@@ -243,7 +252,9 @@ const Dashboard = () => {
             </span>
           </div>
         </div>
+
         <div className="w-11/12 md:w-[83%] mx-auto bg-[#EEE]">{<Outlet />}</div>
+
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ const ArticalCard = ({ data }) => {
   // eslint-disable-next-line react/prop-types
   const { _id, img, title, shortDescription } = data;
 
-
   return (
     <motion.div
       whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}

@@ -6,6 +6,7 @@ export default function NotesModal({ updatedNotes, refetch }) {
   const [open, setOpon] = useState(true);
   const axiosPublick = useAxios();
   function hendelUpdatedeNotes() {
+
     console.log(notesText)
     setOpon(false);
     axiosPublick
@@ -38,6 +39,7 @@ export default function NotesModal({ updatedNotes, refetch }) {
             <div className="modal-box bg-[#144248]">
               <textarea
                 defaultValue={updatedNotes?.notes}
+
                 onChange={(e) => setNotesText(e.target.value)}
                 name=""
                 id=""
