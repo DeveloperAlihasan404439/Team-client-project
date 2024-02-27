@@ -167,6 +167,7 @@ const ArticleDetails = () => {
           </div>
         </div>
       </div>
+      </div>
       <Footer></Footer>
     </>
 

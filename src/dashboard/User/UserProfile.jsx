@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import ProfileUpdate from "./ProfileUpdate";
 import useUserSingle from "../../Hooks/useUserSingle";
+import { FiEdit } from "react-icons/fi";
 const UserProfile = () => {
-  
-    const { userSingle, isLoading,  } = useUserSingle()
+  const { userSingle, isLoading } = useUserSingle();
+  console.log(userSingle);
   return (
     <div className="w-11/12 max-w-6xl mx-auto h-full flex items-center justify-center gap-5">
       <div className="w-[70%] h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 ">
@@ -20,9 +21,30 @@ const UserProfile = () => {
           <h1 className="text-3xl font-semibold text-center tracking-[5px] text-[#144248]">
             {userSingle?.name}
           </h1>
-          <div>
-            <h1>Please update the your profile</h1>
+          <div className="text-lg font-semibold text-center tracking-[1px] text-[#144248]">
+            {userSingle?.bio ? (
+              <>
+                <h1 className="mt-5">{userSingle.bio}</h1>
+                <p>Education : {userSingle.education}</p>
+                <p>City : {userSingle.city}</p>
+                <p>Mobile : {userSingle.mobile}</p>
+              </>
+            ) : (
+              <h1>Please update the your profile</h1>
+            )}
           </div>
+          <motion.div
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.3 },
+              }}
+              whileTap={{ scale: 0.9 }}
+              className="absolute -top-6 right-0"
+            >
+              <span className="px-10 text-[#144248] text-3xl font-semibold rounded-md tracking-[2px] uppercase">
+                <label htmlFor="my_modal_6"><FiEdit/></label>
+              </span>
+            </motion.div>
           <div className="absolute left-0 bottom-10 w-full flex justify-center gap-5">
             <motion.div
               whileHover={{
@@ -63,12 +85,46 @@ const UserProfile = () => {
                 <label htmlFor="my_modal_6">Edit Profile</label>
               </span>
             </motion.div>
-            <ProfileUpdate/>
+            <ProfileUpdate />
           </div>
         </div>
       </div>
-      <div className="w-[30%] h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 ">
-        <h1>the quick borex fox jumps over the</h1>
+      <div className="w-[30%] h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 flex justify-center items-center ">
+        <div className="relative size-40 bg-[#144248] rounded-full mt-5">
+          <svg
+            className="size-full"
+            width="100%"
+            height="100%"
+            viewBox="0 0 36 36"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle
+              cx="18"
+              cy="18"
+              r="16"
+              fill="none"
+              className="stroke-current text-[#EEE] "
+              strokeWidth="2"
+            ></circle>
+            <g className="origin-center -rotate-90 transform">
+              <circle
+                cx="18"
+                cy="18"
+                r="16"
+                fill="none"
+                className="stroke-current text-[#017E77] "
+                strokeWidth="2"
+                strokeDasharray="100"
+                strokeDashoffset="75"
+              ></circle>
+            </g>
+          </svg>
+          <div className="absolute top-1/2 start-1/2 transform -translate-y-1/2 -translate-x-1/2">
+            <span className="text-center text-2xl font-bold text-[#eee]">
+              72%
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );
