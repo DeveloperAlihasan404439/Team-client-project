@@ -25,7 +25,7 @@ const RequstArticle = () => {
       color: "#EEEEEE",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublick.put(`/article/confirm/${id}`).then((res) => {
+        axiosPublick.patch(`/article/rejecte/${id}`).then((res) => {
           if (res?.data?.modifiedCount > 0) {
             refetch();
             Swal.fire({
@@ -55,7 +55,7 @@ const RequstArticle = () => {
       color: "#EEEEEE",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublick.put(`/article/confirm/${id}`).then((res) => {
+        axiosPublick.patch(`/article/confirm/${id}`).then((res) => {
           if (res?.data?.modifiedCount > 0) {
             refetch();
             Swal.fire({
@@ -77,7 +77,7 @@ const RequstArticle = () => {
       <h1 className="text-4xl font-bold text-[#144248] text-center">
         All Request <span className=" text-[#019D90]  ">Article</span>
       </h1>
-      <div className="px-10 mb-5 text-xl text-[#144248] font-semibold">
+      <div className="px-10 mb-3 mt-10 text-xl text-[#144248] font-semibold">
         <h1>Total Article : {pandingArticle.length}</h1>
       </div>
       {isLoading ? (
@@ -88,11 +88,11 @@ const RequstArticle = () => {
             <thead>
               <tr className="w-full bg-[#144248] text-[#ffffff] ">
                 <th></th>
-                <th className="text-xl">Photo</th>
-                <th className="text-xl">Title</th>
-                <th className="text-xl">Date</th>
-                <th className="text-xl">Update</th>
-                <th className="text-xl flex-1">delete</th>
+                <th className="text-xl text-center">Photo</th>
+                <th className="text-xl text-center">Title</th>
+                <th className="text-xl text-center">Date</th>
+                <th className="text-xl text-center">Accept</th>
+                <th className="text-xl flex-1 text-center">Rejecte</th>
               </tr>
             </thead>
             <tbody>
@@ -109,8 +109,8 @@ const RequstArticle = () => {
                       className="w-14 h-14 rounded-full border-2 border-[#019D90]"
                     />
                   </td>
-                  <td>{arc.title}</td>
-                  <td className="w-fit">
+                  <td className="text-center">{arc.title}</td>
+                  <td className="w-[200px] text-center">
                     {moment(arc.date).format("ddd, MMM YYYY")}
                   </td>
                   <td>
@@ -121,12 +121,12 @@ const RequstArticle = () => {
                       }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <h1
-                        onClick={() => hendelArticleRejecte(arc._id)}
-                        className="w-full flex justify-center"
+                      <span
+                        onClick={() => hendelArticleconfirm(arc._id)}
+                        className="px-4 py-2 bg-[#56b14c] text-[#EEE] font-medium rounded-md cursor-pointer"
                       >
-                        Rejecte
-                      </h1>
+                        Confirm
+                      </span>
                     </motion.div>
                   </td>
                   <td>
@@ -137,8 +137,11 @@ const RequstArticle = () => {
                       }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <span onClick={() => hendelArticleconfirm(arc._id)}>
-                        Confirm
+                      <span
+                        onClick={() => hendelArticleRejecte(arc._id)}
+                        className="px-4 py-2 bg-[#df4041] text-[#EEE] font-medium rounded-md cursor-pointer"
+                      >
+                        Rejecte
                       </span>
                     </motion.div>
                   </td>
