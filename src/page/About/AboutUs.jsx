@@ -1,6 +1,5 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { useState } from "react";
 import './AboutUs.css';
 import our from '../../assets/BannerL&Logo/ourStory.gif';
 import mission from '../../assets/BannerL&Logo/mission.gif';
@@ -19,12 +18,14 @@ import MeetTeam from "./MeetTeam";
 
 import Navber from "../../shared/Navber/Navber";
 import Footer from './../../shared/Footer/Footer';
+import HelmetTitle from "../../shared/HelmetTitle";
 const AboutUs = () => {
 
 
   return (
     <>
     <Navber></Navber>
+        <HelmetTitle title="About Us"/>
       <section className="max-w-7xl text-[#144248] mx-auto pb-6 mt-10 cloudBannerZ  rounded-lg ">
         <h1 className="text-4xl  tracking-wide font-bold px-4 pt-4 drop-shadow-md  text-center lg:text-left" >About  <span className="text-[#019D90]"> Us</span> </h1>
         <Tabs className={"mt-6"}>

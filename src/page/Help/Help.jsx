@@ -7,6 +7,7 @@ import HelpArticle from "./HelpArticle";
 import HelpHome from "./HelpHome ";
 import Footer from "../../shared/Footer/Footer";
 import Navber from "../../shared/Navber/Navber";
+import HelmetTitle from "../../shared/HelmetTitle";
 const Help = () => {
   const { article } = useArticle();
   const [displayCards, setDisplayCards] = useState([]);
@@ -29,6 +30,7 @@ const Help = () => {
   return (
     <>
       <Navber />
+        <HelmetTitle title="Help"/>
       <div className=" relative">
         <div
           className="h-80 flex justify-center items-center relative "

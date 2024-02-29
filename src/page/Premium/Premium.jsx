@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import HelmetTitle from "../../shared/HelmetTitle";
 
 const Premium = () => {
   return (
-    <div>
+    <>
+    <HelmetTitle title="Premium"/>
       <div className="bg-slate-500 lg:h-60 py-14 custombg">
         <div className="max-w-[1300px] mx-auto flex justify-center lg:justify-between text-white">
           <div className="text-center lg:text-left">
@@ -73,7 +75,7 @@ const Premium = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

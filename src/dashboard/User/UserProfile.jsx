@@ -5,11 +5,11 @@ import ProfileUpdate from "./ProfileUpdate";
 import useUserSingle from "../../Hooks/useUserSingle";
 import { FiEdit } from "react-icons/fi";
 const UserProfile = () => {
-  const { userSingle, isLoading } = useUserSingle();
-  console.log(userSingle);
+  const { userSingle } = useUserSingle();
+  console.log(userSingle)
   return (
-    <div className="w-11/12 max-w-6xl mx-auto h-full flex items-center justify-center gap-5">
-      <div className="w-[70%] h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 ">
+    <div className="w-11/12 max-w-6xl mx-auto h-full lg:flex items-center justify-center gap-5">
+      <div className="lg:w-[70%] h-auto lg:h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 ">
         <div className="p-5 relative h-full">
           <div className="w-full flex justify-center my-5">
             <img
@@ -34,62 +34,69 @@ const UserProfile = () => {
             )}
           </div>
           <motion.div
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.3 },
-              }}
-              whileTap={{ scale: 0.9 }}
-              className="absolute -top-6 right-0"
-            >
-              <span className="px-10 text-[#144248] text-3xl font-semibold rounded-md tracking-[2px] uppercase">
-                <label htmlFor="my_modal_6"><FiEdit/></label>
-              </span>
-            </motion.div>
-          <div className="absolute left-0 bottom-10 w-full flex justify-center gap-5">
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.3 },
-              }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Link
-                to="/dashboard/user/notes"
-                className="px-10 py-5 bg-[#00C49F] text-lg font-semibold text-[#EEE] rounded-md tracking-[2px] uppercase"
+            whileHover={{
+              scale: 1.02,
+              transition: { duration: 0.3 },
+            }}
+            whileTap={{ scale: 0.9 }}
+            className="absolute -top-6 right-0"
+          >
+            <span className="px-5 text-[#144248] text-3xl font-semibold rounded-md tracking-[2px] uppercase">
+              <label htmlFor="my_modal_6">
+                <FiEdit />
+              </label>
+            </span>
+          </motion.div>
+          <div className="lg:absolute left-0 bottom-0 lg:bottom-10 w-full mt-5">
+            <div className="w-full lg:flex justify-center my-5 md:my-0">
+              <motion.div
+                whileHover={{
+                  scale: 1.02,
+                  transition: { duration: 0.3 },
+                }}
+                whileTap={{ scale: 0.9 }}
+                className="w-full  mb-5 lg:mb-0"
               >
-                Add Notes
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.3 },
-              }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <Link
-                to="/dashboard/user/addArticle"
-                className="px-10 py-5 bg-[#144248] text-lg font-semibold text-[#EEE] rounded-md tracking-[2px] uppercase"
+                <Link
+                  to="/dashboard/user/notes"
+                  className="w-full px-5 py-5 bg-[#00C49F] text-lg font-semibold text-[#EEE] rounded-md tracking-[2px] uppercase"
+                >
+                  Add Notes
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  scale: 1.02,
+                  transition: { duration: 0.3 },
+                }}
+                whileTap={{ scale: 0.9 }}
+                className="w-full mb-5 lg:mb-0"
               >
-                Add Article
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.3 },
-              }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <span className="px-10 py-5 text-[#EEE] text-lg font-semibold bg-[#fa5b0b] rounded-md tracking-[2px] uppercase">
-                <label htmlFor="my_modal_6">Edit Profile</label>
-              </span>
-            </motion.div>
-            <ProfileUpdate />
+                <Link
+                  to="/dashboard/user/addArticle"
+                  className="px-5 py-5 bg-[#144248] text-lg font-semibold text-[#EEE] rounded-md tracking-[2px] uppercase"
+                >
+                  Add Article
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{
+                  scale: 1.02,
+                  transition: { duration: 0.3 },
+                }}
+                whileTap={{ scale: 0.9 }}
+                className="w-full mb-5 lg:mb-0"
+              >
+                <span className="px-5 py-5 text-[#EEE] text-lg font-semibold bg-[#fa5b0b] rounded-md tracking-[2px] uppercase">
+                  <label htmlFor="my_modal_6">Edit Profile</label>
+                </span>
+              </motion.div>
+            </div>
           </div>
+          <ProfileUpdate />
         </div>
       </div>
-      <div className="w-[30%] h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 flex justify-center items-center ">
+      <div className="lg:w-[30%] h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 flex justify-center items-center ">
         <div className="relative size-40 bg-[#144248] rounded-full mt-5">
           <svg
             className="size-full"

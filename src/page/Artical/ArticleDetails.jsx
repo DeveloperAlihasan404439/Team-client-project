@@ -11,6 +11,7 @@ import useAxios from "../../Hooks/useAxios";
 
 import Navber from "../../shared/Navber/Navber";
 import Footer from "../../shared/Footer/Footer";
+import HelmetTitle from "../../shared/HelmetTitle";
 
 const ArticleDetails = () => {
   const { id } = useParams();
@@ -70,6 +71,7 @@ const ArticleDetails = () => {
   return (
     <>
       <Navber></Navber>
+        <HelmetTitle title="Fourm Details"/>
       <div className=" bg-[#EEEEEE] py-10  w-full">
         <div className="p-1 md:px-2 max-w-screen-xl  mx-auto">
           <div className="grid grid-col-1 md:grid-cols-12 gap-10">
