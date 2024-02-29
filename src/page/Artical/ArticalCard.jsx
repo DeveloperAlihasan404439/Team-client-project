@@ -20,7 +20,7 @@ const ArticalCard = ({ data }) => {
           </h1>
           <p className=" text-sm text-gray-400">{shortDescription}</p>
         </div>
-        <img className="md:w-60 w-full h-max  rounded-xl" src={img} alt="" />
+        <img className="md:w-60 md:h-[150px] w-full  rounded-xl" src={img} alt="" />
       </Link>
     </motion.div>
   );

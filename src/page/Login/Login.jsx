@@ -60,7 +60,8 @@ const Login = () => {
           const email = result.user?.email;
           const photoURL = result.user?.photoURL;
           const name = result.user?.displayName;
-          const dataToInsert = { name, photoURL, email };
+          const role = "user";
+          const dataToInsert = { name, photoURL, email,role };
           // store user to the database and checking if user exist
           axiosPublick.post("/users", dataToInsert).then((res) => {
 
@@ -163,6 +164,7 @@ const Login = () => {
       const email = data.email;
       const password = data.password;
       const photoURL = res?.data?.data?.display_url;
+      const role = "users";
 
       createUser(email, password)
         .then((result) => {
@@ -174,6 +176,7 @@ const Login = () => {
               name,
               email,
               photoURL,
+              role
 
             };
             axiosPublick.post("/users/post", userInfo).then((res) => {

@@ -1,14 +1,14 @@
-import toast from "react-hot-toast";
 import TimeDifference from "./TimeDifference";
 import { IoShieldCheckmark } from "react-icons/io5";
 import { BiComment } from "react-icons/bi";
-import  { MdSend } from "react-icons/md"; 
+import { MdSend } from "react-icons/md";
 import useAxios from "../../Hooks/useAxios";
 import useAuth from "../Auth/useAuth";
 import useComments from "../../Hooks/useComments";
+import Swal from "sweetalert2";
 
 // eslint-disable-next-line react/prop-types
-const CommentSection = ({  id, handleComment }) => {
+const CommentSection = ({ id, handleComment }) => {
   const axiosPublick = useAxios();
   const { user } = useAuth();
 
@@ -28,7 +28,6 @@ const CommentSection = ({  id, handleComment }) => {
     e.preventDefault();
     const form = e.target;
     const commit = form.commit.value;
-
     const userInfo = {
       comment: commit,
       commentTime: currentTimes,
@@ -36,13 +35,19 @@ const CommentSection = ({  id, handleComment }) => {
       userName: user.displayName,
       userImage: user.photoURL,
     };
-    console.log(userInfo);
     axiosPublick.post("/comment", userInfo).then((res) => {
-      console.log(res.data);
-      if (res.data.insertedId) {
-        toast.success("Comment successfull");
+      if (res.data) {
         refetch();
         form.reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Successfull Comment Post",
+          showConfirmButton: false,
+          background: "#144248",
+          color: "#EEEEEE",
+          timer: 2000,
+        });
       }
     });
   };
@@ -52,18 +57,23 @@ const CommentSection = ({  id, handleComment }) => {
         onClick={handleComment}
         className="text-sm font-medium font-inter flex gap-2 items-center"
       >
-        Commnet<BiComment className="text-gray-500 text-lg"/>  {comment.length}
+        Commnet
+        <BiComment className="text-gray-500 text-lg" /> {comment.length}
       </button>
 
-      <div id="my_modal_3" className="modal">
+      <dialog id="my_modal_3" className="modal">
         <div className="modal-box   bg-[#EEEE]">
           <form method="dialog">
             <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
               ✕
             </button>
           </form>
-          <div>
-            {comment.length > 0  ? <h1>All comments are shown below</h1> : <h1>No comments available</h1>}
+          <div className="w-full">
+            {comment.length > 0 ? (
+              <h1>All comments are shown below</h1>
+            ) : (
+              <h1>No comments available</h1>
+            )}
             <div className="flex  rounded-xl p-2  flex-col gap- w-max">
               {comment.map((cmt) => (
                 <div className="mb-2" key={cmt._id}>
@@ -74,37 +84,41 @@ const CommentSection = ({  id, handleComment }) => {
                       alt=""
                     />
                     <div>
-                      <p className="font-inter text-sm flex text-[#082926]  items-center ">{cmt.userName}<IoShieldCheckmark className="text-gray-400 text-[12px] ml-1"/></p>
+                      <p className="font-inter text-sm flex text-[#09302dd2]  items-center ">
+                        {cmt.userName}
+                        <IoShieldCheckmark className="text-gray-400 text-[12px] ml-1" />
+                      </p>
                       <p className="font-inter text-sm font-medium">
                         {cmt.comment}
                       </p>
-                      <p className="font-light  text-[12px] font-inter flex gap-1"><TimeDifference setTime={cmt.commentTime}/>ago</p>
+                      <p className="font-light  text-[12px] font-inter flex gap-1">
+                        <TimeDifference setTime={cmt.commentTime} />
+                        ago
+                      </p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-
-            
-              <form className="w-full " onSubmit={handleSubmit}>
-                <div className="flex mr-48   bg-white rounded ">
-                  <input
-                    className="flex bg-transparent duration-200   hover:drop-shadow  font-light text-[#019D91] placeholder:font-light outline-none text-sm px-2 py-2"
-                    name="commit"
-                    type="text"
-                    placeholder="Commnet here.."
-                  />
-                  <button
-                    className="font-inter font-light  bg-[#019D91] hover:bg-[#00877c] duration-100 text-sm px-4 py-2 rounded-r text-white"
-                    type="submit"
-                  >
-                     <MdSend className="text-xl"/>
-                  </button>
-                </div>
-              </form>
-            </div>
+            <form className="w-full" onSubmit={handleSubmit}>
+              <div className="flex px-4 rounded-l relative w-full bg-white  ">
+                <input
+                  className="flex bg-transparent rounded-l bg-white w-full  duration-200 relative    hover:drop-shadow  font-light text-[#019D91] placeholder:text-[12px] placeholder:font-light outline-none text-sm px-2 py-2"
+                  name="commit"
+                  type="text"
+                  placeholder="Commnet here..."
+                />
+                <button
+                  className="font-inter font-light absolute right-0 top-0 bottom-0 bg-[#019D91] hover:bg-[#00877c] duration-100 text-sm px-4 py-2 rounded-r text-white"
+                  type="submit"
+                >
+                  <MdSend className="text-xl" />
+                </button>
+              </div>
+            </form>
           </div>
-      </div>
+        </div>
+      </dialog>
     </div>
   );
 };
