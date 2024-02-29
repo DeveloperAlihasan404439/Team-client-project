@@ -28,6 +28,7 @@ import Premium from "../page/Premium/Premium";
 
 import UserProfile from "../dashboard/User/UserProfile";
 import Help from "../page/Help/Help";
+import PrivateRoute from "../shared/Auth/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,12 +50,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/articles",
+        path: "/fourm",
         element: <PopularArtical />,
       },
       {
-        path: "/articledetails/:id",
-        element: <ArticleDetails />,
+        path: "/fourm/:id",
+        element: <PrivateRoute><ArticleDetails /></PrivateRoute>,
       },
 
       {
@@ -63,12 +64,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/payment",
-
-        element: <Payment></Payment>
+        element: <Payment/>
       },
       {
         path: "/premium",
-        element: <Premium></Premium>
+        element: <PrivateRoute><Premium/></PrivateRoute>
       },
       {
         path: "/help",

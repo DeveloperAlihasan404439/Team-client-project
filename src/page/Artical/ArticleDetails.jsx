@@ -11,12 +11,12 @@ import useAxios from "../../Hooks/useAxios";
 
 import Navber from "../../shared/Navber/Navber";
 import Footer from "../../shared/Footer/Footer";
+import HelmetTitle from "../../shared/HelmetTitle";
 
 const ArticleDetails = () => {
   const { id } = useParams();
   const axiosPublick = useAxios();
   const { user } = useAuth();
-
 
   const { data: article = {}, refetch } = useQuery({
     queryKey: ["articleDetails", id],
@@ -38,7 +38,6 @@ const ArticleDetails = () => {
     suggestArticle,
     like,
   } = article;
-
 
   const [liker, setLiker] = useState(like);
   // eslint-disable-next-line no-unused-vars
@@ -70,95 +69,95 @@ const ArticleDetails = () => {
   return (
     <>
       <Navber></Navber>
-      <div className=" bg-[#EEEEEE] py-10  w-full">
-        <div className="p-1 md:px-2 max-w-screen-xl  mx-auto">
-          <div className="grid grid-col-1 md:grid-cols-12 gap-10">
-            <div className="col-span-7 ">
+      <HelmetTitle title="Fourm Details" />
+      <div className=" bg-[#EEEEEE] py-10">
+        <div className="p-1 md:px-2 max-w-screen-xl mx-auto">
+          <div className="lg:flex gap-10">
+            <div className="w-11/12 lg:w-[60%] mx-auto">
               <img className="rounded-xl " src={img} alt="" />
               <div className="font-inter space-y-3 mt-8">
                 <p className="text-3xl font-semibold">{title}</p>
-              <p className=" text-gray-600 font-semibold">
-                <span className="text-xl text-black font-semibold">
-                  Description :
-                </span>
-                {description}
-              </p>
-              <p className="text-gray-600 font-semibold">
-                <span className="text-xl text-black font-semibold">
-                  Why to Use :
-                </span>
-                {whyToUse}
-              </p>
-              <p className="text-gray-600 font-semibold">
-                <span className="text-xl text-black font-semibold">
-                  Where to use :
-                </span>
-                {whereToUse}
-              </p>
-              <p className="text-gray-600 font-semibold">
-                <span className="text-xl text-black font-semibold">
-                  Use to help :
-                </span>
-                {useToHelp}
-              </p>
+                <p className=" text-gray-600 font-semibold">
+                  <span className="text-xl text-black font-semibold">
+                    Description :
+                  </span>
+                  {description}
+                </p>
+                <p className="text-gray-600 font-semibold">
+                  <span className="text-xl text-black font-semibold">
+                    Why to Use :
+                  </span>
+                  {whyToUse}
+                </p>
+                <p className="text-gray-600 font-semibold">
+                  <span className="text-xl text-black font-semibold">
+                    Where to use :
+                  </span>
+                  {whereToUse}
+                </p>
+                <p className="text-gray-600 font-semibold">
+                  <span className="text-xl text-black font-semibold">
+                    Use to help :
+                  </span>
+                  {useToHelp}
+                </p>
 
-              <p className=" text-[#019D91] font-medium">
-                <span className="text-xl text-black font-semibold">
-                  Date :
-                </span>
-                {date}
-              </p>
+                <p className=" text-[#019D91] font-medium">
+                  <span className="text-xl text-black font-semibold">
+                    Date :
+                  </span>
+                  {date}
+                </p>
 
-              <div className="text-xl flex  justify-between font-semibold">
-                <div>
-                  <span>Benifit : </span>
-                  {benefits?.map((benifit, i) => (
-                    <p
-                      key={i}
-                      className="flex gap-2 items-center text-lg font-medium"
-                    >
-                      <MdOutlineCheckCircle className="text-[#019D91]" />
-                      {benifit}
-                    </p>
-                  ))}
-                </div>
-                {/* like part  */}
-                <div className="flex gap-3 border rounded-full px-5 py-2 justify-end bottom-0 border-[#37afa550] h-max   items-center">
-                  {user ? (
-                    <button
-                      onClick={handleLike}
-                      className="bg-gray-100 border     text-black  px-2 flex items-center  rounded-full p-1 "
-                    >
-                      
-                      <AiFillLike className="text-md font-light hover:text-black text-sky-500" />
-                    </button>
-                  ) : (
-                    <button
-                      disabled
-                      className="bg-gray-200 border border-sky-400 disabled:text-sky-300 disabled:border-none text-black p-2 rounded-full flex items-center font-mono uppercase  "
-                    >
-                      
-                      <AiFillLike className="text-md border-sky-400 disabled:text-sky-200 font-light   " />
-                    </button>
-                  )}
-                  {like > 0 ? (
-                    <button className="flex  items-center gap-2 border font-inter font-light border-sky-200 px-3 bg-skyow-300 rounded-full text-black text-sm">
-                      {like}
-                    </button>
-                  ) : (
-                    ""
-                  )}
-                  {/* commnet part  */}
-                  <CommentSection id={_id} handleComment={handleComment} />
+                <div className="text-xl md:flex  justify-between font-semibold">
+                  <div>
+                    <span>Benifit : </span>
+                    {benefits?.map((benifit, i) => (
+                      <p
+                        key={i}
+                        className="flex gap-2 items-center text-lg font-medium"
+                      >
+                        <MdOutlineCheckCircle className="text-[#019D91]" />
+                        {benifit}
+                      </p>
+                    ))}
+                  </div>
+                  {/* like part  */}
+                  <div className="flex gap-3 border rounded-full px-5 py-2 justify-center bottom-0 border-[#37afa550] h-max items-center my-5 md:my-0">
+                    {user ? (
+                      <button
+                        onClick={handleLike}
+                        className="bg-gray-100 border     text-black  px-2 flex items-center  rounded-full p-1 "
+                      >
+                        <AiFillLike className="text-md font-light hover:text-black text-sky-500" />
+                      </button>
+                    ) : (
+                      <button
+                        disabled
+                        className="bg-gray-200 border border-sky-400 disabled:text-sky-300 disabled:border-none text-black p-2 rounded-full flex items-center font-mono uppercase  "
+                      >
+                        <AiFillLike className="text-md border-sky-400 disabled:text-sky-200 font-light   " />
+                      </button>
+                    )}
+                    {like > 0 ? (
+                      <button className="flex  items-center gap-2 border font-inter font-light border-sky-200 px-3 bg-skyow-300 rounded-full text-black text-sm">
+                        {like}
+                      </button>
+                    ) : (
+                      ""
+                    )}
+                    {/* commnet part  */}
+                    <CommentSection id={_id} handleComment={handleComment} />
+                  </div>
                 </div>
               </div>
             </div>
             {/* suggestArticle section */}
-            <div className="md:col-span-5 col-span-12 relative flex flex-col  rounded-xl items-center p-4 bg-[#019d901d] h-screen">
+            <div className="w-full lg:w-[40%] relative flex flex-col  rounded-xl items-center p-4 bg-[#019d901d] h-screen">
               <h1 className="text-3xl font-inter font-semibold text-[#019D91]">
                 Read More Article
               </h1>
-              <div className="flex flex-col overflow-y-scroll h-[90vh] gap-3  mt-5">
+              <div className="w-full flex flex-col h-[90vh] scrollbar scrollbar-thumb-[#144248] scrollbar-track-[#00C49F] overflow-y-scroll gap-3 mt-5">
                 {suggestArticle?.map((suggest) => (
                   <SuggestArticle key={suggest.id} suggest={suggest} />
                 ))}
@@ -167,10 +166,8 @@ const ArticleDetails = () => {
           </div>
         </div>
       </div>
-      </div>
       <Footer></Footer>
     </>
-
   );
 };
 export default ArticleDetails;

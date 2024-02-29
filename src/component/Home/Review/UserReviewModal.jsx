@@ -17,7 +17,8 @@ const UserReviewModal = () => {
   const [closeReviewModal, setCloseReviewModal] = useState(false);
 
   const { register, handleSubmit, reset } = useForm();
-  const onSubmit = async (data) => {
+  const SubmitReeiew = async (data) => {
+    console.log(data)
     setCloseReviewModal(true);
     setUpladeImage(true);
     const fromImages = { image: data.image[0] };
@@ -38,8 +39,7 @@ const UserReviewModal = () => {
         email: user?.email,
       };
       axiosPublick.post(`/review`, addArticle).then((res) => {
-
-        if (res?.data?.modifiedCount > 0) {
+        if (res?.data) {
           reset();
           refetch();
           Swal.fire({
@@ -75,7 +75,7 @@ const UserReviewModal = () => {
               Dive into a world of joy and satisfaction! Our review section is a playground of happiness where every comment is like a sprinkle of confetti. Join the fun and discover why our customers can't stop singing praises. From heartwarming anecdotes to delightful affirmations, it's where smiles meet satisfaction. Let's spread the love, one review at a time!
               </p>
               <form
-                onSubmit={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(SubmitReeiew)}
                 className=" text-left p-6 w-full space-y-3"
               >
                 <div className="md:flex gap-5 items-center w-full">
@@ -133,7 +133,7 @@ const UserReviewModal = () => {
                     </div>
                   </div>
                 </div>
-                <div className="mb-4 md:mb-0 md:w-full">
+                <div className="mb-4 md:mb-0 w-full">
                   <label className=" md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
                     Rating
                   </label>

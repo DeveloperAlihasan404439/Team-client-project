@@ -14,10 +14,13 @@ import { motion } from "framer-motion";
 import moment from "moment";
 import UserReviewModal from "./UserReviewModal";
 import useReview from "../../../Hooks/useReview";
+import useAuth from "../../../shared/Auth/useAuth";
+import { Link } from "react-router-dom";
 moment().format();
 const UserReview = () => {
   const { review } = useReview();
-
+  const { user } = useAuth();
+  console.log(user);
   return (
     <div className=" max-w-7xl shadow-md border-t-2  rounded-2xl mx-auto p-4 mt-6">
       <h1 className="text-4xl text-center drop-shadow  font-bold ">
@@ -44,7 +47,7 @@ const UserReview = () => {
           }}
         >
           {review?.map((item) => (
-            <SwiperSlide key={item.email} className="bg-[#E5E5E5]  ">
+            <SwiperSlide key={item._id} className="bg-[#E5E5E5]  ">
               <div className="flex flex-col  md:flex-row items-center text-[#333333]  justify-center gap-6 box-border  p-2">
                 <div className="md:w-[30%] lg:w-[20%] lg:h-[37dvh] h-[70dvh] md:h-full p-2 ">
                   <img
@@ -80,7 +83,6 @@ const UserReview = () => {
                   </div>
                   <div className="w-full flex px-6 md:px-0 lg:pr-10 flex-col md:flex-row pb-4  md:justify-between md:items-center gap-2">
                     <p className="  text-md">
-                      
                       <span className="text-[#019D90] ">User Email : </span>
                       {item.email}
                     </p>
@@ -96,14 +98,22 @@ const UserReview = () => {
         </Swiper>
       </div>
       <section className="flex justify-end mt-16  items-center gap-2">
-        
-      <motion.label
-          htmlFor="my_modal_6"
-          whileTap={{ scale: 0.9 }}
-          className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl  shadow-md"
-        >
-          <AiTwotoneEdit className="text-2xl" /> Write a review
-        </motion.label>
+        {user ? (
+          <motion.label
+            htmlFor="my_modal_6"
+            whileTap={{ scale: 0.9 }}
+            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl  shadow-md"
+          >
+            <AiTwotoneEdit className="text-2xl" /> Write a review
+          </motion.label>
+        ) : (
+          <Link
+            to="/login"
+            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl  shadow-md"
+          >
+            <AiTwotoneEdit className="text-2xl" /> Please Login
+          </Link>
+        )}
         <UserReviewModal />
       </section>
     </div>

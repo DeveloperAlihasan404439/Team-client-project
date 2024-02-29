@@ -15,10 +15,14 @@ import useAuth from "../shared/Auth/useAuth";
 import { RiUserLocationLine } from "react-icons/ri";
 import { TbPasswordUser } from "react-icons/tb";
 import useAxios from "../Hooks/useAxios";
+import HelmetTitle from "../shared/HelmetTitle";
+import useUserSingle from "../Hooks/useUserSingle";
 const Dashboard = () => {
   const axiosPublick = useAxios()
   const [openDashboard, setOpenDashboard] = useState(true);
   const {user} = useAuth()
+  const {userSingle} = useUserSingle()
+  console.log(userSingle)
   const [admin, setAdmin] = useState({})
   useEffect(()=>{
     axiosPublick.get(`/users/single?email=${user?.email}`).then(res=>{
@@ -106,6 +110,8 @@ const Dashboard = () => {
   
 
   return (
+    <>
+    <HelmetTitle title={userSingle?.role==="admin"?"Dashboard Admin":"Dashboard User"}/>
     <div className="w-full bg-[#EEE]">
       <div className="block sticky top-0 left-0 bg-[#144248] md:hidden z-50 ">
         <div className="py-2  flex justify-between items-center w-[90%] lg:w-[30%] mx-auto flex-row-reverse lg:flex-row">
@@ -133,7 +139,7 @@ const Dashboard = () => {
                 <div className="w-52 h-[94vh] bg-[#144248]">
                   <ul className="px-5">
 
-                    {admin?.role==="admin"? (
+                    {userSingle?.role==="admin"? (
 
                       <>
                         {adminNavItems.map((item, i) => (
@@ -257,6 +263,7 @@ const Dashboard = () => {
 
       </div>
     </div>
+    </>
   );
 };
 

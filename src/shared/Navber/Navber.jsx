@@ -37,9 +37,9 @@ const Navber = () => {
       Route: "/",
     },
     {
-      Title: "Articles",
+      Title: "Fourm",
       icon: <PiArticleDuotone />,
-      Route: "/articles",
+      Route: "/fourm",
     },
     {
       Title: "About Us",
@@ -122,7 +122,7 @@ const Navber = () => {
                 aria-label="close sidebar"
                 className="drawer-overlay"
               ></label>
-              <ul className="menu w-40 md:w-60  min-h-full bg-[#EEEEEE] md:text-lg font-medium">
+              <ul className="menu w-48 md:w-72  min-h-full bg-[#EEEEEE] md:text-lg font-medium">
                 {NavItems.map((item) => (
                   <li
                     className="hover:bg-[#017E77] text-[#144248]   border border-[#019D91] rounded-lg     hover:text-[#EEEEEE]   mb-2  "

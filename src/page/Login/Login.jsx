@@ -29,7 +29,7 @@ const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOS
 const Login = () => {
   const [isSignUpMode, setSignUpMode] = useState(false);
 
-  const { singIn, createUser, logOut } = useAuth();
+  const { singIn, createUser } = useAuth();
 
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
@@ -60,12 +60,14 @@ const Login = () => {
           const email = result.user?.email;
           const photoURL = result.user?.photoURL;
           const name = result.user?.displayName;
-          const dataToInsert = { name, photoURL, email };
+          const role = "user";
+          const dataToInsert = { name, photoURL, email,role };
           // store user to the database and checking if user exist
           axiosPublick.post("/users", dataToInsert).then((res) => {
 
             if (res.data.insertedId) {
-              Swal.fire({
+              navigate(location?.state ? location?.state : "/");
+              return Swal.fire({
                 position: "center",
                 icon: "success",
                 title: "Successfull User Updated",
@@ -77,7 +79,8 @@ const Login = () => {
               });
             }
           });
-          Swal.fire({
+          navigate(location?.state ? location?.state : "/");
+          return Swal.fire({
 
             position: "center",
             icon: "success",
@@ -103,12 +106,12 @@ const Login = () => {
     const password = form.get("password");
     singIn(email, password)
       .then((result) => {
-
         if (result.user) {
-          Swal.fire({
+          navigate(location?.state ? location?.state : "/"); 
+         return Swal.fire({
             position: "center",
             icon: "success",
-            title: "Successfull User Sing In",
+            title: "Successfull User Sign In",
             showConfirmButton: false,
             background: "#144248",
             color: "#ffffff",
@@ -117,7 +120,6 @@ const Login = () => {
 
         }
 
-        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         const message = error.message;
@@ -162,6 +164,7 @@ const Login = () => {
       const email = data.email;
       const password = data.password;
       const photoURL = res?.data?.data?.display_url;
+      const role = "users";
 
       createUser(email, password)
         .then((result) => {
@@ -173,17 +176,17 @@ const Login = () => {
               name,
               email,
               photoURL,
+              role
 
             };
             axiosPublick.post("/users/post", userInfo).then((res) => {
               if (res.data) {
-
-                logOut();
                 reset();
+                navigate(location?.state ? location?.state : "/");
                 Swal.fire({
                   position: "center",
                   icon: "success",
-                  title: "Successfull User Sing Up",
+                  title: "Successfull User Sign Up",
                   showConfirmButton: false,
                   background: "#017E77",
                   color: "#ffffff",
@@ -328,7 +331,7 @@ const Login = () => {
           <div className="panel left-panel">
             <div className="content">
               <h3 className="font-bold text-[#EEE]"> Sign Up Now !</h3>
-              <p className="my-1 text-[#EEE]">
+              <p className="my-1 text-[#EEE] text-xl font-medium">
                 Embark on a journey with us by creating your account. Signing up
                 unlocks a world of features, personalized settings, and
                 exclusive benefits. Join our community today and experience the

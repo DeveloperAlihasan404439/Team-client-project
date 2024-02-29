@@ -6,6 +6,7 @@ import useAxios from "../../Hooks/useAxios";
 import useAuth from "../../shared/Auth/useAuth";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useUserSingle from "../../Hooks/useUserSingle";
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
@@ -16,6 +17,7 @@ const CheckoutForm = () => {
   const axiosPublic = useAxios();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { usersData } = useUserSingle();
   const TotalPrice = 100;
   useEffect(() => {
     if (TotalPrice > 0) {
@@ -79,7 +81,15 @@ const CheckoutForm = () => {
         };
 
         const res = await axiosPublic.post("/payments", payment);
+        console
         if (res?.data?.transactionId) {
+          console.log(res.data.transactionId)
+          const updatedUser = {
+            role: "premium",
+          };
+          await axiosPublic.put(`/user/premium/${user?.email}`,updatedUser).then(res =>{
+            console.log(res.data)
+          })
           navigate("/");
           Swal.fire({
             position: "center",
@@ -91,14 +101,7 @@ const CheckoutForm = () => {
             timer: 2000,
           });
         }
-        const updatedUser = {
-          role: "pUsers",
-        };
-
-        const resposnse = await axiosPublic.put(
-          `/user-badge/${user?.email}`,
-          updatedUser
-        );
+        
       }
     }
   };
@@ -111,7 +114,7 @@ const CheckoutForm = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="w-1/3  mx-auto border rounded-xl backdrop-blur-md bg-white/10 p-8 text-white shadow-md pt-24 pb-10"
+        className=" lg:w-1/3 md:w-1/2 w-full  mx-auto border rounded-xl backdrop-blur-md bg-white/10 p-8 text-white shadow-md lg:pt-24 pt-9 pb-10"
       >
         <form onSubmit={handleSubmit} style={{ display: "contents" }}>
           <CardElement

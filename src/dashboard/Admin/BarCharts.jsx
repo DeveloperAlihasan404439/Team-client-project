@@ -104,7 +104,7 @@ const BarCharts = ({ usersData }) => {
                 <img
                   src={users.photoURL}
                   alt=""
-                  className="w-10 rounded-full "
+                  className="w-10 h-10 rounded-full "
                 />
                 <h1 className="pr-4">{users.name}</h1>
               </div>
