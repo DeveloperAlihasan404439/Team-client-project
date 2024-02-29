@@ -20,7 +20,6 @@ moment().format();
 const UserReview = () => {
   const { review } = useReview();
   const { user } = useAuth();
-  console.log(user);
   return (
     <div className=" max-w-7xl shadow-md border-t-2  rounded-2xl mx-auto p-4 mt-6">
       <h1 className="text-4xl text-center drop-shadow  font-bold ">
