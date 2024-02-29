@@ -81,27 +81,24 @@ const CheckoutForm = () => {
         };
 
         const res = await axiosPublic.post("/payments", payment);
-        console
         if (res?.data?.transactionId) {
-          console.log(res.data.transactionId)
-          const updatedUser = {
-            role: "premium",
-          };
-          await axiosPublic.put(`/user/premium/${user?.email}`,updatedUser).then(res =>{
-            console.log(res.data)
-          })
-          navigate("/");
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Successfull Payments",
-            showConfirmButton: false,
-            background: "#144248",
-            color: "#EEEEEE",
-            timer: 2000,
-          });
+          await axiosPublic
+            .patch(`/user/premium?email=${user?.email}`)
+            .then((res) => {
+              if (res.data.modifiedCount>0) {
+                navigate("/");
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Successfull Payments",
+                  showConfirmButton: false,
+                  background: "#144248",
+                  color: "#EEEEEE",
+                  timer: 2000,
+                });
+              }
+            });
         }
-        
       }
     }
   };

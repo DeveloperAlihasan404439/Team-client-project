@@ -72,7 +72,7 @@ const Help = () => {
         </div>
 
         <div
-          className="max-w-screen-xl mx-auto gap-4 my-5 flex flex-col
+          className="w-11/12 lg:max-w-7xl mx-auto gap-4 my-5 flex flex-col
        justify-center"
         >
           {displayCards.length > 0 ? (
