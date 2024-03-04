@@ -76,7 +76,6 @@ const UserReviewModal = () => {
               </p>
               <form
                 onSubmit={handleSubmit(SubmitReeiew)}
-                className=" text-left p-6 w-full space-y-3"
               >
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="mb-4 md:mb-0 md:w-[50%]">
