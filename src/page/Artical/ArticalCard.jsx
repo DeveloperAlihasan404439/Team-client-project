@@ -10,7 +10,7 @@ const ArticalCard = ({ data }) => {
       whileTap={{ scale: 0.9 }}
     >
       <Link
-        to={`/articledetails/${_id}`}
+        to={`/fourm/${_id}`}
         className="flex cursor-pointer flex-col md:flex-row  group justify-between rounded-xl bg-white  items-center  drop-shadow-md duration-200   p-5 lg:h-44 md:h-52 font-inter gap-5"
       >
         <div>

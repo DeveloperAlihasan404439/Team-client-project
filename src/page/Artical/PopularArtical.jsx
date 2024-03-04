@@ -5,7 +5,10 @@ import "react-responsive-pagination/themes/classic.css";
 import './PopularArtical.css'
 import Loader from "../../shared/Loader";
 import FqSection from "../../component/FqSection";
-import useArticle from "../../hooks/useArticle";
+import useArticle from "../../Hooks/useArticle";
+import Footer from "../../shared/Footer/Footer";
+import Navber from "../../shared/Navber/Navber";
+import HelmetTitle from "../../shared/HelmetTitle";
 const PopularArtical = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const { article, isLoading } = useArticle();
@@ -15,7 +18,10 @@ const PopularArtical = () => {
   const currentItems = article?.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(article.length / ItemsPerPage);
   return (
-    <div className="  px-1 md:px-2">
+    <>
+    <Navber></Navber>
+        <HelmetTitle title="Fourm"/>
+    <div className="  px-1 md:px-2 mt-6">
       <div className="flex flex-col font-inter justify-center items-center">
         <h1 className="text-4xl font-bold text-[#144248] ">
           Article <span className=" text-[#019D90]  ">Hub</span>
@@ -48,6 +54,8 @@ const PopularArtical = () => {
 
       <FqSection/>
     </div>
+    <Footer></Footer>
+    </>
   );
 };
 export default PopularArtical;

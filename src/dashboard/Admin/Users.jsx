@@ -2,8 +2,8 @@ import { FaUsers, FaUserNurse } from "react-icons/fa";
 import { MdBrowserUpdated } from "react-icons/md";
 import "./Users.css";
 import Swal from "sweetalert2";
-import useUsers from "../../hooks/useUsers";
-import useAxios from "../../hooks/useAxios";
+import useUsers from "../../Hooks/useUsers";
+import useAxios from "../../Hooks/useAxios";
 const Users = () => {
   const { usersData, refetch } = useUsers();
   const axiosPublick = useAxios();

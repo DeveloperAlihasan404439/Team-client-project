@@ -13,9 +13,14 @@ import join from "../../assets/BannerL&Logo/join.gif";
 import TabPanelZ from "./TabPanelZ";
 import ContactUs from "./ContactUs";
 import MeetTeam from "./MeetTeam";
+import HelmetTitle from "../../shared/HelmetTitle";
+import Navber from "../../shared/Navber/Navber";
+import Footer from "../../shared/Footer/Footer";
 const AboutUs = () => {
   return (
     <>
+    <Navber/>
+    <HelmetTitle title="About Us"/>
       <section className="max-w-7xl text-[#144248] mx-auto mt-10 ">
         <h1 className="text-4xl   font-bold drop-shadow-md  text-center lg:text-left">
           About <span className="text-[#019D90]"> Us</span>{" "}
@@ -132,6 +137,7 @@ const AboutUs = () => {
       </section>
       <MeetTeam></MeetTeam>
       <ContactUs></ContactUs>
+      <Footer/>
     </>
   );
 };
