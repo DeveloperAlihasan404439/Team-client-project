@@ -1,14 +1,25 @@
 import { useEffect, useRef, useState } from "react";
-import img from "../../assets/BannerL&Logo/banner2.jpg";
-import mail from "../../assets/BannerL&Logo/mail.json";
+import { Link } from "react-router-dom";
+
+// animate and lottie npm package
 import { motion, useScroll, useTransform } from "framer-motion";
 import Lottie from "lottie-react";
+
+// data loade use tanstock query and axios npm package 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { Link} from "react-router-dom";
-import './Banner.css'
+
+// import image banner and mail
+import img from "../../assets/BannerL&Logo/banner2.jpg";
+import mail from "../../assets/BannerL&Logo/mail.json";
+
+// use context user data loade and generated email component import
 import useAuth from "../../shared/Auth/useAuth";
 import GeneratedEmails from "./GeneratedEmails";
+
+// Banner updated custom css
+import "./Banner.css";
+
 const Banner = () => {
   const ref = useRef(null);
   const { user } = useAuth();
@@ -70,12 +81,14 @@ const Banner = () => {
       <div
         className="absolute inset-0 "
         style={{
+          // banner images
           backgroundImage: `url(${img})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       ></div>
 
+      {/* temporary mail Generated section start  */}
       <motion.div
         style={{ y: textY }}
         className="hero-content z-80  text-center text-[#144248]"
@@ -129,6 +142,9 @@ const Banner = () => {
           </div>
         </div>
       </motion.div>
+      {/* temporary mail Generated section end  */}
+
+      {/* lottie animate npm package and email photo  */}
       <div className="relative z-10 w-full ">
         <Lottie
           className="lg:w-72 md:w-48 top-16 hidden md:block left-10 h-80 md:absolute "

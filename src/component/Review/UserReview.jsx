@@ -1,24 +1,35 @@
+import { Link } from "react-router-dom";
+
+// create the slider in use swiper react package 
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
+import { Autoplay,EffectCards } from "swiper/modules";
 import "swiper/css/effect-cards";
-import { Autoplay } from "swiper/modules";
-import "./ReviewStyle.css";
+import "swiper/css";
+
+// use react icons npm package 
 import { IoIosStarOutline } from "react-icons/io";
-// import "@smastrom/react-rating/style.css";
-import { EffectCards } from "swiper/modules";
 import { AiTwotoneEdit } from "react-icons/ai";
-import Rating from "react-rating";
 import { IoMdStar } from "react-icons/io";
 import { IoIosStarHalf } from "react-icons/io";
-import { motion } from "framer-motion";
-import moment from "moment";
+
+// use react reting design npm package 
+import Rating from "react-rating";
+
+// import component modal review and use data loade 
 import UserReviewModal from "./UserReviewModal";
 import useReview from "../../Hooks/useReview";
 import useAuth from "../../shared/Auth/useAuth";
-import { Link } from "react-router-dom";
+
+// use design motion and time management npm package
+import { motion } from "framer-motion";
+import moment from "moment";
 moment().format();
+
+// review custom css
+import "./ReviewStyle.css";
 const UserReview = () => {
   const { review } = useReview();
+  // user information loade 
   const { user } = useAuth();
   return (
     <div className=" max-w-7xl shadow-md border-t-2  rounded-2xl mx-auto p-4 mt-6">
@@ -35,6 +46,7 @@ const UserReview = () => {
         control – swipe, drag, or let it shuffle, making it easy to browse
         through authentic experiences shared by our community.
       </p>
+      {/* slider section start  */}
       <div className="flex justify-center max-w-[1100px]  mx-auto items-center md:mt-6 lg:mt-10 ">
         <Swiper
           effect={"cards"}
@@ -97,6 +109,9 @@ const UserReview = () => {
           ))}
         </Swiper>
       </div>
+      {/* slider section end  */}
+      
+      {/* added user review button and modal  sectin start  */}
       <section className="flex justify-end mt-16  items-center gap-2">
         {user ? (
           <motion.label

@@ -1,11 +1,10 @@
-// eslint-disable-next-line react/prop-types
-const GetMessages = ({ mail, index }) => {
-    // eslint-disable-next-line react/prop-types
+
+const GetMessages = ({ mail, }) => {
     const { subject } = mail;
     return (
       <>
-        <h2 className="mt-1 text-sm text-white font-bold bg-[#10a295] bg-opacity-50 p-4 border-1 border-gray-500">
-          {index + 1}. {subject}
+        <h2 className="mt-3 text-xl text-center text-[#10a295] font-bold bg-opacity-50 ">
+           {subject}
         </h2>
       </>
     );

@@ -1,15 +1,19 @@
+// import how to use all image
 import img from "../assets/BannerL&Logo/howTOuse.json";
 import img1 from "../assets/BannerL&Logo/generate.json";
 import img2 from "../assets/BannerL&Logo/generateEmail.json";
 import img3 from "../assets/BannerL&Logo/NoEmail.json";
 import img4 from "../assets/BannerL&Logo/relax.json";
 
+// animate and lottie npm package
 import Lottie from "lottie-react";
 
+// aos animation npm package
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 const HowToUse = () => {
+  
   AOS.init({});
   return (
     <div

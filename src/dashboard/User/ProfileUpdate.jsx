@@ -30,7 +30,6 @@ const ProfileUpdate = () => {
 
   // eslint-disable-next-line no-unused-vars
   const { userSingle, refetch } = useUserSingle();
-  console.log(userSingle)
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
     setImgLoader(true);

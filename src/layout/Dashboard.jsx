@@ -54,7 +54,7 @@ const Dashboard = () => {
   const userNavItems = [
     {
       Title: "Profile",
-      Route: "/dashboard/home",
+      Route: "/dashboard/user/profile",
       icon: <FaHome />,
     },
 

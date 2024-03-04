@@ -1,18 +1,32 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
+
+// alert animation npm package 
+import Swal from "sweetalert2";
+
+// data loade use tanstock query and axios npm package 
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect, useState } from "react";
-import GetMessages from "./GetMessages";
+
+// react icon import 
 import { TbLoader2 } from "react-icons/tb";
+
+// animate and lottie npm package
 import Lottie from 'lottie-react';
-import img3 from '../../assets/BannerL&Logo/Animation - 1707735098842.json'
-import Swal from "sweetalert2";
+
+// import lottie animation photo
+import img3 from '../../assets/BannerL&Logo/Animation - 1707735098842.json';
+
+// use context user data loade and get message component import
 import useAuth from "../../shared/Auth/useAuth";
+import GetMessages from "./GetMessages";
 
 const RecievedEmails = () => {
-  const [emails, setEmails] = useState([]);
   const { user } = useAuth();
+
+  const [emails, setEmails] = useState([]);
   const [isLoading, setIsLoading] = useState(null);
+
+  // recieved email data loade  teanstack query 
   const { data: tempMail = {}, refetch } = useQuery({
     queryKey: ["tempMail",user?.email],
     queryFn: async () => {
@@ -25,6 +39,8 @@ const RecievedEmails = () => {
     enabled: !!user,
   });
   const inboxIds = tempMail.inboxId;
+
+  // site effect create in inbox id 
   useEffect(() => {
     if (!inboxIds) {
       return;
@@ -38,6 +54,7 @@ const RecievedEmails = () => {
     }
   }, [inboxIds]);
 
+  // otp loade and reload the function 
   const reloadEmails = () => {
     setIsLoading(true);
     if (!inboxIds) {
@@ -124,11 +141,13 @@ const RecievedEmails = () => {
               </>
             ) : (
               emails?.map((mail, index) => (
+                <>
+                <Lottie className='h-36 col-span-2 row-span-2 text-red-500 mt-5' animationData={img3} loop={true} />
                 <GetMessages
                   key={index}
                   mail={mail}
-                  index={index}
                 ></GetMessages>
+                </>
               ))
             )
           ) : (
