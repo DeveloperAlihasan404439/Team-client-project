@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import { IoCloseSharp } from "react-icons/io5";
 import { RiEditFill } from "react-icons/ri";
 import Swal from "sweetalert2";
-import NotesModal from "./NotesModal";
-import useAuth from "../../../shared/Auth/useAuth";
-import useAxios from "../../../hooks/useAxios";
 import { useState } from "react";
+import useAxios from "../../../Hooks/useAxios";
+import useAuth from "../../../shared/Auth/useAuth";
+import useNotes from "../../../Hooks/useNotes";
 import Loader from "../../../shared/Loader";
-import useNotes from "../../../hooks/useNotes";
+import NotesModal from "./NotesModal";
+
 const Notes = () => {
   const [notesText, setNotesText] = useState("");
   const axiosPublick = useAxios();

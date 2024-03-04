@@ -2,9 +2,9 @@ import moment from "moment/moment";
 import { MdAutoDelete } from "react-icons/md";
 import { motion } from "framer-motion";
 import Swal from "sweetalert2";
-import useAxios from "../../hooks/useAxios";
-import useReview from "../../hooks/useReview";
 import Loader from "../../shared/Loader";
+import useAxios from "../../Hooks/useAxios";
+import useReview from "../../Hooks/useReview";
 moment().format();
 const UserReview = () => {
   const axiosPublick = useAxios();

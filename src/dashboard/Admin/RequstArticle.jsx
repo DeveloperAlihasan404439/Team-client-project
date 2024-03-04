@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import moment from "moment";
 import Swal from "sweetalert2";
-import useArticle from "../../hooks/useArticle";
-import useAxios from "../../hooks/useAxios";
 import Loader from "../../shared/Loader";
+import useArticle from "../../Hooks/useArticle";
+import useAxios from "../../Hooks/useAxios";
 moment().format();
 const RequstArticle = () => {
   const { article, isLoading, refetch } = useArticle();

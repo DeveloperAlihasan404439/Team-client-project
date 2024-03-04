@@ -1,17 +1,30 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLauOut from "../layout/MainLauOut";
-import Home from "../pages/Home";
+import Home from "../page/Home";
 import ErrorPage from "../shared/ErrorPage/ErrorPage";
-import PrivacyPolicy from "../pages/Terms&Policy/PrivacyPolicy";
-import TermsAndConditions from "../pages/Terms&Policy/TermsCondition";
-import PopularArtical from "../pages/Artical/PopularArtical";
+import PrivacyPolicy from "../page/Terms&Policy/PrivacyPolicy";
+import TermsAndConditions from "../page/Terms&Policy/TermsCondition";
+import PopularArtical from "../page/Artical/PopularArtical";
 import PrivateRoute from "../shared/Auth/PrivateRoute";
-import ArticleDetails from "../pages/Artical/ArticleDetails";
-import AboutUs from "../pages/About/AboutUs";
-import Login from "../pages/Login/Login";
-import Payment from "../pages/Payment/Payment";
-import Premium from "../pages/Premium/Premium";
-import Help from "../pages/Help/Help";
+import ArticleDetails from "../page/Artical/ArticleDetails";
+import AboutUs from "../page/About/AboutUs";
+import Login from "../page/Login/Login";
+import Payment from "../page/Payment/Payment";
+import Premium from "../page/Premium/Premium";
+import Help from "../page/Help/Help";
+import Dashboard from "../layout/Dashboard";
+import DashHome from "../dashboard/Admin/DashHome";
+import Users from "../dashboard/Admin/Users";
+import AddArticle from "../dashboard/Admin/AddArticle";
+import Articles from "../dashboard/Admin/Articles";
+import RequstArticle from "../dashboard/Admin/RequstArticle";
+import UserReview from "../dashboard/Admin/UserReview";
+import Notes from "../dashboard/User/Notes/Notes";
+import IpTracker from "../dashboard/User/IpTracker";
+import PasswordStrengthChecker from "../dashboard/User/PasswordStrengthChecker";
+import UserAllArticle from "../dashboard/User/UserAllArticle";
+import UserAddArticle from "../dashboard/User/UserAddArticle";
+import UserProfile from "../dashboard/User/UserProfile";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,14 +77,14 @@ const router = createBrowserRouter([
     element: <Login/>,
     errorElement:<ErrorPage></ErrorPage>,
   },
- /* {
+ {
     path: '/dashboard',
     element: <Dashboard/>,
     errorElement:<ErrorPage></ErrorPage>,
     children:[
         // admin dashboard router creat 
         {
-            path: '/dashboard/homes',
+            path: '/dashboard/home',
             element: <DashHome/>
         },
        {
@@ -95,7 +108,7 @@ const router = createBrowserRouter([
             element: <RequstArticle/>
         },
         // user rout 
-        {
+         {
 
             path: '/dashboard/user/profile',
             element: <UserProfile/>
@@ -112,10 +125,10 @@ const router = createBrowserRouter([
             path: '/dashboard/user/notes',
             element: <Notes/>
         },
-        {
-          path: "/dashboard/user/storage",
-          element: <Storage/>,
-        },
+        // {
+        //   path: "/dashboard/user/storage",
+        //   element: <Storage/>,
+        // },
         {
           path: "/dashboard/user/ip/address",
           element: <IpTracker />,
@@ -123,12 +136,8 @@ const router = createBrowserRouter([
         {
           path: "/dashboard/user/password",
           element: <PasswordStrengthChecker />,
-        },
-        // {
-        //     path: '/dashboard/text-to-voice',
-        //     element: <TextToVoiceCnv/>
-        // },
+        }, 
     ]
-} */
+}
 ]);
 export default router;

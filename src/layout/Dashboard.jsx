@@ -10,15 +10,12 @@ import { SiAutodeskrevit, SiHomeassistantcommunitystore } from "react-icons/si";
 import { GrNotes } from "react-icons/gr";
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
 import {  useState } from "react";
-import { MdOutlineRecordVoiceOver } from "react-icons/md";
-import useAuth from "../shared/Auth/useAuth";
-import useUsers from "../hooks/useUsers";
 import { RiUserLocationLine } from "react-icons/ri";
 import { TbPasswordUser } from "react-icons/tb";
+import useUserSingle from "../Hooks/useUserSingle";
 const Dashboard = () => {
-  const {user} = useAuth()
   const [openDashboard, setOpenDashboard] = useState(true);
-  const { usersData } = useUsers();
+  const { userSingle } = useUserSingle();
 
   const adminNavItems = [
     {
@@ -91,13 +88,8 @@ const Dashboard = () => {
       icon: <FaPeopleGroup />,
       Route: "/dashboard/user/storage",
     },
-    {
-      Title: "Text to Voice",
-      Route: "/dashboard/text-to-voice",
-      icon: <MdOutlineRecordVoiceOver />,
-    },
   ];
-  const adminDashboard = usersData.find((users) => users.email === user?.email);
+  // const adminDashboard = usersData.find((users) => users.email === user?.email);
 
   return (
     <div className="w-full bg-[#EEE]">
@@ -126,7 +118,7 @@ const Dashboard = () => {
                 ></label>
                 <div className="w-52 h-[94vh] bg-[#144248]">
                   <ul className="px-5">
-                    {adminDashboard? (
+                    {userSingle?.role ==="admin"?  (
                       <>
                         {adminNavItems.map((item, i) => (
                           <NavLink
@@ -189,7 +181,7 @@ const Dashboard = () => {
               <img src={logo} alt="" className="w-32 lg:w-48" />
             </div>
             <ul className="nav-list">
-              {adminDashboard?.role ==="admin"? (
+              {userSingle?.role ==="admin"? (
                 <>
                   {adminNavItems.map((item, i) => (
                     <NavLink

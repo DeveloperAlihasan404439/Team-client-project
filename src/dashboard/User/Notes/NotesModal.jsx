@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
-import useAxios from "../../../hooks/useAxios";
+import useAxios from "../../../Hooks/useAxios";
 export default function NotesModal({ updatedNotes, refetch }) {
   const [notesText, setNotesText] = useState("");
   const [open, setOpon] = useState(true);

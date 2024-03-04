@@ -1,0 +1,11 @@
+.PhoneInputInput{
+    padding: 10px 5px;
+    outline: none;
+   }
+   .PhoneInputCountrySelectArrow{
+       width: 15px;
+       height: 15px;
+       margin-top: -7px;
+       color: #144248;
+   }
+   
