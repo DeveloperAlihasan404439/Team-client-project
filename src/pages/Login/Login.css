@@ -1,14 +1,13 @@
-
-.container{
- margin: 0 auto;
-    position: relative;  
+.container {
+    margin: 0 auto;
+    position: relative;
     width: 100% !important;
     min-height: 100vh;
-    background-color: #fff;
+    background-color: #EEE;
     overflow: hidden;
 }
 
-.container::before{
+.container::before {
     content: '';
     position: absolute;
     width: 2000px;
@@ -22,7 +21,7 @@
     transition: 1.8s ease-in-out;
 }
 
-.forms-container{
+.forms-container {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -30,7 +29,7 @@
     left: 0;
 }
 
-.singin-singup{
+.singin-singup {
     position: absolute;
     top: 50%;
     left: 75%;
@@ -42,7 +41,7 @@
     transition: 1s 0.7s ease-in-out;
 }
 
-form{
+form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,55 +53,59 @@ form{
     transition: 0.2s 0.7s ease-in-out;
 }
 
-form.sing-in-from{
+form.sing-in-from {
     z-index: 2;
 }
 
-form.sing-up-from{
+form.sing-up-from {
     z-index: 1;
     opacity: 0;
 }
 
-.title{
+.title {
     font-weight: 600;
     font-size: 2.2rem;
     color: #019D91;
     margin-bottom: 10px;
 }
-.input-field{
+
+.input-field {
     max-width: 380px;
     width: 100%;
     height: 55px;
+
     background-color: #dfdcdc;
+
     margin: 10px 0;
     border-radius: 55px;
     display: grid;
     grid-template-columns: 15% 85%;
     padding: 0 .4rem;
 }
-.input-field i{
+
+.input-field i {
     text-align: center;
     line-height: 55px;
-    color:#acacac ;
+    color: #017E77;
     font-size: 1.1rem;
 }
 
-.input-field input{
+.input-field input {
     background: none;
     outline: none;
     border: none;
     line-height: 1;
     font-weight: 600;
     font-size: 1.1rem;
-    color: #333;
+    color: #144248;
 }
 
-.input-field input::placeholder{
-    color: #aaa;
+.input-field input::placeholder {
+    color: #019D91;
     font-weight: 500;
 }
 
-.btnn{
+.btnn {
     width: 150px;
     height: 49px;
     border: none;
@@ -110,48 +113,49 @@ form.sing-up-from{
     border-radius: 49px;
     cursor: pointer;
     background-color: #019D91;
-    color: #fff;
+    color: #EEE;
     text-transform: uppercase;
     font-weight: 600;
     margin: 10px 0;
     transition: .5s;
 }
 
-.btnn:hover{
+.btnn:hover {
     background-color: #017E77;
 }
 
-.social-text{
+.social-text {
     padding: .7rem 0;
     font-size: 1rem;
+    color: #144248;
 }
 
-.social-media{
+.social-media {
     display: flex;
     justify-content: center;
 }
 
-.social-icon{
+.social-icon {
     height: 46px;
     width: 46px;
-    border: 1px solid #333;
+    border: 1px solid #144248;
     margin: 0 0.45rem;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: #333;
+    color: #019D91;
     font-size: 1.1rem;
-    border-radius: 50% ;
+    border-radius: 50%;
     transition: 0.3s;
 }
 
-.social-icon:hover{
+.social-icon:hover {
     color: #019D91;
     border-color: #019D91;
 }
 
-.panels-container{
+.panels-container {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -161,7 +165,7 @@ form.sing-up-from{
     grid-template-columns: repeat(2, 1fr);
 }
 
-.panel{
+.panel {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -170,33 +174,33 @@ form.sing-up-from{
     z-index: 7;
 }
 
-.left-panel{
+.left-panel {
     pointer-events: all;
     padding: 3rem 17% 2rem 12%;
 }
 
-.right-panel{
+.right-panel {
     pointer-events: none;
-    padding: 3rem 12% 2rem 17% ;
+    padding: 3rem 12% 2rem 17%;
 }
 
-.panel .content{
+.panel .content {
     color: #fff;
     transition: .9s .6s ease-in-out;
 }
 
-.panel h3{
+.panel h3 {
     font-weight: 600;
     line-height: 1;
     font-size: 1.5rem;
 }
 
-.panel p{
-    font-size: 0.9rem;
+.panel p {
+    font-size: 1.1rem;
     padding: 0.9rem 0;
 }
 
-.btnn.transparent{
+.btnn.transparent {
     margin: 0;
     background: none;
     border: 2px solid #fff;
@@ -206,59 +210,60 @@ form.sing-up-from{
     font-size: 0.8rem;
 }
 
-.image{
+.image {
     width: 100%;
     transition: 1.1s .4s ease-in-out;
 }
 
-.right-panel .content, .right-panel .image{
-  transform: translateX(800px);   
+.right-panel .content,
+.right-panel .image {
+    transform: translateX(800px);
 }
 
-.container.sign-up-mode:before{
+.container.sign-up-mode:before {
     transform: translate(100%, -50%);
     right: 52%;
 }
 
 .container.sign-up-mode .left-panel .image,
-.container.sign-up-mode .left-panel .content{
+.container.sign-up-mode .left-panel .content {
     transform: translateX(-800px);
 }
 
 .container.sign-up-mode .right-panel .content,
-.container.sign-up-mode .right-panel .image{
-    transform: translateX(0px);   
+.container.sign-up-mode .right-panel .image {
+    transform: translateX(0px);
 }
 
-.container.sign-up-mode .left-panel{
+.container.sign-up-mode .left-panel {
     pointer-events: none;
 }
 
-.container.sign-up-mode .right-panel{
+.container.sign-up-mode .right-panel {
     pointer-events: all;
 }
-  
-.container.sign-up-mode .singin-singup{
+
+.container.sign-up-mode .singin-singup {
     left: 25%;
 }
 
-.container.sign-up-mode form.sing-in-from{
+.container.sign-up-mode form.sing-in-from {
     z-index: 1;
     opacity: 0;
 }
 
-.container.sign-up-mode form.sing-up-from{
+.container.sign-up-mode form.sing-up-from {
     z-index: 2;
-    opacity: 1;   
+    opacity: 1;
 }
-  
-@media (max-width: 870px){
-    .container{
+
+@media (max-width: 870px) {
+    .container {
         min-height: 800px;
         height: 100vh;
     }
 
-    .container::before{
+    .container::before {
         width: 1500px;
         height: 1500px;
         left: 30%;
@@ -269,7 +274,7 @@ form.sing-up-from{
         transition: 2s ease-in-out;
     }
 
-    .singin-singup{
+    .singin-singup {
         width: 100%;
         left: 50%;
         top: 95%;
@@ -277,96 +282,98 @@ form.sing-up-from{
         transition: 1s 0.8s ease-in-out;
     }
 
-    .panels-container{
+    .panels-container {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 2fr 1fr;
     }
 
-    .panel{
+    .panel {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
         padding: 2.5rem 8%;
     }
 
-    .panel .content{
+    .panel .content {
         padding-right: 15%;
         transition: 0.9s 0.8s ease-in-out;
     }
 
-    .panel h3{
+    .panel h3 {
         font-size: 1.2rem;
     }
 
-    .panel p{
+    .panel p {
         font-size: 0.7rem;
         padding: 0.5rem 0;
     }
 
-    .btnn.transparent{
+    .btnn.transparent {
         width: 110px;
         height: 35px;
         font-size: 0.7rem;
     }
 
-    .image{
+    .image {
         width: 200px;
         transition: 0.9s 0.6s ease-in-out;
     }
 
-    .left-panel{
+    .left-panel {
         grid-row: 1 / 2;
     }
 
-    .right-panel{
+    .right-panel {
         grid-row: 3 / 4;
     }
 
-    .right-panel .content, .right-panel .image{
-        transform: translateY(300px);   
+    .right-panel .content,
+    .right-panel .image {
+        transform: translateY(300px);
     }
 
-    .container.sign-up-mode:before{
+    .container.sign-up-mode:before {
         transform: translate(-50%, 100%);
         bottom: 32%;
         right: initial;
     }
 
     .container.sign-up-mode .left-panel .image,
-    .container.sign-up-mode .left-panel .content{
+    .container.sign-up-mode .left-panel .content {
         transform: translateY(-300px);
     }
 
-    .container.sign-up-mode .singin-singup{
+    .container.sign-up-mode .singin-singup {
         top: 5%;
         transform: translate(-50%, 0);
         left: 50%;
     }
 }
 
-@media (max-width: 570px){
-    form{
+@media (max-width: 570px) {
+    form {
         padding: 0 1.5rem;
     }
 
-    .image{
+    .image {
         display: none;
     }
 
-    .panel .content{
+    .panel .content {
         padding: 0.5rem 1rem;
     }
 
-    .container:before{
+    .container:before {
         bottom: 72%;
         left: 50%;
     }
 
-    .container.sign-up-mode::before{
+    .container.sign-up-mode::before {
         bottom: 28%;
         left: 50%;
     }
 }
+
 .input-div {
     position: relative;
     width: 60px;
@@ -377,79 +384,79 @@ form.sing-up-from{
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    box-shadow: 0px 0px 100px rgb(1, 235, 252) , inset 0px 0px 10px rgb(1, 235, 252),0px 0px 5px rgb(255, 255, 255);
+    box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
     animation: flicker 2s linear infinite;
-  }
-  
-  .icon {
+}
+
+.icon {
     color: rgb(1, 235, 252);
     font-size: 2rem;
     cursor: pointer;
     animation: iconflicker 2s linear infinite;
-  }
-  
-  .input {
+}
+
+.input {
     position: absolute;
     opacity: 0;
     width: 100%;
     height: 100%;
     cursor: pointer !important;
-  }
-  
-  @keyframes flicker {
+}
+
+@keyframes flicker {
     0% {
-      border: 2px solid rgb(1, 235, 252);
-      box-shadow: 0px 0px 100px rgb(1, 235, 252) , inset 0px 0px 10px rgb(1, 235, 252),0px 0px 5px rgb(255, 255, 255);
+        border: 2px solid rgb(1, 235, 252);
+        box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
     }
-  
+
     5% {
-      border: none;
-      box-shadow: none;
+        border: none;
+        box-shadow: none;
     }
-  
+
     10% {
-      border: 2px solid rgb(1, 235, 252);
-      box-shadow: 0px 0px 100px rgb(1, 235, 252) , inset 0px 0px 10px rgb(1, 235, 252),0px 0px 5px rgb(255, 255, 255);
+        border: 2px solid rgb(1, 235, 252);
+        box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
     }
-  
+
     25% {
-      border: none;
-      box-shadow: none;
+        border: none;
+        box-shadow: none;
     }
-  
+
     30% {
-      border: 2px solid rgb(1, 235, 252);
-      box-shadow: 0px 0px 100px rgb(1, 235, 252) , inset 0px 0px 10px rgb(1, 235, 252),0px 0px 5px rgb(255, 255, 255);
+        border: 2px solid rgb(1, 235, 252);
+        box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
     }
-  
+
     100% {
-      border: 2px solid rgb(1, 235, 252);
-      box-shadow: 0px 0px 100px rgb(1, 235, 252) , inset 0px 0px 10px rgb(1, 235, 252),0px 0px 5px rgb(255, 255, 255);
+        border: 2px solid rgb(1, 235, 252);
+        box-shadow: 0px 0px 100px rgb(1, 235, 252), inset 0px 0px 10px rgb(1, 235, 252), 0px 0px 5px rgb(255, 255, 255);
     }
-  }
-  
-  @keyframes iconflicker {
+}
+
+@keyframes iconflicker {
     0% {
-      opacity: 1;
+        opacity: 1;
     }
-  
+
     5% {
-      opacity: 0.2;
+        opacity: 0.2;
     }
-  
+
     10% {
-      opacity: 1;
+        opacity: 1;
     }
-  
+
     25% {
-      opacity: 0.2;
+        opacity: 0.2;
     }
-  
+
     30% {
-      opacity: 1;
+        opacity: 1;
     }
-  
+
     100% {
-      opacity: 1;
+        opacity: 1;
     }
-  }
+}
