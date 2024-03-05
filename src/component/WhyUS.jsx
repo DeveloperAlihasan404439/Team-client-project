@@ -43,7 +43,7 @@ const WhyUS = () => {
               src="https://1st-it.com/wp-content/uploads/2017/05/cyber-attack.gif"
               alt=""
             />
-            <h1 className="text-xl font-bold drop-shadow-md ">
+            <h1 className="text-xl dark:text-white font-bold drop-shadow-md ">
               Privacy and Security First
             </h1>
             <p className=" text-sm">
@@ -68,7 +68,7 @@ const WhyUS = () => {
               animationData={img2}
               loop={true}
             />
-            <h1 className="text-xl font-bold drop-shadow-md ">
+            <h1 className="text-xl  font-bold drop-shadow-md dark:text-white">
               Avoid Spam and Unwanted Emails
             </h1>
             <p className=" text-sm">
@@ -89,7 +89,7 @@ const WhyUS = () => {
               animationData={img3}
               loop={true}
             />
-            <h1 className="text-xl font-bold drop-shadow-md ">
+            <h1 className="text-xl font-bold drop-shadow-md dark:text-white ">
               Effortless Email Verification
             </h1>
             <p className=" text-sm">
@@ -106,7 +106,7 @@ const WhyUS = () => {
             className="text-center flex flex-col justify-center items-center gap-4 "
           >
             <img className="h-28 rounded-xl" src={gif} alt="" />
-            <h1 className="text-xl font-bold drop-shadow-md ">
+            <h1 className="text-xl font-bold drop-shadow-md dark:text-white ">
               Enhanced Control and Convenience
             </h1>
             <p className=" text-sm">

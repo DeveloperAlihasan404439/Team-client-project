@@ -60,12 +60,12 @@ const UserReview = () => {
         >
           {review?.map((item) => (
             <SwiperSlide key={item._id} className="bg-[#E5E5E5] dark:bg-[#1E293B]  ">
-              <div className="flex flex-col dark:text-slate-400 md:flex-row items-center text-[#333333]  justify-center gap-6 box-border rounded-lg p-2">
+              <div className="flex flex-col   dark:text-slate-400 md:flex-row items-center text-[#333333]  justify-center gap-6 box-border rounded-lg p-2">
                 <div className="md:w-[30%] lg:w-[20%] lg:h-[37dvh] h-[70dvh] md:h-full p-2 ">
                   <img
                     alt="profil"
                     src={item.image}
-                    className="mx-auto object-fit rounded-xl h-full w-fit"
+                    className="mx-auto object-cover   h-full w-fit"
                   />
                 </div>
 
@@ -87,7 +87,7 @@ const UserReview = () => {
                   </div>
 
                   <div className="w-full text-lg py-4">
-                    <p className="text-lg  font-medium px-6">
+                    <p className="text-lg  font-medium  ">
                       <span className="text-[#019D90] text-2xl "> </span>
                       {item.review}
                       <span className="text-[#019D90] text-2xl "> </span>
