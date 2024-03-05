@@ -14,7 +14,7 @@ export default function MainLauOut() {
       {time ? (
         <HomeLoading />
       ) : (
-        <div className="bg-[#EEE] dark:bg-[#0f172a]">
+        <div className="bg-[#EEE] dark:bg-[#0F172A]">
           <Outlet />
         </div>
       )}

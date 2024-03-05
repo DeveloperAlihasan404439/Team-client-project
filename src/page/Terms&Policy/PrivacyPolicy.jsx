@@ -1,16 +1,34 @@
+import { Link } from "react-router-dom";
+
+// use design motion and title updated helpet hooks
 import { motion } from "framer-motion";
+import HelmetTitle from "../../shared/HelmetTitle";
+
+// use react icons npm package 
+import { FaTentArrowTurnLeft } from "react-icons/fa6";
 
 const PrivacyPolicy = () => {
   return (
-    <div>
+    <div className="py-5">
+      {/* daynamic title component  */}
+      <HelmetTitle title="Terms Conditions" />
       <motion.div
-        className="terms-container mt-4 max-w-7xl  mx-auto p-8 border-t-2 rounded-md shadow-lg"
+        className="terms-container max-w-7xl  mx-auto p-8 border-t-2 rounded-md shadow-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
+        {/* got to home link button  */}
+        <Link
+          to="/"
+          className="flex justify-center items-center w-fit px-4 py-2 bg-[#019D91] gap-2 text-[#EEEEEE] rounded"
+        >
+          <FaTentArrowTurnLeft />
+          BACK TO HOME
+        </Link>
+        {/* got to home link button  */}
         <section>
-          <h1 className="text-3xl font-bold pb-6 drop-shadow">
+          <h1 className="text-3xl font-bold pb-3 drop-shadow mt-5">
             Privacy Policy
           </h1>
           <p className="py-1">Last updated: January 24, 2024</p>

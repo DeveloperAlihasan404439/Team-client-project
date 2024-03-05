@@ -1,17 +1,22 @@
-import TimeDifference from "./TimeDifference";
+import { useState } from "react";
+// react icon and sweet alert npm package 
 import { IoShieldCheckmark } from "react-icons/io5";
 import { BiComment } from "react-icons/bi";
 import { MdSend } from "react-icons/md";
+import Swal from "sweetalert2";
+// user information loade and axios baseurl import 
+import useComments from "../../Hooks/useComments";
 import useAxios from "../../Hooks/useAxios";
 import useAuth from "../Auth/useAuth";
-import useComments from "../../Hooks/useComments";
-import Swal from "sweetalert2";
 
+import TimeDifference from "./TimeDifference";
 // eslint-disable-next-line react/prop-types
 const CommentSection = ({ id, handleComment }) => {
+  const [commentText, setCommentText] = useState("")
   const axiosPublick = useAxios();
   const { user } = useAuth();
 
+  // current time create function start 
   const year = new Date().getFullYear();
   const month = new Date().getMonth() + 1;
   const tariq = new Date().getDate();
@@ -23,13 +28,14 @@ const CommentSection = ({ id, handleComment }) => {
   }T${hours > 9 ? hours : "0" + hours}:${minute > 9 ? minute : "0" + minute}:${
     second > 9 ? second : "0" + second
   }`;
+  // current time create function end 
+
+  // comment upload the database and all comment loade code 
   const { comment, refetch } = useComments(id);
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const commit = form.commit.value;
     const userInfo = {
-      comment: commit,
+      comment: commentText,
       commentTime: currentTimes,
       id: id,
       userName: user.displayName,
@@ -38,7 +44,7 @@ const CommentSection = ({ id, handleComment }) => {
     axiosPublick.post("/comment", userInfo).then((res) => {
       if (res?.data) {
         refetch();
-        form.reset();
+        setCommentText('');
         Swal.fire({
           position: "top-end",
           icon: "success",
@@ -58,17 +64,18 @@ const CommentSection = ({ id, handleComment }) => {
         className="text-sm font-medium font-inter flex gap-2 items-center"
       >
         Commnet
-        <BiComment className="text-gray-500 text-lg" /> {comment.length}
+        <BiComment className="text-gray-500 text-lg dark:text-slate-400" /> {comment.length}
       </button>
 
       <dialog id="my_modal_3" className="modal">
-        <div className="modal-box   bg-[#EEEE]">
+        <div className="modal-box   bg-[#EEEE] dark:bg-[#212e42]">
           <form method="dialog">
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 dark:bg-white dark:text-[#144248]">
               ✕
             </button>
           </form>
           <div className="w-full">
+            {/* all comment show section  start*/}
             {comment?.length > 0 ? (
               <h1>All comments are shown below</h1>
             ) : (
@@ -78,13 +85,16 @@ const CommentSection = ({ id, handleComment }) => {
               {comment?.map((cmt) => (
                 <div className="mb-2" key={cmt._id}>
                   <div className="flex gap-2  ">
+                    <div className="border-2 bg-white h-fit rounded-full">
                     <img
-                      className="w-6 h-max rounded-full"
+                      className="w-8 h-max rounded-full "
                       src={cmt.userImage}
                       alt=""
                     />
+
+                    </div>
                     <div>
-                      <p className="font-inter text-sm flex text-[#09302dd2]  items-center ">
+                      <p className="font-inter text-sm flex text-[#09302dd2]  items-center dark:text-white">
                         {cmt.userName}
                         <IoShieldCheckmark className="text-gray-400 text-[12px] ml-1" />
                       </p>
@@ -93,29 +103,33 @@ const CommentSection = ({ id, handleComment }) => {
                       </p>
                       <p className="font-light  text-[12px] font-inter flex gap-1">
                         <TimeDifference setTime={cmt.commentTime} />
-                        ago
                       </p>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
+            {/* all comment show section  end*/}
+            
+            {/* upload comment form section  start*/}
             <form className="w-full" onSubmit={handleSubmit}>
-              <div className="flex px-4 rounded-l relative w-full bg-white  ">
+              <div className="flex px-4 rounded relative w-full bg-white">
                 <input
-                  className="flex bg-transparent rounded-l bg-white w-full  duration-200 relative    hover:drop-shadow  font-light text-[#019D91] placeholder:text-[12px] placeholder:font-light outline-none text-sm px-2 py-2"
-                  name="commit"
+                  className="flex bg-transparent rounded-l bg-white w-full  duration-200 relative hover:drop-shadow  font-light text-[#019D91] placeholder:text-[12px] placeholder:font-light outline-none text-sm px-2 py-2"
+                  onChange={(e) => setCommentText(e.target.value)}
                   type="text"
                   placeholder="Commnet here..."
                 />
                 <button
                   className="font-inter font-light absolute right-0 top-0 bottom-0 bg-[#019D91] hover:bg-[#00877c] duration-100 text-sm px-4 py-2 rounded-r text-white"
                   type="submit"
+                  disabled={commentText?false:true}
                 >
                   <MdSend className="text-xl" />
                 </button>
               </div>
             </form>
+            {/* all comment show section  end*/}
           </div>
         </div>
       </dialog>
