@@ -7,3 +7,14 @@
     color: #144248;
     background: #EEEEEE;
 }
+
+.dark  .pagination .active > .page-link{
+    border: none;
+    background: #019D90;
+    color: #EEEEEE;
+}
+.dark .pagination .page-link{
+    border: none;
+    color: #EEE;
+    background: #1E293B;
+}

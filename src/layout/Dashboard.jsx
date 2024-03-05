@@ -84,7 +84,7 @@ const Dashboard = () => {
       Route: "/dashboard/user/password",
     },
     {
-      Title: "Storage",
+      Title: "Cloud Storage",
       icon: <FaPeopleGroup />,
       Route: "/dashboard/user/storage",
     },

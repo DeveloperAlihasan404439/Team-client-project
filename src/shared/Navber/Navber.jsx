@@ -16,7 +16,6 @@ import DarkMode from "./DarkMode";
 // import DarkMode from "../Shared/DarkMode/DarkMode";
 const Navber = () => {
   const { user, logOut } = useAuth();
-
   const [admin, setAdmin] = useState({});
   const axiosPublick = useAxios();
 
@@ -69,7 +68,8 @@ const Navber = () => {
         transition: "all .5s ease-in-out",
       }}
     >
-      <div className="navbar z-80 navber-color dark:backdrop-blur dark:bg-white/70 rounded-lg h-16 lg:h-20 flex justify-center items-center  max-w-7xl mx-auto">
+      <div className="navbar z-80 navber-color rounded-b-lg h-16 lg:h-20 flex justify-center items-center max-w-7xl mx-auto dark:bg-[#1E293B]">
+
         <div className="navbar-start    ">
           <div className="drawer block lg:hidden">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />

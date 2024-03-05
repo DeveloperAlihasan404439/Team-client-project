@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode : 'class',
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -13,7 +13,8 @@ export default {
     },
     
   },
-  
-  // eslint-disable-next-line no-undef
-  plugins: [require("daisyui")],
+  plugins: [
+    require("daisyui"),
+    require('tailwind-scrollbar')
+  ],
 }
