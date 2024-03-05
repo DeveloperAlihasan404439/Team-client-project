@@ -15,7 +15,7 @@ import { IoIosStarHalf } from "react-icons/io";
 // use react reting design npm package 
 import Rating from "react-rating";
 
-// import component modal review and use data loade 
+// import component modal review use review hooks and use data loade 
 import UserReviewModal from "./UserReviewModal";
 import useReview from "../../Hooks/useReview";
 import useAuth from "../../shared/Auth/useAuth";
@@ -52,7 +52,7 @@ const UserReview = () => {
           effect={"cards"}
           grabCursor={true}
           modules={[EffectCards, Autoplay]}
-          className="mySwiper md:h-[300px]  w-[100%]"
+          className="mySwiper md:h-[300px] rounded-lg w-[100%]"
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
@@ -60,7 +60,7 @@ const UserReview = () => {
         >
           {review?.map((item) => (
             <SwiperSlide key={item._id} className="bg-[#E5E5E5]  ">
-              <div className="flex flex-col  md:flex-row items-center text-[#333333]  justify-center gap-6 box-border  p-2">
+              <div className="flex flex-col  md:flex-row items-center text-[#333333]  justify-center gap-6 box-border rounded-lg p-2">
                 <div className="md:w-[30%] lg:w-[20%] lg:h-[37dvh] h-[70dvh] md:h-full p-2 ">
                   <img
                     alt="profil"
@@ -117,20 +117,21 @@ const UserReview = () => {
           <motion.label
             htmlFor="my_modal_6"
             whileTap={{ scale: 0.9 }}
-            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl  shadow-md"
+            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl bg-white  shadow-md"
           >
             <AiTwotoneEdit className="text-2xl" /> Write a review
           </motion.label>
         ) : (
           <Link
             to="/login"
-            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl  shadow-md"
+            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl bg-white shadow-md"
           >
             <AiTwotoneEdit className="text-2xl" /> Please Login
           </Link>
         )}
         <UserReviewModal />
       </section>
+      {/* added user review button and modal  sectin end  */}
     </div>
   );
 };

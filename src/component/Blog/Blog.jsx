@@ -1,15 +1,21 @@
-import { GoDash } from "react-icons/go";
-import "swiper/css/pagination";
+// create the slider in use swiper react package
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css/pagination";
+
+// use react icons npm package 
+import { GoDash } from "react-icons/go";
 import { MdVerified } from "react-icons/md";
-import { Autoplay } from "swiper/modules";
+
+// import component modal review and use blog hooks data loade
 import useBlog from "../../Hooks/useBlog";
 import BlogCard from "./BlogCard";
-import './Blog.css'
+
+// blog custom css
+import "./Blog.css";
 
 const Blog = () => {
-  const {blog} = useBlog();
+  const { blog } = useBlog();
 
   return (
     <div className=" max-w-7xl mx-auto shadow-md mb-10 border-t-2 text-[#144248] border-t-gray-200 p-4  rounded-2xl mt-6 ">
@@ -17,8 +23,13 @@ const Blog = () => {
         <h1 className="text-center font-bold text-4xl drop-shadow  ">
           Most Popular <span className="text-[#019D90]">Blog</span>
         </h1>
-        <p className="text-center  py-4 text-lg ">Embark on a virtual journey through captivating narratives, vivid imagery, and the allure of exploration as we delve into the beauty of diverse cultures, landscapes, and travel experiences.</p>
+        <p className="text-center  py-4 text-lg ">
+          Embark on a virtual journey through captivating narratives, vivid
+          imagery, and the allure of exploration as we delve into the beauty of
+          diverse cultures, landscapes, and travel experiences.
+        </p>
       </div>
+      {/* slider section start  */}
       <div className="px-5 text-dark py-6">
         <>
           <Swiper
@@ -48,9 +59,7 @@ const Blog = () => {
                           {item.travelFrom}
                         </p>
                         <GoDash />
-                        <p className="font-light  text-sm">
-                          {item.travelDate}
-                        </p>
+                        <p className="font-light  text-sm">{item.travelDate}</p>
                       </div>
 
                       <p className=" text-4xl leading-tight">
@@ -88,11 +97,15 @@ const Blog = () => {
           </Swiper>
         </>
       </div>
+      {/* slider section end  */}
+
+      {/* blog crat section start  */}
       <div className="px-3 mb-6 grid grid-cols-1 md:grid-cols-3 gap-5">
         {blog?.map((blogs, index) => (
           <BlogCard key={index} blogs={blogs} />
         ))}
       </div>
+      {/* blog crat section end  */}
     </div>
   );
 };

@@ -69,13 +69,13 @@ const router = createBrowserRouter([
       {
         path: "/help",
         element: <Help/>
-      } 
+      },
+      {
+       path:'/login',
+       element: <Login/>,
+       errorElement:<ErrorPage></ErrorPage>,
+     }, 
     ],
-  },
-   {
-    path:'/login',
-    element: <Login/>,
-    errorElement:<ErrorPage></ErrorPage>,
   },
  {
     path: '/dashboard',
