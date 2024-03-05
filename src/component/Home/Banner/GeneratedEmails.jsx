@@ -1,12 +1,25 @@
 import { useState } from "react";
+<<<<<<<< HEAD:src/component/Home/Banner/GeneratedEmails.jsx
+import useAuth from "../../../shared/Auth/useAuth";
+import Button from "../../../shared/Button";
+========
 
 // shared button import 
 import Button from "../../shared/Button";
 
 // use context user data loade  
 import useAuth from "../../shared/Auth/useAuth";
+>>>>>>>> a82d77297a56b63749a7a469c36702bfb38729ac:src/component/Banner/GeneratedEmails.jsx
 
+// eslint-disable-next-line react/prop-types
 const GeneratedEmails = ({ tempMail }) => {
+<<<<<<<< HEAD:src/component/Home/Banner/GeneratedEmails.jsx
+  // eslint-disable-next-line react/prop-types
+  const { emailAddress } = tempMail;
+  const { user } = useAuth();
+  const [copied, setCopied] = useState(false);
+========
+>>>>>>>> a82d77297a56b63749a7a469c36702bfb38729ac:src/component/Banner/GeneratedEmails.jsx
 
   const { user } = useAuth();
   const [copied, setCopied] = useState(false);
@@ -33,7 +46,7 @@ const GeneratedEmails = ({ tempMail }) => {
           </div>
           )
         ) : (
-          <div className="shadow bg-[#fff]  py-[2px] px-3 lg:w-[30rem] md:w-[30rem] w-full rounded-l-md bg-opacity-50 font-medium">
+          <div className="shadow bg-[#fff] py-[2px] px-3 lg:w-[30rem] md:w-[30rem] w-full rounded-l-md bg-opacity-50 font-medium">
               <h2>Login to see generated email address</h2>
             </div>
         )}

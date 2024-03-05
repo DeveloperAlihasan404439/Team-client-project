@@ -59,7 +59,6 @@ const Navber = () => {
       Route: "/help",
     },
   ];
-
   return (
     <Headroom
       style={{
@@ -70,6 +69,7 @@ const Navber = () => {
       }}
     >
       <div className="navbar z-80 navber-color rounded-b-lg h-16 lg:h-20 flex justify-center items-center max-w-7xl mx-auto dark:bg-[#1E293B]">
+
         <div className="navbar-start    ">
           <div className="drawer block lg:hidden">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />

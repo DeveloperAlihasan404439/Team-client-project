@@ -11,6 +11,7 @@ const AddArticle = () => {
   const [benefitsData, setBenefitsData] = useState("");
   const [benefits, setBenefits] = useState([]);
   const [imgLoader, setImgLoader] = useState(false);
+  const {user} = useAuth()
   const axiosPublick = useAxios()
   const navigate = useNavigate()
   if (!benefits.includes(benefitsData)) {
@@ -68,6 +69,7 @@ const AddArticle = () => {
   // console.log(article);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
+    setImgLoader(true)
     const fromImages = { image: data.image[0] };
     const res = await axiosPublick.post(images_hosting_api, fromImages, {
       headers: {
@@ -78,6 +80,9 @@ const AddArticle = () => {
       setImgLoader(false)
       const photoURL = res?.data?.data?.display_url;
       const addArticle = {
+        user_Email: user?.email,
+        user_Name: user?.displayName,
+        user_photo: user?.photoURL,
         img: photoURL,
         title: data.title,
         description: data.description,
@@ -88,12 +93,13 @@ const AddArticle = () => {
         useToHelp: data.useToHelp,
         benefits,
         suggestArticle,
+        status:"confrom"
       };
       axiosPublick.post('/article',addArticle)
       .then((res) => {
-        if (res?.data?.insertedId) {
+        if (res?.data) {
           reset()
-          navigate('/dashboard/articleUpdated')
+          navigate('/dashboard/articles')
           Swal.fire({
             position: "center",
             icon: "success",
@@ -106,7 +112,6 @@ const AddArticle = () => {
         }
       })
     }
-    setImgLoader(true)
   };
   
   return (

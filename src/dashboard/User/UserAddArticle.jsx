@@ -71,6 +71,8 @@ const UserAddArticle = () => {
   // console.log(article);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
+    
+    setImgLoader(true)
     const fromImages = { image: data.image[0] };
     const res = await axiosPublick.post(images_hosting_api, fromImages, {
       headers: {
@@ -80,7 +82,10 @@ const UserAddArticle = () => {
     if (res.data.success) {
       setImgLoader(false);
       const hosting = res?.data?.data?.display_url;
-      const addArticle = {
+      const userArticle = {
+        user_Email: user?.email,
+        user_Name: user?.displayName,
+        user_photo: user?.photoURL,
         img: hosting,
         title: data.title,
         description: data.description,
@@ -91,15 +96,13 @@ const UserAddArticle = () => {
         useToHelp: data.useToHelp,
         benefits,
         suggestArticle,
-        status: "panding",
-        user_Email: user?.email,
-        user_Name: user?.displayName,
-        user_photo: user?.photoUrl,
+        status: "panding"
       };
-      axiosPublick.post("/article", addArticle).then((res) => {
-        if (res?.data?.insertedId) {
+      console.log(userArticle)
+      axiosPublick.post("/article/user", userArticle).then((res) => {
+        if (res?.data) {
           reset();
-          navigate("/dashboard/articleUpdated");
+          navigate("/dashboard/user/all/Article");
           Swal.fire({
             position: "center",
             icon: "success",
@@ -112,7 +115,6 @@ const UserAddArticle = () => {
         }
       });
     }
-    setImgLoader(true);
   };
 
   return (

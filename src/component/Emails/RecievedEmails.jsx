@@ -79,7 +79,7 @@ const RecievedEmails = () => {
   };
   return (
     <div className="w-11/12 max-w-7xl mx-auto py-5 md:py-10">
-      <div className="bg-white -mt-16 w-full lg:w-[50%] m-auto rounded-md ">
+      <div className="bg-white dark:bg-[#1E293B] -mt-16 w-full lg:w-[50%] m-auto rounded-md ">
         <div
           className="flex justify-between bg-[#10a295] items-center
                  px-5 py-2 rounded-t-lg"
@@ -103,7 +103,7 @@ const RecievedEmails = () => {
               ) : (
                 <button
                   onClick={() => reloadEmails()}
-                  className="px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
+                  className="px-4 py-1 text-[#144248] dark:text-white dark:bg-[#1E293B] bg-white rounded text-xl flex items-center gap-2"
                 >
                   {" "}
                   Reload
@@ -113,14 +113,14 @@ const RecievedEmails = () => {
               <button
                 disabled
                 onClick={() => reloadEmails()}
-                className="cursor-not-allowed px-4 py-1 text-[#144248] bg-white rounded text-xl flex items-center gap-2"
+                className="cursor-not-allowed px-4 py-1 text-[#144248] bg-white  rounded text-xl flex items-center gap-2"
               >
                 Reload
               </button>
             )}
           </div>
         </div>
-        <div className="bg-white h-[300px] w-full flex  flex-col border-b-lg">
+        <div className="bg-white dark:bg-[#1E293B] h-[300px] w-full flex  flex-col border-b-lg">
           {user ? (
             emails?.length <= 0 ? (
               <>

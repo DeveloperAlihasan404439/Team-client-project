@@ -18,12 +18,12 @@ const HowToUse = () => {
   return (
     <div
       data-aos="zoom-in"
-      className="w-11/12 max-w-7xl mx-auto my-6  shadow-md border-t-2 text-[#144248] border-t-gray-200 p-3 md:p-0 rounded-2xl"
+      className="w-11/12 max-w-7xl mx-auto my-6  shadow-md dark:border-t dark:border-gray-600 border-t-2 text-[#144248] border-t-gray-200 p-3 md:p-0 rounded-2xl"
     >
       <div className="flex flex-col lg:flex-row lg:justify-start  lg:items-start  gap-10">
         <aside className=" lg:w-[50%] rounded-lg pt-0">
-          <h1 className="text-4xl font-bold  drop-shadow-md lg:hidden mb-6 md:mb-0 text-[#144248] ">
-            How to Use <span className=" text-[#019D90]">Swifty Mail</span>-
+          <h1 className="text-4xl font-bold  drop-shadow-md lg:hidden mb-6 md:mb-0 text-[#144248] dark:text-white">
+            How to Use <span className=" text-[#019D90] ">Swifty Mail</span>-
             Your Quick Guide to Instant Privacy
           </h1>
           <Lottie
@@ -34,11 +34,11 @@ const HowToUse = () => {
         </aside>
 
         <aside className="lg:w-[50%] lg:pt-10 ">
-          <h1 className="text-3xl font-bold drop-shadow-md hidden lg:block ">
+          <h1 className="text-3xl font-bold drop-shadow-md hidden lg:block  dark:text-white">
             How to Use <span className=" text-[#019D90]">Swifty Mail</span>-
             Your Quick Guide to Instant Privacy
           </h1>
-          <section className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:pb-10">
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:pb-10 dark:text-slate-400">
             <div className="flex flex-col items-start gap-2 justify-start mt-2 md:mt-8">
               <Lottie
                 className=" lg:col-span-2  lg:row-span-2 h-[20vh]  rounded-lg"

@@ -88,10 +88,13 @@ const Dashboard = () => {
       icon: <FaPeopleGroup />,
       Route: "/dashboard/user/storage",
     },
+
   ];
   // const adminDashboard = usersData.find((users) => users.email === user?.email);
 
   return (
+    <>
+    <HelmetTitle title={userSingle?.role==="admin"?"Dashboard Admin":"Dashboard User"}/>
     <div className="w-full bg-[#EEE]">
       <div className="block sticky top-0 left-0 bg-[#144248] md:hidden z-50 ">
         <div className="py-2  flex justify-between items-center w-[90%] lg:w-[30%] mx-auto flex-row-reverse lg:flex-row">
@@ -235,6 +238,7 @@ const Dashboard = () => {
         <div className="w-11/12 md:w-[83%] mx-auto">{<Outlet />}</div>
       </div>
     </div>
+    </>
   );
 };
 
