@@ -57,17 +57,16 @@ const TeamMember = () => {
             </div>
           </div>
           <div className="flex flex-col mt-4 text-center">
-            <p className="text-lg font-bold  ">{member.name}</p>
-            <p className=" py-1 text-sm  ">{member.education}</p>
-            <p>PortFolio Link-</p>
+            <p className="text-lg font-bolddark:text-white dark:text-white">{member.name}</p>
+            <p className=" py-1 text-sm dark:text-slate-400">{member.education}</p>
+            <p className="dark:text-slate-400">PortFolio Link-</p>
             <div className="flex absolute bottom-1 left-[45%] right-[45%] cursor-pointer  items-center space-x-3 justify-center">
-              <p className="text-3xl text-[#019D90]">
-                <FaSquareFacebook />
+              <p className="text-3xl text-[#019D90] P-2 dark:text-slate-400">
+                <FaSquareFacebook className="h-8 w-8"/>
               </p>
-              <p className="text-3xl text-[#019D90]">
-                <SiLinkedin />
+              <p className="text-3xl text-[#019D90] P-2 dark:text-slate-400">
+                <SiLinkedin className="h-7 w-7"/>
               </p>
-              <p></p>
             </div>
           </div>
         </div>

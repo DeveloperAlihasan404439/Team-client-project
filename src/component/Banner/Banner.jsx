@@ -93,8 +93,8 @@ const Banner = () => {
         style={{ y: textY }}
         className="hero-content z-80   text-center text-[#144248]"
       >
-        <div className="bg-white bg-opacity-50 dark:bg-[#1E293B] z-80  rounded-md">
-          <h2 className="mt-9  text-xl md:text-2xl lg:text-3xl dark:text-white font-medium ">
+        <div className="bg-white bg-opacity-50 z-80  rounded-md">
+          <h2 className="mt-9  text-xl md:text-2xl lg:text-3xl font-medium ">
             Your Temporary Email Address
           </h2>
           <div className="lg:w-[45rem] rounded-lg w-full h-[10rem] flex items-center justify-center">

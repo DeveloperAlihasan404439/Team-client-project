@@ -16,6 +16,16 @@ nav{
     position: relative;
     border-radius: 100vw 0 0 100vw;
 }
+.dark .active{
+    background-color: #0F172A ;
+    color: white !important;
+}
 .nav-list a{
     border-radius: 100vw 0 0 100vw;
 }
+
+ @media (min-width: 250px) and (max-width: 1000px) {
+    .dark .active{
+        background-color: #1E293B ;
+    }
+  }

@@ -9,7 +9,7 @@
 }
 .react-tabs__tab{
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
     background-color: #019D90;
     border-radius: 10px;
@@ -25,4 +25,16 @@
     border-width: 0;
     border-style: none;
     border-color: #EEE;
+}
+
+
+.dark .react-tabs__tab--selected{
+    background-color: #019D90 !important;
+    color: white !important;
+    outline: none;
+    border: transparent;
+} 
+.dark .react-tabs__tab{
+    background-color:#1E293B;
+    color: #EEEEEE !important;
 }

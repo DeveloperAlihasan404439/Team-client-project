@@ -130,7 +130,7 @@ const RecievedEmails = () => {
                   loop={true}
                 />
 
-                <h2 className="mt-5 text-xl text-[#144248] text-center">
+                <h2 className="mt-5 text-xl text-[#144248] text-center dark:text-slate-200">
                   Waiting For Emails...
                 </h2>
               </>
@@ -153,10 +153,10 @@ const RecievedEmails = () => {
                 animationData={img3}
                 loop={true}
               />
-              <h1 className="mt-5 text-xl text-[#144248] text-center">
+              <h1 className="mt-5 text-xl text-[#144248] text-center dark:text-slate-200">
                 You have 0 new messages
               </h1>
-              <p className="mt-1 text-sm text-[#144248] text-center">
+              <p className="mt-1 text-sm text-[#144248] text-center dark:text-slate-200">
                 Waiting for incoming email
               </p>
             </>

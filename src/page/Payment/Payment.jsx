@@ -11,8 +11,8 @@ const Payment = () => {
     <>
       <Navber></Navber>
       <HelmetTitle title="Payment" />
-      <div className="pb-24 ">
-        <h2 className="text-teal-600 text-4xl text-center font-bold">
+      <div className="pb-24 mt-5 md:mt-14">
+        <h2 className="text-teal-600 text-4xl text-center font-bold pb-5 dark:text-slate-100">
           Pay For Premium
         </h2>
         <div>

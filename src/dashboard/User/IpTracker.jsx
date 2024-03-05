@@ -124,13 +124,13 @@ if(!navigator.geolocation){
 
 
   return (
-    <div className="text-[#144248] max-w-7xl mx-auto pt-4 p-6">
+    <div className="text-[#144248] max-w-7xl mx-auto pt-4 p-6 dark:text-slate-100">
       <h1 className=" text-3xl md:text-4xl text-center font-bold drop-shadow ">
         Discover Your World: <br className="md:hidden" />
         <span className=" text-[#019D90] ">IP Address & Location</span>
         <br className="md:hidden" /> Tracking system
       </h1>
-      <p className=" md:text-lg py-3  text-center">
+      <p className=" md:text-lg py-3  text-center dark:text-slate-400">
         Explore the magic of geolocation with our IP Address & Location Tracker.
         Uncover the details behind every connection – from city vibes to global
         coordinates. Understand where you are and discover the fascinating world
@@ -144,7 +144,7 @@ if(!navigator.geolocation){
           />
         </section>
 
-        <section className="w-full mt-6 ">
+        <section className="w-full mt-6 dark:text-slate-400 ">
           <div className="overflow-x-auto w-full">
             <table className="table w-full">
               <tbody>
@@ -200,7 +200,7 @@ if(!navigator.geolocation){
           <motion.button
             onClick={getUserAddress}
             whileTap={{ scale: 0.9 }}
-            className="hover:bg-[#017E77] my-6 font-semibold bg-[#019D91] w-fit md:px-4 text-[#EEEEEE] p-2 md:py-3 rounded   flex justify-center items-center gap-2 "
+            className="hover:bg-[#017E77] my-6 font-semibold bg-[#019D91] w-fit md:px-4 text-[#EEEEEE] p-2 md:py-3 rounded flex justify-center items-center gap-2 dark:bg-[#28374e]"
           >
             Show location info
           </motion.button>

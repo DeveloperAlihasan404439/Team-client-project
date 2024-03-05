@@ -111,7 +111,7 @@ const CheckoutForm = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className=" lg:w-1/3 md:w-1/2 w-full  mx-auto border rounded-xl backdrop-blur-md bg-white/10 p-8 text-white shadow-md lg:pt-24 pt-9 pb-10"
+        className=" lg:w-1/3 md:w-1/2 w-full  mx-auto border rounded-xl backdrop-blur-md bg-white/10 p-8 text-white shadow-md lg:pt-24 pt-9 pb-10 dark:border-none"
       >
         <form onSubmit={handleSubmit} style={{ display: "contents" }}>
           <CardElement
@@ -133,7 +133,7 @@ const CheckoutForm = () => {
           <div className="text-center mt-10 border-t-2">
             <button
               type="submit"
-              className=" font-bold btn-md btn text-xl mt-4"
+              className=" font-bold btn-md btn text-xl mt-4 dark:bg-[#232f44] dark:border-none dark:text-slate-100"
               disabled={!stripe}
             >
               Pay

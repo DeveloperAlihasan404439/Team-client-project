@@ -48,7 +48,7 @@ const PopularArtical = () => {
           <Loader />
         ) : (
           <>
-            <div className="max-w-screen-xl  mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="max-w-screen-xl mx-auto mt-5 grid grid-cols-1 lg:grid-cols-2 gap-6">
               {currentItems?.map((item) => (
                 <ArticalCard key={item._id} data={item} />
               ))}

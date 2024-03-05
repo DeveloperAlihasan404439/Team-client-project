@@ -1,10 +1,12 @@
-/* eslint-disable react/prop-types */
+
 import { MdVerified } from "react-icons/md";
 import { GoDash } from "react-icons/go";
 import { motion } from "framer-motion";
-// eslint-disable-next-line react/prop-types
+
+// use time management npm package
+import moment from "moment";
+moment().format();
 const BlogCard = ({ blogs }) => {
-  // eslint-disable-next-line react/prop-types
   const {
     title,
     description,
@@ -20,7 +22,7 @@ const BlogCard = ({ blogs }) => {
     <motion.div
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.9 }}
-      className="cloudBannerZ  dark:bg-[#1E293B]  p-2 border dark:border-gray-600  relative   rounded-xl duration-100 overflow-hidden"
+      className="cloudBannerZ  dark:bg-[#232f44] p-2 border  relative   rounded-xl duration-100 overflow-hidden"
     >
       <img
         className="h-48 object-cover rounded-xl  border-b  w-full"
@@ -33,7 +35,7 @@ const BlogCard = ({ blogs }) => {
             {travelFrom}
           </p>
           <GoDash className="dark:text-white"/>
-          <p className="font-light font-inter text-sm dark:text-slate-400">{travelDate}</p>
+          <p className="font-light font-inter text-sm dark:text-slate-400">{moment(travelDate).format("ddd, MMM YYYY")}</p>
         </div>
 
         <div className="font-inter mt-2 z-30">
