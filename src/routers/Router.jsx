@@ -74,7 +74,6 @@ const router = createBrowserRouter([
       {
        path:'/login',
        element: <Login/>,
-       errorElement:<ErrorPage></ErrorPage>,
      }, 
     ],
   },
@@ -108,7 +107,7 @@ const router = createBrowserRouter([
             path: '/dashboard/requst/article',
             element: <RequstArticle/>
         },
-        // user rout 
+        // user rout start 
          {
 
             path: '/dashboard/user/profile',

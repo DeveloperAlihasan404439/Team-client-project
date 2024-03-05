@@ -16,11 +16,11 @@ const CloudBanner = () => {
       >
         <div className="lg:pt-24 flex flex-col lg:flex-row mx-10 box-border  justify-center items-start gap-8 ">
           <div className="lg:w-[50%] flex flex-col justify-center items-center gap-4">
-            <h1 className="lg:text-6xl mt-10 lg:mt-0 text-4xl font-black ">
+            <h1 className="lg:text-6xl mt-10 lg:mt-0 text-4xl font-black dark:text-slate-100">
               More Than just
               <span className="text-[#019D91] my-2  "> Cloud Storage</span>
             </h1>
-            <p className=" md:text-lg ">
+            <p className=" md:text-lg dark:text-slate-400 ">
               Empower your data management effortlessly with our intuitive and
               reliable cloud storage solution. Seamlessly store, access, and
               share your files with ease, ensuring your data is always secure
@@ -30,43 +30,43 @@ const CloudBanner = () => {
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.9 }}
-                className="cloudBannerZ rounded-br-3xl rounded  p-2"
+                className="navber-color rounded-br-3xl rounded  p-2"
               >
-                <h1 className="text-sm lg:text-lg">Unlimited File Storage</h1>
+                <h1 className="text-sm lg:text-lg ">Unlimited File Storage</h1>
               </motion.div>
 
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.9 }}
-                className="cloudBannerZ rounded-br-3xl rounded lg:ml-2 p-2"
+                className="navber-color rounded-br-3xl rounded lg:ml-2 p-2"
               >
                 <h1 className="text-sm lg:text-lg ">Secure Data Encryption</h1>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.9 }}
-                className="cloudBannerZ  rounded-br-3xl rounded  p-2"
+                className="navber-color  rounded-br-3xl rounded  p-2"
               >
                 <h1 className="text-sm lg:text-lg">Seamless File Sharing</h1>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.9 }}
-                className="cloudBannerZ   rounded-br-3xl rounded  lg:ml-2 p-2"
+                className="navber-color   rounded-br-3xl rounded  lg:ml-2 p-2"
               >
                 <h1 className="text-sm lg:text-lg">Easy File Organization</h1>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.9 }}
-                className="cloudBannerZ rounded-br-3xl rounded  p-2"
+                className="navber-color rounded-br-3xl rounded  p-2"
               >
                 <h1 className="text-sm lg:text-lg">Real-Time File Syncing</h1>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.9 }}
-                className="cloudBannerZ rounded-br-3xl rounded  p-2"
+                className="navber-color rounded-br-3xl rounded  p-2"
               >
                 <h1 className="text-sm lg:text-lg">Access Anywhere, Anytime</h1>
               </motion.div>
@@ -81,7 +81,7 @@ const CloudBanner = () => {
           </aside>
         </div>
       </motion.section>
-      <section className=" grid  grid-cols-1 rounded  md:grid-cols-3 gap-8 ">
+      <section className="max-w-6xl mx-auto grid  grid-cols-1 rounded  md:grid-cols-3 gap-8 ">
         <div>
           <StorageCards
             title="Easy File Uploads"

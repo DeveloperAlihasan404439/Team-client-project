@@ -4,3 +4,6 @@
     border-radius: 0;
     background: #05acc2;
 }
+.dark .swiper-pagination-bullet{
+    background: white;
+}

@@ -18,11 +18,11 @@ const HowToUse = () => {
   return (
     <div
       data-aos="zoom-in"
-      className="w-11/12 max-w-7xl mx-auto my-6  shadow-md dark:border-t dark:border-gray-600 border-t-2 text-[#144248] border-t-gray-200 p-3 md:p-0 rounded-2xl"
+      className="w-11/12 max-w-7xl mx-auto my-6  shadow-md dark:border-t border-t-2 text-[#144248] border-t-gray-200 p-3 md:p-0 rounded-2xl dark:bg-[#1E293B]"
     >
       <div className="flex flex-col lg:flex-row lg:justify-start  lg:items-start  gap-10">
         <aside className=" lg:w-[50%] rounded-lg pt-0">
-          <h1 className="text-4xl font-bold  drop-shadow-md lg:hidden mb-6 md:mb-0 text-[#144248] dark:text-white">
+          <h1 className="text-4xl font-bold  drop-shadow-md lg:hidden mb-6 md:mb-0 text-[#144248] dark:text-slate-100">
             How to Use <span className=" text-[#019D90] ">Swifty Mail</span>-
             Your Quick Guide to Instant Privacy
           </h1>
@@ -45,11 +45,11 @@ const HowToUse = () => {
                 animationData={img2}
                 loop={true}
               />
-              <h1 className="text-lg drop-shadow font-semibold">
+              <h1 className="text-lg drop-shadow font-semibold dark:text-slate-100">
                 Generate Your
                 <span className=" text-[#019D90]"> Swifty Mail </span>
               </h1>
-              <p className="text-sm ">
+              <p className="text-sm">
                 Start by creating a temporary email address effortlessly with
                 <span className=" text-[#019D90] font-semibold">
                   Swifty Mail
@@ -66,7 +66,7 @@ const HowToUse = () => {
                 animationData={img}
                 loop={true}
               />
-              <h1 className="text-lg drop-shadow font-semibold">
+              <h1 className="text-lg drop-shadow font-semibold dark:text-slate-100">
                 Use it Anywhere
               </h1>
               <p className="text-sm ">
@@ -85,7 +85,7 @@ const HowToUse = () => {
                 animationData={img3}
                 loop={true}
               />
-              <h1 className="text-lg drop-shadow font-semibold">
+              <h1 className="text-lg drop-shadow font-semibold dark:text-slate-100">
                 Stay Spam-Free
               </h1>
               <p className="text-sm ">
@@ -107,7 +107,7 @@ const HowToUse = () => {
                 animationData={img4}
                 loop={true}
               />
-              <h1 className="text-lg drop-shadow font-semibold">
+              <h1 className="text-lg drop-shadow font-semibold dark:text-slate-100">
                 No Sign-ups, No Hassle
               </h1>
               <p className="text-sm ">

@@ -6,16 +6,22 @@ import useAuth from "../../shared/Auth/useAuth";
 import Button from "../../shared/Button";
 import useAxios from "../../Hooks/useAxios";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";  
+import "../../shared/ReactDatepicker.css";  
+
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
 
 const UserAddArticle = () => {
+  const [startDate, setStartDate] = useState(new Date());
   const [benefitsData, setBenefitsData] = useState("");
   const [benefits, setBenefits] = useState([]);
   const [imgLoader, setImgLoader] = useState(false);
   const {user} = useAuth()
   const axiosPublick = useAxios()
   const navigate = useNavigate();
+  
   if (!benefits.includes(benefitsData)) {
     if (benefitsData !== "") {
       setBenefits((e) => [...e, benefitsData]);
@@ -117,24 +123,25 @@ const UserAddArticle = () => {
     }
   };
 
+
   return (
     <div className="max-w-7xl mx-auto my-5 md:my-10">
-      <h1 className="text-2xl md:text-4xl text-center font-bold text-[#144248] ">
+      <h1 className="text-2xl md:text-4xl text-center font-bold text-[#144248] dark:text-slate-100">
         Add The User <span className=" text-[#019D90]  ">Article</span>
       </h1>
-      <p className=" text-center font-inter text-[#144248] font-medium  mt-4">
+      <p className=" text-center font-inter text-[#144248] font-medium  mt-4 dark:text-slate-400">
         Be a part of our community! shaping a platform of diverse ideas and
         perspectives.
         <br /> Start enriching our community with your unique articles.
       </p>
-      <div>
+      <div className="mt-5">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-[#EEEEEE] rounded-xl relative text-left flex justify-start items-start p-6 w-full space-y-3"
+          className="bg-[#EEEEEE] rounded-xl relative text-left flex justify-start items-start p-6 w-full space-y-3 dark:bg-[#1E293B]"
         >
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                 {" "}
                 Title{" "}
               </label>
@@ -142,11 +149,11 @@ const UserAddArticle = () => {
                 {...register("title", { required: true })}
                 type="text"
                 placeholder="Title"
-                className="input-text"
+                className="input-text dark:bg-[#28374e]"
               />
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                 {" "}
                 Input File{" "}
               </label>
@@ -154,15 +161,14 @@ const UserAddArticle = () => {
                 <input
                   {...register("image")}
                   type="file"
-                  className="input-file"
-                  // className="file-input mt-1 file-input-bordered file-input-success w-full  focus:outline-none border-none"
+                  className="input-file dark:bg-[#28374e] placeholder:text-white"
                 />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                 {" "}
                 Why To Use
               </label>
@@ -171,12 +177,12 @@ const UserAddArticle = () => {
                   {...register("whyToUse", { required: true })}
                   type="text"
                   placeholder="Why To Use"
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 />
               </div>
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                 {" "}
                 Use To Help{" "}
               </label>
@@ -185,14 +191,14 @@ const UserAddArticle = () => {
                   {...register("useToHelp", { required: true })}
                   type="text"
                   placeholder="Use To Help"
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                 {" "}
                 Where To Use{" "}
               </label>
@@ -201,27 +207,23 @@ const UserAddArticle = () => {
                   {...register("whereToUse", { required: true })}
                   type="text"
                   placeholder="Where To Use"
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 />
               </div>
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                 {" "}
                 Date{" "}
               </label>
-              <div>
-                <input
-                  {...register("date", { required: true })}
-                  type="date"
-                  className="input-text"
-                />
+              <div className="w-full">
+                <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} className="input-text dark:bg-[#28374e] w-full"/>
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                 {" "}
                 short Description{" "}
               </label>
@@ -230,19 +232,19 @@ const UserAddArticle = () => {
                   {...register("shortDescription", { required: true })}
                   type="text"
                   placeholder="Short Description"
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 />
               </div>
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                 {" "}
                 Benefits{" "}
               </label>
               <div className="mt-1">
                 <select
                   onChange={(e) => setBenefitsData(e.target.value)}
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 >
                   <option style={{ backgroundColor: "#144248", color: "#EEE" }}>
                     Select Benefits
@@ -289,7 +291,7 @@ const UserAddArticle = () => {
           </div>
 
           <div className="w-full">
-            <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">
               {" "}
               Description{" "}
             </label>
@@ -301,7 +303,7 @@ const UserAddArticle = () => {
                 type="text"
                 required=""
                 placeholder="Your description"
-                className="input-text"
+                className="input-text dark:bg-[#28374e]"
               />
             </div>
             <div className="flex justify-start items-center mt-5 ml-5">

@@ -105,14 +105,14 @@ const Storage = () => {
           ease: "linear",
           duration: 2,
         }}
-        className="flex max-w-6xl mx-auto  gap-8 border-t-2 flex-col lg:mt-32"
+        className="flex max-w-6xl mx-auto  gap-8 border-t-2 flex-col lg:mt-5 dark:border-slate-400"
       >
-        <section className=" flex justify-between items-center cloudBannerZ w-full md:w-[90%] mx-auto p-6 rounded-lg mt-10 ">
-          <h1 className="text-lg">
+        <section className=" flex justify-between items-center navber-color w-full md:w-[90%] mx-auto p-6 rounded-lg mt-10 ">
+          <h1 className="text-lg dark:text-slate-400">
             <p>
               {" "}
               Files will be uploaded on User :{" "}
-              <span className="text-[#017E77] semibold">
+              <span className="text-[#017E77] semibold dark:text-slate-200">
                 {" "}
                 {user?.email}{" "}
               </span>{" "}
@@ -122,13 +122,13 @@ const Storage = () => {
             <label className=" flex items-center gap-2">
               <input
                 type="text"
-                className=" h-5 hidden md:inline w-full p-6 focus:border-[#017E77] outline-[#017E77] bg-white rounded-lg"
+                className=" input-text dark:bg-[#1a2331]"
                 placeholder="Search"
               />
             </label>
           </div>
         </section>
-        <section className=" w-11/12 mx-w-6xl mx-auto flex flex-col justify-between md:flex-row gap-4 md:gap-16 cloudBannerZ p-4 rounded-lg border-t-2 ">
+        <section className=" w-11/12 mx-w-6xl mx-auto flex flex-col justify-between md:flex-row gap-4 md:gap-16 navber-color p-4 rounded-lg border-t-2 ">
           <input
             className="md:w-[30%] "
             type="file"
@@ -138,7 +138,7 @@ const Storage = () => {
           />
           <motion.button
             whileTap={{ scale: 0.9 }}
-            className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-4 text-[#EEEEEE] p-2 md:py-3 rounded mx-auto flex justify-center items-center gap-2 "
+            className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-4 text-[#EEEEEE] p-2 md:py-3 rounded mx-auto flex justify-center items-center gap-2 dark:bg-[#1a2331]"
             onClick={uploadImg}
           >
             Upload Files
@@ -151,9 +151,9 @@ const Storage = () => {
           duration: 2,
           x: { duration: 1 },
         }}
-        className="w-11/12 mx-w-6xl flex justify-start items-center mt-6 gap-8 max-w-7xl mx-auto cloudBannerZ p-6 rounded-lg  flex-wrap"
+        className="w-11/12 mx-w-6xl flex justify-start items-center mt-6 gap-8 max-w-7xl mx-auto navber-color p-6 rounded-lg  flex-wrap"
       >
-        <h1 className="text-lg text-center">
+        <h1 className="text-lg text-center dark:text-slate-400">
           Cilck here to Download the uploaded files
         </h1>
 
@@ -164,7 +164,7 @@ const Storage = () => {
                 <li key={index} className="">
                   <span className="md:hidden">{index + 1}.</span>
                   <p className="flex flex-col lg:flex-row justify-center items-center gap-2">
-                    <a className="underline text-gray-600" href={url} download>
+                    <a className="underline text-slate-400" href={url} download>
                       {url}
                     </a>
                     <button
@@ -179,7 +179,7 @@ const Storage = () => {
             ) : error ? (
               <div>{error}</div>
             ) : (
-              <div className="text-3xl font-bold flex justify-center items-center">
+              <div className="text-3xl font-bold flex justify-center items-center dark:text-slate-200">
                 {" "}
                 No files have been uploaded{" "}
               </div>

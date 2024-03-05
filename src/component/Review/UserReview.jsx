@@ -32,9 +32,9 @@ const UserReview = () => {
   // user information loade 
   const { user } = useAuth();
   return (
-    <div className=" max-w-7xl shadow-md   dark:border-t dark:border-gray-600  rounded-2xl mx-auto p-4 mt-6">
+    <div className=" max-w-7xl shadow-md dark:border-t rounded-2xl mx-auto p-4 mt-6 dark:bg-[#1E293B]">
 
-      <h1 className="text-4xl text-center drop-shadow dark:text-white  font-bold ">
+      <h1 className="text-4xl text-center drop-shadow dark:text-slate-100  font-bold ">
         User <span className="text-[#019D90] ">Reviews </span> : Hear What
         Others Have to <span className="text-[#019D90] ">Say!</span>
       </h1>
@@ -52,20 +52,20 @@ const UserReview = () => {
           effect={"cards"}
           grabCursor={true}
           modules={[EffectCards, Autoplay]}
-          className="mySwiper md:h-[300px] rounded-lg w-[100%]"
+          className="mySwiper md:h-[300px] rounded-xl w-[100%]"
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
           }}
         >
           {review?.map((item) => (
-            <SwiperSlide key={item._id} className="bg-[#E5E5E5] dark:bg-[#1E293B]  ">
-              <div className="flex flex-col dark:text-slate-400 md:flex-row items-center text-[#333333]  justify-center gap-6 box-border rounded-lg p-2">
+            <SwiperSlide key={item._id} className="bg-[#E5E5E5] dark:bg-[#232f44]  rounded-2xl  ">
+              <div className="flex flex-col dark:text-slate-400 md:flex-row items-center text-[#333333]  justify-center gap-6 box-border  rounded-xl p-2 ">
                 <div className="md:w-[30%] lg:w-[20%] lg:h-[37dvh] h-[70dvh] md:h-full p-2 ">
                   <img
                     alt="profil"
                     src={item.image}
-                    className="mx-auto object-fit rounded-xl h-full w-fit"
+                    className="mx-auto object-fit  rounded-xl h-full w-fit"
                   />
                 </div>
 

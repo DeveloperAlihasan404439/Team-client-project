@@ -11,7 +11,7 @@ const ContactUs = () => {
     <div className=" ">
       <div className="hero ">
         <img
-          className="object-cover h-full w-fill rounded-xl drop-shadow-md border-t-2 opacity-50"
+          className="object-cover h-full w-fill drop-shadow-md border-t-2 opacity-50 "
           src={contactbg}
           alt=""
         />
@@ -24,7 +24,7 @@ const ContactUs = () => {
               loop={true}
             />
             <div className=" p-4 rounded-xl backdrop-blur">
-              <h1 className="text-2xl backdrop-blur font-semibold">
+              <h1 className="text-2xl backdrop-blur font-semibold dark:text-slate-200">
                 Maximizing Your{" "}
                 <span className="font-semibold text-[#019D90]">
                   Swifty Mail{" "}
@@ -70,7 +70,7 @@ const ContactUs = () => {
             </div>
           </section>
           <section className="lg:w-1/2 text-center  ">
-            <h1 className="text-4xl   font-bold backdrop-blur  ">
+            <h1 className="text-4xl   font-bold backdrop-blur dark:text-slate-200 ">
               Have Questions? <br className="md:hidden" /> Shoot Us on{" "}
               <span className="text-[#019D90] font-black"> Email</span>{" "}
             </h1>
@@ -80,24 +80,24 @@ const ContactUs = () => {
                 <p className="text-5xl text-[#019D90] font-black">
                   <MdMarkEmailRead />
                 </p>
-                <p className="text-lg font-semibold">Email Us </p>
-                <p className="text-sm">zzayedghost@gmail.com</p>
+                <p className="text-lg font-semibold dark:text-white">Email Us </p>
+                <p className="text-sm dark:text-black/90">zzayedghost@gmail.com</p>
               </div>
               <div className="flex flex-col justify-center items-center gap-2">
                 {" "}
-                <p className="text-5xl text-[#019D90] font-black">
+                <p className="text-5xl text-[#019D90] font-black ">
                   <FaPhoneVolume />
                 </p>
-                <p className="text-lg font-semibold">Contact number </p>
-                <p className="text-sm">01902320296</p>
+                <p className="text-lg font-semibold dark:text-white">Contact number </p>
+                <p className="text-sm dark:text-black/90">01902320296</p>
               </div>
               <div className="flex flex-col justify-center items-center gap-2">
                 {" "}
                 <p className="text-5xl text-[#019D90] font-black">
                   <FaSquareFacebook />
                 </p>
-                <p className="text-lg font-semibold">Facebook</p>
-                <p className="text-sm cursor-pointer hover:underline">
+                <p className="text-lg font-semibold dark:text-white">Facebook</p>
+                <p className="text-sm cursor-pointer hover:underline dark:text-black/90">
                   click here to visit our page{" "}
                 </p>
               </div>

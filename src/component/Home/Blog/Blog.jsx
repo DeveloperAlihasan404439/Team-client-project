@@ -15,11 +15,16 @@ import BlogCard from "./BlogCard";
 import "./Blog.css";
 import useBlog from "../../../Hooks/useBlog";
 
+// use time management npm package
+import moment from "moment";
+moment().format();
+
 const Blog = () => {
+
   const { blog } = useBlog();
 
   return (
-    <div className=" max-w-7xl mx-auto shadow-md mb-10   text-[#144248] border-t-gray-200 dark:border-gray-600 p-4  rounded-2xl mt-6 ">
+    <div className=" max-w-7xl mx-auto shadow-md mb-10 text-[#144248] border-t-gray-200  p-4  rounded-2xl mt-6 dark:bg-[#1E293B]">
       <div>
         <h1 className="text-center font-bold text-4xl drop-shadow dark:text-white ">
           Most Popular <span className="text-[#019D90]">Blog</span>
@@ -47,7 +52,7 @@ const Blog = () => {
             <div className="scroll-smooth ">
               {blog?.map((item) => (
                 <SwiperSlide key={item._id}>
-                  <div className="flex justify-between  flex-col md:flex-row dark:bg-[#1E293B]  gap-10 mb-6  object-cover  text-[#144248] rounded-xl p-3">
+                  <div className="flex justify-between  flex-col md:flex-row dark:bg-[#232f44]  gap-10 mb-6  object-cover  text-[#144248] rounded-xl p-3">
                     <img
                       className="md:w-72 w-full object-cover rounded-xl  mx-auto"
                       src={item.image}
@@ -56,11 +61,12 @@ const Blog = () => {
 
                     <div className="py-3">
                       <div className="flex gap-3 items-center py-3 capitalize">
-                        <p className=" text-lg text-[#1d7480]  tracking-wide">
+                        <p className=" text-lg text-[#1d7480] tracking-wide dark:text-slate-200">
                           {item.travelFrom}
                         </p>
                         <GoDash className="dark:text-white" />
-                        <p className="font-light  text-sm dark:text-slate-400">{item.travelDate}</p>
+                        <p className="font-light  text-sm dark:text-slate-300">
+                        {moment(item.travelDate).format("ddd, MMM YYYY")}</p>
                       </div>
 
                       <p className=" text-4xl dark:text-white leading-tight">
@@ -81,7 +87,7 @@ const Blog = () => {
                             {item.authorName}{" "}
                             <MdVerified className="text-[#019D90] text-xl" />{" "}
                           </h1>
-                          <h1 className="text-lg text-gray-500  font-medium ">
+                          <h1 className="text-lg text-slate-300  font-medium ">
                             {item.authorPosition}
                             <span className="text-sm font-blod dark:text-slate-400 text-gray-400 uppercase">
                               {" "}

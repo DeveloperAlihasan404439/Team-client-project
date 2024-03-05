@@ -17,12 +17,13 @@ const ContactInput = () => {
       transition: "Bounce",
     });
   };
+  const inputCss = 'shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300 dark:bg-[#27354d]'
   return (
     <div className="mt-[112px] w-full backdrop-blur rounded-xl">
-      <h1 className="text-3xl font-bold pb-4">
+      <h1 className="text-3xl font-bold pb-4 dark:text-slate-200">
         Let's <span className="text-[#019D90]">Connect</span> – Drop Us a Line!
       </h1>
-      <p className="pb-8">
+      <p className="pb-8 dark:text-black/90">
         {" "}
         Have a question, suggestion, or just want to say hello? Our virtual
         doors are always open. Fill out the form below, and let the conversation
@@ -31,35 +32,35 @@ const ContactInput = () => {
       </p>
       <form
         onSubmit={handleSubmit}
-        className="bg-[#EEEEEE] rounded-xl relative text-left p-6 w-full space-y-6"
+        className="bg-[#EEEEEE] rounded-xl relative text-left p-6 w-full space-y-6 dark:bg-[#1E293B]"
       >
         <div className="w-full">
-          <label className="  font-medium  "> Your Name </label>
+          <label className="  font-medium  dark:text-slate-200"> Your Name </label>
           <div className="mt-1">
             <input
               name="name"
               type="name"
               required=""
               placeholder="Your Name"
-              className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+              className={inputCss}
             />
           </div>
         </div>
         <div className="w-full">
-          <label className="  font-medium  "> Email address </label>
+          <label className="  font-medium dark:text-slate-200 "> Email address </label>
           <div className="mt-1">
             <input
               name="email"
               type="email"
               required=""
               placeholder="Your Email"
-              className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+              className={inputCss}
             />
           </div>
         </div>
 
         <div className="w-full">
-          <label className="  font-medium  "> Your Message </label>
+          <label className="  font-medium dark:text-slate-200 "> Your Message </label>
           <div className="mt-1">
             <textarea
               name="Message"
@@ -68,7 +69,7 @@ const ContactInput = () => {
               type="text"
               required=""
               placeholder="Your precious comment"
-              className="  shadow-lg w-full px-5 py-3 text-base placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg  bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300"
+              className={inputCss}
             />
           </div>
           <div className="flex justify-center items-center  mt-10">

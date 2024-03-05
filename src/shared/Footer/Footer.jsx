@@ -37,7 +37,7 @@ const Footer = () => {
         <img className='h-8 ml-6'  src={logo} alt="" />
         <p className='text-[10px] ml-14 text-right'>Copyright © 2024 - All rights reserved</p>
       </aside> 
-      <nav className='pr-6  mx-auto bg-[#019D90]  border-r-2 border-[#EEEEEE] '>
+      <nav className='pr-6  mx-auto bg-[#019D90]  border-r-2 border-[#EEEEEE]'>
         <div className="grid gap-4">
           <h1 className="text-xl text-[#EEEEEE] font-semibold">Useful Links</h1>
           <Link to="/payment" >Payment</Link>
