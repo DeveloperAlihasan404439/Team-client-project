@@ -1,15 +1,26 @@
 /* eslint-disable no-unused-vars */
-import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
+
+import { useForm } from "react-hook-form";
+
+// sweet alert npm package  
+import Swal from "sweetalert2";
+
+// server site base and single user data loade  
 import useAxios from "../../Hooks/useAxios";
-import Button from "../../shared/Button";
-import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
-import "./ProfileUpdate.css";
 import useUserSingle from "../../Hooks/useUserSingle";
+
+// design input filed number npm package  
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
+
+// profile updated custom css 
+import "./ProfileUpdate.css";
+
+// images hosting api create start 
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
+// images hosting api create end
 
 const ProfileUpdate = () => {
     const axiosPublick = useAxios();
@@ -19,7 +30,6 @@ const ProfileUpdate = () => {
 
   // eslint-disable-next-line no-unused-vars
   const { userSingle, refetch } = useUserSingle();
-  console.log(userSingle)
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
     setImgLoader(true);
@@ -29,7 +39,7 @@ const ProfileUpdate = () => {
         "content-type": "multipart/form-data",
       },
     });
-    if (res.data.success) {
+    if (res?.data?.success) {
       setImgLoader(false);
       setOpon(false);
       const photoURL = res?.data?.data?.display_url;

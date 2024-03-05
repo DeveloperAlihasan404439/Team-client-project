@@ -1,14 +1,32 @@
 import { useState } from "react";
+<<<<<<<< HEAD:src/component/Home/Banner/GeneratedEmails.jsx
 import useAuth from "../../../shared/Auth/useAuth";
 import Button from "../../../shared/Button";
+========
+
+// shared button import 
+import Button from "../../shared/Button";
+
+// use context user data loade  
+import useAuth from "../../shared/Auth/useAuth";
+>>>>>>>> a82d77297a56b63749a7a469c36702bfb38729ac:src/component/Banner/GeneratedEmails.jsx
 
 // eslint-disable-next-line react/prop-types
 const GeneratedEmails = ({ tempMail }) => {
+<<<<<<<< HEAD:src/component/Home/Banner/GeneratedEmails.jsx
   // eslint-disable-next-line react/prop-types
   const { emailAddress } = tempMail;
   const { user } = useAuth();
   const [copied, setCopied] = useState(false);
+========
+>>>>>>>> a82d77297a56b63749a7a469c36702bfb38729ac:src/component/Banner/GeneratedEmails.jsx
 
+  const { user } = useAuth();
+  const [copied, setCopied] = useState(false);
+  
+  const { emailAddress } = tempMail;
+
+  // email text copied function 
   const handleCopy = () => {
     navigator.clipboard.writeText(emailAddress);
     setCopied(true);
@@ -33,6 +51,7 @@ const GeneratedEmails = ({ tempMail }) => {
             </div>
         )}
       </div>
+      {/* email text copied hendel button   */}
       <div onClick={handleCopy} className="w-fit mx-auto py-1">
         <Button name={copied ? "Copied!" : "Copy"} />
       </div>

@@ -23,7 +23,6 @@ const IpTracker = () => {
 
       setGetInfo(await response3.json());
     } catch (err) {
-      console.log(`Failed to fetch ${err}`);
       Swal.fire({
         position: "center",
         icon: "error",

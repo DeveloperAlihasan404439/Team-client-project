@@ -76,34 +76,34 @@ const ArticleDetails = () => {
             <div className="w-11/12 lg:w-[60%] mx-auto">
               <img className="rounded-xl " src={img} alt="" />
               <div className="font-inter space-y-3 mt-8">
-                <p className="text-3xl font-semibold">{title}</p>
+                <p className="text-xl md:text-3xl font-semibold text-[#144248]">{title}</p>
                 <p className=" text-gray-600 font-semibold">
-                  <span className="text-xl text-black font-semibold">
+                  <span className="text-xl text-[#144248] font-semibold">
                     Description :
                   </span>
                   {description}
                 </p>
                 <p className="text-gray-600 font-semibold">
-                  <span className="text-xl text-black font-semibold">
+                  <span className="text-xl text-[#144248] font-semibold">
                     Why to Use :
                   </span>
                   {whyToUse}
                 </p>
                 <p className="text-gray-600 font-semibold">
-                  <span className="text-xl text-black font-semibold">
+                  <span className="text-xl text-[#144248] font-semibold">
                     Where to use :
                   </span>
                   {whereToUse}
                 </p>
                 <p className="text-gray-600 font-semibold">
-                  <span className="text-xl text-black font-semibold">
+                  <span className="text-xl text-[#144248] font-semibold">
                     Use to help :
                   </span>
                   {useToHelp}
                 </p>
 
                 <p className=" text-[#019D91] font-medium">
-                  <span className="text-xl text-black font-semibold">
+                  <span className="text-xl text-[#144248] font-semibold">
                     Date :
                   </span>
                   {date}
@@ -111,7 +111,7 @@ const ArticleDetails = () => {
 
                 <div className="text-xl md:flex  justify-between font-semibold">
                   <div>
-                    <span>Benifit : </span>
+                    <span className="text-[#144248]">Benifit : </span>
                     {benefits?.map((benifit, i) => (
                       <p
                         key={i}
@@ -127,9 +127,9 @@ const ArticleDetails = () => {
                     {user ? (
                       <button
                         onClick={handleLike}
-                        className="bg-gray-100 border     text-black  px-2 flex items-center  rounded-full p-1 "
+                        className="bg-gray-100 border     text-[#144248]  px-2 flex items-center  rounded-full p-1 "
                       >
-                        <AiFillLike className="text-md font-light hover:text-black text-sky-500" />
+                        <AiFillLike className="text-md font-light hover:text-[#144248] text-sky-500" />
                       </button>
                     ) : (
                       <button

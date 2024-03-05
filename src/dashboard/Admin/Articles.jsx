@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import UpdateModal from "./UpdateModal";
 import { useState } from "react";
-import useArticle from "../../Hooks/useArticle";
-import useAxios from "../../Hooks/useAxios";
 import Button from "../../shared/Button";
 import Loader from "../../shared/Loader";
+import useArticle from "../../Hooks/useArticle";
+import useAxios from "../../Hooks/useAxios";
 moment().format();
 const Articles = () => {
   const { article, isLoading, refetch } = useArticle();

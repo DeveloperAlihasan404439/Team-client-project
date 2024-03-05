@@ -1,29 +1,8 @@
-This is a React project with [Create React App](https://create-react-app.dev/).
+# React + Vite
 
-## Getting Started
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-To get started with this project, follow these steps:
+Currently, two official plugins are available:
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/DeveloperAlihasan404439/Team-client-project
-   cd Team-client-project
-   ```
-2. **Package install:**
-   ```
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
-3. **Project run code:**
-   ```
-   npm start
-   # or
-   yarn start
-   # or
-   pnpm start
-   ```
-
-
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

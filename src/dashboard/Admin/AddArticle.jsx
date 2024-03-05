@@ -2,9 +2,8 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import useAxios from "../../Hooks/useAxios";
 import Button from "../../shared/Button";
-import useAuth from "../../shared/Auth/useAuth";
+import useAxios from "../../Hooks/useAxios";
 
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;

@@ -9,11 +9,11 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-import useUsers from "../../Hooks/useUsers";
 import useAuth from "../../shared/Auth/useAuth";
 import useReview from "../../Hooks/useReview";
+import useUsers from "../../Hooks/useUsers";
 import BarCharts from "./BarCharts";
-import PieCharArticle from "./PieCharArticle";
+import PieChartArticle from "./PieCharArticle";
 const DashHome = () => {
   const { usersData } = useUsers();
   const { review } = useReview();
@@ -28,7 +28,7 @@ const DashHome = () => {
       const res = await axios.get(
         `https://server-side-bice.vercel.app/mailSlurp`
       );
-      return res.data;
+      return res?.data;
     },
   });
 
@@ -38,8 +38,8 @@ const DashHome = () => {
       axios
         .get(`https://api.mailslurp.com/inboxes?apiKey=${createdInboxes}`)
         .then((response) => {
-          const inboxes = response.data;
-          const totalInboxes = inboxes.length;
+          const inboxes = response?.data;
+          const totalInboxes = inboxes?.length;
           setCreatedInboxes(totalInboxes);
         })
         .catch((error) => {
@@ -76,7 +76,7 @@ const DashHome = () => {
   };
 
   return (
-    <div>
+    <div className="bg-[#EEE] pb-10">
 
       <div className="w-11/12 md:max-w-6xl mx-auto mt-5 flex justify-between items-center rounded-lg bg-white py-2 px-3">
 
@@ -186,8 +186,7 @@ const DashHome = () => {
         </div>
       </div>
       <BarCharts usersData={usersData}/>
-      <PieCharArticle/>
-
+      <PieChartArticle/>
     </div>
   );
 };

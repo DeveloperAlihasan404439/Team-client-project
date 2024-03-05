@@ -8,7 +8,7 @@ import img2 from "../../../assets/BannerL&Logo/cloud1 (1).json";
 const CloudBanner = () => {
   return (
     <div
-      className="lg:relative -mt-10  -top-16   right-0 left-0 bottom-0 lg:mb-32 xl:mb-10">
+      className="lg:relative lg:h-screen  top-0 lg:-top-20  right-0 left-0 bottom-0 ">
       <motion.section
         animate={{ x: 10 }}
         transition={{ type: "spring", stiffness: 100 }}
@@ -26,7 +26,7 @@ const CloudBanner = () => {
               share your files with ease, ensuring your data is always secure
               and accessible whenever you need it.
             </p>
-            <aside className="flex flex-wrap gap-4 mb-10  text-lg">
+            <aside className="flex flex-wrap gap-4   text-lg">
               <motion.div
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.9 }}
@@ -74,14 +74,14 @@ const CloudBanner = () => {
           </div>
           <aside>
             <Lottie
-              className="h-20  inline "
+              className="h-20  hidden md:inline "
               animationData={img2}
               loop={true}
             />
           </aside>
         </div>
       </motion.section>
-      <section className=" grid md:hidden xl:grid grid-cols-1 rounded  md:grid-cols-3 gap-8 ">
+      <section className=" grid  grid-cols-1 rounded  md:grid-cols-3 gap-8 ">
         <div>
           <StorageCards
             title="Easy File Uploads"

@@ -1,7 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* drack mode crat color #1E293B  */
+/* drack mode bg color #0f172a  */
 
 .input-text{
     display: flex;
@@ -35,11 +36,10 @@
 ::-webkit-file-upload-button:hover{
     background: #091e20;
 }
-
-
-.custombg {
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("https://i.pinimg.com/564x/e2/0e/2c/e20e2c04040d768425e352c4404e818b.jpg");
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-  }
+.navber-color {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}

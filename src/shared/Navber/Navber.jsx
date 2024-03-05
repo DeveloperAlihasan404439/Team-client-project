@@ -12,11 +12,14 @@ import useAuth from "../Auth/useAuth";
 import { useState } from "react";
 import { useEffect } from "react";
 import useAxios from "../../Hooks/useAxios";
+import DarkMode from "./DarkMode";
 // import DarkMode from "../Shared/DarkMode/DarkMode";
 const Navber = () => {
   const { user, logOut } = useAuth();
+
   const [admin, setAdmin] = useState({});
   const axiosPublick = useAxios();
+
   useEffect(() => {
     axiosPublick.get(`/users/single?email=${user?.email}`).then((res) => {
       setAdmin(res.data);
@@ -66,7 +69,7 @@ const Navber = () => {
         transition: "all .5s ease-in-out",
       }}
     >
-      <div className="navbar z-80 cloudBannerZ   rounded-lg h-16 lg:h-20 flex justify-center items-center    max-w-7xl mx-auto ">
+      <div className="navbar z-80 navber-color dark:backdrop-blur dark:bg-white/70 rounded-lg h-16 lg:h-20 flex justify-center items-center  max-w-7xl mx-auto">
         <div className="navbar-start    ">
           <div className="drawer block lg:hidden">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -123,7 +126,7 @@ const Navber = () => {
                 className="drawer-overlay"
               ></label>
               <ul className="menu w-48 md:w-72  min-h-full bg-[#EEEEEE] md:text-lg font-medium">
-                {NavItems.map((item) => (
+                {NavItems?.map((item) => (
                   <li
                     className="hover:bg-[#017E77] text-[#144248]   border border-[#019D91] rounded-lg     hover:text-[#EEEEEE]   mb-2  "
                     key={item.Title}
@@ -151,7 +154,7 @@ const Navber = () => {
                     <NavLink
                       to={
                         admin?.role === "admin"
-                          ? "/dashboard/home"
+                          ? "/dashboard/homes"
                           : "/dashboard/user/profile"
                       }
                       className={({ isActive, isPending }) =>
@@ -184,7 +187,7 @@ const Navber = () => {
         </div>
         <div className=" hidden lg:flex ">
           <ul className=" flex justify-center md:text-lg font-medium  items-center  gap-4 ">
-            {NavItems.map((item) => (
+            {NavItems?.map((item) => (
               <li
                 className="hover:bg-[#017E77] text-[#144248] relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center "
                 key={item.Title}
@@ -212,7 +215,7 @@ const Navber = () => {
                 <NavLink
                   to={
                     admin?.role === "admin"
-                      ? "/dashboard/home"
+                      ? "/dashboard/homes"
                       : "/dashboard/user/profile"
                   }
                   className={({ isActive, isPending }) =>
@@ -232,10 +235,11 @@ const Navber = () => {
             )}
           </ul>
         </div>
-        <div className="navbar-end ">
+        <div className="navbar-end">
           {/* <DarkMode/> */}
           {user ? (
             <>
+            <DarkMode/>
               <div className="dropdown dropdown-end ">
                 <label
                   tabIndex={0}
@@ -279,6 +283,7 @@ const Navber = () => {
             </>
           ) : (
             <>
+              <DarkMode/>
               <Link to="/login">
                 <motion.button
                   whileTap={{ scale: 0.9 }}

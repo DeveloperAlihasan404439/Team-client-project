@@ -14,7 +14,7 @@ const HowToUse = () => {
   return (
       <div
         data-aos="zoom-in"
-        className="w-11/12 max-w-7xl mx-auto my-6  shadow-md border-t-2 text-[#144248] border-t-gray-200 p-3 md:p-0 rounded-2xl"
+        className="w-11/12 max-w-7xl mx-auto my-6  shadow-md dark:border-t border-t-2 text-[#144248] border-t-gray-200 p-3 md:p-0 rounded-2xl"
       >
         <div className="flex flex-col lg:flex-row lg:justify-start  lg:items-start  gap-10">
           <aside className=" lg:w-[50%] rounded-lg pt-0">

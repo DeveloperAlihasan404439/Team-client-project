@@ -40,9 +40,9 @@ const Footer = () => {
       <nav className='pr-6  mx-auto bg-[#019D90]  border-r-2 border-[#EEEEEE] '>
         <div className="grid gap-4">
           <h1 className="text-xl text-[#EEEEEE] font-semibold">Useful Links</h1>
-          <Link  >Official Website</Link>
-          <Link  >Blog</Link>
-          <Link  >Support</Link>
+          <Link to="/payment" >Payment</Link>
+          <Link to='/fourm' >Forums</Link>
+          <Link to='/aboutUS' >Contact Us</Link>
         </div>
       </nav>
       <nav className='pr-6  mx-auto bg-[#019D90]  border-r-2 border-[#EEEEEE] '>
@@ -57,15 +57,15 @@ const Footer = () => {
         <div className="grid gap-4">
           <h1 className="text-xl text-[#EEEEEE] font-semibold">Legal</h1>
           <Link to='/privacy' >Privacy Policy</Link>
-          <Link  >Blog</Link>
+         
           <Link to='/terms' >Terms of Service</Link>
         </div>
       </nav>
       <nav className='pr-6  mx-auto bg-[#019D90]  border-r-2 border-[#EEEEEE] '>
         <div className="grid gap-4">
           <h1 className="text-xl text-[#EEEEEE] font-semibold">Contact us</h1>
-          <Link >Email@gmail.com</Link>
-          <Link  >0190213123231</Link>
+          <Link className='hidden md:block'>zzayedoffic@gmail.com</Link>
+          <Link  >01902320296</Link>
          
         </div>
       </nav>

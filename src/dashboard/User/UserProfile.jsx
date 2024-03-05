@@ -6,7 +6,6 @@ import useUserSingle from "../../Hooks/useUserSingle";
 import { FiEdit } from "react-icons/fi";
 const UserProfile = () => {
   const { userSingle } = useUserSingle();
-  console.log(userSingle)
   return (
     <div className="w-11/12 max-w-6xl mx-auto h-full lg:flex items-center justify-center gap-5">
       <div className="lg:w-[70%] h-auto lg:h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 ">
@@ -47,15 +46,15 @@ const UserProfile = () => {
               </label>
             </span>
           </motion.div>
-          <div className="lg:absolute left-0 bottom-0 lg:bottom-10 w-full mt-5">
-            <div className="w-full lg:flex justify-center my-5 md:my-0">
+          <div className="lg:absolute left-0 bottom-0 lg:bottom-10 flex justify-center items-center w-full mt-5">
+            <div className="w-full lg:flex justify-center gap-5">
               <motion.div
                 whileHover={{
                   scale: 1.02,
                   transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-full  mb-5 lg:mb-0"
+                className="w-full md:w-fit mb-10 lg:mb-0"
               >
                 <Link
                   to="/dashboard/user/notes"
@@ -70,7 +69,7 @@ const UserProfile = () => {
                   transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-full mb-5 lg:mb-0"
+                className="w-full md:w-fit mb-10 lg:mb-0"
               >
                 <Link
                   to="/dashboard/user/addArticle"
@@ -85,7 +84,7 @@ const UserProfile = () => {
                   transition: { duration: 0.3 },
                 }}
                 whileTap={{ scale: 0.9 }}
-                className="w-full mb-5 lg:mb-0"
+                className="w-full md:w-fit mb-10 lg:mb-0"
               >
                 <span className="px-5 py-5 text-[#EEE] text-lg font-semibold bg-[#fa5b0b] rounded-md tracking-[2px] uppercase">
                   <label htmlFor="my_modal_6">Edit Profile</label>

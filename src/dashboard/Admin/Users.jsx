@@ -7,7 +7,6 @@ import useAxios from "../../Hooks/useAxios";
 const Users = () => {
   const { usersData, refetch } = useUsers();
   const axiosPublick = useAxios();
-  console.log(usersData)
   function hendalUserUpdated(id) {
     axiosPublick.patch(`/users?id=${id}`).then((res) => {
       if (res.data.modifiedCount > 0) {

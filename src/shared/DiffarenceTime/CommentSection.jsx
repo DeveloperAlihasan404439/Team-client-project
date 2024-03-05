@@ -36,7 +36,7 @@ const CommentSection = ({ id, handleComment }) => {
       userImage: user.photoURL,
     };
     axiosPublick.post("/comment", userInfo).then((res) => {
-      if (res.data) {
+      if (res?.data) {
         refetch();
         form.reset();
         Swal.fire({
@@ -69,13 +69,13 @@ const CommentSection = ({ id, handleComment }) => {
             </button>
           </form>
           <div className="w-full">
-            {comment.length > 0 ? (
+            {comment?.length > 0 ? (
               <h1>All comments are shown below</h1>
             ) : (
               <h1>No comments available</h1>
             )}
             <div className="flex  rounded-xl p-2  flex-col gap- w-max">
-              {comment.map((cmt) => (
+              {comment?.map((cmt) => (
                 <div className="mb-2" key={cmt._id}>
                   <div className="flex gap-2  ">
                     <img

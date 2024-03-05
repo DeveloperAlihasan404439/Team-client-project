@@ -1,10 +1,17 @@
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+<<<<<<<< HEAD:src/component/Home/Review/UserReviewModal.jsx
 import useAuth from "../../../shared/Auth/useAuth";
 import useReview from "../../../Hooks/useReview";
 import useAxios from "../../../Hooks/useAxios";
 import Button from "../../../shared/Button";
+========
+import useAuth from "../../shared/Auth/useAuth";
+import useReview from "../../Hooks/useReview";
+import useAxios from "../../Hooks/useAxios";
+import Button from "../../shared/Button";
+>>>>>>>> a82d77297a56b63749a7a469c36702bfb38729ac:src/component/Review/UserReviewModal.jsx
 
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
@@ -18,7 +25,11 @@ const UserReviewModal = () => {
 
   const { register, handleSubmit, reset } = useForm();
   const SubmitReeiew = async (data) => {
+<<<<<<<< HEAD:src/component/Home/Review/UserReviewModal.jsx
     console.log(data)
+========
+    console.log(data);
+>>>>>>>> a82d77297a56b63749a7a469c36702bfb38729ac:src/component/Review/UserReviewModal.jsx
     setCloseReviewModal(true);
     setUpladeImage(true);
     const fromImages = { image: data.image[0] };
@@ -45,7 +56,7 @@ const UserReviewModal = () => {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Successfull Reveiw Uplode",
+            title: "Successfull Reveiw Added",
             showConfirmButton: false,
             background: "#144248",
             color: "#EEEEEE",
@@ -68,6 +79,7 @@ const UserReviewModal = () => {
         <div className="modal" role="dialog">
         <div className="modal-box max-w-4xl bg-[#EEEEEE] p-0 ">
               <h1 className="text-2xl md:text-4xl font-bold text-[#144248] my-5 md:mt-10 px-5 text-center">
+<<<<<<<< HEAD:src/component/Home/Review/UserReviewModal.jsx
               Add some <span className=" text-[#019D90]  ">Heartfelt Words</span>  
                 
               </h1>
@@ -78,6 +90,17 @@ const UserReviewModal = () => {
                 onSubmit={handleSubmit(SubmitReeiew)}
                 className=" text-left p-6 w-full space-y-3"
               >
+========
+                Add some{" "}
+                <span className=" text-[#019D90]  ">Heartfelt Words</span>
+              </h1>
+              <p className="text-sm md:text-lg font-medium text-[#144248] text-center px-5">
+                Dive into a world of joy and satisfaction! Our review section is
+                a playground of happiness where every comment is like a sprinkle
+                of confetti.
+              </p>
+              <form onSubmit={handleSubmit(SubmitReeiew)}>
+>>>>>>>> a82d77297a56b63749a7a469c36702bfb38729ac:src/component/Review/UserReviewModal.jsx
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="mb-4 md:mb-0 md:w-[50%]">
                     <label className=" md:mb-2 font-medium text-[#144248] text-[18px] tracking-[1px] uppercase ">
@@ -162,7 +185,7 @@ const UserReviewModal = () => {
                       className="input-text"
                     />
                   </div>
-                  <div className="flex justify-end items-center mt-5 gap-5">
+                  <div className="flex justify-end items-center my-5 gap-5">
                     <Button
                       type="submit"
                       name={uplodeImage ? "Wating.." : "Submit "}

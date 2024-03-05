@@ -1,27 +1,19 @@
-import { motion, useDragControls } from "framer-motion";
+import { motion } from "framer-motion";
 import { IoCloseSharp } from "react-icons/io5";
 import { RiEditFill } from "react-icons/ri";
 import Swal from "sweetalert2";
-import NotesModal from "./NotesModal";
-import useAuth from "../../../shared/Auth/useAuth";
-import useAxios from "../../../Hooks/useAxios";
 import { useState } from "react";
-import Loader from "../../../shared/Loader";
+import useAxios from "../../../Hooks/useAxios";
+import useAuth from "../../../shared/Auth/useAuth";
 import useNotes from "../../../Hooks/useNotes";
+import Loader from "../../../shared/Loader";
+ 
+
 const Notes = () => {
   const [notesText, setNotesText] = useState("");
   const axiosPublick = useAxios();
   const { user } = useAuth();
   const [updatedNotes, setUpdatedNotes] = useState({});
-
-  function hendelNotesLength() {
-    let notesWord = 100;
-    if (notesText) {
-      return (notesWord -= notesText.length);
-    }
-    return notesWord;
-  }
-  const notesWord = hendelNotesLength();
 
   const { notes, isLoading, refetch } = useNotes();
   function hendelNotexPost() {
@@ -32,38 +24,21 @@ const Notes = () => {
         user_Email: user?.email,
         user_images: user?.photoURL,
       };
-
-      if (notesWord > 0) {
-        axiosPublick.post("/notes", notes).then((res) => {
-          if (res?.data?._id) {
-            setNotesText("");
-            refetch();
-            return Swal.fire({
-              position: "center",
-              icon: "success",
-              title: "Successfull Notes Added",
-              showConfirmButton: false,
-              background: "#144248",
-              color: "#EEEEEE",
-              timer: 2000,
-            });
-          }
-        });
-      } else {
-        return Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Please write less than 100 words",
-          showConfirmButton: false,
-          background: "#144248",
-          color: "#EEEEEE",
-          timer: 2000,
-        });
-      }
+      axiosPublick.post("/notes", notes).then((res) => {
+        if (res?.data?.insertedId) {
+          refetch();
+        }
+      });
     }
   }
 
-
+  function hendelNotesLength() {
+    let notesWord = 100;
+    if (notesText) {
+      return (notesWord -= notesText.length);
+    }
+    return notesWord;
+  }
   function hendelDeleteNotes(id) {
     Swal.fire({
       title: "Are you sure?",
@@ -100,18 +75,12 @@ const Notes = () => {
     if (id) {
       const updatedNotes = notes.find(
         (updatedNotes) => updatedNotes._id === id
-      );                       
+      );
       setUpdatedNotes(updatedNotes);
     }
   }
-
-  const dragControls = useDragControls()
-
-function startDrag(event) {
-  dragControls.start(event, { snapToCursor: true })
-}
   return (
-    <div  className="mx-10 my-5  md:my-10">
+    <div className="mx-10 my-5 md:my-10">
       <h1 className="text-3xl font-medium text-[#144248]">Notes</h1>
       {/* <input type="text" className="input-text"/> */}
       {isLoading ? (
@@ -120,9 +89,7 @@ function startDrag(event) {
         <>
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {notes?.map((notesText) => (
-              <motion.div
-              drag dragControls={dragControls} 
-              // dragConstraints={{ top: 0, bottom: 0,left:0,right:0 }}
+              <div
                 key={notesText._id}
                 className="relative rounded-2xl p-2 h-[200px] text-[#EEE] bg-[#144248]"
               >
@@ -163,13 +130,11 @@ function startDrag(event) {
                     <IoCloseSharp />
                   </span>
                 </motion.div>
-              </motion.div>
+              </div>
             ))}
             <div className="h-[200px] rounded-xl relative">
               <textarea
                 onChange={(e) => setNotesText(e.target.value)}
-
-                defaultValue={notesText}
                 name=""
                 id=""
                 cols="30"
@@ -178,8 +143,7 @@ function startDrag(event) {
                 className="w-full h-full rounded-xl p-2 text-[#EEE] bg-[#144248] outline-none text-xl"
               ></textarea>
               <div className="px-5 py-1 w-full h-[40px] bg-[#017E77] text-[#EEE] border-none rounded-b-xl flex justify-between items-center absolute left-0 bottom-0">
-
-                <h1>{notesWord} Left</h1>
+                <h1>{hendelNotesLength()} Left</h1>
                 <button
                   onClick={hendelNotexPost}
                   className="px-3 py-1 tracking-[3px] rounded bg-[#144248]"
@@ -188,8 +152,7 @@ function startDrag(event) {
                 </button>
               </div>
             </div>
-
-          </div> 
+          </div>
         </>
       )}
     </div>

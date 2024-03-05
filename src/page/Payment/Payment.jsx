@@ -1,8 +1,9 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "./CheckoutFrom";
 import Navber from "../../shared/Navber/Navber";
 import HelmetTitle from "../../shared/HelmetTitle";
+import CheckoutForm from "./CheckoutForm";
+import Footer from "../../shared/Footer/Footer";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 const Payment = () => {
@@ -20,6 +21,7 @@ const Payment = () => {
           </Elements>
         </div>
       </div>
+      <Footer/>
     </>
   );
 };
