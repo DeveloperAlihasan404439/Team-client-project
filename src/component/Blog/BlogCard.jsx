@@ -1,10 +1,10 @@
-/* eslint-disable react/prop-types */
+// use react icons npm package 
 import { MdVerified } from "react-icons/md";
 import { GoDash } from "react-icons/go";
+
+// use design motion  npm package
 import { motion } from "framer-motion";
-// eslint-disable-next-line react/prop-types
 const BlogCard = ({ blogs }) => {
-  // eslint-disable-next-line react/prop-types
   const {
     title,
     description,
@@ -20,7 +20,7 @@ const BlogCard = ({ blogs }) => {
     <motion.div
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.9 }}
-      className="cloudBannerZ text-center  p-2 relative   rounded-xl duration-100 overflow-hidden border-4"
+      className="cloudBannerZ text-center  p-2 relative  rounded-xl duration-100 overflow-hidden border-4"
     >
       <img
         className="h-48 object-cover rounded-xl  border-b  w-full"

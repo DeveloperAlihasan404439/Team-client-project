@@ -9,6 +9,7 @@ import singupimage from "../../../src/assets/image/undraw_feeling_proud_qne1.svg
 import singinimage from "../../../src/assets/image/undraw_maker_launch_re_rq81.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
@@ -29,10 +30,11 @@ const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOS
 const Login = () => {
   const [isSignUpMode, setSignUpMode] = useState(false);
 
-  const { singIn, createUser } = useAuth();
+  const { singIn, createUser,githubUser } = useAuth();
 
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -51,12 +53,59 @@ const Login = () => {
     setSignUpMode(false);
   };
 
-  //google signIn
+  //google user signIn
   const handleGoogleSingIn = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
 
         if (result.user) {
+          const email = result.user?.email;
+          const photoURL = result.user?.photoURL;
+          const name = result.user?.displayName;
+          const role = "user";
+          const dataToInsert = { name, photoURL, email,role };
+          // store user to the database and checking if user exist
+          axiosPublick.post("/users", dataToInsert).then((res) => {
+
+            if (res.data.insertedId) {
+              navigate(location?.state ? location?.state : "/");
+              return Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Successfull User Updated",
+                showConfirmButton: false,
+
+                background: "#144248",
+                color: "#EEEEEE",
+                timer: 2000,
+              });
+            }
+          });
+          navigate(location?.state ? location?.state : "/");
+          return Swal.fire({
+
+            position: "center",
+            icon: "success",
+            title: "Successfull Google Sign In",
+            showConfirmButton: false,
+            background: "#144248",
+
+            color: "#EEEEEE",
+            timer: 1500,
+          });
+        }
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  //github user signIn
+  const handleGithubSingIn = () => {
+    githubUser(githubProvider)
+      .then((result) => {
+        if (result.user) {
+          console.log(result.user)
           const email = result.user?.email;
           const photoURL = result.user?.photoURL;
           const name = result.user?.displayName;
@@ -234,7 +283,7 @@ const Login = () => {
               <div className="divider">OR</div>
               <p className="social-text">Sign in with social platforms</p>
               <div className="social-media">
-                <a href="#" className="social-icon">
+                <a onClick={handleGithubSingIn} href="#" className="social-icon">
 
                   <IoLogoGithub />
                 </a>
@@ -316,7 +365,7 @@ const Login = () => {
                 <a href="#" className="social-icon">
                   <IoLogoFacebook />
                 </a>
-                <a href="#" className="social-icon">
+                <a onClick={handleGithubSingIn} href="#" className="social-icon">
                   <IoLogoGithub />
                 </a>
                 <a onClick={handleGoogleSingIn} className="social-icon">
