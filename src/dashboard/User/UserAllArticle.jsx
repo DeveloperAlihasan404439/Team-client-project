@@ -1,20 +1,14 @@
 import moment from "moment";
 import { Link } from "react-router-dom";
-import useAuth from "../../shared/Auth/useAuth";
 import Button from "../../shared/Button";
 import Loader from "../../shared/Loader";
-import useArticle from "../../Hooks/useArticle";
 import Lottie from "lottie-react";
 import error from "../../assets/BannerL&Logo/errorSign.json";
 import { motion } from "framer-motion";
+import useArticleUser from "../../Hooks/useArticleUser";
 moment().format();
 const UserAllArticle = () => {
-  const { user } = useAuth();
-  const { article, isLoading } = useArticle();
-  const userArticle = article?.filter(
-    (userArticle) => userArticle.user_Email === user?.email
-  );
-
+  const {userArticle,isLoading,refetch}= useArticleUser();
   return (
     <>
       {userArticle?.length > 0 ? (

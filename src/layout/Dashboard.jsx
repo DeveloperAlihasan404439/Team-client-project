@@ -92,7 +92,6 @@ const Dashboard = () => {
       Route: "/dashboard/user/storage",
     },
   ];
-  console.log(userSingle)
   return (
     <>
       <HelmetTitle
@@ -192,7 +191,7 @@ const Dashboard = () => {
                 </div>
                 <div className="flex justify-between items-center mb-10">
                   <img src={userSingle?.photoURL} alt="" className="w-12 h-12 rounded-full" />
-                  <div className="text-right w-22">
+                  <div className="text-right w-20 h-8">
                     <DarkMode />
                   </div>
                 </div>

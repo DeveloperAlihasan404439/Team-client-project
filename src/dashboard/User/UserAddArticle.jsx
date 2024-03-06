@@ -24,10 +24,10 @@ const UserAddArticle = () => {
   
   if (!benefits.includes(benefitsData)) {
     if (benefitsData !== "") {
-      setBenefits((e) => [...e, benefitsData]);
+      return setBenefits((e) => [...e, benefitsData]);
     }
   }
-  const suggestArticle = [
+  const suggest = [
     {
       id: 1,
       title: "Privacy Mastery with Temporary Emails",
@@ -74,7 +74,7 @@ const UserAddArticle = () => {
       publishTime: "03:30 PM",
     },
   ];
-  // console.log(article);
+  console.log(benefits);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
     
@@ -85,7 +85,7 @@ const UserAddArticle = () => {
         "content-type": "multipart/form-data",
       },
     });
-    if (res.data.success) {
+    if (res?.data?.success) {
       setImgLoader(false);
       const hosting = res?.data?.data?.display_url;
       const userArticle = {
@@ -96,17 +96,19 @@ const UserAddArticle = () => {
         title: data.title,
         description: data.description,
         shortDescription: data.shortDescription,
-        date: data.date,
+        date: startDate,
         whyToUse: data.whyToUse,
         whereToUse: data.whereToUse,
         useToHelp: data.useToHelp,
         benefits,
-        suggestArticle,
-        status: "panding"
+        suggestArticle: suggest,
+        status: "panding",
+        like:0
       };
       console.log(userArticle)
-      axiosPublick.post("/article/user", userArticle).then((res) => {
+      axiosPublick.post("/article", userArticle).then((res) => {
         if (res?.data) {
+
           reset();
           navigate("/dashboard/user/all/Article");
           Swal.fire({

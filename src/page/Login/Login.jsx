@@ -381,10 +381,7 @@ const Login = () => {
             <div className="content">
               <h3 className="font-bold text-[#EEE]"> Sign Up Now !</h3>
               <p className="my-1 text-[#EEE] text-xl font-medium">
-                Embark on a journey with us by creating your account. Signing up
-                unlocks a world of features, personalized settings, and
-                exclusive benefits. Join our community today and experience the
-                full spectrum of what our platform has to offer.
+              Use strong, unique passwords, enable two-factor authentication, and beware of phishing. Regularly monitor account activity for added security.
               </p>
               <button
                 className="btnn transparent"
@@ -405,10 +402,7 @@ const Login = () => {
                 Welcome Back ! Swift Account Access
               </h3>
               <p className="my-2 text-[#EEE]">
-                Experience a hassle-free login process on our platform. Utilize
-                our secure authentication system for quick and efficient access
-                to your personalized features. Your privacy is our priority,
-                ensuring a smooth and secure login experience.
+              Create a strong password, use a unique email, and consider enabling two-factor authentication for secure and hassle-free sign-ups.
               </p>
               <button
                 className="btnn transparent"

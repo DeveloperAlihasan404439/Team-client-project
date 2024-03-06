@@ -69,7 +69,7 @@ const Navber = ({navberBgDark}) => {
       }}
     >
       <div className={`navbar z-80 navber-color rounded-b-lg h-16 lg:h-20 flex justify-center items-center max-w-7xl mx-auto
-      ${navberBgDark?'dark:navber-color':'dark:bg-[#1E293B]'}`}>
+     `}>
 
         <div className="navbar-start    ">
           <div className="drawer block lg:hidden">

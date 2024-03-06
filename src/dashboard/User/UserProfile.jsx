@@ -8,7 +8,7 @@ const UserProfile = () => {
   const { userSingle } = useUserSingle();
   return (
     <div className="w-11/12 max-w-6xl mx-auto h-full lg:flex items-center justify-center gap-5">
-      <div className="lg:w-[70%] h-auto lg:h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 ">
+      <div className="lg:w-[70%] h-auto lg:h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 dark:bg-[#1E293B]">
         <div className="p-5 relative h-full">
           <div className="w-full flex justify-center my-5">
             <img
@@ -17,10 +17,10 @@ const UserProfile = () => {
               className="w-40 h-40 border rounded-full"
             />
           </div>
-          <h1 className="text-3xl font-semibold text-center tracking-[5px] text-[#144248]">
+          <h1 className="text-3xl font-semibold text-center tracking-[5px] text-[#144248] dark:text-slate-100">
             {userSingle?.name}
           </h1>
-          <div className="text-lg font-semibold text-center tracking-[1px] text-[#144248]">
+          <div className="text-lg font-semibold text-center tracking-[1px] text-[#144248] dark:text-slate-400">
             {userSingle?.bio ? (
               <>
                 <h1 className="mt-5">{userSingle.bio}</h1>
@@ -40,7 +40,7 @@ const UserProfile = () => {
             whileTap={{ scale: 0.9 }}
             className="absolute -top-6 right-0"
           >
-            <span className="px-5 text-[#144248] text-3xl font-semibold rounded-md tracking-[2px] uppercase">
+            <span className="px-5 text-[#144248] text-3xl mr-5 font-semibold rounded-md tracking-[2px] uppercase dark:text-slate-100">
               <label htmlFor="my_modal_6">
                 <FiEdit />
               </label>
@@ -95,7 +95,7 @@ const UserProfile = () => {
           <ProfileUpdate />
         </div>
       </div>
-      <div className="lg:w-[30%] h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 flex justify-center items-center ">
+      <div className="lg:w-[30%] h-[70vh] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 flex justify-center items-center dark:bg-[#1E293B]">
         <div className="relative size-40 bg-[#144248] rounded-full mt-5">
           <svg
             className="size-full"
