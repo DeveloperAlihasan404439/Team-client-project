@@ -1,5 +1,5 @@
 /* eslint-disable no-sparse-arrays */
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/BannerL&Logo/Logo white.png";
 import "./Dashboard.css";
 import { FaUsers, FaHome } from "react-icons/fa";
@@ -71,6 +71,29 @@ const Dashboard = () => {
       icon: <FaBookOpen />,
     },
     {
+      Title: "Password Guard",
+      icon: <TbPasswordUser />,
+      Route: "/dashboard/user/password",
+    },
+  ];
+  const premiumNavItems = [
+    {
+      Title: "Profile",
+      Route: "/dashboard/user/profile",
+      icon: <FaHome />,
+    },
+
+    {
+      Title: "Add Article",
+      Route: "/dashboard/user/addArticle",
+      icon: <FaUsers />,
+    },
+    {
+      Title: "Articles",
+      Route: "/dashboard/user/all/Article",
+      icon: <FaBookOpen />,
+    },
+    {
       Title: "Notes",
       Route: "/dashboard/user/notes",
       icon: <GrNotes />,
@@ -92,6 +115,8 @@ const Dashboard = () => {
       Route: "/dashboard/user/storage",
     },
   ];
+  // premium
+  console.log(userSingle);
   return (
     <>
       <HelmetTitle
@@ -109,14 +134,28 @@ const Dashboard = () => {
                   type="checkbox"
                   className="drawer-toggle"
                 />
-                <div className="drawer-content flex justify-between flex-row-reverse py-2">
-                <img src={logo} alt="" className="w-36" />
-                  <label
-                    htmlFor="my-drawer-4"
-                    className="drawer-button text-2xl text-[#EEE]"
-                  >
-                    <IoMenu />
-                  </label>
+                <div className="drawer-content flex justify-between items-center flex-row-reverse py-2">
+                  <div className="flex justify-between items-center">
+                    <DarkMode />
+                    <div className="hidden md:block">
+                      <Link to="/">
+                        <img
+                          src={userSingle?.photoURL}
+                          alt=""
+                          className="w-6 h-6 rounded-full"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-5">
+                    <label
+                      htmlFor="my-drawer-4"
+                      className="drawer-button text-2xl text-[#EEE]"
+                    >
+                      <IoMenu />
+                    </label>
+                    <img src={logo} alt="" className="w-36" />
+                  </div>
                 </div>
                 <div className="drawer-side mt-14">
                   <label
@@ -124,7 +163,7 @@ const Dashboard = () => {
                     aria-label="close sidebar"
                     className="drawer-overlay"
                   ></label>
-                  <div className="w-52 h-[94vh] bg-[#144248] dark:bg-[#1E293B]">
+                  <div className="w-52 h-[94vh] bg-[#144248] dark:bg-[#28374E]">
                     <ul className="px-5">
                       {userSingle?.role === "admin" ? (
                         <>
@@ -141,16 +180,35 @@ const Dashboard = () => {
                         </>
                       ) : (
                         <>
-                          {userNavItems.map((item, i) => (
-                            <NavLink
-                              key={i}
-                              to={item.Route}
-                              className="text-[#EEEEEE] md:px-[26px] lg:px-[32px] py-[0.5rem] md:ml-[8px] lg:ml-[15px] text-sm lg:text-lg flex items-center gap-3"
-                            >
-                              {item.icon}
-                              {item.Title}
-                            </NavLink>
-                          ))}
+                          {userSingle?.role === "premium" ? (
+                            <>
+                              {premiumNavItems.map((item, i) => (
+                                <NavLink
+                                  title={userSingle?.role}
+                                  key={i}
+                                  to={item.Route}
+                                  className="text-[#EEEEEE] md:px-[26px] lg:px-[32px] py-[0.5rem] md:ml-[8px] lg:ml-[15px] text-sm lg:text-lg flex items-center gap-3"
+                                >
+                                  {item.icon}
+                                  {item.Title}
+                                </NavLink>
+                              ))}
+                            </>
+                          ) : (
+                            <>
+                              {userNavItems.map((item, i) => (
+                                <NavLink
+                                  key={i}
+                                  to={item.Route}
+                                  className="text-[#EEEEEE] md:px-[26px] lg:px-[32px] py-[0.5rem] md:ml-[8px] lg:ml-[15px] text-sm lg:text-lg flex items-center gap-3"
+                                >
+                                  {item.icon}
+                                  {item.Title}
+                                  {userSingle?.role}
+                                </NavLink>
+                              ))}
+                            </>
+                          )}
                         </>
                       )}
                     </ul>
@@ -179,7 +237,7 @@ const Dashboard = () => {
         <div className="lg:flex">
           <div className="hidden lg:w-[17%] lg:flex relative">
             <nav
-              className={`h-screen w-full lg:sticky top-0 left-0 bg-[#144248] dark:bg-[#1E293B] ${
+              className={`h-screen w-full lg:sticky top-0 left-0 bg-[#144248] dark:bg-[#28374E] ${
                 openDashboard
                   ? "absolute top-0 left-0"
                   : "absolute top-0 -left-10"
@@ -190,8 +248,12 @@ const Dashboard = () => {
                   <img src={logo} alt="" className="w-32 lg:w-48" />
                 </div>
                 <div className="flex justify-between items-center mb-10">
-                  <img src={userSingle?.photoURL} alt="" className="w-12 h-12 rounded-full" />
-                  <div className="text-right w-20 h-8">
+                  <img
+                    src={userSingle?.photoURL}
+                    alt=""
+                    className="w-12 h-12 rounded-full"
+                  />
+                  <div className="text-right w-fit ">
                     <DarkMode />
                   </div>
                 </div>

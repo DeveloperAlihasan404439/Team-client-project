@@ -67,13 +67,13 @@ import {
       },
       {
         name: "Dec",
-        uv: 1,
-        pv: 0,
+        uv: 55,
+        pv: 3,
       },
     ];
     return (
-      <div className="w-11/12 lg:h-[30vh] mx-auto lg:flex  items-center my-10">
-        <div className="w-full lg:w-[45%] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 overflow-hidden">
+      <div className="w-11/12 lg:h-[30vh] mx-auto lg:flex  items-center my-6 lg:my-10">
+        <div className="w-full lg:w-[50%] shadow-md rounded-xl border-t-2  bg-[#EEE] text-center z-90 overflow-hidden ">
           <div className="w-full flex justify-center">
             <BarChart
               width={500}
@@ -96,22 +96,22 @@ import {
             </BarChart>
           </div>
         </div>
-        <div className="w-full lg:w-[55%] md:flex justify-center gap-2 h-[250px] mt-10 lg:mt-0">
-          <div className="md:w-[330px] shadow-md rounded-xl border-t-2  bg-[#EEE] p-6 text-center z-90 ">
+        <div className="w-full lg:w-[55%] md:flex justify-center gap-2 h-[250px] mt-6 lg:mt-0">
+          <div className="md:w-[330px] shadow-md rounded-xl border-t-2  bg-[#EEE] p-6 text-center z-90 dark:bg-[#28374E]">
             <div className="scrollbar scrollbar-thumb-[#144248] scrollbar-track-[#00C49F] h-[100%] overflow-y-scroll"> 
               {usersData?.map((users) => (
-                <div key={users._id} className="mb-2 pb-3 border-b border-[#144248] flex items-center justify-between">
+                <div key={users._id} title={users.role} className="mb-2 pb-3 border-b border-[#144248] flex items-center gap-3 dark:border-[#192331]">
                   <img
                     src={users.photoURL}
                     alt=""
                     className="w-10 h-10 rounded-full "
                   />
-                  <h1 className="pr-4">{users.name}</h1>
+                  <h1 className="pr-4 dark:text-slate-100">{users.name}</h1>
                 </div>
               ))}
             </div>
           </div>
-          <div className="mt-10 md:mt-0 lg:mt-0 shadow-md rounded-xl border-t-2  bg-[#EEE]  p-6 text-center z-90  flex flex-col items-center h-full">
+          <div className="mt-6 md:mt-0 lg:mt-0 shadow-md rounded-xl border-t-2  bg-[#EEE]  p-6 text-center z-90  flex flex-col items-center h-full">
             <div className="relative size-40 bg-[#144248] rounded-full mt-5">
               <svg
                 className="size-full"

@@ -105,7 +105,7 @@ const RequstArticle = () => {
                 <th className="text-xl text-center">Title</th>
                 <th className="text-xl text-center">View</th>
                 <th className="text-xl text-center">Accept</th>
-                <th className="text-xl flex-1 text-center">Rejecte</th>
+                <th className="text-xl flex-1 text-center">Reject</th>
               </tr>
             </thead>
             <tbody className="dark:bg-[#1E293B]">
@@ -170,7 +170,7 @@ const RequstArticle = () => {
                         onClick={() => hendelArticleRejecte(arc._id)}
                         className="px-4 py-2 bg-[#df4041] text-[#EEE] font-medium rounded-md cursor-pointer dark:bg-[#503030]"
                       >
-                        Rejecte
+                        Reject
                       </span>
                     </motion.div>
                   </td>

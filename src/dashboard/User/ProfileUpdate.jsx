@@ -3,27 +3,27 @@ import { useEffect, useState } from "react";
 
 import { useForm } from "react-hook-form";
 
-// sweet alert npm package  
+// sweet alert npm package
 import Swal from "sweetalert2";
 
-// server site base and single user data loade  
+// server site base and single user data loade
 import useAxios from "../../Hooks/useAxios";
 import useUserSingle from "../../Hooks/useUserSingle";
 
-// design input filed number npm package  
+// design input filed number npm package
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
-// profile updated custom css 
+// profile updated custom css
 import "./ProfileUpdate.css";
 
-// images hosting api create start 
+// images hosting api create start
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
 // images hosting api create end
 
 const ProfileUpdate = () => {
-    const axiosPublick = useAxios();
+  const axiosPublick = useAxios();
   const [open, setOpon] = useState(true);
   const [imgLoader, setImgLoader] = useState(false);
   const [value, setValue] = useState();
@@ -51,21 +51,23 @@ const ProfileUpdate = () => {
         city: data.city,
         mobile: value,
       };
-      axiosPublick.put(`/user/profile/updated?email=${userSingle?.email}`, updatedProfile).then((res) => {
-        if (res?.data) {
-          reset();
-          refetch();
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Successfull User Profile updated",
-            showConfirmButton: false,
-            background: "#144248",
-            color: "#EEEEEE",
-            timer: 2000,
-          });
-        }
-      });
+      axiosPublick
+        .put(`/user/profile/updated?email=${userSingle?.email}`, updatedProfile)
+        .then((res) => {
+          if (res?.data) {
+            reset();
+            refetch();
+            Swal.fire({
+              position: "center",
+              icon: "success",
+              title: "Successfull User Profile updated",
+              showConfirmButton: false,
+              background: "#144248",
+              color: "#EEEEEE",
+              timer: 2000,
+            });
+          }
+        });
     }
   };
   useEffect(() => {
@@ -78,7 +80,7 @@ const ProfileUpdate = () => {
           <input type="checkbox" id="my_modal_6" className="modal-toggle" />
           <div className="modal" role="dialog">
             <div className="modal-box max-w-4xl bg-[#EEEEEE] p-0 dark:bg-[#1E293B]">
-              <h1 className="text-4xl mt-5 font-bold text-[#144248] text-center">
+              <h1 className="text-4xl mt-5 font-bold text-[#144248] text-center dark:text-slate-100">
                 Update <span className=" text-[#019D90]  ">Profile</span>
               </h1>
 
@@ -88,7 +90,7 @@ const ProfileUpdate = () => {
               >
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                    <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                       Name
                     </label>
                     <div>
@@ -97,20 +99,20 @@ const ProfileUpdate = () => {
                         type="text"
                         defaultValue={userSingle?.name}
                         placeholder="Name"
-                        className="input-text"
+                        className="input-text dark:bg-[#28374e]"
                         id="name"
                       />
                     </div>
                   </div>
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                    <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                       Input File
                     </label>
                     <div>
                       <input
                         {...register("image")}
                         type="file"
-                        className="input-file"
+                        className="input-file dark:bg-[#28374e]"
                         id="image"
                       />
                     </div>
@@ -118,19 +120,19 @@ const ProfileUpdate = () => {
                 </div>
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                    <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                       Email
                     </label>
                     <div>
                       <input
                         defaultValue={userSingle?.email}
-                        className="input-text"
+                        className="input-text dark:bg-[#28374e]"
                         disabled
                       />
                     </div>
                   </div>
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                    <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                       Education
                     </label>
                     <div>
@@ -139,7 +141,7 @@ const ProfileUpdate = () => {
                         type="text"
                         placeholder="Education"
                         defaultValue={userSingle?.education}
-                        className="input-text"
+                        className="input-text dark:bg-[#28374e]"
                         id="education"
                       />
                     </div>
@@ -147,7 +149,7 @@ const ProfileUpdate = () => {
                 </div>
                 <div className="md:flex gap-5 items-center w-full">
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                    <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                       City
                     </label>
                     <div>
@@ -156,13 +158,13 @@ const ProfileUpdate = () => {
                         type="text"
                         placeholder="City"
                         defaultValue={userSingle?.city}
-                        className="input-text"
+                        className="input-text dark:bg-[#28374e]"
                         id="city"
                       />
                     </div>
                   </div>
                   <div className="md:w-[50%]">
-                    <label className=" mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase ">
+                    <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                       Number
                     </label>
                     <div>
@@ -173,13 +175,13 @@ const ProfileUpdate = () => {
                         value={value}
                         onChange={setValue}
                         defaultValue={userSingle?.mobile}
-                        className="input-text"
+                        className="input-text dark:bg-[#28374e]"
                       />
                     </div>
                   </div>
                 </div>
                 <div className="w-full">
-                  <label className="mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase">
+                  <label className="md:mb-2 tracking-[2px] dark-mode-labal">
                     Bio
                   </label>
                   <div className="mt-1">
@@ -190,7 +192,7 @@ const ProfileUpdate = () => {
                       type="text"
                       required=""
                       placeholder="Your Bio"
-                      className="input-text"
+                      className="input-text dark:bg-[#28374e]"
                       id="bio"
                       defaultValue={userSingle?.bio}
                     />

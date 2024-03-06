@@ -22,7 +22,7 @@ const BlogCard = ({ blogs }) => {
     <motion.div
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.9 }}
-      className="cloudBannerZ  dark:bg-[#232f44] p-2 border  relative   rounded-xl duration-100 overflow-hidden"
+      className="dark:bg-[#232f44] p-2 border  relative   rounded-xl duration-100 overflow-hidden dark:border-none"
     >
       <img
         className="h-48 object-cover rounded-xl  border-b  w-full"
