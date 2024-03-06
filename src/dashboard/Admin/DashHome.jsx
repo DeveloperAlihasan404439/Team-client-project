@@ -76,11 +76,11 @@ const DashHome = () => {
   };
 
   return (
-    <div className="bg-[#EEE] pb-10">
+    <div className="bg-[#EEE] pb-10 dark:bg-[#0F172A]">
 
       <div className="w-11/12 md:max-w-6xl mx-auto mt-5 flex justify-between items-center rounded-lg bg-white py-2 px-3">
 
-        <h1 className="text-xl md:text-2xl uppercase md:tracking-[4px] font-semibold text-[#144248]">
+        <h1 className="text-lg md:text-2xl uppercase md:tracking-[4px] font-semibold text-[#144248]">
           Dashboard
         </h1>
         <div className="flex items-center gap-5">
@@ -140,12 +140,10 @@ const DashHome = () => {
           ) : null}
         </div>
       </div>
-      <div className="w-11/12 md:max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-7 mt-6">
+      <div className="w-11/12 md:max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-6 mt-6">
         <div className="notification w-full">
           <div className="notiglow w-full"></div>
-
           <div className="notiborderglow w-full" ></div>
-
           <div className="notititle w-full">
             <h1 className="text-2xl rounded-full bg-[#EEE] w-fit p-2 text-[#001e22]">
               <FaUsers />

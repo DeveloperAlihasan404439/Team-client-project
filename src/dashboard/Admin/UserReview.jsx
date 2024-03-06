@@ -41,16 +41,16 @@ const UserReview = () => {
   }
   return (
     <div className="max-w-5xl mx-auto my-10">
-      <h1 className="text-4xl font-bold text-[#144248] text-center">
+      <h1 className="text-4xl font-bold text-[#144248] text-center dark:text-slate-100">
         All User <span className=" text-[#019D90]  ">Review</span>
       </h1>
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="overflow-x-auto border-x-2 mt-5  rounded-t-[30px]">
+        <div className="overflow-x-auto border-x-2 mt-5  rounded-t-[30px] dark:bg-[#1E293B] dark:border-none">
           <table className="table">
             <thead>
-              <tr className="w-full bg-[#144248] text-[#ffffff] ">
+              <tr className="w-full bg-[#144248] text-[#ffffff] dark:bg-[#27354d]  dark:border-none">
                 <th></th>
                 <th className="text-xl">Photo</th>
                 <th className="text-xl text-center">Name</th>
@@ -63,7 +63,7 @@ const UserReview = () => {
               {review?.map((userReview, i) => (
                 <tr
                   key={userReview._id}
-                  className="bg-base-100 border-b-2 border-[#144248] text-[#144248]"
+                  className="bg-base-100 border-b-2 border-[#144248] text-[#144248] dark:bg-[#1E293B] dark:border-[#26344b] dark:text-slate-300"
                 >
                   <th className="w-[50px]">{i + 1}</th>
                   <td className="w-[80px] text-left text-lg">
@@ -82,7 +82,7 @@ const UserReview = () => {
                   <td className="text-lg  text-center">
                     {moment(userReview.date).format("ddd, MMM YYYY")}
                   </td>
-                  <td className="text-3xl flex-1s text-red-800">
+                  <td className="text-3xl flex-1s text-red-800 dark:text-red-600">
                     <motion.div
                       whileHover={{
                         scale: 1.02,

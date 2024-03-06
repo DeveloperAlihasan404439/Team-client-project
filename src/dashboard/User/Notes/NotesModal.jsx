@@ -34,7 +34,7 @@ export default function NotesModal({ updatedNotes, refetch }) {
         <>
           <input type="checkbox" id="my_modal_6" className="modal-toggle" />
           <div className="modal" role="dialog">
-            <div className="modal-box bg-[#144248]">
+            <div className="modal-box bg-[#144248] dark:bg-[#1a2333]">
               <textarea
                 defaultValue={updatedNotes?.notes}
 
@@ -50,7 +50,7 @@ export default function NotesModal({ updatedNotes, refetch }) {
                 <div className="modal-action">
                   <label
                     onClick={hendelUpdatedeNotes}
-                    className="btn text-[#144248] tracking-widest"
+                    className="btn text-[#144248] tracking-widest dark:bg-[#253349] dark:border-none dark:text-slate-100"
                   >
                     Submit!
                   </label>
@@ -58,7 +58,7 @@ export default function NotesModal({ updatedNotes, refetch }) {
                 <div className="modal-action">
                   <label
                     htmlFor="my_modal_6"
-                    className="btn text-[#144248] tracking-widest"
+                    className="btn text-[#144248] tracking-widest dark:bg-[#253349] dark:border-none dark:text-slate-100"
                   >
                     Close!
                   </label>
