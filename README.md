@@ -34,9 +34,9 @@ Swifty Mail boasts a user-friendly interface with essential pages such as About 
 Swifty Mail sets a new standard for inbox organization and online communication by prioritizing privacy, security, and user experience. With its innovative features and intuitive design, Swifty Mail paves the way for seamless email management. Experience the future of email management with Swifty Mail today!
 
 ## Demo 🔗 Link
-[Link to demo](https://swift-mail-5a7d7.web.app)
-[Link to Github Cliend Site](https://github.com/DeveloperAlihasan404439/Team-client-project)
-[Link to Github Server Site](https://github.com/DeveloperAlihasan404439/Team-server-project-)
+|Link to demo|Link to Github Cliend Site|Link to Github Server Site|
+|-|-|-|
+|[demo](https://swift-mail-5a7d7.web.app)|[Cliend Site](https://github.com/DeveloperAlihasan404439/Team-client-project)|[Server Site](https://github.com/DeveloperAlihasan404439/Team-server-project-)|
 
 
 This is a React project with [Create React App](https://create-react-app.dev/).
