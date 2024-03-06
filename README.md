@@ -44,8 +44,8 @@ Swifty Mail sets a new standard for inbox organization and online communication 
 | ---------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | [demo](https://swift-mail-5a7d7.web.app) | [Cliend Site](https://github.com/DeveloperAlihasan404439/Team-client-project) | [Server Site](https://github.com/DeveloperAlihasan404439/Team-server-project-) |
 
-This is a React project with [Create React App](https://create-react-app.dev/).
 
+This is a React project with [Create React App](https://create-react-app.dev/).
 ## Getting Started
 
 To get started with this project, follow these steps:
