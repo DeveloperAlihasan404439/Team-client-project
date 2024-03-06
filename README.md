@@ -1,3 +1,7 @@
+
+## SwiftyMail - creating a temporary email generator website that can generate & receive emails along with some extra features and functionalities. 
+
+
 This is a React project with [Create React App](https://create-react-app.dev/).
 
 ## Getting Started
@@ -25,5 +29,3 @@ To get started with this project, follow these steps:
    # or
    pnpm start
    ```
-
-

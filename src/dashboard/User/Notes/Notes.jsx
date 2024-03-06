@@ -7,6 +7,7 @@ import useAxios from "../../../Hooks/useAxios";
 import useAuth from "../../../shared/Auth/useAuth";
 import useNotes from "../../../Hooks/useNotes";
 import Loader from "../../../shared/Loader";
+import NotesModal from "./NotesModal";
  
 
 const Notes = () => {

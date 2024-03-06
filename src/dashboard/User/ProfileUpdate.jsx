@@ -77,7 +77,7 @@ const ProfileUpdate = () => {
         <>
           <input type="checkbox" id="my_modal_6" className="modal-toggle" />
           <div className="modal" role="dialog">
-            <div className="modal-box max-w-4xl bg-[#EEEEEE] p-0 ">
+            <div className="modal-box max-w-4xl bg-[#EEEEEE] p-0 dark:bg-[#1E293B]">
               <h1 className="text-4xl mt-5 font-bold text-[#144248] text-center">
                 Update <span className=" text-[#019D90]  ">Profile</span>
               </h1>
