@@ -91,7 +91,7 @@ const Banner = () => {
       {/* temporary mail Generated section start  */}
       <motion.div
         style={{ y: textY }}
-        className="hero-content z-80  text-center text-[#144248]"
+        className="hero-content z-80   text-center text-[#144248]"
       >
         <div className="bg-white bg-opacity-50 z-80  rounded-md">
           <h2 className="mt-9  text-xl md:text-2xl lg:text-3xl font-medium ">
@@ -107,7 +107,7 @@ const Banner = () => {
                   disabled
                   onClick={() => createInbox()}
                   whileTap={{ scale: 0.9 }}
-                  className="hover:bg-[#017E77] cursor-not-allowed font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE] p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
+                  className="hover:bg-[#017E77] cursor-not-allowed font-semibold bg-[#019D91] w-fit md:px-6 text-[#EEEEEE]   p-2 md:py-4 text-lg rounded   flex justify-center items-center gap-2 "
                 >
                   Create Inbox
                 </motion.button>

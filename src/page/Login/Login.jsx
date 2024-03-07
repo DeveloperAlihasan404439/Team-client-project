@@ -9,6 +9,7 @@ import singupimage from "../../../src/assets/image/undraw_feeling_proud_qne1.svg
 import singinimage from "../../../src/assets/image/undraw_maker_launch_re_rq81.svg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
+  GithubAuthProvider,
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
@@ -29,10 +30,11 @@ const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOS
 const Login = () => {
   const [isSignUpMode, setSignUpMode] = useState(false);
 
-  const { singIn, createUser } = useAuth();
+  const { singIn, createUser,githubUser } = useAuth();
 
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -51,12 +53,59 @@ const Login = () => {
     setSignUpMode(false);
   };
 
-  //google signIn
+  //google user signIn
   const handleGoogleSingIn = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
 
         if (result.user) {
+          const email = result.user?.email;
+          const photoURL = result.user?.photoURL;
+          const name = result.user?.displayName;
+          const role = "user";
+          const dataToInsert = { name, photoURL, email,role };
+          // store user to the database and checking if user exist
+          axiosPublick.post("/users", dataToInsert).then((res) => {
+
+            if (res.data.insertedId) {
+              navigate(location?.state ? location?.state : "/");
+              return Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Successfull User Updated",
+                showConfirmButton: false,
+
+                background: "#144248",
+                color: "#EEEEEE",
+                timer: 2000,
+              });
+            }
+          });
+          navigate(location?.state ? location?.state : "/");
+          return Swal.fire({
+
+            position: "center",
+            icon: "success",
+            title: "Successfull Google Sign In",
+            showConfirmButton: false,
+            background: "#144248",
+
+            color: "#EEEEEE",
+            timer: 1500,
+          });
+        }
+
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+  //github user signIn
+  const handleGithubSingIn = () => {
+    githubUser(githubProvider)
+      .then((result) => {
+        if (result.user) {
+          console.log(result.user)
           const email = result.user?.email;
           const photoURL = result.user?.photoURL;
           const name = result.user?.displayName;
@@ -180,7 +229,7 @@ const Login = () => {
 
             };
             axiosPublick.post("/users/post", userInfo).then((res) => {
-              if (res.data) {
+              if (res.data?._id) {
                 reset();
                 navigate(location?.state ? location?.state : "/");
                 Swal.fire({
@@ -197,12 +246,10 @@ const Login = () => {
           });
         })
         .catch((error) => {
-
           Swal.fire({
             position: "center",
             icon: "error",
             title: `${ error?.message }`,
-
             showConfirmButton: false,
             background: "#017E77",
             color: "#ffffff",
@@ -234,7 +281,7 @@ const Login = () => {
               <div className="divider">OR</div>
               <p className="social-text">Sign in with social platforms</p>
               <div className="social-media">
-                <a href="#" className="social-icon">
+                <a onClick={handleGithubSingIn} href="#" className="social-icon">
 
                   <IoLogoGithub />
                 </a>
@@ -316,7 +363,7 @@ const Login = () => {
                 <a href="#" className="social-icon">
                   <IoLogoFacebook />
                 </a>
-                <a href="#" className="social-icon">
+                <a onClick={handleGithubSingIn} href="#" className="social-icon">
                   <IoLogoGithub />
                 </a>
                 <a onClick={handleGoogleSingIn} className="social-icon">
@@ -332,10 +379,7 @@ const Login = () => {
             <div className="content">
               <h3 className="font-bold text-[#EEE]"> Sign Up Now !</h3>
               <p className="my-1 text-[#EEE] text-xl font-medium">
-                Embark on a journey with us by creating your account. Signing up
-                unlocks a world of features, personalized settings, and
-                exclusive benefits. Join our community today and experience the
-                full spectrum of what our platform has to offer.
+              Use strong, unique passwords, enable two-factor authentication, and beware of phishing. Regularly monitor account activity for added security.
               </p>
               <button
                 className="btnn transparent"
@@ -356,10 +400,7 @@ const Login = () => {
                 Welcome Back ! Swift Account Access
               </h3>
               <p className="my-2 text-[#EEE]">
-                Experience a hassle-free login process on our platform. Utilize
-                our secure authentication system for quick and efficient access
-                to your personalized features. Your privacy is our priority,
-                ensuring a smooth and secure login experience.
+              Create a strong password, use a unique email, and consider enabling two-factor authentication for secure and hassle-free sign-ups.
               </p>
               <button
                 className="btnn transparent"

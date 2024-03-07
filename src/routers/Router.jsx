@@ -25,6 +25,7 @@ import PasswordStrengthChecker from "../dashboard/User/PasswordStrengthChecker";
 import UserAllArticle from "../dashboard/User/UserAllArticle";
 import UserAddArticle from "../dashboard/User/UserAddArticle";
 import UserProfile from "../dashboard/User/UserProfile";
+import Storage from "../dashboard/User/StorageManagement/Storage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -69,13 +70,12 @@ const router = createBrowserRouter([
       {
         path: "/help",
         element: <Help/>
-      } 
+      },
+      {
+       path:'/login',
+       element: <Login/>,
+     }, 
     ],
-  },
-   {
-    path:'/login',
-    element: <Login/>,
-    errorElement:<ErrorPage></ErrorPage>,
   },
  {
     path: '/dashboard',
@@ -107,7 +107,7 @@ const router = createBrowserRouter([
             path: '/dashboard/requst/article',
             element: <RequstArticle/>
         },
-        // user rout 
+        // user rout start 
          {
 
             path: '/dashboard/user/profile',
@@ -125,10 +125,10 @@ const router = createBrowserRouter([
             path: '/dashboard/user/notes',
             element: <Notes/>
         },
-        // {
-        //   path: "/dashboard/user/storage",
-        //   element: <Storage/>,
-        // },
+        {
+          path: "/dashboard/user/storage",
+          element: <Storage/>,
+        },
         {
           path: "/dashboard/user/ip/address",
           element: <IpTracker />,

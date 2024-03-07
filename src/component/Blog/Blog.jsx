@@ -1,24 +1,35 @@
-import { GoDash } from "react-icons/go";
-import "swiper/css/pagination";
+// create the slider in use swiper react package
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
+import "swiper/css/pagination";
+
+// use react icons npm package 
+import { GoDash } from "react-icons/go";
 import { MdVerified } from "react-icons/md";
-import { Autoplay } from "swiper/modules";
+
+// import component modal review and use blog hooks data loade
 import useBlog from "../../Hooks/useBlog";
 import BlogCard from "./BlogCard";
-import './Blog.css'
+
+// blog custom css
+import "./Blog.css";
 
 const Blog = () => {
-  const {blog} = useBlog();
+  const { blog } = useBlog();
 
   return (
     <div className=" max-w-7xl mx-auto shadow-md mb-10 border-t-2 text-[#144248] border-t-gray-200 p-4  rounded-2xl mt-6 ">
       <div>
-        <h1 className="text-center font-bold text-4xl drop-shadow  ">
-          Most Popular <span className="text-[#019D90]">Blog</span>
+        <h1 className="text-center font-bold text-4xl drop-shadow dark:text-slate-100">
+          Most Popular <span className="text-[#019D90] dark:text-slate-100">Blog</span>
         </h1>
-        <p className="text-center  py-4 text-lg ">Embark on a virtual journey through captivating narratives, vivid imagery, and the allure of exploration as we delve into the beauty of diverse cultures, landscapes, and travel experiences.</p>
+        <p className="text-center  py-4 text-lg dark:text-slate-400">
+          Embark on a virtual journey through captivating narratives, vivid
+          imagery, and the allure of exploration as we delve into the beauty of
+          diverse cultures, landscapes, and travel experiences.
+        </p>
       </div>
+      {/* slider section start  */}
       <div className="px-5 text-dark py-6">
         <>
           <Swiper
@@ -44,19 +55,17 @@ const Blog = () => {
 
                     <div className="py-3">
                       <div className="flex gap-3 items-center py-3 capitalize">
-                        <p className=" text-lg text-[#1d7480] tracking-wide">
+                        <p className=" text-lg text-[#1d7480] tracking-wide dark:text-slate-100">
                           {item.travelFrom}
                         </p>
                         <GoDash />
-                        <p className="font-light  text-sm">
-                          {item.travelDate}
-                        </p>
+                        <p className="font-light text-sm dark:text-slate-100">{item.travelDate}</p>
                       </div>
 
-                      <p className=" text-4xl leading-tight">
+                      <p className=" text-4xl leading-tight dark:text-slate-100">
                         {item.title.slice(0, 100)}
                       </p>
-                      <p className=" font-light  text-[16px] leading-relaxed py-4">
+                      <p className=" font-light  text-[16px] leading-relaxed py-4 dark:text-slate-400">
                         {item.description}
                       </p>
 
@@ -67,11 +76,11 @@ const Blog = () => {
                           alt=""
                         />
                         <div className="">
-                          <h1 className="text-lg font-medium flex items-center gap-2">
+                          <h1 className="text-lg font-medium flex items-center gap-2 dark:text-slate-100">
                             {item.authorName}{" "}
                             <MdVerified className="text-[#019D90] text-xl" />{" "}
                           </h1>
-                          <h1 className="text-lg text-gray-500 font-medium ">
+                          <h1 className="text-lg text-gray-500 font-medium dark:text-slate-300">
                             {item.authorPosition}
                             <span className="text-sm font-blod text-gray-400 uppercase">
                               {" "}
@@ -88,11 +97,15 @@ const Blog = () => {
           </Swiper>
         </>
       </div>
+      {/* slider section end  */}
+
+      {/* blog crat section start  */}
       <div className="px-3 mb-6 grid grid-cols-1 md:grid-cols-3 gap-5">
         {blog?.map((blogs, index) => (
           <BlogCard key={index} blogs={blogs} />
         ))}
       </div>
+      {/* blog crat section end  */}
     </div>
   );
 };

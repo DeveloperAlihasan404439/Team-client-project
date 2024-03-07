@@ -17,9 +17,9 @@ const WhyUS = () => {
 
   return (
     <div className=" relative  ">
-      <section className="w-11/12 max-w-7xl mx-auto shadow-md rounded-xl border-t-2 text-[#144248] bg-[#EEE]  p-6 text-center z-90 ">
+      <section className="w-11/12 max-w-7xl mx-auto shadow-md rounded-xl border-t-2 text-[#144248] bg-[#EEE] dark:bg-[#1E293B] dark:text-slate-400 dark:border dark:border-gray-600 p-6 text-center z-90 ">
         <header>
-          <h1 className="text-4xl drop-shadow-md  text-[#144248] font-bold">
+          <h1 className="text-4xl drop-shadow-md  text-[#144248] dark:text-white  font-bold">
             Why <span className="text-[#019D90] font-bold">Swifty Mail !</span>{" "}
           </h1>
           <p className="text-lg py-4">

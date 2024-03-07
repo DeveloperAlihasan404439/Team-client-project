@@ -5,8 +5,7 @@ import bgimage from "../../assets/image/paymentsite-20240215093600jmwu.png";
 import useAxios from "../../Hooks/useAxios";
 import useAuth from "../../shared/Auth/useAuth";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-import useUserSingle from "../../Hooks/useUserSingle";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
@@ -17,7 +16,7 @@ const CheckoutForm = () => {
   const axiosPublic = useAxios();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const { usersData } = useUserSingle();
+  const location = useLocation();
   const TotalPrice = 100;
   useEffect(() => {
     if (TotalPrice > 0) {
@@ -81,12 +80,13 @@ const CheckoutForm = () => {
         };
 
         const res = await axiosPublic.post("/payments", payment);
+        console.log(res?.data);
         if (res?.data?.transactionId) {
           await axiosPublic
             .patch(`/user/premium?email=${user?.email}`)
             .then((res) => {
-              if (res?.data?.modifiedCount>0) {
-                navigate("/");
+              if (res?.data?.modifiedCount > 0) {
+                navigate(location?.state ? location?.state : "/");
                 Swal.fire({
                   position: "center",
                   icon: "success",
@@ -111,7 +111,7 @@ const CheckoutForm = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className=" lg:w-1/3 md:w-1/2 w-full  mx-auto border rounded-xl backdrop-blur-md bg-white/10 p-8 text-white shadow-md lg:pt-24 pt-9 pb-10"
+        className=" lg:w-1/3 md:w-1/2 w-full  mx-auto border rounded-xl backdrop-blur-md bg-white/10 p-8 text-white shadow-md lg:pt-24 pt-9 pb-10 dark:border-none"
       >
         <form onSubmit={handleSubmit} style={{ display: "contents" }}>
           <CardElement
@@ -133,7 +133,7 @@ const CheckoutForm = () => {
           <div className="text-center mt-10 border-t-2">
             <button
               type="submit"
-              className=" font-bold btn-md btn text-xl mt-4"
+              className=" font-bold btn-md btn text-xl mt-4 dark:bg-[#232f44] dark:border-none dark:text-slate-100"
               disabled={!stripe}
             >
               Pay

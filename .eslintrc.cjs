@@ -18,7 +18,11 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "react/no-unescaped-entities":'off',
+<<<<<<< HEAD
+    "react/prop-types":'off'
+=======
     "react/prop-types":'off',
     "react-hooks/exhaustive-deps":'off'
+>>>>>>> a82d77297a56b63749a7a469c36702bfb38729ac
   },
 }

@@ -15,7 +15,7 @@ import { IoIosStarHalf } from "react-icons/io";
 // use react reting design npm package 
 import Rating from "react-rating";
 
-// import component modal review and use data loade 
+// import component modal review use review hooks and use data loade 
 import UserReviewModal from "./UserReviewModal";
 import useReview from "../../Hooks/useReview";
 import useAuth from "../../shared/Auth/useAuth";
@@ -32,13 +32,13 @@ const UserReview = () => {
   // user information loade 
   const { user } = useAuth();
   return (
-    <div className=" max-w-7xl shadow-md border-t-2  rounded-2xl mx-auto p-4 mt-6">
+    <div className=" max-w-7xl shadow-md dark:border-t rounded-2xl mx-auto p-4 mt-6 dark:bg-[#1E293B]">
 
-      <h1 className="text-4xl text-center drop-shadow  font-bold ">
+      <h1 className="text-4xl text-center drop-shadow dark:text-slate-100  font-bold ">
         User <span className="text-[#019D90] ">Reviews </span> : Hear What
         Others Have to <span className="text-[#019D90] ">Say!</span>
       </h1>
-      <p className="py-3 text-lg text-center">
+      <p className="py-3 text-lg text-center dark:text-slate-400">
         Explore genuine testimonials from our users in the Review section. Dive
         into a dynamic presentation of feedback powered by a card-style swiper.
         With our intuitive design, each card automatically transitions every 2.5
@@ -52,26 +52,26 @@ const UserReview = () => {
           effect={"cards"}
           grabCursor={true}
           modules={[EffectCards, Autoplay]}
-          className="mySwiper md:h-[300px]  w-[100%]"
+          className="mySwiper md:h-[300px] rounded-xl w-[100%]"
           autoplay={{
             delay: 2500,
             disableOnInteraction: false,
           }}
         >
           {review?.map((item) => (
-            <SwiperSlide key={item._id} className="bg-[#E5E5E5]  ">
-              <div className="flex flex-col  md:flex-row items-center text-[#333333]  justify-center gap-6 box-border  p-2">
+            <SwiperSlide key={item._id} className="bg-[#E5E5E5] dark:bg-[#232f44]  rounded-2xl  ">
+              <div className="flex flex-col dark:text-slate-400 md:flex-row items-center text-[#333333]  justify-center gap-6 box-border  rounded-xl p-2 ">
                 <div className="md:w-[30%] lg:w-[20%] lg:h-[37dvh] h-[70dvh] md:h-full p-2 ">
                   <img
                     alt="profil"
                     src={item.image}
-                    className="mx-auto object-fit rounded-lg h-full w-fit"
+                    className="mx-auto object-fit  rounded-xl h-full w-fit"
                   />
                 </div>
 
                 <section className="md:w-[70%] lg:w-[80%]  ">
                   <div className="px-6 md:px-0  flex flex-col lg:flex-row justify-between items-center mr-10 ">
-                    <p className="md:text-3xl text-2xl tracking-[4px] drop-shadow pb-4 font-bold">
+                    <p className="md:text-3xl dark:text-white text-2xl tracking-[4px] drop-shadow pb-4 font-bold">
                       {item.name}
                     </p>
                     <p className="md:text-lg text-[#019D90] ">
@@ -95,7 +95,7 @@ const UserReview = () => {
                   </div>
                   <div className="w-full flex px-6 md:px-0 lg:pr-10 flex-col md:flex-row pb-4  md:justify-between md:items-center gap-2">
                     <p className="  text-md">
-                      <span className="text-[#019D90] ">User Email : </span>
+                      <span className="text-[#019D90] dark:text-slate-200">User Email : </span>
                       {item.email}
                     </p>
 
@@ -117,20 +117,21 @@ const UserReview = () => {
           <motion.label
             htmlFor="my_modal_6"
             whileTap={{ scale: 0.9 }}
-            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl  shadow-md"
+            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl bg-white dark:bg-[#232f44] shadow-md dark:border-none dark:text-white"
           >
             <AiTwotoneEdit className="text-2xl" /> Write a review
           </motion.label>
         ) : (
           <Link
             to="/login"
-            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl  shadow-md"
+            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl bg-white shadow-md"
           >
             <AiTwotoneEdit className="text-2xl" /> Please Login
           </Link>
         )}
         <UserReviewModal />
       </section>
+      {/* added user review button and modal  sectin end  */}
     </div>
   );
 };

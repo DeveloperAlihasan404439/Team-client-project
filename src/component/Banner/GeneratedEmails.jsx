@@ -33,7 +33,7 @@ const GeneratedEmails = ({ tempMail }) => {
           </div>
           )
         ) : (
-          <div className="shadow bg-[#fff] py-[2px] px-3 lg:w-[30rem] md:w-[30rem] w-full rounded-l-md bg-opacity-50 font-medium">
+          <div className="shadow bg-[#fff]  py-[2px] px-3 lg:w-[30rem] md:w-[30rem] w-full rounded-l-md bg-opacity-50 font-medium">
               <h2>Login to see generated email address</h2>
             </div>
         )}

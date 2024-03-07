@@ -2,24 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .input-text{
     display: flex;
     font-size: 16px;
     padding: 10px;
     width: 100%;
-    /* box-shadow: 1px 1px 2px 2px #144248; */
     outline: none;
     border-radius: 5px;
     margin-top: 5px;
     color: #144248;
+}
+.dark-mode-labal{
+    font-weight: 600;
+    color: #144248;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 .input-file{
     font-size: 16px;
     margin-top: 3px;
     background: white;
     border-radius: 5px;
-    /* box-shadow: 1px 1px 2px 2px; */
     width: 100%;
     outline: none;
 }
@@ -30,8 +33,39 @@
     padding: 10px;
     border: none;
     border-radius: 5px 5px 50px;
-    /* box-shadow: 0 1px 1px 1px #144248; */
+}
+.dark ::-webkit-file-upload-button{
+    color: #0fbfcf;
+    background: #0b2629;
 }
 ::-webkit-file-upload-button:hover{
     background: #091e20;
 }
+::-webkit-file-upload-button:hover{
+    background: #091e20;
+}
+.dark .input-file{
+    background: white;
+}
+.navber-color {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.dark .navber-color {
+    background: #28374e;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: transparent;
+    color: #7f8ca0;
+}
+
+.dark .dark-mode-labal{
+    color: rgb(194, 209, 235) !important;
+}
+.dark .input-text{
+    color: white;
+}
+
+

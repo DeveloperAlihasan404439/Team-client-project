@@ -60,17 +60,17 @@ const Articles = () => {
   return (
     <div className=" my-5 md:my-10">
       <div className="w-10/12 md:max-w-5xl mx-auto">
-        <h1 className="text-xl md:text-4xl font-bold text-[#144248] text-center">
+        <h1 className="text-xl md:text-4xl font-bold text-[#144248] text-center pt-5 dark:text-slate-100">
           A Design <span className=" text-[#019D90]  ">Guide</span>
         </h1>
-        <p className=" text-center font-inter  text-[#144248] font-medium  mt-4 mb-10">
+        <p className=" text-center font-inter  text-[#144248] font-medium  mt-4 mb-10 dark:text-slate-400">
           Explore the realm of user experience design, delving into principles
           that shape compelling digital interfaces. <br /> This article unveils
           insights into user-centric design, effective usability testing, and
           the psychology of user interaction.
         </p>
       </div>
-      <div className="px-10 mb-5 flex justify-between items-center text-xl text-[#144248] font-semibold">
+      <div className="px-10 mb-5 flex justify-between items-center text-xl text-[#144248] font-semibold dark:text-slate-400">
         <h1>Total Article : {confrimArticle.length}</h1>
         <Link to="/dashboard/addArticle">
           <Button name="Add Article" />
@@ -79,10 +79,10 @@ const Articles = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="w-11/12 mx-auto overflow-x-auto border-x-2  rounded-t-[30px]">
+        <div className="w-11/12 mx-auto overflow-x-auto border-x-2  rounded-t-[30px] dark:bg-[#1E293B] dark:border-none">
           <table className="table">
             <thead>
-              <tr className="w-full bg-[#144248] text-[#ffffff] ">
+              <tr className="w-full bg-[#144248] text-[#ffffff] dark:bg-[#27354d]  dark:border-none">
                 <th></th>
                 <th className="text-xl">Photo</th>
                 <th className="text-xl">Title</th>
@@ -95,7 +95,7 @@ const Articles = () => {
               {confrimArticle?.map((arc, i) => (
                 <tr
                   key={i}
-                  className="bg-base-100 border-b-2 border-[#144248]  text-[#144248]"
+                  className="bg-base-100 border-b-2 border-[#144248]  text-[#144248] dark:bg-[#1E293B] dark:border-[#26344b] dark:text-slate-300"
                 >
                   <th >{i + 1}</th>
                   <td >
@@ -124,7 +124,7 @@ const Articles = () => {
                       </span>
                     </motion.div>
                   </td>
-                  <td className="text-3xl text-red-800">
+                  <td className="text-3xl text-red-800 dark:text-red-600">
                     <motion.div
                       whileHover={{
                         scale: 1.02,

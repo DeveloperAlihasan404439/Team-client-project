@@ -4,13 +4,17 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import Button from "../../shared/Button";
 import useAxios from "../../Hooks/useAxios";
+import useAuth from "../../shared/Auth/useAuth";
+import ReactDatePicker from "react-datepicker";
 
 const VITE_IMAGES_HOSTING_KEY = import.meta.env.VITE_IMAGES_HOSTING_KEY;
 const images_hosting_api = `https://api.imgbb.com/1/upload?key=${VITE_IMAGES_HOSTING_KEY}`;
 const AddArticle = () => {
+  const [startDate, setStartDate] = useState(new Date());
   const [benefitsData, setBenefitsData] = useState("");
   const [benefits, setBenefits] = useState([]);
   const [imgLoader, setImgLoader] = useState(false);
+  const {user} = useAuth()
   const axiosPublick = useAxios()
   const navigate = useNavigate()
   if (!benefits.includes(benefitsData)) {
@@ -68,6 +72,7 @@ const AddArticle = () => {
   // console.log(article);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
+    setImgLoader(true)
     const fromImages = { image: data.image[0] };
     const res = await axiosPublick.post(images_hosting_api, fromImages, {
       headers: {
@@ -78,22 +83,26 @@ const AddArticle = () => {
       setImgLoader(false)
       const photoURL = res?.data?.data?.display_url;
       const addArticle = {
+        user_Email: user?.email,
+        user_Name: user?.displayName,
+        user_photo: user?.photoURL,
         img: photoURL,
         title: data.title,
         description: data.description,
         shortDescription: data.shortDescription,
-        date: data.date,
+        date: startDate,
         whyToUse: data.whyToUse,
         whereToUse: data.whereToUse,
         useToHelp: data.useToHelp,
         benefits,
         suggestArticle,
+        status:"confrom"
       };
       axiosPublick.post('/article',addArticle)
       .then((res) => {
-        if (res?.data?.insertedId) {
+        if (res?.data) {
           reset()
-          navigate('/dashboard/articleUpdated')
+          navigate('/dashboard/articles')
           Swal.fire({
             position: "center",
             icon: "success",
@@ -106,15 +115,14 @@ const AddArticle = () => {
         }
       })
     }
-    setImgLoader(true)
   };
   
   return (
     <div className="w-11/12 md:max-w-5xl mx-auto my-4">
-      <h1 className="text-2xl md:text-4xl text-center font-bold text-[#144248] ">
+      <h1 className="text-2xl md:text-4xl text-center font-bold text-[#144248] dark:text-slate-100">
         Add an <span className=" text-[#019D90]  ">Article</span>
       </h1>
-      <p className=" text-center font-inter text-[#144248] font-medium  mt-4">
+      <p className=" text-center font-inter text-[#144248] font-medium  my-4 pb-4 dark:text-slate-400">
         Be a part of our community!  shaping a platform of diverse ideas
         and perspectives.<br /> Start enriching our
         community with your unique articles.
@@ -123,95 +131,90 @@ const AddArticle = () => {
       <div>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-[#EEEEEE] rounded-xl relative text-left flex justify-start items-start p-6 w-full space-y-3"
+          className="bg-[#EEEEEE] rounded-xl relative text-left flex justify-start items-start p-6 w-full space-y-3 dark:bg-[#1E293B]"
         >
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Title </label>
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">Title </label>
                 <input
                   {...register("title", { required: true })}
                   type="text"
                   placeholder="Title"
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 />
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Input File </label>
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">Input File </label>
               <div>
               <input
                 {...register("image")}
                 type="file"
-                className="input-file"
-                // className="file-input mt-1 file-input-bordered file-input-success w-full  focus:outline-none border-none"
+                className="input-file dark:bg-[#28374e]"
               />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Why To Use</label>
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">Why To Use</label>
               <div>
                 <input
                   {...register("whyToUse", { required: true })}
                   type="text"
                   placeholder="Why To Use"
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 />
               </div>
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Use To Help </label>
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">Use To Help </label>
               <div>
                 <input
                   {...register("useToHelp", { required: true })}
                   type="text"
                   placeholder="Use To Help"
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 />
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Where To Use </label>
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">Where To Use </label>
               <div>
                 <input
                   {...register("whereToUse", { required: true })}
                   type="text"
                   placeholder="Where To Use"
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 />
               </div>
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Date </label>
-              <div>
-                <input
-                  {...register("date", { required: true })}
-                  type="date"
-                  className="input-text"
-                />
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">Date </label>
+              <div className="w-full">
+                <ReactDatePicker selected={startDate} onChange={(date) => setStartDate(date)} className="input-text dark:bg-[#28374e] w-full"/>
               </div>
             </div>
           </div>
           <div className="md:flex gap-5 items-center w-full">
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> short Description </label>
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal"> short Description </label>
               <div className="mt-1">
                 <input
                   {...register("shortDescription", { required: true })}
                   type="text"
                   placeholder="Short Description"
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 />
               </div>
             </div>
             <div className="mb-4 md:mb-0 md:w-[50%]">
-              <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase "> Benefits </label>
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal">Benefits </label>
               <div className="mt-1">
                 <select
                   onChange={(e) => setBenefitsData(e.target.value)}
-                  className="input-text"
+                  className="input-text dark:bg-[#28374e]"
                 >
                   <option style={{ backgroundColor: "#144248", color: "#EEE" }}>Select Benefits</option>
                   <option style={{ backgroundColor: "#144248", color: "#EEE" }} value="Enhanced online security">
@@ -236,7 +239,7 @@ const AddArticle = () => {
           </div>
 
           <div className="w-full">
-            <label className="md:mb-2 font-medium text-[#144248] text-[18px] tracking-[2px] uppercase"> Description </label>
+              <label className="md:mb-2 tracking-[2px] dark-mode-labal"> Description </label>
             <div className="mt-1">
               <textarea
                 {...register("description", { required: true })}
@@ -245,10 +248,10 @@ const AddArticle = () => {
                 type="text"
                 required=""
                 placeholder="Your description"
-                className="input-text"
+                className="input-text dark:bg-[#28374e] "
               />
             </div>
-            <div className="flex justify-start items-center mt-5 ml-5">
+            <div className="w-fit mt-5 ml-5 dark:bg-[#141c27]">
               <Button
                 type="submit"
                 className="mx-auto"

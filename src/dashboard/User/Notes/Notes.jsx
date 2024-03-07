@@ -8,13 +8,15 @@ import useAuth from "../../../shared/Auth/useAuth";
 import useNotes from "../../../Hooks/useNotes";
 import Loader from "../../../shared/Loader";
 import NotesModal from "./NotesModal";
+import useUserSingle from "../../../Hooks/useUserSingle";
+import { Link } from "react-router-dom";
 
 const Notes = () => {
   const [notesText, setNotesText] = useState("");
   const axiosPublick = useAxios();
   const { user } = useAuth();
   const [updatedNotes, setUpdatedNotes] = useState({});
-
+  const { userSingle } = useUserSingle();
   const { notes, isLoading, refetch } = useNotes();
   function hendelNotexPost() {
     if (notesText && user) {
@@ -25,8 +27,17 @@ const Notes = () => {
         user_images: user?.photoURL,
       };
       axiosPublick.post("/notes", notes).then((res) => {
-        if (res?.data?.insertedId) {
+        if (res?.data) {
           refetch();
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Successfull Notes Uploade",
+            showConfirmButton: false,
+            background: "#144248",
+            color: "#EEEEEE",
+            timer: 2000,
+          });
         }
       });
     }
@@ -81,8 +92,9 @@ const Notes = () => {
   }
   return (
     <div className="mx-10 my-5 md:my-10">
-      <h1 className="text-3xl font-medium text-[#144248]">Notes</h1>
-      {/* <input type="text" className="input-text"/> */}
+      <h1 className="text-3xl font-medium text-[#144248] dark:text-slate-100">
+        Notes
+      </h1>
       {isLoading ? (
         <Loader />
       ) : (
@@ -91,12 +103,12 @@ const Notes = () => {
             {notes?.map((notesText) => (
               <div
                 key={notesText._id}
-                className="relative rounded-2xl p-2 h-[200px] text-[#EEE] bg-[#144248]"
+                className="relative rounded-2xl p-2 h-[200px] text-[#EEE] bg-[#144248] dark:bg-[#1E293B]"
               >
-                <div className="me-4 text-[#EEE]">
-                  <h1>{notesText.notes}</h1>
-                </div>
-                <div className="px-5 py-1 w-full h-[40px] bg-[#017E77] text-[#EEE] border-none rounded-b-xl flex justify-between items-center absolute left-0 bottom-0">
+                <h1 className="me-7 text-[#EEE] text-[17px] dark:text-slate-200">
+                  {notesText.notes}
+                </h1>
+                <div className="px-5 py-1 w-full h-[40px] bg-[#017E77] text-[#EEE] border-none rounded-b-xl flex justify-between items-center absolute left-0 bottom-0 dark:bg-[#27354d] dark:text-slate-100">
                   <h1>{notesText.user_name}</h1>
 
                   <motion.div
@@ -124,7 +136,7 @@ const Notes = () => {
                     transition: { duration: 0.3 },
                   }}
                   whileTap={{ scale: 0.9 }}
-                  className="absolute top-0 right-0 bg-[#EEE] text-[#144248] text-2xl p-1 rounded-full"
+                  className="absolute top-0 right-0 bg-[#EEE] text-[#144248] text-2xl p-1 rounded-full dark:bg-[#27354d] dark:text-slate-100"
                 >
                   <span onClick={() => hendelDeleteNotes(notesText._id)}>
                     <IoCloseSharp />
@@ -140,16 +152,25 @@ const Notes = () => {
                 cols="30"
                 rows="6"
                 placeholder="Type........"
-                className="w-full h-full rounded-xl p-2 text-[#EEE] bg-[#144248] outline-none text-xl"
+                className="w-full h-full rounded-xl p-2 text-[#EEE] bg-[#144248] outline-none text-xl dark:bg-[#1E293B] dark:text-slate-100"
               ></textarea>
-              <div className="px-5 py-1 w-full h-[40px] bg-[#017E77] text-[#EEE] border-none rounded-b-xl flex justify-between items-center absolute left-0 bottom-0">
+              <div className="px-5 py-1 w-full h-[40px] bg-[#017E77] text-[#EEE] border-none rounded-b-xl flex justify-between items-center absolute left-0 bottom-0 dark:bg-[#27354d] dark:text-slate-100">
                 <h1>{hendelNotesLength()} Left</h1>
-                <button
-                  onClick={hendelNotexPost}
-                  className="px-3 py-1 tracking-[3px] rounded bg-[#144248]"
-                >
-                  Save
-                </button>
+                {userSingle?.role === "premium" ? (
+                  <button
+                    onClick={hendelNotexPost}
+                    className="px-3 py-1 tracking-[3px] rounded bg-[#144248] dark:bg-[#1a2333]"
+                  >
+                    Save
+                  </button>
+                ) : (
+                  <Link
+                    to="/payment"
+                    className="px-3 py-1 tracking-[3px] rounded bg-[#144248] dark:bg-[#1a2333]"
+                  >
+                    Save
+                  </Link>
+                )}
               </div>
             </div>
           </div>

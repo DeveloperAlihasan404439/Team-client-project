@@ -33,18 +33,21 @@ const PasswordStrengthChecker = () => {
   };
   return (
     <div className="max-w-7xl mx-auto pt-10">
-      <h2 className="text-center text-2xl md:text-3xl font-bold pb-2 text-[#144248]">
+      <h2 className="text-center text-2xl md:text-3xl font-bold pb-2 text-[#144248] dark:text-slate-100">
         Password Strength Meter{" "}
         <span className="text-[#019D90]">Design Pattern</span>
       </h2>
-      <div className="md:w-[70%] p-10 rounded bg-white shadow-xl mx-auto mt-3 md:mt-6">
-        <h1 className="text-xl font-medium mb-5 text-[#144248]">
+      <div className="md:w-[70%] p-10 rounded bg-white shadow-xl mx-auto mt-3 md:mt-6 dark:bg-[#28374e]">
+        <h1 className="text-xl font-medium mb-5 text-[#144248] dark:text-slate-200">
           Password Strength Indicate
+        </h1>
+        <h1 className="text-lg font-medium mb-5 text-[#144248] dark:text-slate-400">
+          Example Password : a1aA@
         </h1>
         <div className="relative">
           <input
             onChange={handlePasswordChange}
-            className="input-text border tracking-widest"
+            className="input-text border tracking-widest dark:bg-[#2f3f5a] dark:border-slate-400"
             type={showPassword ? "password" : "text"}
             placeholder="Your Password"
           />
@@ -59,7 +62,7 @@ const PasswordStrengthChecker = () => {
             )}
           </div>
         </div>
-        <div className="flex items-center justify-between gap-5 mt-5">
+        <div className="flex items-center justify-between gap-5 mt-5 ">
           <div
             className={`border-y-4 rounded ${
               strength === "Weak" ||
@@ -67,7 +70,7 @@ const PasswordStrengthChecker = () => {
               strength === "Good" ||
               strength === "Strong"
                 ? "border-red-500"
-                : "border-white"
+                : "border-white dark:border-[#1f2b3d]"
             }  w-[33%]`}
           ></div>
           <div
@@ -76,19 +79,21 @@ const PasswordStrengthChecker = () => {
               strength === "Good" ||
               strength === "Strong"
                 ? "border-[#e6a328]"
-                : "border-white"
+                : "border-white dark:border-[#222f42]"
             }  w-[33%]`}
           ></div>
           <div
             className={`border-y-4 rounded ${
               strength === "Good" || strength === "Strong"
                 ? "border-[#9de919]"
-                : "border-white"
+                : "border-white dark:border-[#222f42]"
             }  w-[33%]`}
           ></div>
           <div
             className={`border-y-4 rounded ${
-              strength === "Strong" ? "border-[#22ad5c] " : "border-white"
+              strength === "Strong"
+                ? "border-[#22ad5c] "
+                : "border-white dark:border-[#222f42]"
             }  w-[33%]`}
           ></div>
         </div>
@@ -116,18 +121,18 @@ const PasswordStrengthChecker = () => {
         )}
       </div>
       <div className="w-11/12 max-w-7xl mx-auto font-inter mt-5 md:my-10">
-        <div className="rounded-lg shadow-md border-2 p-5 bg-opacity-50">
+        <div className="rounded-lg shadow-md border-2 p-5 bg-opacity-50  dark:bg-[#28374e] dark:border-none">
           <div className="">
-            <h2 className="text-3xl text-[#144248] font-bold">
+            <h2 className="text-3xl text-[#144248] font-semibold dark:text-slate-200">
               Problem Summary
             </h2>
-            <p className="text-lg">
+            <p className="text-lg text-slate-400">
               You want to make sure your users' passwords are sufficiently
               strong in order to prevent malicious attacks.
             </p>
           </div>
           <div className="mt-2">
-            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl">
+            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl dark:text-slate-200">
               Example
             </h2>
             <img
@@ -135,9 +140,9 @@ const PasswordStrengthChecker = () => {
               src="https://i.ibb.co/Ns7cQ1h/Screenshot-2024-02-09-105800.png"
               alt=""
             />
-            <h2 className="text-[#144248] text-3xl font-bold mt-5">Usage</h2>
+            <h2 className="text-[#144248] text-3xl font-bold mt-5 dark:text-slate-200">Usage</h2>
           </div>
-          <ul className="text-lg text-[#144248] ml-[2rem] mt-2 list-decimal">
+          <ul className="text-lg text-[#144248] ml-[2rem] mt-2 list-decimal dark:text-slate-400">
             <li className="mb-2">
               Use when you want your users to choose passwords for their user
               accounts that are hard to break or guess by either human or
@@ -155,8 +160,8 @@ const PasswordStrengthChecker = () => {
             </li>
           </ul>
         </div>
-        <div className="font-inter text-3xl font-bold text-[#144248] mt-5 md:my-10  shadow-md border-2 p-5 bg-opacity-50">
-          <h2 className="mb-5">More Examples</h2>
+        <div className="font-inter text-3xl font-bold text-[#144248] mt-5 md:my-10 dark:bg-[#28374e] dark:border-none rounded-lg shadow-md border-2 p-5 bg-opacity-50">
+          <h2 className="mb-5 dark:text-slate-200">More Examples</h2>
           <div className="lg:flex md:flex gap-2">
             <img
               className="lg:w-[15rem] h-[9rem]"
@@ -176,9 +181,9 @@ const PasswordStrengthChecker = () => {
           </div>
         </div>
 
-        <div className="text-[#144248] my-5 md:my-10  shadow-md border-2 p-5 bg-opacity-50">
-          <div>
-            <h2 className="font-bold text-xl  md:text-2xl">Solution</h2>
+        <div className="text-[#144248] my-5 md:my-10  shadow-md rounded-lg border-2 p-5 bg-opacity-50  dark:bg-[#28374e] dark:border-none">
+          <div className="dark:text-slate-400">
+            <h2 className="font-bold text-xl  md:text-2xl dark:text-slate-200">Solution</h2>
             <p className="mt-4 text-lg">
               A password’s strength is measured according to predefined rules
               and is displayed using a horizontal scale next to the input field.
@@ -198,10 +203,10 @@ const PasswordStrengthChecker = () => {
           </div>
 
           <div className="mt-5 ">
-            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl">
+            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl dark:text-slate-200">
               How strong a password?
             </h2>
-            <p className="mt-4 text-lg">
+            <p className="mt-4 text-lg dark:text-slate-400">
               The definition of a strong password can be intensely argued. A
               forced complex password at first glance only spells increased
               security, but forcing too complex and rigid rules on password can
@@ -215,8 +220,8 @@ const PasswordStrengthChecker = () => {
             </p>
           </div>
 
-          <div className="mt-5 ">
-            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl">
+          <div className="mt-5 dark:text-slate-400">
+            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl dark:text-slate-200">
               What is a strong password?
             </h2>
             <div className="mt-4 text-lg">
@@ -243,10 +248,10 @@ const PasswordStrengthChecker = () => {
           </div>
 
           <div className="mt-5 ">
-            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl">
+            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl dark:text-slate-200">
               Dictionary attacks
             </h2>
-            <p className="mt-4 text-lg">
+            <p className="mt-4 text-lg dark:text-slate-400">
               While the above mentioned password check can easily be done using
               only client-side javascript, it does not prevent against
               dictionary attacks. To ease the memorization of passwords, people
@@ -260,10 +265,10 @@ const PasswordStrengthChecker = () => {
             </p>
           </div>
           <div className="mt-5 ">
-            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl">
+            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl dark:text-slate-200">
               Choosing an appropriate level of password strength
             </h2>
-            <p className="mt-4 text-lg">
+            <p className="mt-4 text-lg dark:text-slate-400">
               You need to determine the password strength and complexity
               according to what you want to protect. You need to draw the line
               somewhere. For 99% of the content out there it can easily be
@@ -272,10 +277,10 @@ const PasswordStrengthChecker = () => {
             </p>
           </div>
           <div className="mt-5 ">
-            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl">
+            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl dark:text-slate-200">
               General guidelines on choosing a password
             </h2>
-            <div className="mt-4 text-lg ml-9">
+            <div className="mt-4 text-lg ml-9 dark:text-slate-400">
               <ul>
                 <li>
                   Use a password of a seemingly random selection of letters and
@@ -318,10 +323,10 @@ const PasswordStrengthChecker = () => {
             </div>
           </div>
           <div className="mt-5 ">
-            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl">
+            <h2 className="text-[#144248] font-bold text-xl  md:text-2xl dark:text-slate-200">
               Rationale
             </h2>
-            <p className="mt-4 text-lg ">
+            <p className="mt-4 text-lg dark:text-slate-400">
               By showing a password strength meter beside the password field,
               the user is forced to consider using a password with an
               appropriate strength. By putting a minimum level of password
