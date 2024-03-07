@@ -95,7 +95,7 @@ const UserReview = () => {
                   </div>
                   <div className="w-full flex px-6 md:px-0 lg:pr-10 flex-col md:flex-row pb-4  md:justify-between md:items-center gap-2">
                     <p className="  text-md">
-                      <span className="text-[#019D90] ">User Email : </span>
+                      <span className="text-[#019D90] dark:text-slate-200">User Email : </span>
                       {item.email}
                     </p>
 
@@ -117,7 +117,7 @@ const UserReview = () => {
           <motion.label
             htmlFor="my_modal_6"
             whileTap={{ scale: 0.9 }}
-            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl bg-white dark:bg-[#1E293B] shadow-md"
+            className="font-semibold text-[#019D91] w-full  lg:w-fit md:p-6 cloudBannerZ p-4 border-t rounded-lg   flex justify-center items-center gap-2 text-xl bg-white dark:bg-[#232f44] shadow-md dark:border-none dark:text-white"
           >
             <AiTwotoneEdit className="text-2xl" /> Write a review
           </motion.label>

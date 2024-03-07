@@ -229,7 +229,7 @@ const Login = () => {
 
             };
             axiosPublick.post("/users/post", userInfo).then((res) => {
-              if (res.data) {
+              if (res.data?._id) {
                 reset();
                 navigate(location?.state ? location?.state : "/");
                 Swal.fire({
@@ -246,12 +246,10 @@ const Login = () => {
           });
         })
         .catch((error) => {
-
           Swal.fire({
             position: "center",
             icon: "error",
             title: `${ error?.message }`,
-
             showConfirmButton: false,
             background: "#017E77",
             color: "#ffffff",

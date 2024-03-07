@@ -71,29 +71,6 @@ const Dashboard = () => {
       icon: <FaBookOpen />,
     },
     {
-      Title: "Password Guard",
-      icon: <TbPasswordUser />,
-      Route: "/dashboard/user/password",
-    },
-  ];
-  const premiumNavItems = [
-    {
-      Title: "Profile",
-      Route: "/dashboard/user/profile",
-      icon: <FaHome />,
-    },
-
-    {
-      Title: "Add Article",
-      Route: "/dashboard/user/addArticle",
-      icon: <FaUsers />,
-    },
-    {
-      Title: "Articles",
-      Route: "/dashboard/user/all/Article",
-      icon: <FaBookOpen />,
-    },
-    {
       Title: "Notes",
       Route: "/dashboard/user/notes",
       icon: <GrNotes />,
@@ -115,8 +92,6 @@ const Dashboard = () => {
       Route: "/dashboard/user/storage",
     },
   ];
-  // premium
-  console.log(userSingle);
   return (
     <>
       <HelmetTitle
@@ -180,35 +155,17 @@ const Dashboard = () => {
                         </>
                       ) : (
                         <>
-                          {userSingle?.role === "premium" ? (
-                            <>
-                              {premiumNavItems.map((item, i) => (
-                                <NavLink
-                                  title={userSingle?.role}
-                                  key={i}
-                                  to={item.Route}
-                                  className="text-[#EEEEEE] md:px-[26px] lg:px-[32px] py-[0.5rem] md:ml-[8px] lg:ml-[15px] text-sm lg:text-lg flex items-center gap-3"
-                                >
-                                  {item.icon}
-                                  {item.Title}
-                                </NavLink>
-                              ))}
-                            </>
-                          ) : (
-                            <>
-                              {userNavItems.map((item, i) => (
-                                <NavLink
-                                  key={i}
-                                  to={item.Route}
-                                  className="text-[#EEEEEE] md:px-[26px] lg:px-[32px] py-[0.5rem] md:ml-[8px] lg:ml-[15px] text-sm lg:text-lg flex items-center gap-3"
-                                >
-                                  {item.icon}
-                                  {item.Title}
-                                  {userSingle?.role}
-                                </NavLink>
-                              ))}
-                            </>
-                          )}
+                          {userNavItems.map((item, i) => (
+                            <NavLink
+                              key={i}
+                              to={item.Route}
+                              className="text-[#EEEEEE] md:px-[26px] lg:px-[32px] py-[0.5rem] md:ml-[8px] lg:ml-[15px] text-sm lg:text-lg flex items-center gap-3"
+                            >
+                              {item.icon}
+                              {item.Title}
+                              {userSingle?.role}
+                            </NavLink>
+                          ))}
                         </>
                       )}
                     </ul>

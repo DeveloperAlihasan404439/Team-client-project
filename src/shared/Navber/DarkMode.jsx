@@ -23,7 +23,7 @@ const DarkMode = () => {
     html.classList.add(crrentMode);
   }, []);
   return (
-    <div onChange={changeHeldelThime} className="rounded-[50%] mr-5">
+    <div onChange={changeHeldelThime} className="rounded-[50%] mr-1">
       <div className="toggle-border" title="Dark Mode">
         <input id="one" type="checkbox" />
         <label htmlFor="one">

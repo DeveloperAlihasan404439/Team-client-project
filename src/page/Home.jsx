@@ -8,8 +8,9 @@ import Footer from "../shared/Footer/Footer";
 
 // added the project title daynamic
 import HelmetTitle from "../shared/HelmetTitle";
-import Blog from "../component/Home/Blog/Blog";
 import Subscription from "../component/Subscription/Subscription";
+import Blog from "../component/Blog/Blog";
+import Responser from "../component/Responser/Responser";
 
 const Home = () => {
   const navberBgDark = true;
@@ -25,6 +26,7 @@ const Home = () => {
         <Subscription/>
         <UserReview />
          <Blog/>
+         <Responser/>
       </div>
       <Footer/>
     </>

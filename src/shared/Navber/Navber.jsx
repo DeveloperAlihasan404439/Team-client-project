@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/BannerL&Logo/Logo.png";
 import Headroom from "react-headroom";
 
@@ -13,8 +13,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import useAxios from "../../Hooks/useAxios";
 import DarkMode from "./DarkMode";
-// import DarkMode from "../Shared/DarkMode/DarkMode";
-const Navber = ({navberBgDark}) => {
+const Navber = () => {
   const { user, logOut } = useAuth();
   const [admin, setAdmin] = useState({});
   const axiosPublick = useAxios();
@@ -23,7 +22,6 @@ const Navber = ({navberBgDark}) => {
     axiosPublick.get(`/users/single?email=${user?.email}`).then((res) => {
       setAdmin(res.data);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const handleLogOut = () => {
@@ -68,7 +66,7 @@ const Navber = ({navberBgDark}) => {
         transition: "all .5s ease-in-out",
       }}
     >
-      <div className={`navbar z-80 navber-color rounded-b-lg h-16 lg:h-20 flex justify-center items-center max-w-7xl mx-auto
+      <div className={`navbar z-80 rounded-b-lg h-16 lg:h-20 flex justify-center items-center max-w-7xl mx-auto
      `}>
 
         <div className="navbar-start    ">
@@ -190,7 +188,7 @@ const Navber = ({navberBgDark}) => {
           <ul className=" flex justify-center md:text-lg font-medium  items-center  gap-4 ">
             {NavItems?.map((item) => (
               <li
-                className="hover:bg-[#017E77] text-[#144248] relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center "
+                className="hover:bg-[#017E77] text-[#144248] relative group transition-transform duration-500 delay-200   w-fit border border-[#019D91] rounded    hover:text-[#EEEEEE] flex  justify-center items-center dark:text-slate-100"
                 key={item.Title}
               >
                 <NavLink
@@ -220,7 +218,7 @@ const Navber = ({navberBgDark}) => {
                       : "/dashboard/user/profile"
                   }
                   className={({ isActive, isPending }) =>
-                    `hover:bg-[#017E77] rounded-lg flex items-center gap-1 ${
+                    `hover:bg-[#017E77] rounded-lg flex items-center gap-1 dark:text-slate-100 ${
                       isPending
                         ? "pending"
                         : isActive
@@ -260,7 +258,7 @@ const Navber = ({navberBgDark}) => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content z-[1] p-2 shadow bg-[#EEEEEE] rounded-box w-52  text-[#144248]"
+                  className="menu menu-sm dropdown-content z-[1] p-2 shadow bg-[#EEEEEE] rounded-box w-52  text-[#144248] dark:bg-[#232f44] dark:text-slate-100"
                 >
                   <li>
                     <div className="justify-between hover:bg-[#019D91] hover:text-[#EEE]">
@@ -288,7 +286,7 @@ const Navber = ({navberBgDark}) => {
               <Link to="/login">
                 <motion.button
                   whileTap={{ scale: 0.9 }}
-                  className="hover:bg-[#017E77]  Hover:bg-[#019D91] ml-3 border hover:border  border-[#017E77] font-inter hover:text-[#EEEEEE] px-5 py-2 rounded-md   "
+                  className="hover:bg-[#017E77]  Hover:bg-[#019D91] ml-3 border hover:border  border-[#017E77] font-inter hover:text-[#EEEEEE] px-5 py-2 rounded-md  dark:text-slate-100 "
                 >
                   Login
                 </motion.button>

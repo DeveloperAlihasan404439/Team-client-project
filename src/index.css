@@ -12,6 +12,12 @@
     margin-top: 5px;
     color: #144248;
 }
+.dark-mode-labal{
+    font-weight: 600;
+    color: #144248;
+    font-size: 18px;
+    text-transform: uppercase;
+}
 .input-file{
     font-size: 16px;
     margin-top: 3px;
@@ -55,12 +61,6 @@
     color: #7f8ca0;
 }
 
-.dark-mode-labal{
-    font-weight: 600;
-    color: #144248;
-    font-size: 18px;
-    text-transform: uppercase;
-}
 .dark .dark-mode-labal{
     color: rgb(194, 209, 235) !important;
 }

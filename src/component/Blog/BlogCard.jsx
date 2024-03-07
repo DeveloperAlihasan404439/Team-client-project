@@ -1,4 +1,4 @@
-// use react icons npm package 
+// use react icons npm package
 import { MdVerified } from "react-icons/md";
 import { GoDash } from "react-icons/go";
 
@@ -20,7 +20,7 @@ const BlogCard = ({ blogs }) => {
     <motion.div
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.9 }}
-      className="cloudBannerZ text-center  p-2 relative  rounded-xl duration-100 overflow-hidden border-4"
+      className="cloudBannerZ text-center  p-2 relative  rounded-xl duration-100 overflow-hidden border-4 dark:bg-[#232f44] dark:border-none"
     >
       <img
         className="h-48 object-cover rounded-xl  border-b  w-full"
@@ -29,16 +29,16 @@ const BlogCard = ({ blogs }) => {
       />
       <div className="p-5">
         <div className="flex items-center gap-1 capitalize mt-2">
-          <p className="font-inter text-[16px] font-semibold text-gray-700 tracking-wide">
+          <p className="font-inter text-[16px] font-semibold text-gray-700 tracking-wide dark:text-slate-100">
             {travelFrom}
           </p>
           <GoDash />
-          <p className="font-light font-inter text-sm">{travelDate}</p>
+          <p className="font-light font-inter text-sm dark:text-slate-100">{travelDate}</p>
         </div>
 
         <div className="font-inter mt-2 z-30">
-          <p className="text-lg font-semibold">{title.slice(0, 60)}</p>
-          <p className="py-2 text-gray-500 font-inter text-sm">
+          <p className="text-lg font-semibold dark:text-slate-100">{title.slice(0, 60)}</p>
+          <p className="py-2 text-gray-500 font-inter text-sm dark:text-slate-400">
             {description.slice(0, 110)}
           </p>
         </div>
@@ -49,13 +49,12 @@ const BlogCard = ({ blogs }) => {
             alt=""
           />
           <div className="font-inter">
-            <h1 className="text-lg font-medium flex items-center gap-2">
+            <h1 className="text-lg font-medium flex items-center gap-2 dark:text-slate-100">
               {authorName} <MdVerified className="text-[#019D90] text-xl" />
             </h1>
-            <h1 className="text-lg text-gray-500 font-medium ">
+            <h1 className="text-lg text-gray-500 font-medium dark:text-slate-200">
               {authorPosition}
               <span className="text-sm font-blod text-gray-400 uppercase">
-                
                 | Developer
               </span>
             </h1>

@@ -13,6 +13,8 @@ import CloudBanner from "./CloudBanner";
 import { toast } from "react-toastify";
 import useAuth from "../../../shared/Auth/useAuth";
 import app from "../../../shared/Auth/Firebase";
+import { Link } from "react-router-dom";
+import useUserSingle from "../../../Hooks/useUserSingle";
 
 const Storage = () => {
   const { user } = useAuth();
@@ -21,6 +23,7 @@ const Storage = () => {
   const storage = getStorage(app);
   const fileListRef = ref(storage, `${user?.email}/`);
   const [error, setError] = useState(null);
+  const {userSingle} = useUserSingle();
 
   useEffect(() => {
     if (!fileListRef) return;
@@ -136,13 +139,24 @@ const Storage = () => {
               setFiles(e.target.files[0]);
             }}
           />
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-4 text-[#EEEEEE] p-2 md:py-3 rounded mx-auto flex justify-center items-center gap-2 dark:bg-[#1a2331]"
-            onClick={uploadImg}
-          >
-            Upload Files
-          </motion.button>
+          {userSingle?.role === "premium" ? (
+            <motion.button
+              whileTap={{ scale: 0.9 }}
+              className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-4 text-[#EEEEEE] p-2 md:py-3 rounded mx-auto flex justify-center items-center gap-2 dark:bg-[#1a2331]"
+              onClick={uploadImg}
+            >
+              Upload Files
+            </motion.button>
+          ) : (
+            <motion.button whileTap={{ scale: 0.9 }}>
+              <Link
+                to="/payment"
+                className="hover:bg-[#017E77] font-semibold bg-[#019D91] w-fit md:px-4 text-[#EEEEEE] p-2 md:py-3 rounded mx-auto flex justify-center items-center gap-2 dark:bg-[#1a2331]"
+              >
+                Upload Files
+              </Link>
+            </motion.button>
+          )}
         </section>
       </motion.div>
       <motion.div

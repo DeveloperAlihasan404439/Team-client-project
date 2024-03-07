@@ -5,8 +5,7 @@ import bgimage from "../../assets/image/paymentsite-20240215093600jmwu.png";
 import useAxios from "../../Hooks/useAxios";
 import useAuth from "../../shared/Auth/useAuth";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-import useUserSingle from "../../Hooks/useUserSingle";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
   const [error, setError] = useState("");
@@ -17,7 +16,7 @@ const CheckoutForm = () => {
   const axiosPublic = useAxios();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const { usersData } = useUserSingle();
+  const location = useLocation();
   const TotalPrice = 100;
   useEffect(() => {
     if (TotalPrice > 0) {
@@ -81,12 +80,13 @@ const CheckoutForm = () => {
         };
 
         const res = await axiosPublic.post("/payments", payment);
+        console.log(res?.data);
         if (res?.data?.transactionId) {
           await axiosPublic
             .patch(`/user/premium?email=${user?.email}`)
             .then((res) => {
-              if (res?.data?.modifiedCount>0) {
-                navigate("/");
+              if (res?.data?.modifiedCount > 0) {
+                navigate(location?.state ? location?.state : "/");
                 Swal.fire({
                   position: "center",
                   icon: "success",

@@ -1,7 +1,7 @@
 import "./HomeLoading.css";
 export default function HomeLoading() {
   return (
-    <div className="w-full h-screen mx-auto bg-[#EEE] flex flex-col justify-center items-center">
+    <div className="w-full h-screen mx-auto bg-[#0F172A] flex flex-col justify-center items-center">
       <div className="container-loading">
         <div className="dot dot-1"></div>
         <div className="dot dot-2"></div>
@@ -23,13 +23,6 @@ export default function HomeLoading() {
           </filter>
         </defs>
       </svg>
-      <div className="mt-36">
-      <div className="loader">
-        <div className="scanner">
-          <span className="tracking-[3px]">Loading...</span>
-        </div>
-      </div>
-      </div>
     </div>
   );
 }
